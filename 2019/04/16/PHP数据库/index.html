@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>PHP数据库 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="原来这两千年里，无论沉睡或者醒来，你只是想来找我，可你找到我的时候，我已经忘了你的样子。等我记起了你的样子，你已经死了。">
+<meta name="keywords" content="PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP数据库">
+<meta property="og:url" content="https://github.com/thisisloves/2019/04/16/PHP数据库/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="原来这两千年里，无论沉睡或者醒来，你只是想来找我，可你找到我的时候，我已经忘了你的样子。等我记起了你的样子，你已经死了。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-22T07:22:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP数据库">
+<meta name="twitter:description" content="原来这两千年里，无论沉睡或者醒来，你只是想来找我，可你找到我的时候，我已经忘了你的样子。等我记起了你的样子，你已经死了。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="../../../../userinfo" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-PHP数据库" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      PHP数据库
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-04-15T16:00:00.000Z" itemprop="datePublished">2019-04-16</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/PHP/">PHP</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>原来这两千年里，无论沉睡或者醒来，你只是想来找我，可你找到我的时候，我已经忘了你的样子。等我记起了你的样子，你已经死了。<br><a id="more"></a></p>
+<blockquote>
+<p>因为有了相遇之美才有了离别之悲。</p>
+</blockquote>
+<h3 id="标识符-关键字-数据类型"><a href="#标识符-关键字-数据类型" class="headerlink" title="标识符/关键字/数据类型"></a>标识符/关键字/数据类型</h3><ul>
+<li>标识符：其实标识符就是变量的名称，函数与类的名称也是标识符。PHP中标识符的规则：</li>
+</ul>
+<ol>
+<li>标识符可以是任意长度的字母、数字、下划线，且不得以数字开头。</li>
+<li>PHP中标识符是区分大小写的，但函数名是个例外。</li>
+<li>变量名可以与函数名相同。但应尽量避免。</li>
+<li>不能创建与已有函数同名的函数。</li>
+</ol>
+<ul>
+<li>值得注意的是PHP不要求在使用前就一定要声明标识符</li>
+</ul>
+<h3 id="输出方法echo和print"><a href="#输出方法echo和print" class="headerlink" title="输出方法echo和print"></a>输出方法echo和print</h3><ul>
+<li>echo的速度快于print ，echo没有返回值，而print有返回值，且返回值总为1。</li>
+</ul>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
+<li>超级全局变量：这种变量在脚本的全局都可以使用：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="AUTOIT"><figure class="iseeu highlight /autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$_REQUEST</span><br><span class="line">$_POST</span><br><span class="line">$_GET</span><br></pre></td></tr></table></figure></div>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><ol>
+<li>局部变量</li>
+</ol>
+<ul>
+<li>函数中的参数也是局部变量</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"></span><br><span class="line"><span class="php">$x=<span class="number">5</span>; <span class="comment">// 全局变量</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="php">    $y=<span class="number">10</span>; <span class="comment">// 局部变量</span></span></span><br><span class="line">    echo "&lt;p&gt;测试函数内变量:&lt;p&gt;”;</span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"变量 x 为: $x”;</span></span></span><br><span class="line">    echo "&lt;br&gt;”;</span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"变量 y 为: $y”;</span></span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="php">myTest();</span></span><br><span class="line">    echo "&lt;p&gt;测试函数外变量:&lt;p&gt;”;</span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"变量 x 为: $x”;</span></span></span><br><span class="line">    echo "&lt;br&gt;”;</span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"变量 y 为: $y”;</span></span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li>全局变量</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$x=<span class="number">5</span>;</span></span><br><span class="line"><span class="php">$y=<span class="number">10</span>;</span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">global</span> x,y;  <span class="comment">//利用这个关键字声明的变量是全局变量;</span></span></span><br><span class="line"><span class="php">    y=x+$y;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php">myTest();</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> $y;   <span class="comment">// 输出 15</span></span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+<p>3.Static 作用域(JS中的闭包);</p>
+<ul>
+<li>局部变量在运行结束之后会被删除，再次重新声明时会被重新赋值，但是static类变量不会，他会一直存在于php的变量中</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">fnName</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">static</span> $x = <span class="number">11</span>;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> $x;</span></span><br><span class="line"><span class="php">    $x++;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php">fnName();</span></span><br><span class="line"><span class="php">fnName();</span></span><br><span class="line"><span class="php">fnName();</span></span><br><span class="line"><span class="php">fnName();</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><ol>
+<li>创建数组</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$arr = array(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li>使用数组</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SCSS"><figure class="iseeu highlight /scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$arr</span><span class="selector-attr">[0]</span>    <span class="comment">//1</span></span><br><span class="line"><span class="variable">$arr</span><span class="selector-attr">[1]</span>    <span class="comment">//2</span></span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>手动数组赋值</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GAMS"><figure class="iseeu highlight /gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"><span class="meta-keyword">$arr</span>[0] = 11;</span></span><br></pre></td></tr></table></figure></div>
+<ol start="4">
+<li>数组相关方法</li>
+</ol>
+<ul>
+<li>获取数组长度：count()函数;</li>
+<li><p>count($arr);//返回数组长度;</p>
+</li>
+<li><p>这样我们就可以写for循环了,数组中的内容我们就可以遍历出来了;</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">for</span>(<span class="variable">$x</span> = 0 ; <span class="variable">$x</span> &lt; count(<span class="variable">$arr</span>) ; <span class="variable">$x</span>++)&#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$arr</span>[<span class="variable">$x</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ol start="5">
+<li>php关联数组：（用=&gt;链接起来）</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PHP"><figure class="iseeu highlight /php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$testArray = <span class="keyword">array</span>(<span class="string">'liyang'</span> =&gt; <span class="number">16</span>,<span class="string">'liyang2'</span> =&gt; <span class="number">17</span> );</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'liyang age is '</span>.$testArray[<span class="string">'liyang'</span>];</span><br></pre></td></tr></table></figure></div>
+<ol start="6">
+<li>数组排序</li>
+</ol>
+<ul>
+<li>sort() || rsort() ;</li>
+<li>sort() :升序排列； rsort() :降序排列;</li>
+</ul>
+<ol start="7">
+<li>遍历关联数组：foreach();</li>
+</ol>
+<ul>
+<li>foreach()第一个参数为数组&gt;&gt; foreach($arr);</li>
+<li>foreach()第二个参数为关键字as代表在数组中找到的值赋给后面的变量 &gt;&gt; foreach($arr as);</li>
+<li>foreach()第三个和第四个参数为key和value ；也就是关联数组中的键和值 用 =&gt; 链接 &gt;&gt; froeach($arr as $key =&gt; value);</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PHP"><figure class="iseeu highlight /php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$arr = <span class="keyword">array</span>(<span class="string">'firstName'</span> =&gt; <span class="string">'yang'</span>, <span class="string">'lastName'</span> =&gt; <span class="string">'huaizhi'</span>);</span><br><span class="line"><span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $key =&gt; $value) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $key.<span class="string">'&lt;br&gt;'</span>;</span><br><span class="line">    <span class="keyword">echo</span> $value.<span class="string">'&lt;br&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>foreach() 会执行两次，因为数组中有两对数据，如果数组中的数据有n个那么foreach就执行n次;</li>
+<li>键值一一对应，根据颜色来查看；</li>
+</ul>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
+<li>类与对象</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="class"><span class="keyword">class</span> <span class="title">show</span></span>&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">var</span> $hello = <span class="string">"hello"</span>;</span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">showMe</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;hello . <span class="string">" world"</span>;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php">$me = <span class="keyword">new</span> show();</span></span><br><span class="line"><span class="php">$me -&gt; showMe();</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>PHP中 用class 命名一个对象， 这个对象里面可以有属性和方法, 属性的命名方式为 var $变量名 = 变量值;</li>
+<li>在类中使用这个变量的时候使用 $this 指向当前类。 $this -&gt; 变量名（直接写变量名）; </li>
+<li>实例化类的时候，用new关键字;</li>
+<li>调用内部方法的时候 使用 -&gt;</li>
+</ul>
+<h3 id="返回JSON格式数据"><a href="#返回JSON格式数据" class="headerlink" title="返回JSON格式数据"></a>返回JSON格式数据</h3><ul>
+<li>json_encode()方法进行json格式的转码</li>
+<li>接收一个关联数组，返回值就是json格式的数据</li>
+<li>作用：就是将关联数组转换成json格式的数据</li>
+</ul>
+<h3 id="9-9乘法"><a href="#9-9乘法" class="headerlink" title="9*9乘法"></a>9*9乘法</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="keyword">for</span>($i=<span class="number">1</span>;$i&lt;<span class="number">10</span>;$i++)&#123;</span></span><br><span class="line"><span class="php"><span class="keyword">for</span>($j=<span class="number">1</span>;$j&lt;=$i;$j++)&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> $i.<span class="string">'*'</span>.$j.<span class="string">'='</span>.$i*$j;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">//连接数据库</span></span></span><br><span class="line"><span class="php">$link=@mysql_connect(<span class="string">"localhost:3306"</span>,root,root);</span></span><br><span class="line"><span class="php"><span class="keyword">if</span>($link)&#123;<span class="keyword">echo</span> <span class="string">"ok"</span>;&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">else</span>&#123;<span class="keyword">echo</span><span class="string">"fail"</span>;&#125;</span></span><br><span class="line"><span class="php"><span class="comment">//选择数据库</span></span></span><br><span class="line"><span class="php">$db=mysql_select_db(<span class="string">"snow"</span>);</span></span><br><span class="line"><span class="php"><span class="keyword">if</span>($db)&#123;<span class="keyword">echo</span><span class="string">"ok"</span>;&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">else</span>&#123;<span class="keyword">echo</span><span class="string">"fail"</span>;&#125;</span></span><br><span class="line"><span class="php"><span class="comment">//设置字符集</span></span></span><br><span class="line"><span class="php">$utf=mysql_query(<span class="string">"set names utf8"</span>);</span></span><br><span class="line"><span class="php"><span class="keyword">if</span>(!$utf)&#123;<span class="keyword">echo</span> mysql_error();&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">//查询语句</span></span></span><br><span class="line"><span class="php">$mysql1=mysql_query(<span class="string">'insert teacher(id,name,age,sex,kaill)values(5,"兰天野",18,"男","碎觉")'</span>);</span></span><br><span class="line"><span class="php"><span class="keyword">if</span>($mysql1)&#123;<span class="keyword">echo</span> <span class="string">"insert ok"</span>;&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">else</span>&#123;<span class="keyword">echo</span> <span class="string">"insert no"</span>;&#125;</span></span><br><span class="line"><span class="php"><span class="comment">// 删</span></span></span><br><span class="line"><span class="php"><span class="comment">// DELETE FROM teacher WHERE id=3</span></span></span><br><span class="line"><span class="php">$mysql2= mysql_query(<span class="string">"DELETE FROM teacher WHERE id=3"</span>);</span></span><br><span class="line"><span class="php"> <span class="comment">//改</span></span></span><br><span class="line"><span class="php"><span class="comment">//UPDATE teacher SET name="林析柘" WHERE id=4</span></span></span><br><span class="line"><span class="php">$mysql3 = mysql_query(<span class="string">'UPDATE teacher SET name="林析柘" WHERE id=4'</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">//查</span></span></span><br><span class="line"><span class="php">$mysql4 = mysql_query(<span class="string">'SELECT * FROM teacher'</span>);</span></span><br><span class="line"><span class="php"><span class="keyword">if</span>($mysql4)&#123;</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> $mysql4.<span class="string">"&lt;br&gt;"</span>;&#125;</span></span><br><span class="line"><span class="php"><span class="comment">// 解析查询成功之后，mysql返回的资源数据</span></span></span><br><span class="line"><span class="php"><span class="comment">// 每次执行只能读取一条信息</span></span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">//mysql_fetch_array()</span></span></span><br><span class="line"><span class="php"><span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span></span><br><span class="line"><span class="php">$arr = mysql_fetch_array($mysql4);    <span class="comment">//返回的是索引数组+关联数组</span></span></span><br><span class="line"><span class="php"><span class="keyword">if</span>($arr)&#123;</span></span><br><span class="line"><span class="php">print_r($arr);</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> $arr[<span class="string">"name"</span>];</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span></span><br><span class="line"><span class="php">&#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php"><span class="keyword">break</span>;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">//mysql_fetch_row()</span></span></span><br><span class="line"><span class="php"><span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span></span><br><span class="line"><span class="php">$arr1 = mysql_fetch_row($mysql4);    <span class="comment">//返回的是索引数组</span></span></span><br><span class="line"><span class="php"><span class="keyword">if</span>($arr1)&#123;</span></span><br><span class="line"><span class="php">print_r($arr1);</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> $arr1[<span class="string">"name"</span>];</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span></span><br><span class="line"><span class="php">&#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php"><span class="keyword">break</span>;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">// mysql_fetch_assoc()</span></span></span><br><span class="line"><span class="php">$str = <span class="string">""</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span></span><br><span class="line"><span class="php">$arr2 = mysql_fetch_assoc($mysql4);    <span class="comment">//返回的是关联数组</span></span></span><br><span class="line"><span class="php"><span class="keyword">if</span>($arr)&#123;</span></span><br><span class="line"><span class="php">    $str = $str.json_encode($arr).<span class="string">","</span>;</span></span><br><span class="line"><span class="php">&#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">break</span>;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">"["</span>.substr($str,<span class="number">0</span>,<span class="number">-1</span>).<span class="string">"]"</span>;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">// mysql_fetch_object()</span></span></span><br><span class="line"><span class="php"><span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span></span><br><span class="line"><span class="php">$arr3 = mysql_fetch_object($mysql4);    <span class="comment">//返回的是对象</span></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span>($arr3)&#123;</span></span><br><span class="line"><span class="php">    print_r($arr3);</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> $arr3-&gt;name;</span></span><br><span class="line"><span class="php">        <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span></span><br><span class="line"><span class="php">    &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">break</span>;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../17/JSON转换/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            JSON转换
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../AJAX-上/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">AJAX-上</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="../../../../userinfo" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

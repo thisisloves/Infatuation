@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JS逻辑分支 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="花自飘零水自流，一种相思，两处闲愁。此情无处可消除，才下眉头，却上心头。">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS逻辑分支">
+<meta property="og:url" content="https://github.com/thisisloves/2019/03/19/JS逻辑分支/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="花自飘零水自流，一种相思，两处闲愁。此情无处可消除，才下眉头，却上心头。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-15T11:02:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS逻辑分支">
+<meta name="twitter:description" content="花自飘零水自流，一种相思，两处闲愁。此情无处可消除，才下眉头，却上心头。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="../../../../userinfo" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-JS逻辑分支" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      JS逻辑分支
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-03-18T16:00:00.000Z" itemprop="datePublished">2019-03-19</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JS/">JS</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>花自飘零水自流，一种相思，两处闲愁。此情无处可消除，才下眉头，却上心头。<br><a id="more"></a></p>
+<blockquote>
+<p>繁杂的经历在眼角镌刻深深的纹、我转身雕下一朵花。</p>
+</blockquote>
+<h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><ul>
+<li>(显示)强制类型转换</li>
+<li>var num=”123”</li>
+<li>parsetInt(num);取整</li>
+<li>parsetFloat(num);取小数</li>
+<li>Math.round(num);四舍五入取整</li>
+<li><p>Number(num);严格转换数字</p>
+</li>
+<li><p>var num=123;</p>
+</li>
+<li>num.toString()数字转字符</li>
+<li>num.toFixed(n) 转换成字符串的同时保留n位小数</li>
+</ul>
+<h3 id="parseInt-取整"><a href="#parseInt-取整" class="headerlink" title="parseInt()取整"></a>parseInt()取整</h3><ul>
+<li>parseInt();该方法从左向右，检测数字或字符串，当第一次发现一个不为数字的字符时，把之前的所有进行返回，如果字符串中第一个就不是数字，那么返回NaN </li>
+<li>var str=”12323”;  var num=parseInt(str); console.log(parseInt(str));console.log(num);  //字符转数字</li>
+<li>parseInt(“123abc”);a做为第一个不是数字的字符；返回a之前的所有值，则该方法返回123</li>
+<li>parseInt(“abc123”);a做为第一个不是数字的字符，且处在字符串的第一位，则判定该字符串无法转换为数字返回NaN</li>
+</ul>
+<h3 id="parseFloat-取小数"><a href="#parseFloat-取小数" class="headerlink" title="parseFloat()取小数"></a>parseFloat()取小数</h3><ul>
+<li>parseFloat();该方法检索数字或字符串后面第一个.后的不为数字的字符，并对之前所有的结果进行返回，如果第一个字符不为数字，那么返回NaN</li>
+<li>parseFloat(“123.456”);返回123.456 </li>
+<li>parseFloat(“123.4a56”);返回123.4  </li>
+<li>parseFloat(“123.00”);返回123</li>
+<li>parseFloat(“123.0a56”);返回123</li>
+</ul>
+<h3 id="Number-所有字符数字转换成数值数字"><a href="#Number-所有字符数字转换成数值数字" class="headerlink" title="Number() 所有字符数字转换成数值数字"></a>Number() 所有字符数字转换成数值数字</h3><ul>
+<li>var a=123; </li>
+<li>var b=”123”;</li>
+<li>var c=”123b”;</li>
+<li><p>var d=”12.21100”</p>
+</li>
+<li><p>console.log(Number(a))  //123</p>
+</li>
+<li>console.log(Number(b))   //123</li>
+<li>console.log(Number(c))  //NaN</li>
+<li>console.log(Number(d))  //12.211</li>
+</ul>
+<h3 id="toString-转字符"><a href="#toString-转字符" class="headerlink" title="toString()  转字符"></a>toString()  转字符</h3><ul>
+<li>num.toString()数字转字符</li>
+<li>var a=123;</li>
+<li>var b=”123”;</li>
+<li>var c=”123b”;</li>
+<li>var d=”12.21100”</li>
+<li>console.log(a.toString()); //123</li>
+<li>console.log(b.toString()); //123</li>
+<li>console.log(c.toString()); //123b</li>
+<li>console.log(d.toString()); //12.21100</li>
+</ul>
+<h3 id="toFixed-转换成字符串的同时保留n位小数"><a href="#toFixed-转换成字符串的同时保留n位小数" class="headerlink" title="toFixed() 转换成字符串的同时保留n位小数"></a>toFixed() 转换成字符串的同时保留n位小数</h3><ul>
+<li>num.toFixed(n) 转换成字符串的同时保留n位小数</li>
+<li>e=123.222</li>
+<li>f=123.300</li>
+<li>g=”123.8f0”</li>
+<li>console.log(e.toFixed(1));  //123.2</li>
+<li>console.log(f.toFixed(1));  //123.3</li>
+<li>console.log(g.toFixed(1)); // 报错 </li>
+</ul>
+<h3 id="Math-round-四舍五入取整数"><a href="#Math-round-四舍五入取整数" class="headerlink" title="Math.round() 四舍五入取整数"></a>Math.round() 四舍五入取整数</h3><ul>
+<li>Math.round() 四舍五入取整数</li>
+<li>var h=”123”;</li>
+<li>var i=”123b”;</li>
+<li>var j=”12.21100”;</li>
+<li>console.log(Math.round(h)); //123</li>
+<li>console.log(Math.round(j)); //12</li>
+<li>console.log(Math.round(i)); //Nav 非法转换</li>
+</ul>
+<h3 id="Nan"><a href="#Nan" class="headerlink" title="Nan"></a>Nan</h3><ul>
+<li>Nan：不是一个数字的数据值型数据，代表非法运算或者转换的结果 not a number  是一种特殊的Number类型，代表意外转换的数字，NaN和任何东西都不相等。</li>
+<li>厉害到自己都不等于自己</li>
+<li>var str=”a2344”</li>
+<li>console.log(typeof parseInt(str))   //结果Nan</li>
+<li>var str=”2344a”</li>
+<li>console.log(typeof parseInt(str))  //结果2344</li>
+<li>console.log(Nan==Nan) //false</li>
+</ul>
+<h3 id="unll-和undefined"><a href="#unll-和undefined" class="headerlink" title="unll 和undefined"></a>unll 和undefined</h3><ul>
+<li><p>defined:定义</p>
+</li>
+<li><p>null 表示一个值被定义了，定义为“空值”；</p>
+</li>
+<li><p>undefined 表示根本不存在定义。</p>
+</li>
+<li><p>所以设置一个值为 null 是合理的，如</p>
+</li>
+<li>objA.valueA = null;</li>
+<li>但设置一个值为 undefined 是不合理的</li>
+</ul>
+<h3 id="if-else-隐式类型转换"><a href="#if-else-隐式类型转换" class="headerlink" title="if-else 隐式类型转换"></a>if-else 隐式类型转换</h3><ul>
+<li>if(1){console.log(“真”);}else{console(“假”);}  //输出真 </li>
+<li>if(布尔，计算结果也是布尔型){}</li>
+</ul>
+<ol>
+<li>非0为true,0为flase 发生了隐式类型转换成了布尔型boolean</li>
+<li>非空字符为true ,空字符为false</li>
+<li>undefined和Nav和null为false</li>
+<li>对象为真{}</li>
+<li>函数为真function()</li>
+</ol>
+<h3 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="+ 隐式类型转换"></a>+ 隐式类型转换</h3><ul>
+<li>console.log(1+true);               //2</li>
+<li>console.log(1+false);              //1 </li>
+<li>console.log(1+undefined);          //NaN</li>
+<li>console.log(1+NaN);                //NaN</li>
+<li>console.log(1+null);               //NaN</li>
+<li>console.log(1+{name:”admin”});     //1[object object]</li>
+<li>console.log(1+[3,4,5]);            //1数组的值：13，4，5</li>
+</ul>
+<h3 id="switch（交换）-case-事件"><a href="#switch（交换）-case-事件" class="headerlink" title="switch（交换） case(事件)"></a>switch（交换） case(事件)</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LIVESCRIPT"><figure class="iseeu highlight /livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> day=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">switch</span> (day)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line"><span class="built_in">console</span>.write(<span class="string">"Today it's Sunday"</span>);</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line"><span class="built_in">console</span>.write(<span class="string">"Today it's Monday"</span>);</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line"><span class="built_in">console</span>.write(Today <span class="literal">it</span><span class="string">'s Tuesday");</span></span><br><span class="line"><span class="string">break;</span></span><br><span class="line"><span class="string">case 3:</span></span><br><span class="line"><span class="string">console.write("Today it'</span>s Wednesday<span class="string">");</span></span><br><span class="line"><span class="string">break;</span></span><br><span class="line"><span class="string">case 4:</span></span><br><span class="line"><span class="string">console.write("</span>Today <span class="literal">it</span><span class="string">'s Thursday");</span></span><br><span class="line"><span class="string">break;</span></span><br><span class="line"><span class="string">case 5:</span></span><br><span class="line"><span class="string">console.write("Today it'</span>s Friday<span class="string">");</span></span><br><span class="line"><span class="string">break;</span></span><br><span class="line"><span class="string">case 6:</span></span><br><span class="line"><span class="string">console.write("</span>Today <span class="literal">it</span><span class="string">'s Saturday");</span></span><br><span class="line"><span class="string">break;</span></span><br><span class="line"><span class="string">default:</span></span><br><span class="line"><span class="string">document.write("请输入0-6的数字");</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure></div>
+<ol>
+<li>case 的穿透性：当上一个case判断成功后，后面的case不在判断直接执行 自己 的语句。所以需要加上break。</li>
+<li>switch:不会发生隐式类型转换。</li>
+<li>判断具体数据使用switch。</li>
+<li>使用 default 关键词来规定匹配不存在时做的事情：不在0-6范围内，就输出default。</li>
+</ol>
+<h3 id="逻辑运算符，实现简单判断"><a href="#逻辑运算符，实现简单判断" class="headerlink" title="逻辑运算符，实现简单判断"></a>逻辑运算符，实现简单判断</h3><ul>
+<li>只要出现true就是true,1为1</li>
+<li>console.log(true|| false); //t</li>
+<li>console.log(true|| 0); //t</li>
+<li>console.log(1|| 0); // 1</li>
+<li><p>console.log(true|| 1}; //t</p>
+</li>
+<li><p>console.log(true||true}; //t</p>
+</li>
+<li>console.log(true|| 3); //t</li>
+<li>console.log(1|| 3); //1</li>
+</ul>
+<h3 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h3><ul>
+<li>基本语法：expression?sentence1 :sentence2</li>
+<li>判断expression是否为真，若为正执行sentence1否则执行sentence2</li>
+<li>var a = 100;</li>
+<li>var b = 200;</li>
+<li>a&gt;b ? document.write(“a比b大”):document.write(“a比b小”);  //输出a比b小</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../Markdown/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Markdown
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../18/JS基本语法/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">JS基本语法</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="../../../../userinfo" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

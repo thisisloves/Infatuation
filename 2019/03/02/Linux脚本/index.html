@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Linux脚本 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="跟女神混没前途的！在怎么也不过是一曲觊觎天鹅的癞蛤蟆狂想曲啊！老话怎么说来着？十鸟在林不如一鸟在手呀！天上金凤凰不如枝头小乌鸦呀!">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux脚本">
+<meta property="og:url" content="https://github.com/thisisloves/2019/03/02/Linux脚本/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="跟女神混没前途的！在怎么也不过是一曲觊觎天鹅的癞蛤蟆狂想曲啊！老话怎么说来着？十鸟在林不如一鸟在手呀！天上金凤凰不如枝头小乌鸦呀!">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-22T05:55:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux脚本">
+<meta name="twitter:description" content="跟女神混没前途的！在怎么也不过是一曲觊觎天鹅的癞蛤蟆狂想曲啊！老话怎么说来着？十鸟在林不如一鸟在手呀！天上金凤凰不如枝头小乌鸦呀!">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="../../../../userinfo" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-Linux脚本" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Linux脚本
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-03-01T16:00:00.000Z" itemprop="datePublished">2019-03-02</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Linux/">Linux</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>跟女神混没前途的！在怎么也不过是一曲觊觎天鹅的癞蛤蟆狂想曲啊！老话怎么说来着？十鸟在林不如一鸟在手呀！天上金凤凰不如枝头小乌鸦呀!</p>
+<a id="more"></a>
+<blockquote>
+<p>真是这样的话，有些话，只有准确的时间准确的地点亲口说出来。现在时间错过了，再说也没用了。</p>
+</blockquote>
+<h3 id="linux脚本基础"><a href="#linux脚本基础" class="headerlink" title="linux脚本基础"></a>linux脚本基础</h3><ul>
+<li>bash的特征：</li>
+<li>命令行展开：~，{}</li>
+<li>命令别名：alias,unalias</li>
+<li>命令历史：history</li>
+<li>文件名通配：glob</li>
+<li>快捷键：Ctrl+a,e,u,k,l</li>
+<li><p>命令补全：PATH</p>
+</li>
+<li><p>bash特征：命令bash</p>
+</li>
+<li>缓存此前命令的查找结果： key-value</li>
+<li>key :搜素健</li>
+<li><p>value: 值</p>
+</li>
+<li><p>hash命令</p>
+</li>
+<li>hash列出</li>
+<li>hash -d COMMAND :删除</li>
+<li><p>hash: -r： 清空</p>
+</li>
+<li><p>bash特征：变量</p>
+</li>
+<li>程序=命令+数据</li>
+<li>指令：由程序文件提供</li>
+<li><p>数据：IO设备，文件，管道，变量</p>
+</li>
+<li><p>程序=算法+数据</p>
+</li>
+<li>变量赋值：name=value</li>
+<li>变量类型：</li>
+<li>存储格式，表示数据范围，参与的运算</li>
+<li>编程语言：</li>
+<li>强类型变量：</li>
+<li>弱类型变量：</li>
+<li>bash把所有的变量统统视作字符型。</li>
+<li>bash中的变量无需事先声明，相当于声明赋值一起同时实现</li>
+<li>变量替换：把变量名出现的位置替换为其他所指的向的内存空间中数据</li>
+<li>变量引用：${var_name},$var_name</li>
+<li>变量名：变量名只能包含数字，字母，和下划线，而且不能以数字开头</li>
+<li>变量名：见名知义，命名机制遵循某种法则</li>
+<li>bash变量类型</li>
+<li>本地变量：作用域仅为shell进程传递的参数</li>
+<li>环境变量：作用域为当前shell进程以及其子进程</li>
+<li>局部变量：作用域仅为当前代码片段 </li>
+<li><p>位置参数变量:当执行脚本的shell进程传递的参数</p>
+</li>
+<li><p>特殊变量：shell内置的有特殊功用的变量</p>
+</li>
+<li>$?:</li>
+<li>0 成功</li>
+<li>1-255 失败</li>
+<li>本地变量:</li>
+<li>变量赋值：name=$value</li>
+<li>变量引用：${name},$name</li>
+<li>“”:变量名会替换成其值</li>
+<li>‘’:变量名不会替换成其值</li>
+<li>查看变量：set</li>
+<li>撤销变量：unset name</li>
+<li><p>注意：此处非变量引用</p>
+</li>
+<li><p>环境变量：</p>
+</li>
+<li>变量赋值：<br>(1) export name=value<br>(2) name=value</li>
+<li><p>export name<br>(3)declare -x name=value<br>(4)name=value</p>
+</li>
+<li><p>短路法则：</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GCODE"><figure class="iseeu highlight /gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~]<span class="attr"># COMMAND1</span> &amp;&amp; COMMA<span class="symbol">ND2</span></span><br><span class="line">若COMMA<span class="symbol">ND1</span>为假，则COMMA<span class="symbol">ND2</span>不要执行</span><br><span class="line">若COMMAD<span class="symbol">N1</span>为真，则COMMAD<span class="symbol">N2</span>必须执行</span><br><span class="line">~]<span class="attr"># COMMADN1</span> ||COMMAD<span class="symbol">N2</span></span><br><span class="line">若COMMAD<span class="symbol">N1</span>为真，那么COMMA<span class="symbol">ND2</span>不会在执行</span><br><span class="line">若COMMAD<span class="symbol">N1</span>为假，那么COMMAD<span class="symbol">N2</span>一定要执行</span><br></pre></td></tr></table></figure></div>
+<h3 id="shell脚本编程"><a href="#shell脚本编程" class="headerlink" title="shell脚本编程"></a>shell脚本编程</h3><ul>
+<li>编程语言的分类:</li>
+<li>根据运行方式</li>
+<li>编译运行：源代码-&gt;编译器-&gt;程序文件</li>
+<li>解释运行：源代码-&gt;运行时启动解释器，边解释边运行</li>
+<li><p>根据其编译过程中功能的实现是调用库还是调用外部的程序文件</p>
+</li>
+<li><p>shell脚本编程令及编程组件进行编译</p>
+</li>
+<li>完整编译：</li>
+<li>利用系统上的命</li>
+<li><p>利用库或者编译组件进行编译</p>
+</li>
+<li><p>编程模型：过程式编译语言，面向对象编译语言</p>
+</li>
+<li>程序=指令+数据</li>
+<li>过程式：以指令为中心来组织代码，数据服务于代码</li>
+<li>例如：C shell</li>
+<li>面向对象编程语言：以数据中心来组织代码，围绕数据来组织代码</li>
+<li><p>例如：C# java </p>
+</li>
+<li><p>shell脚本编程：过程式编程，解释运行，依赖于外部程序文件运行</p>
+</li>
+<li><p>如何写shell脚本</p>
+</li>
+<li>脚本文件的第一行，顶格：给出shebang,解释器路径，用于指明解释执行当前脚本的解释器程序文件</li>
+<li>常见的解释器：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="D"><figure class="iseeu highlight /d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#！/bin/bash</span><br><span class="line"><span class="meta">#!/usr/bin/python</span></span><br><span class="line"><span class="meta">#!/usr/bin/pert</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>文件编译器：nano</li>
+<li>行编译器：sed</li>
+<li><p>全屏编程器：nano vi vim</p>
+</li>
+<li><p>shell脚本是什么？</p>
+</li>
+<li>命令的堆积：</li>
+<li><p>很多命令不具有幂等性，需要用程序逻辑来判断运行条件是否满足，以避免其中运行发生错误</p>
+</li>
+<li><p>运行脚本<br>(1) 赋予执行权限，并直接运行此程序文件</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="AUTOIT"><figure class="iseeu highlight /autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod+x/PATH/<span class="keyword">TO</span>/SCRIPT_FILE</span><br></pre></td></tr></table></figure></div>
+<p>(2)直接运行解释器，将脚本以命令行参数传递给解释器程序</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ARMASM"><figure class="iseeu highlight /armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bash </span>/PATH/TO/SCRIPT_FILE</span><br></pre></td></tr></table></figure></div>
+<p>(3).显示/etc目录下所有以大写p或者小写p开头文件或者目录本身</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JBOSS-CLI"><figure class="iseeu highlight /jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> -a <span class="string">/etc</span> [Pp]*</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>-a:显示所有文件和目录，包括隐藏文件和隐藏子目录</li>
+</ul>
+<p>(4) 显示/var目录下的所有文件或者目录本身，并将结果转换为大写后输出<br><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VIM"><figure class="iseeu highlight /vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> -<span class="keyword">a</span> /var | <span class="keyword">tr</span> <span class="string">'a-z'</span> <span class="string">'A-Z'</span></span><br></pre></td></tr></table></figure></div></p>
+<p>(5) 创建临时文件/tem/myfile.xxxx<br><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GRADLE"><figure class="iseeu highlight /gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mktemp <span class="regexp">/tem/my</span><span class="keyword">file</span>.xxxx</span><br></pre></td></tr></table></figure></div></p>
+<h3 id="bash的配置文件"><a href="#bash的配置文件" class="headerlink" title="bash的配置文件"></a>bash的配置文件</h3><ul>
+<li>两类：profile类：为交互登录的shell过程提供配置</li>
+<li>bashrc类：为非交互式登陆的shell进程提供配置</li>
+<li>登陆类型：</li>
+<li>交互式登陆shell进程：</li>
+<li>直接通过某终端输入账号和密码后登陆打开shell进程</li>
+<li><p>使用su命令:su-USERNAME ，或者使用su-|USERNAME执行的登陆切换</p>
+</li>
+<li><p>非交互式登陆shell进程：</p>
+</li>
+<li>su USERNAME执行的登陆切换：</li>
+<li>图像界面下打开的的终端</li>
+<li>运行脚本</li>
+<li>profile类:</li>
+<li>全局：对所有的用户都生效</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JBOSS-CLI"><figure class="iseeu highlight /jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">/etc/profile</span></span><br><span class="line"><span class="string">/etc/profild.d/</span>*<span class="string">.sh</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>用户个人：仅对当前用户有效</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HAML"><figure class="iseeu highlight /haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.bash_proflie</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>功用：</li>
+</ul>
+<ol>
+<li>用于定义环境变量</li>
+<li>运行命令或者脚本</li>
+</ol>
+<ul>
+<li>bashrc类：</li>
+<li><p>全局：</p>
+</li>
+<li><p>/etc/bashrc</p>
+</li>
+<li>用户个人：</li>
+<li>~/.bashrc</li>
+<li>功用：</li>
+</ul>
+<ol>
+<li>定义本地变量</li>
+<li>定义本地别名</li>
+</ol>
+<ul>
+<li><p>注意：仅管理员可以修改全局配置文件</p>
+</li>
+<li><p>交互式登陆shell进程</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XL"><figure class="iseeu highlight /xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="function"><span class="title">etc</span>/profile--&gt;</span>/<span class="function"><span class="title">etc</span>/profile.d/*--&gt;</span>~/<span class="function"><span class="title">bashrc</span>--&gt;</span>/etc/bashrc</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>非交互式登陆shell进程</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XL"><figure class="iseeu highlight /xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.<span class="function"><span class="title">bashrc</span>--&gt;</span>/<span class="function"><span class="title">etc</span>/bashrc--&gt;</span>/etc/profile.d<span class="comment">/*</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>命令行中定义的特性，例如变量和别名作用域为当前shell进程的生命周期</li>
+<li><p>配置文件定义的特性，只对随后新启动的shell有效</p>
+</li>
+<li><p>让通过配置文件定义的特征立即生效<br>(1) 通过命令重复一次<br>(2) 让shell进程重新配置文件</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../ASP简介/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            ASP简介
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../Linux文件系统/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Linux文件系统</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="../../../../userinfo" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Vue脚手架2状态管理器模块化 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="留人间多少爱，迎浮世千重变，和有情人做快乐事，不问是劫是缘。">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue脚手架2状态管理器模块化">
+<meta property="og:url" content="https://github.com/thisisloves/2019/07/15/vue脚手架2状态管理器模块化/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="留人间多少爱，迎浮世千重变，和有情人做快乐事，不问是劫是缘。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/08/05/eMHLKTDpNFUI4fg.png">
+<meta property="og:updated_time" content="2019-08-05T03:33:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue脚手架2状态管理器模块化">
+<meta name="twitter:description" content="留人间多少爱，迎浮世千重变，和有情人做快乐事，不问是劫是缘。">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/05/eMHLKTDpNFUI4fg.png">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="../../../../userinfo" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-vue脚手架2状态管理器模块化" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Vue脚手架2状态管理器模块化
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-07-14T16:00:00.000Z" itemprop="datePublished">2019-07-15</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/vue/">vue</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>留人间多少爱，迎浮世千重变，和有情人做快乐事，不问是劫是缘。<br><a id="more"></a></p>
+<blockquote>
+<p>要是你把你的秘密告诉了风，就别怪风把它带给树。</p>
+</blockquote>
+<h3 id="modules-模块化-以及-组件中引入-mapGetters、mapActions-和-mapStates的使用"><a href="#modules-模块化-以及-组件中引入-mapGetters、mapActions-和-mapStates的使用" class="headerlink" title="modules 模块化 以及 组件中引入 mapGetters、mapActions 和 mapStates的使用"></a>modules 模块化 以及 组件中引入 mapGetters、mapActions 和 mapStates的使用</h3><p>在大多数的项目中，我们对于全局状态的管理并不仅仅一种情况的需求，有时有多方面的需求，比如写一个商城项目，你所用到的全局state可能是关于购物车这一块儿的也有可能是关于商品价格这一块儿的；像这样的情况我们就要考虑使用vuex中的 modules 模块化了，具体怎么使用modules呢？</p>
+<p>首先，在store文件夹下面新建一个modules文件夹，然后在modules文件里面建立需要管理状态的js文件，既然要把不同部分的状态分开管理，那就要把它们给分成独立的状态文件了，如下图</p>
+<p><img src="https://i.loli.net/2019/08/05/eMHLKTDpNFUI4fg.png" alt="1.png"></p>
+<ul>
+<li>对应的store文件夹下面的index.js 里面的内容就直接改写成：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</span><br><span class="line">import Vuex <span class="keyword">from</span> <span class="string">'vuex'</span>;</span><br><span class="line">import footerStatus <span class="keyword">from</span> <span class="string">'./modules/footerStatus'</span></span><br><span class="line">import collection <span class="keyword">from</span> <span class="string">'./modules/collection'</span></span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">export</span><span class="built_in"> default </span>new Vuex.Store(&#123;</span><br><span class="line">    modules:&#123;</span><br><span class="line">         footerStatus,</span><br><span class="line">         collection</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>相应的js，其中的 namespaced:true 表示当你需要在别的文件里面使用( mapGetters、mapActions 接下来会说 )时，里面的方法需要注明来自哪一个模块的方法:</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PF"><figure class="iseeu highlight /pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//collection.js</span><br><span class="line"></span><br><span class="line">const <span class="keyword">state</span>=&#123;</span><br><span class="line">    collects:[],  //初始化一个colects数组</span><br><span class="line">&#125;;</span><br><span class="line">const getters=&#123;</span><br><span class="line">  renderCollects(<span class="keyword">state</span>)&#123; //承载变化的collects</span><br><span class="line">    return <span class="keyword">state</span>.collects;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">const mutations=&#123;</span><br><span class="line">     pushCollects(<span class="keyword">state</span>,items)&#123; //如何变化collects,插入items</span><br><span class="line">        <span class="keyword">state</span>.collects.push(items)</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">const actions=&#123;</span><br><span class="line">    invokePushItems(context,item)&#123; //触发mutations里面的pushCollects ,传入数据形参item 对应到items</span><br><span class="line">        context.commit('pushCollects',item);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">export <span class="keyword">default</span> &#123;</span><br><span class="line">     namespaced:true,//用于在全局引用此文件里的方法时标识这一个的文件名</span><br><span class="line">     <span class="keyword">state</span>,</span><br><span class="line">     getters,</span><br><span class="line">     mutations,</span><br><span class="line">     actions</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PF"><figure class="iseeu highlight /pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">//footerStatus.js</span><br><span class="line"> </span><br><span class="line">const <span class="keyword">state</span>=&#123;   //要设置的全局访问的<span class="keyword">state</span>对象</span><br><span class="line">     showFooter: true,</span><br><span class="line">     changableNum:<span class="number">0</span></span><br><span class="line">     //要设置的初始属性值</span><br><span class="line">   &#125;;</span><br><span class="line">const getters = &#123;   //实时监听<span class="keyword">state</span>值的变化(最新状态)</span><br><span class="line">    isShow(<span class="keyword">state</span>) &#123;  //承载变化的showFooter的值</span><br><span class="line">       return <span class="keyword">state</span>.showFooter</span><br><span class="line">    &#125;,</span><br><span class="line">    getChangedNum()&#123;  //承载变化的changebleNum的值</span><br><span class="line">       return <span class="keyword">state</span>.changableNum</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">const mutations = &#123;</span><br><span class="line">    show(<span class="keyword">state</span>) &#123;   //自定义改变<span class="keyword">state</span>初始值的方法，这里面的参数除了<span class="keyword">state</span>之外还可以再传额外的参数(变量或对象);</span><br><span class="line">        <span class="keyword">state</span>.showFooter = true;</span><br><span class="line">    &#125;,</span><br><span class="line">    hide(<span class="keyword">state</span>) &#123;  //同上</span><br><span class="line">        <span class="keyword">state</span>.showFooter = false;</span><br><span class="line">    &#125;,</span><br><span class="line">    newNum(<span class="keyword">state</span>,sum)&#123; //同上，这里面的参数除了<span class="keyword">state</span>之外还传了需要增加的值sum</span><br><span class="line">       <span class="keyword">state</span>.changableNum+=sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> const actions = &#123;</span><br><span class="line">    hideFooter(context) &#123;  //自定义触发mutations里函数的方法，context与store 实例具有相同方法和属性</span><br><span class="line">        context.commit('hide');</span><br><span class="line">    &#125;,</span><br><span class="line">    showFooter(context) &#123;  //同上注释</span><br><span class="line">        context.commit('show');</span><br><span class="line">    &#125;,</span><br><span class="line">    getNewNum(context,num)&#123;   //同上注释，num为要变化的形参</span><br><span class="line">        context.commit('newNum',num)</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br><span class="line">export <span class="keyword">default</span> &#123;</span><br><span class="line">    namespaced: true, //用于在全局引用此文里的方法时标识这一个的文件名</span><br><span class="line">    <span class="keyword">state</span>,</span><br><span class="line">    getters,</span><br><span class="line">    mutations,</span><br><span class="line">    actions</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>这样一改就有了关于两个模块的state管理文件了 footerStatus.js和collection.js，现在你要运行当前的代码话，项目会报错！因为我们把上面的代码模块化分开了，引用的地方还没有改</li>
+<li>接下来是 mapState,mapGetters,mapActions的使用，首先 在需要用的 组件里面先导入 import {mapState,mapGetters,mapActions} from ‘vuex’;咱们先修正一下隐藏或显示页面底部的tabs选项卡（就是上面举的临时例子）的组件代码</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">FooterBar</span> <span class="attr">v-if</span>=<span class="string">"isShow"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123;mapState,mapGetters,mapActions&#125; <span class="keyword">from</span> <span class="string">'vuex'</span>; <span class="comment">//先要引入</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> FooterBar <span class="keyword">from</span> <span class="string">'@/components/common/FooterBar'</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> config <span class="keyword">from</span> <span class="string">'./config/index'</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="actionscript">  name: <span class="string">'App'</span>,</span></span><br><span class="line">  components:&#123;</span><br><span class="line">    FooterBar:FooterBar</span><br><span class="line">  &#125;,</span><br><span class="line">  data()&#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line"><span class="actionscript">    ...mapState(&#123;  <span class="comment">//这里的...是超引用，ES6的语法，意思是state里有多少属性值我可以在这里放多少属性值</span></span></span><br><span class="line"><span class="javascript">         isShow:<span class="function"><span class="params">state</span>=&gt;</span>state.footerStatus.showFooter <span class="comment">//注意这些与上面的区别就是state.footerStatus,</span></span></span><br><span class="line"><span class="actionscript">                                                      <span class="comment">//里面定义的showFooter是指footerStatus.js里state的showFooter</span></span></span><br><span class="line">      &#125;),</span><br><span class="line"><span class="actionscript">     <span class="comment">//你也可以用下面的mapGetters来获取isShow的值，貌似下面的更简洁</span></span></span><br><span class="line">    /*...mapGetters('footerStatus',&#123; //footerStatus指的是modules文件夹下的footerStatus.js模块</span><br><span class="line"><span class="actionscript">         isShow:<span class="string">'isShow'</span> <span class="comment">//第一个isShow是我自定义的只要对应template里v-if="isShow"就行，</span></span></span><br><span class="line"><span class="actionscript">                         <span class="comment">//第二个isShow是对应的footerStatus.js里的getters里的isShow</span></span></span><br><span class="line">      &#125;)*/</span><br><span class="line">  &#125;,</span><br><span class="line">  watch:&#123;</span><br><span class="line"><span class="javascript">      $route(to,<span class="keyword">from</span>)&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">if</span>(to.name==<span class="string">'book'</span>||to.name==<span class="string">'my'</span>)&#123;</span></span><br><span class="line"><span class="actionscript">           <span class="keyword">this</span>.$store.dispatch(<span class="string">'footerStatus/showFooter'</span>) <span class="comment">//这里改为'footerStatus/showFooter',</span></span></span><br><span class="line"><span class="actionscript">                                                           <span class="comment">//意思是指footerStatus.js里actions里的showFooter方法</span></span></span><br><span class="line"><span class="actionscript">        &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="actionscript">           <span class="keyword">this</span>.$store.dispatch(<span class="string">'footerStatus/hideFooter'</span>) <span class="comment">//同上注释</span></span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>现在项目代码应该就不会报错了，好,最后咱们再来看一下mapActions的用法，实际上上面的this.$store.dispatch(‘footerStatus/showFooter’)已经算是一种执行相应模块的action里的方法了，但有时会牵扯的事件的触发及传值，那就会有下面的mapActions用法了,还记得上面的另一个模块collection.js吗？来看一下里面的actions中的方法结构：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PF"><figure class="iseeu highlight /pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const <span class="keyword">state</span>=&#123;</span><br><span class="line">    collects:[],  //初始化一个colects数组</span><br><span class="line">&#125;;</span><br><span class="line">const getters=&#123;</span><br><span class="line">  renderCollects(<span class="keyword">state</span>)&#123; //承载变化的collects</span><br><span class="line">    return <span class="keyword">state</span>.collects;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">const mutations=&#123;</span><br><span class="line">     pushCollects(<span class="keyword">state</span>,items)&#123; //如何变化collects,插入items</span><br><span class="line">        <span class="keyword">state</span>.collects.push(items)</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">const actions=&#123;</span><br><span class="line">    invokePushItems(context,item)&#123; //触发mutations里面的pushCollects ,传入数据形参item 对应到items</span><br><span class="line">        context.commit('pushCollects',item);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>需要传值来实时变动state.collects里的数据，那肯定要在执行它的地方进行传值了，所以下面用到它的地方我们用了个@click来执行这个invokePushItems方法了，并且传入相应的对象数据item,如下：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> &gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"joinState"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"joinStateHead"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"h3"</span>&gt;</span>全国改性料通讯录<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"joinStatus"</span> @<span class="attr">click</span>=<span class="string">"invokePushItems(item)"</span>&gt;</span>加入收藏列<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123; mapActions &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">  components:&#123;</span><br><span class="line">     conditionFilter</span><br><span class="line">  &#125;,</span><br><span class="line"><span class="actionscript">  name: <span class="string">'bookDetail'</span>,</span></span><br><span class="line">  data () &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">      msg: <span class="string">''</span>,</span></span><br><span class="line">      item:&#123;</span><br><span class="line"><span class="actionscript">         id:<span class="string">'01'</span>,</span></span><br><span class="line"><span class="actionscript">         productName: <span class="string">'苹果'</span>,</span></span><br><span class="line"><span class="actionscript">         price:<span class="string">'1.6元/斤'</span></span></span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">this</span>.$store.dispatch(<span class="string">'footerStatus/hideFooter'</span>)</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line"><span class="actionscript">      ...mapActions(<span class="string">'collection'</span>,[ <span class="comment">//collection是指modules文件夹下的collection.js</span></span></span><br><span class="line"><span class="actionscript">          <span class="string">'invokePushItems'</span>  <span class="comment">//collection.js文件中的actions里的方法，在上面的@click中执行并传入实参</span></span></span><br><span class="line">      ])</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>这样一来，在这个组件里面操作的 collecttion.js 中的state的数据，在其他的任何的一个组件里面都会得到相应的更新变化了，获取状态的页面代码如下：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="DJANGO"><figure class="iseeu highlight /django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(val,index) in arrList"</span> <span class="attr">:key</span>=<span class="string">"index"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">h5</span>&gt;</span></span><span class="template-variable">&#123;&#123;val.productName&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span></span><br><span class="line"><span class="xml">                 <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><span class="template-variable">&#123;&#123;val.price&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">import &#123;mapState,mapGetters,mapActions&#125; from 'vuex';</span></span><br><span class="line"><span class="xml">    export default &#123;</span></span><br><span class="line"><span class="xml">        name: 'book',</span></span><br><span class="line"><span class="xml">        data() &#123;</span></span><br><span class="line"><span class="xml">            return &#123;</span></span><br><span class="line"><span class="xml">            &#125;</span></span><br><span class="line"><span class="xml">        &#125;,</span></span><br><span class="line"><span class="xml">    computed:&#123;</span></span><br><span class="line"><span class="xml">        // ...mapState(&#123;  //用mapState来获取collection.js里面的state的属性值</span></span><br><span class="line"><span class="xml">        //    arrList:state=&gt;state.collection.collects</span></span><br><span class="line"><span class="xml">        // &#125;),</span></span><br><span class="line"><span class="xml">        ...mapGetters('collection',&#123; //用mapGetters来获取collection.js里面的getters</span></span><br><span class="line"><span class="xml">            arrList:'renderCollects'</span></span><br><span class="line"><span class="xml">        &#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="xml">    &#125;</span></span><br><span class="line"><span class="xml">    &#125;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../20/前端总结1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            前端总结1
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../12/vue脚手架2状态管理器/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Vue脚手架2状态管理器</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="../../../../userinfo" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

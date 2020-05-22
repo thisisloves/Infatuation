@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>MongoDB数据库 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="男人在喜欢的女孩面前总会有奇怪的表演欲，老实孩子想演浪子，浪子想演浪子回头， 而且通常演不好。这是个历史规律，但是后人总是不总结教训，依然前赴后继的表演着。">
+<meta name="keywords" content="node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB数据库">
+<meta property="og:url" content="https://github.com/thisisloves/2019/05/14/MongoDB数据库/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="男人在喜欢的女孩面前总会有奇怪的表演欲，老实孩子想演浪子，浪子想演浪子回头， 而且通常演不好。这是个历史规律，但是后人总是不总结教训，依然前赴后继的表演着。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-14T14:47:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MongoDB数据库">
+<meta name="twitter:description" content="男人在喜欢的女孩面前总会有奇怪的表演欲，老实孩子想演浪子，浪子想演浪子回头， 而且通常演不好。这是个历史规律，但是后人总是不总结教训，依然前赴后继的表演着。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="../../../../userinfo" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-MongoDB数据库" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      MongoDB数据库
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-05-13T16:00:00.000Z" itemprop="datePublished">2019-05-14</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/node/">node</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>男人在喜欢的女孩面前总会有奇怪的表演欲，老实孩子想演浪子，浪子想演浪子回头， 而且通常演不好。这是个历史规律，但是后人总是不总结教训，依然前赴后继的表演着。</p>
+<a id="more"></a>
+<blockquote>
+<p>世界上最痛苦的事不是一份苦逼的爱情摆在我的眼前而我木有珍惜而是一份牛逼的表白让我束手无策，无言以对，尽管我是多么想答应。</p>
+</blockquote>
+<h3 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><ul>
+<li>MongoDB 是一个基于分布式文件存储的数据库，由C++ 语言编写，旨在为 WEB 应用提供可扩展的高性能数据存储解决方案.</li>
+<li>MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的，在高负载的情况下，添加更多的节点，可以保证服务器性能。</li>
+<li>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。</li>
+<li>MongoDB 文档类似于 JSON 对象,字段值可以包含其他文档，数组及文档数组。</li>
+</ul>
+<h3 id="关系型数据库与非关系型数据库的区别"><a href="#关系型数据库与非关系型数据库的区别" class="headerlink" title="关系型数据库与非关系型数据库的区别"></a>关系型数据库与非关系型数据库的区别</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">sql术语/概念</th>
+<th style="text-align:left">mongodb术语/概念</th>
+<th style="text-align:left">解释/说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">database</td>
+<td style="text-align:left">database</td>
+<td style="text-align:left">数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">table</td>
+<td style="text-align:left">collection</td>
+<td style="text-align:left">数据库表/集合</td>
+</tr>
+<tr>
+<td style="text-align:left">row</td>
+<td style="text-align:left">document</td>
+<td style="text-align:left">数据记录行/文档</td>
+</tr>
+<tr>
+<td style="text-align:left">column</td>
+<td style="text-align:left">field</td>
+<td style="text-align:left">数据字段/域</td>
+</tr>
+<tr>
+<td style="text-align:left">index</td>
+<td style="text-align:left">index</td>
+<td style="text-align:left">索引</td>
+</tr>
+<tr>
+<td style="text-align:left">table joins</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">表连接，mongodb不支持</td>
+</tr>
+<tr>
+<td style="text-align:left">primary key</td>
+<td style="text-align:left">primary key</td>
+<td style="text-align:left">主键，mongdb自动将_id字段设置为主键</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>关系型数据库</li>
+</ul>
+<ol>
+<li>关系型数据库，是指采用了关系模型来组织数据的数据库</li>
+<li>关系型数据库的最大特点就是事务的一致性</li>
+<li>简单来说，关系模型指的就是二维表格模型，而一个关系型数据库就是由二维表及其之间的联系所组成的一个数据组织。</li>
+<li>容易理解：二维表结构是非常贴近逻辑世界一个概念，关系模型相对网状、层次等其他模型来说更容易理解</li>
+<li>使用方便：通用的SQL语言使得操作关系型数据库非常方便；</li>
+<li>易于维护：丰富的完整性(实体完整性、参照完整性和用户定义的完整性)大大减低了数据冗余和数据不一致的概率；4、支持SQL，可用于复杂的查询。</li>
+</ol>
+<ul>
+<li>非关系型数据库</li>
+</ul>
+<ol>
+<li>使用键值对存储数据</li>
+<li>分布式</li>
+<li>一般不支持ACID特性</li>
+<li>非关系型数据库严格上不是一种数据库，应该是一种数据结构化存储方法的集合</li>
+<li>无需经过sql层的解析，读写性能很高</li>
+<li>基于键值对，数据没有耦合性，容易扩展</li>
+<li>存储数据的格式：nosql的存储格式是key,value形式、文档形式、图片形式等等,而关系型数据库则只支持基础类型。</li>
+</ol>
+<h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><ul>
+<li>D盘mongodb文件夹内解压下载好的mongodb文件</li>
+<li>D盘根目录下创建一个文件夹data，在data内部再创建一个文件夹db</li>
+<li>进入到mongodb的bin目录</li>
+<li>按住shift，点击鼠标的右键，打开命令行窗口，输入如下指令打开数据库连接池</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="TAGGERSCRIPT"><figure class="iseeu highlight /taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath d:<span class="symbol">\d</span>ata<span class="symbol">\d</span>b</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>再在此目录中，按住shift，点击鼠标的右键，打开命令行窗口，输入如下指令打开一个连接数据库的客户端，不要关闭上一个窗口</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="EBNF"><figure class="iseeu highlight /ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mongo</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>如果这样不成功,说明是管理员权限的问题，那就需要多走几步路</li>
+<li>以管理员身份运行命令行窗口打开数据库连接池</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JBOSS-CLI"><figure class="iseeu highlight /jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d:</span><br><span class="line"><span class="keyword">cd</span> mongodb    <span class="params">(注意你自己的文件夹的名称)</span></span><br><span class="line"><span class="keyword">cd</span> mongodb-win32-x86_64-2008plus-ssl-4.0.9</span><br><span class="line"><span class="keyword">cd</span> bin</span><br><span class="line">mongod <span class="params">--dbpath</span> d:\data\db</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>以管理员身份运行命令行窗口打开客户端</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d:</span><br><span class="line"><span class="built_in">cd</span> mongodb    (注意你自己的文件夹的名称)</span><br><span class="line"><span class="built_in">cd</span> mongodb-win32-x86_64-2008plus-ssl-4.0.9</span><br><span class="line"><span class="built_in">cd</span> bin</span><br><span class="line">mongo</span><br></pre></td></tr></table></figure></div>
+<h3 id="MonggoDB命令"><a href="#MonggoDB命令" class="headerlink" title="MonggoDB命令"></a>MonggoDB命令</h3><ul>
+<li>创建并使用数据库</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="keyword">database</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>显示所有数据库</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="DART"><figure class="iseeu highlight /dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> dbs</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>显示当前数据库状态</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.stats</span>()</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>查看当前DB版本</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="STATA"><figure class="iseeu highlight /stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">db</span>.<span class="keyword">version</span>()</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>查看当前DB的链接机器地址</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.getMongo</span>()</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>删除数据库</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.dropDatabase</span>()</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>查询当前所使用的数据库</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.getName</span>()</span><br></pre></td></tr></table></figure></div>
+<h3 id="collection-聚集-相当于mysql的表"><a href="#collection-聚集-相当于mysql的表" class="headerlink" title="collection 聚集(相当于mysql的表)"></a>collection 聚集(相当于mysql的表)</h3><ul>
+<li>创建一个collection</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="APPLESCRIPT"><figure class="iseeu highlight /applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(<span class="built_in">name</span>, options)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>得到指定名称的聚集集合</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ABNF"><figure class="iseeu highlight /abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.getCollection(<span class="string">"collName"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>得到当前DB的所有的聚集集合</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.getCollectionNames</span>()</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>显示当前db所有集合的状态</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ABNF"><figure class="iseeu highlight /abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.printCollectionStats()<span class="comment">;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="增"><a href="#增" class="headerlink" title="增"></a>增</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.collection</span><span class="selector-class">.insertOne</span>(&#123;<span class="attribute">name</span>: <span class="string">'吴大勋'</span>, age: <span class="number">18</span>&#125;)</span><br><span class="line"><span class="selector-tag">db</span><span class="selector-class">.collection</span><span class="selector-class">.insertMany</span>(<span class="selector-attr">[ &#123;name: <span class="string">'吴大勋'</span>, age: 18&#125;,&#123;name:<span class="string">'吴勋勋'</span>, age: 19&#125; ]</span>)</span><br></pre></td></tr></table></figure></div>
+<h3 id="查"><a href="#查" class="headerlink" title="查"></a>查</h3><ul>
+<li>获得当前 db 的所有文档</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.collection</span><span class="selector-class">.find</span>(<span class="selector-tag">query</span>, <span class="selector-tag">projection</span>)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>使用 pretty() 方法以格式化的方式来显示所有文档</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.find</span>()<span class="selector-class">.pretty</span>()</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>满足两个条件</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.find</span>(&#123;<span class="attribute">key1</span>:value1, <span class="attribute">key2</span>:value2&#125;)<span class="selector-class">.pretty</span>()</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>只需要满足一个条件即可</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.find</span>(&#123;$<span class="attribute">or</span>: [&#123;<span class="attribute">key1</span>: value1&#125;, &#123;<span class="attribute">key2</span>:value2&#125;] &#125;)<span class="selector-class">.pretty</span>()</span><br></pre></td></tr></table></figure></div>
+<h3 id="改"><a href="#改" class="headerlink" title="改"></a>改</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.updateOne</span>(&#123;<span class="attribute">key</span>: value&#125;, &#123;$<span class="attribute">set</span>: &#123;<span class="attribute">key</span>: value&#125;&#125;)</span><br><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.updateMany</span>(&#123;<span class="attribute">key</span>: value&#125;, &#123;$<span class="attribute">set</span>: &#123;<span class="attribute">key</span>: value&#125;&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>key字段自增1</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.updateOne</span>(&#123;<span class="attribute">key</span>: value&#125;, &#123;$<span class="attribute">inc</span>: &#123;<span class="attribute">key</span>: <span class="number">1</span>&#125;&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>key字段自减1</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.updateMany</span>(&#123;<span class="attribute">key</span>: value&#125;, &#123;$<span class="attribute">inc</span>: &#123;<span class="attribute">key</span>: -<span class="number">1</span>&#125;&#125;)</span><br><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.updateOne</span>(&#123;<span class="attribute">key</span>: value&#125;, &#123;$<span class="attribute">inc</span>: &#123;<span class="attribute">key</span>: <span class="number">1</span>&#125;&#125;)</span><br><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.updateMany</span>(&#123;<span class="attribute">key</span>: value&#125;, &#123;$<span class="attribute">inc</span>: &#123;<span class="attribute">key</span>: -<span class="number">1</span>&#125;&#125;)</span><br></pre></td></tr></table></figure></div>
+<h3 id="删"><a href="#删" class="headerlink" title="删"></a>删</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.deleteOne</span>(&#123;<span class="attribute">key</span>:value&#125;)</span><br><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.deleteMany</span>(&#123;<span class="attribute">key</span>: value&#125;)</span><br></pre></td></tr></table></figure></div>
+<h3 id="按条件查找"><a href="#按条件查找" class="headerlink" title="按条件查找"></a>按条件查找</h3><ol>
+<li>条件操作符</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.col.find(&#123;<span class="string">key1:</span>value1, <span class="string">key2:</span>value2&#125;).pretty()</span><br><span class="line">db.col.find(&#123;<span class="string">key1:</span> &#123;<span class="string">$gt:</span> value1&#125;&#125;) <span class="comment">//key值大于value</span></span><br><span class="line">db.col.find(&#123;<span class="string">key1:</span> &#123;<span class="string">$gte:</span> value1&#125;&#125;)<span class="comment">//key值大于等于value</span></span><br><span class="line">db.col.find(&#123;<span class="string">key1:</span> &#123;<span class="string">$lt:</span> value1&#125;&#125;)</span><br><span class="line">db.col.find(&#123;<span class="string">key1:</span> &#123;<span class="string">$lte:</span> value1&#125;&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>Limit 与 Skip 方法</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.find</span>()<span class="selector-class">.limit</span>(<span class="number">5</span>); <span class="comment">// 查询前5条数据</span></span><br><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.find</span>()<span class="selector-class">.skip</span>(<span class="number">10</span>); <span class="comment">// 查询10条以后的数据</span></span><br><span class="line"><span class="selector-tag">db</span><span class="selector-class">.userInfo</span><span class="selector-class">.find</span>()<span class="selector-class">.limit</span>(<span class="number">5</span>)<span class="selector-class">.skip</span>(<span class="number">5</span>) <span class="comment">// 查询在5-10之间的数据</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>排序</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="MAXIMA"><figure class="iseeu highlight /maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="built_in">col</span>.find().<span class="built_in">sort</span>(&#123;<span class="built_in">key</span>: <span class="number">1</span>&#125;); // 按照<span class="built_in">key</span>值升序</span><br><span class="line">db.<span class="built_in">col</span>.find().<span class="built_in">sort</span>(&#123;<span class="built_in">key</span>: -<span class="number">1</span>&#125;); // 按照<span class="built_in">key</span>值降序</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>索引</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.getIndexes</span>()</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>查询某个结果集的记录条数</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.find</span>(&#123;<span class="attribute">key</span>: value&#125;)<span class="selector-class">.count</span>();</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>按照某列进行排序计数</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.col</span><span class="selector-class">.find</span>(&#123;<span class="attribute">key</span>: &#123;$exists: true&#125;&#125;)<span class="selector-class">.count</span>();</span><br></pre></td></tr></table></figure></div>
+<h3 id="安装mongoose"><a href="#安装mongoose" class="headerlink" title="安装mongoose"></a>安装mongoose</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="COFFEESCRIPT"><figure class="iseeu highlight /coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> i mongoose -D</span><br></pre></td></tr></table></figure></div>
+<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const mongoose=require(&apos;mongoose&apos;);</span><br><span class="line">const url=&quot;mongodb://127.0.0.1:27017/test&quot;;</span><br><span class="line"></span><br><span class="line">mongoose.connect(url,&#123;useNewUrlParser:true&#125;);</span><br><span class="line"></span><br><span class="line">mongoose.connection.on(&quot;connected&quot;,()=&gt;&#123;</span><br><span class="line">    console.log(&quot;连接成功&quot;);</span><br><span class="line">&#125;)</span><br><span class="line">mongoose.connection.on(&quot;disconnected&quot;,()=&gt;&#123;</span><br><span class="line">    console.log(&quot;连接失败&quot;)</span><br><span class="line">&#125;)</span><br><span class="line">mongoose.connection.on(&quot;error&quot;,()=&gt;&#123;</span><br><span class="line">    console.log(&quot;连接失败&quot;);</span><br><span class="line">&#125;)</span><br><span class="line">module.exports=mongoose;  //module:单元  exports:出口</span><br></pre></td></tr></table></figure></div>
+<h3 id="设计用户数据表"><a href="#设计用户数据表" class="headerlink" title="设计用户数据表"></a>设计用户数据表</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const mongoose=require(&apos;./db.js&apos;);</span><br><span class="line">const Schema=mongoose.Schema;  //schema:提要，纲要</span><br><span class="line">//在SQL环境下，schema就是数据库对象的集合，</span><br><span class="line">//所谓的数据库对象也就是常说的表，索引，视图，存储过程等</span><br><span class="line">//模式（schema）是表、视图等数据库中对象的集合，</span><br><span class="line">//而数据库（database）是模式的集合。</span><br><span class="line">const UserSchma=new Schema(&#123;</span><br><span class="line">    name:&#123;type:String&#125;,</span><br><span class="line">    sex:&#123;type:String&#125;,</span><br><span class="line">    age:&#123;type:Number&#125;,</span><br><span class="line">    password:&#123;type:String&#125;</span><br><span class="line">&#125;);</span><br><span class="line">//执行时，会在数据库中创建users集合</span><br><span class="line">module.exports=mongoose.model(&apos;User&apos;,UserSchma);</span><br></pre></td></tr></table></figure></div>
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const User=require(&apos;./User.js&apos;);</span><br><span class="line">const user=new User(&#123;</span><br><span class="line">    name:&quot;吴克群&quot;,</span><br><span class="line">    password:&apos;1333633&apos;,</span><br><span class="line">    sex:&quot;男&quot;,</span><br><span class="line">    age:&quot;112&quot;</span><br><span class="line">&#125;)</span><br><span class="line">user.save((err)=&gt;&#123;</span><br><span class="line">    if(err)throw err;  //如果错误就丢弃</span><br><span class="line">    console.log(&apos;用户插入成功&apos;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var  User=require(&quot;./User.js&quot;);</span><br><span class="line">//updateOne更新单条数据</span><br><span class="line">//updateMany 更新多条数据</span><br><span class="line">User.updateMany(&#123;name:&quot;李寻欢&quot;&#125;,&#123;$set:&#123;password:122&#125;&#125;,(err,res)=&gt;&#123;</span><br><span class="line">    if(err) throw err;</span><br><span class="line">    console.log(&quot;插入成功&quot;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const User=require(&quot;./User.js&quot;);</span><br><span class="line">//deleteOne 删除单条</span><br><span class="line">//deleteMant 删除多条</span><br><span class="line">//remove 删除满足条件的</span><br><span class="line">User.deleteMany(&#123;name:&quot;楚天骄&quot;&#125;,(err,res)=&gt;&#123;</span><br><span class="line">    if(err) throw err</span><br><span class="line">    console.log(&quot;删除成功&quot;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const User=require(&apos;./User.js&apos;);</span><br><span class="line">User.find(&#123;&#125;,&#123;_id:0&#125;,(err,data)=&gt;&#123;</span><br><span class="line">if(err)throw err;</span><br><span class="line">console.log(data);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../15/数据库模块封装/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            数据库模块封装
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../npm和git/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Npm和git</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="../../../../userinfo" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JS数组 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="朝朝暮，云雨定何如，花日穿窗梅小小，雪风洒雨柳疏疏，人唱晚晴初。">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS数组">
+<meta property="og:url" content="https://github.com/thisisloves/2019/03/26/JS数组/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="朝朝暮，云雨定何如，花日穿窗梅小小，雪风洒雨柳疏疏，人唱晚晴初。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/04/01/5ca16d32e76e1.png">
+<meta property="og:updated_time" content="2019-04-15T13:43:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS数组">
+<meta name="twitter:description" content="朝朝暮，云雨定何如，花日穿窗梅小小，雪风洒雨柳疏疏，人唱晚晴初。">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/01/5ca16d32e76e1.png">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="../../../../userinfo" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-JS数组" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      JS数组
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-03-25T16:00:00.000Z" itemprop="datePublished">2019-03-26</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JS/">JS</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>朝朝暮，云雨定何如，花日穿窗梅小小，雪风洒雨柳疏疏，人唱晚晴初。<br><a id="more"></a></p>
+<blockquote>
+<p>听风无忧，落雪成眠，一季飘零，一季浅舞。 繁星落城，漫若浮光。</p>
+</blockquote>
+<h3 id="内外部变量问题"><a href="#内外部变量问题" class="headerlink" title="内外部变量问题"></a>内外部变量问题</h3><ol>
+<li>函数变量操作变量时，会先找自己内部的作用域是否存在这个变量，有就操作，并且不会影响外面的同名变量。</li>
+<li>函数变量操作变量时，会先找自己内部的作用域是否存在这个变量，没有就去找外部作用域，在外部找到就操作，此时会影响外面的变量。</li>
+<li>函数变量操作变量时，会先找自己内部的作用域是否存在这个变量，没有就去找外部作用域，在外部没找到，就报错。</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b=<span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> a=b=<span class="number">20</span>; 相当于</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">20</span>;  <span class="comment">//重新var声明,不属于全局变量a，不改变全局变量a</span></span><br><span class="line">b=<span class="number">20</span>; <span class="comment">//这个是操作外面的b,改变外面全局变量</span></span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//20</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="声明与函数的提升问题"><a href="#声明与函数的提升问题" class="headerlink" title="声明与函数的提升问题"></a>声明与函数的提升问题</h3><ul>
+<li>函数提升高于var</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;   <span class="comment">//匿名函数，自动执行</span></span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">//undefined;</span></span><br><span class="line"><span class="built_in">console</span>.log(b);   <span class="comment">//function b()&#123;&#125;</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">10</span>;    </span><br><span class="line"><span class="built_in">console</span>.log(d);   <span class="comment">// not defined报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;;   <span class="comment">//function b()&#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(b);   <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> b;</span><br><span class="line"><span class="built_in">console</span>.log(b);  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125; <span class="comment">//函数提升高于 var</span></span><br><span class="line">&#125;)()</span><br><span class="line">当<span class="keyword">var</span>和<span class="function"><span class="keyword">function</span>声明重名，<span class="title">function</span>生效</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><ul>
+<li>数组：一组数据，数据的集合</li>
+<li>empty:空</li>
+<li>创建：</li>
+<li>字面量：var arr=[];</li>
+<li><p>构造函数：var arr2=new Array();</p>
+</li>
+<li><p>增加</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ACTIONSCRIPT"><figure class="iseeu highlight /actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[];</span><br><span class="line">arr[<span class="number">0</span>]=<span class="string">"admin"</span>;</span><br><span class="line">arr[<span class="number">5</span>]=<span class="string">"haha"</span>;</span><br><span class="line">arr.push(<span class="string">"hello"</span>);    <span class="comment">//数组最后一位加</span></span><br><span class="line">arr.unshift(<span class="string">"word"</span>);  <span class="comment">//数组第一位</span></span><br><span class="line">arr.splice(<span class="number">5</span>,<span class="number">1</span>,<span class="string">"hshhhs"</span>);  <span class="comment">//从第几位删除第几位,并替换</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>删除 </li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">console</span><span class="selector-class">.log</span>(arr.length);</span><br><span class="line"><span class="selector-tag">arr</span><span class="selector-class">.length</span>(<span class="number">2</span>);   <span class="comment">//只会剩下数组前面2个</span></span><br><span class="line"><span class="selector-tag">arr</span><span class="selector-class">.pop</span>();            <span class="comment">//删除最后一位</span></span><br><span class="line"><span class="selector-tag">arr</span><span class="selector-class">.shitf</span>();          <span class="comment">//删除第一位</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>排序</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">arr.sort(fn)  <span class="comment">//对数组进行排序，fn为一个函数，可选</span></span><br><span class="line">            <span class="comment">//当数组内的元素为字符型数字，默认排序已经无法满足，需要手动处理；</span></span><br><span class="line">            <span class="comment">//如function fn(n,m)&#123;return n-m&#125;</span></span><br><span class="line"></span><br><span class="line">var arr=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">999</span>,<span class="number">2</span>,<span class="number">21</span>,<span class="number">3</span>,<span class="number">21</span>,<span class="number">3</span>,<span class="number">21</span>];</span><br><span class="line">arr.sort(); <span class="comment">//字符串比较比较 第一位大小 不准确</span></span><br><span class="line">console.log(arr);</span><br><span class="line">arr.sort(function(m,n)&#123;   <span class="comment">//数值比较</span></span><br><span class="line">return m-n;  </span><br><span class="line">&#125;)</span><br><span class="line">console.log(arr);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>截取</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">8</span>];</span><br><span class="line">var a=arr.slice(<span class="number">2</span>,<span class="number">4</span>);  <span class="comment">//创建一个新的数组 从第arr.length=2位开始截取不包括4</span></span><br></pre></td></tr></table></figure></div>
+<p><a href="https://i.loli.net/2019/04/01/5ca16d32e76e1.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/04/01/5ca16d32e76e1.png" alt="Image.png"></a></p>
+<h3 id="对象数组和二维数组的访问方式"><a href="#对象数组和二维数组的访问方式" class="headerlink" title="对象数组和二维数组的访问方式"></a>对象数组和二维数组的访问方式</h3><ul>
+<li>访问数组</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQF"><figure class="iseeu highlight /sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[&#123;<span class="built_in">name</span>:<span class="string">"admin"</span>&#125;,&#123;<span class="built_in">name</span>:<span class="string">"root"</span>&#125;,&#123;nmae:<span class="string">"zhangsan"</span>&#125;]</span><br><span class="line">console.<span class="built_in">log</span>(arr[<span class="number">1</span>].<span class="built_in">name</span>); <span class="comment">//获取对象数组内的元素</span></span><br><span class="line">var arr2=[<span class="number">1</span>,<span class="number">23</span>,<span class="number">4</span>,[<span class="string">"a"</span>,<span class="string">"b"</span>]]</span><br><span class="line">console.<span class="built_in">log</span>(arr2[<span class="number">4</span>][<span class="number">1</span>]);  <span class="comment">//获取数组内元素</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h3><ul>
+<li>冒泡排序：将数组的数据，两两比较，大的放后面</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var arr=[<span class="number">1</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">89</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">0</span>,<span class="number">23</span>,<span class="number">342</span>,<span class="number">35</span>]</span><br><span class="line">var arr=[<span class="number">1</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">244</span>,<span class="number">85</span>,<span class="number">3</span>,<span class="number">635</span>,<span class="number">77</span>]</span><br><span class="line">for(var i=<span class="number">0</span>;i&lt;arr.length<span class="number">-1</span>;i++)&#123;  <span class="comment">//i等于0-7</span></span><br><span class="line"></span><br><span class="line">for(var j=<span class="number">0</span>;j&lt;length<span class="number">-1</span>-i;j++)&#123; <span class="comment">//第一次j等于0-7，第二次0-6.....</span></span><br><span class="line">if(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">    var ls = arr[j];</span><br><span class="line">        arr[j] = arr[j+<span class="number">1</span>];</span><br><span class="line">        arr[j+<span class="number">1</span>] = ls;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(arr);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>选择排序：将第一位和后面的所有的位数比较，小的放前面 </li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span><span class="number">-1</span> <span class="number">0</span><span class="number">-2</span> <span class="number">0</span><span class="number">-3</span> <span class="number">0</span><span class="number">-4</span> <span class="number">0</span><span class="number">-5</span> <span class="number">0</span><span class="number">-6</span> <span class="number">0</span><span class="number">-7</span> <span class="number">0</span><span class="number">-8</span></span><br><span class="line">    <span class="number">1</span><span class="number">-2</span> <span class="number">1</span><span class="number">-3</span> <span class="number">1</span><span class="number">-4</span> <span class="number">1</span><span class="number">-5</span> <span class="number">1</span><span class="number">-6</span> <span class="number">1</span><span class="number">-7</span> <span class="number">1</span><span class="number">-8</span> </span><br><span class="line">        <span class="number">2</span><span class="number">-3</span> <span class="number">2</span><span class="number">-4</span> <span class="number">2</span><span class="number">-5</span> <span class="number">2</span><span class="number">-6</span> <span class="number">2</span><span class="number">-7</span> <span class="number">2</span><span class="number">-8</span></span><br><span class="line">            <span class="number">3</span><span class="number">-4</span> <span class="number">3</span><span class="number">-5</span> <span class="number">3</span><span class="number">-6</span> <span class="number">3</span><span class="number">-7</span> <span class="number">4</span><span class="number">-7</span></span><br><span class="line">                <span class="number">4</span><span class="number">-5</span> <span class="number">4</span><span class="number">-6</span> <span class="number">4</span><span class="number">-7</span> <span class="number">4</span><span class="number">-8</span></span><br><span class="line">                    <span class="number">5</span><span class="number">-6</span> <span class="number">5</span><span class="number">-7</span> <span class="number">5</span><span class="number">-8</span></span><br><span class="line">                        <span class="number">6</span><span class="number">-7</span> <span class="number">6</span><span class="number">-8</span></span><br><span class="line">                            <span class="number">7</span><span class="number">-8</span></span><br><span class="line"></span><br><span class="line">var arr=[<span class="number">1</span>,<span class="number">34</span>,<span class="number">20</span>,<span class="number">6</span>,<span class="number">84</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line"></span><br><span class="line">for(var i=<span class="number">0</span>;i&lt;arr.length<span class="number">-1</span>;i++)   <span class="comment">//大循环，需要对比的次数</span></span><br><span class="line">&#123;</span><br><span class="line">var ls=arr[i];   <span class="comment">//假定一个最小值</span></span><br><span class="line">var lsIndex=i;   <span class="comment">//假定最小值的索引</span></span><br><span class="line">for(var j=i+<span class="number">1</span>;j&lt;arr.length;j++)  <span class="comment">//小循环</span></span><br><span class="line">&#123;</span><br><span class="line">if(ls&gt;arr[j])&#123;    <span class="comment">//判断最小值是否为真的最小值</span></span><br><span class="line">    ls=arr[j];    <span class="comment">//获取正真的最小值</span></span><br><span class="line">    lsIndex=j;    <span class="comment">//获取最小值的索引</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">arr[lsIndex]=arr[i];  <span class="comment">//将当前元素放在最小值的位置</span></span><br><span class="line">arr[i]=ls;  <span class="comment">//将最小值放在当前元素的位置</span></span><br><span class="line">&#125;</span><br><span class="line">console.log(arr);</span><br></pre></td></tr></table></figure></div>
+<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><ol>
+<li>基本类型(值传递)：字符，数值，布尔</li>
+</ol>
+<ul>
+<li>复制过程中，复制的是值</li>
+</ul>
+<ol start="2">
+<li>复杂类型(应用传递)：对象，数组，函数</li>
+</ol>
+<ul>
+<li>复制过程中，复制的是地址(指针，引用)</li>
+<li>地址(指针，引用) 指向一个值   </li>
+</ul>
+<h3 id="栈和堆"><a href="#栈和堆" class="headerlink" title="栈和堆"></a>栈和堆</h3><ul>
+<li>每个内存单元中分为两个部分，栈和堆</li>
+<li>栈在内存的最底部，类似一个标记，名字，分类；稳定，不可更改,先进后出</li>
+<li>堆数据，表示一组数据，可以变更，数据量大，和栈一一对应，先进先出</li>
+<li><p>多个栈可以对应一个堆，反之不行</p>
+</li>
+<li><p>变量的声明，变量名存在了栈中</p>
+</li>
+<li>变量的赋值，数据存在了堆中</li>
+</ul>
+<h3 id="值传递和引用传递"><a href="#值传递和引用传递" class="headerlink" title="值传递和引用传递"></a>值传递和引用传递</h3><ul>
+<li>值传递：复制的是变量的值</li>
+<li>引用传递:复制的是指针的指向(传递的是对象在堆内存中的内存地址)</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">name:<span class="string">"张三"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = &#123;</span><br><span class="line">name:<span class="string">"李四"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">obj.name = <span class="string">"老张"</span>;</span><br><span class="line">obj = b;</span><br><span class="line"><span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newName = change(a);</span><br><span class="line"><span class="built_in">console</span>.log(newName.name); <span class="comment">//李四</span></span><br><span class="line"><span class="built_in">console</span>.log(a.name);   <span class="comment">//老张</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="JSON表示对象的方法"><a href="#JSON表示对象的方法" class="headerlink" title="JSON表示对象的方法"></a>JSON表示对象的方法</h3><ul>
+<li>数组和对象的组合，称为JSON</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="DTS"><figure class="iseeu highlight /dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var json=[</span><br><span class="line">&#123;</span><br><span class="line"><span class="symbol">    name:</span><span class="string">"LY"</span>,</span><br><span class="line"><span class="symbol">    chinese:</span><span class="number">99</span>,</span><br><span class="line"><span class="symbol">    math:</span><span class="number">88</span></span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    name=<span class="string">"LY"</span>,</span><br><span class="line"><span class="symbol">    chinese:</span><span class="number">33</span>;</span><br><span class="line"><span class="symbol">    math:</span><span class="number">88</span></span><br><span class="line">&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>计算机中的通用数据：json,是计算机各种语言之间的数据沟通桥梁</li>
+<li>在Javascript中，JSON被称为数组对象</li>
+<li>JSON文件中不允许出现undefined和function和NaN,在强制转换中会省略undefined和function的属性，将NaN转换为null.</li>
+</ul>
+<h3 id="对象的本质"><a href="#对象的本质" class="headerlink" title="对象的本质"></a>对象的本质</h3><ul>
+<li>对象的本质就是key和value</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">name:<span class="string">"LZ"</span>,</span><br><span class="line">age:<span class="number">12</span>,</span><br><span class="line">skill:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="for-in循环"><a href="#for-in循环" class="headerlink" title="for-in循环"></a>for-in循环</h3><ul>
+<li>for-in 循环一般用来遍历非数组对象</li>
+<li>for-in 循环中的代码每执行一次，就会对数组的元素或者对象的属性进行一次操作，称为“枚举”</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">name:<span class="string">"Lz"</span>,</span><br><span class="line">age:<span class="number">36</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> obj)&#123;</span><br><span class="line"><span class="built_in">console</span>.log(obj[i]);   <span class="comment">//输出Lz 36;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="对象的深拷贝"><a href="#对象的深拷贝" class="headerlink" title="对象的深拷贝"></a>对象的深拷贝</h3><ul>
+<li>引用传递-对象的浅拷贝：拷贝地址</li>
+<li><p>引用传递-对象的深拷贝：拷贝值</p>
+</li>
+<li><p>如何实现对象的深拷贝</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;<span class="attr">name</span>:<span class="string">"admin"</span>&#125;</span><br><span class="line"><span class="keyword">var</span> obj2=&#123;&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> obj)&#123;</span><br><span class="line">obj2[i]=obj[i]</span><br><span class="line">&#125;</span><br><span class="line">obj2.name=<span class="string">"root"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">//admin;  拷贝对象后，把值改变，不改变原对象的值</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>浅拷贝</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQF"><figure class="iseeu highlight /sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj=&#123;<span class="built_in">name</span>:<span class="string">"admin"</span>&#125;</span><br><span class="line">var obj2=&#123;&#125;</span><br><span class="line">obj=obj2;</span><br><span class="line">obj2.<span class="built_in">name</span>=<span class="string">"root"</span>;</span><br><span class="line">console.<span class="built_in">log</span>(obj.<span class="built_in">name</span>);   <span class="comment">//root  拷贝对象后，把值改变，改变原对象的值</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="通过循环制造一个5-x-5的二维数组，这个数组中的数字由a，b之间随机而来"><a href="#通过循环制造一个5-x-5的二维数组，这个数组中的数字由a，b之间随机而来" class="headerlink" title="通过循环制造一个5 x 5的二维数组，这个数组中的数字由a，b之间随机而来"></a>通过循环制造一个5 x 5的二维数组，这个数组中的数字由a，b之间随机而来</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bigArr=[];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">var</span> smallArr=[];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;<span class="number">5</span>;j++)&#123;</span><br><span class="line">smallArr.unshift(<span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random()*<span class="number">9</span>)); <span class="comment">//放5个随机0到9到samllArr </span></span><br><span class="line">&#125;</span><br><span class="line">bigArr.unshift(smallArr);  <span class="comment">//放5个samllArr到bigArr</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(bigArr);</span><br></pre></td></tr></table></figure></div>
+<h3 id="有一个从小到大排好序的数组-现输入一个数，要求按原来的规律将它插入数组中"><a href="#有一个从小到大排好序的数组-现输入一个数，要求按原来的规律将它插入数组中" class="headerlink" title="有一个从小到大排好序的数组,现输入一个数，要求按原来的规律将它插入数组中"></a>有一个从小到大排好序的数组,现输入一个数，要求按原来的规律将它插入数组中</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var arr=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">arr.push(Math.random()*<span class="number">9</span>);</span><br><span class="line">console.log(arr);</span><br><span class="line">for(var i=<span class="number">0</span>;i&lt;arr.length<span class="number">-1</span>;i++)&#123;  </span><br><span class="line">for(var j=<span class="number">0</span>;j&lt;arr.length-i;j++)&#123;</span><br><span class="line">    if(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">        var ls=arr[j];</span><br><span class="line">        arr[j]=arr[j+<span class="number">1</span>];</span><br><span class="line">        arr[j+<span class="number">1</span>]=ls;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(arr);</span><br><span class="line"></span><br><span class="line">var arr=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line">console.log(insert(arr,<span class="number">3</span>));</span><br><span class="line">function insert(myarr,num)&#123;          <span class="comment">//传入数组 和插入的数字</span></span><br><span class="line">for(var i=<span class="number">0</span>;i&lt;myarr.length;i++)&#123;  <span class="comment">//循环</span></span><br><span class="line">    if(myarr[i]&gt;num)&#123;            <span class="comment">//如果myarr有一个数大于插入的数</span></span><br><span class="line">        break;                   <span class="comment">//跳出</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(arr);</span><br><span class="line">console.log(i);                         <span class="comment">//打印大于插入数据的那个数字的索引</span></span><br><span class="line">for(var j=myarr.length<span class="number">-1</span>;j&gt;=i;j--)&#123;     <span class="comment">//i =3  j循环=3</span></span><br><span class="line">    myarr[j+<span class="number">1</span>]=myarr[j]               <span class="comment">//myarr[4]=myarr[3]   相当于多加一个myarr[i+1]=myarr[i]相等</span></span><br><span class="line">&#125;</span><br><span class="line">console.log(arr);                      <span class="comment">// [1,3,4,4,5,6]</span></span><br><span class="line">myarr[i]=num;         </span><br><span class="line">return arr;                           <span class="comment">//[1,3,3,4,5,6]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><ul>
+<li>数组去重1</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HAXE"><figure class="iseeu highlight /haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"a"</span>];</span><br><span class="line"><span class="keyword">var</span> obj= &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line"><span class="keyword">if</span>(obj[arr[i]])&#123;     <span class="comment">//判断语句等于 obj.a因为obj.a 为undefined  所以为false 再遇见a的时候 obj[a]=1所以为true</span></span><br><span class="line">    obj[arr[i]]++; <span class="comment">// obj[a]有多少个a obj[a]就等于几</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    obj[arr[i]]=<span class="number">1</span>;  <span class="comment">// obj[a]有多少个a obj[a]就等于几</span></span><br><span class="line">&#125;</span><br><span class="line">console.log(obj);          <span class="comment">//&#123;a:4,b:4,c:4,d;4&#125;;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span>=[];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> obj)&#123;   <span class="comment">//fo遍历</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Arr</span>.push(i)   <span class="comment">// i等于 a,b,c,d</span></span><br><span class="line">&#125;</span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Arr</span>);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>上面的对象思想等于</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> a =<span class="string">"name"</span>;</span><br><span class="line">obj[a]=<span class="string">"李四"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj);        <span class="comment">//name:李四</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.name);   <span class="comment">//李四</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>数组去重2</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var arr=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">12</span>,<span class="number">321</span>,<span class="number">3</span>,<span class="number">2</span>,]</span><br><span class="line">console.log(arr);</span><br><span class="line">function norepeat(arr)&#123;</span><br><span class="line">for(var i=<span class="number">0</span>;i&lt;arr.length;i++)</span><br><span class="line">&#123;</span><br><span class="line">    for(var j=<span class="number">1</span>+i;j&lt;arr.length;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(arr[i]===arr[j])&#123;</span><br><span class="line">            arr.splice(j,<span class="number">1</span>);   <span class="comment">//删除数组元素后数组长度减一</span></span><br><span class="line">            j--;              <span class="comment">// 数组下标回退       </span></span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">return arr;</span><br><span class="line">&#125;</span><br><span class="line">var newArr =norepeat(arr);</span><br><span class="line">console.log(newArr);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>数组去重3</li>
+<li>双重循环去重</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var arr=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">12</span>,<span class="number">321</span>,<span class="number">3</span>,<span class="number">2</span>,]</span><br><span class="line">console.log(arr);</span><br><span class="line">function norepeat(arr)&#123;</span><br><span class="line">for(var i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">    for(var j=<span class="number">0</span>;j&lt;arr.length;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(arr[i]==arr[j]&amp;&amp;i !=j)&#123;</span><br><span class="line">            arr.splice(j,<span class="number">1</span>); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">return arr;</span><br><span class="line">&#125;</span><br><span class="line">console.log(norepeat(arr));</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../27/JS ES5和字符串/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            JS ES5和字符串
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../24/木马/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">木马</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="../../../../userinfo" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

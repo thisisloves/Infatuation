@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Gulp | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="如果能和你在一起，我宁愿所有的星光陨落，因为你的眼睛里，是我生命中最亮的光芒。">
+<meta name="keywords" content="node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gulp">
+<meta property="og:url" content="https://github.com/thisisloves/2019/05/05/gulp/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="如果能和你在一起，我宁愿所有的星光陨落，因为你的眼睛里，是我生命中最亮的光芒。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-13T14:10:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gulp">
+<meta name="twitter:description" content="如果能和你在一起，我宁愿所有的星光陨落，因为你的眼睛里，是我生命中最亮的光芒。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="../../../../userinfo" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-gulp" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Gulp
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-05-04T16:00:00.000Z" itemprop="datePublished">2019-05-05</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/node/">node</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>如果能和你在一起，我宁愿所有的星光陨落，因为你的眼睛里，是我生命中最亮的光芒。</p>
+<a id="more"></a>
+<blockquote>
+<p>一切都应该还有机会，一切都应该还来得及，所有糟糕的结果都还能改变，在命运的论盘中没有最终停下之前…</p>
+</blockquote>
+<h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><ul>
+<li>gulp是一个基于node环境的前端自动化工具</li>
+<li>gulp是一个基于流的前端自动化工具</li>
+</ul>
+<h3 id="原生gulp3"><a href="#原生gulp3" class="headerlink" title="原生gulp3"></a>原生gulp3</h3><ol>
+<li>实现功能将线下版本的文件放在线上版本中</li>
+</ol>
+<ul>
+<li>在命令行中输入gulp，提示没有gulpfile文件,需要手动创建固定文件名gulpfile.js文件</li>
+<li><p>在该文件中引入gulp模块,let gulp = require(“gulp”);</p>
+</li>
+<li><p>注意：因为node完美支持ES6,所以在node环境中可以使用ES6的所有语法</p>
+</li>
+</ul>
+<ol start="2">
+<li>gulp为gulp模块返回的对象,在这个对象中，有一些方法</li>
+</ol>
+<ul>
+<li>gulp.task(“指令名字”,()=&gt;{指令执行函数})   绑定指令的方法</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">"index"</span>,()=&gt;&#123;</span><br><span class="line"><span class="regexp">//gu</span>lp.src()<span class="regexp">//</span>找到源文件的目录</span><br><span class="line"><span class="regexp">//gu</span>lp.pipe()<span class="regexp">//</span>在连缀之中继续调用gulp方法</span><br><span class="line"><span class="regexp">//gu</span>lp.dest()<span class="regexp">//</span>转存方法</span><br><span class="line"><span class="regexp">//</span>实现功能的时候,一定要用ruturn</span><br><span class="line">return gulp.src(<span class="string">"index.html"</span>).pipe(gulp.dest(<span class="string">"dist"</span>));</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在gulp.src中可以接收数组，表示多个文件</li>
+<li>文件名可以用*代替，表示通配</li>
+<li>*<em>/</em>表示多层文件夹嵌套</li>
+<li>!文件路径,表示除了此文件</li>
+</ul>
+<ol start="3">
+<li>gulp.watch()监控</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="COFFEESCRIPT"><figure class="iseeu highlight /coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">"watch"</span>,<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line"><span class="regexp">//</span>监控index.html文件，如果发生改变，那么执行index指令</span><br><span class="line">gulp.watch(<span class="string">"index.html"</span>,[<span class="string">"index"</span>]);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ol start="4">
+<li>gulp原生默认指令（default）：</li>
+</ol>
+<ul>
+<li>default 为gulp自带默认指令,当在命令行中执行gulp后不跟任何指令名的时候,所执行的指令</li>
+<li>gulp.task(“default”,[“hello”]);  //第二个参数为要执行的命令名,可以接受多个,表示默认执行的指令</li>
+</ul>
+<h3 id="gulp插件（服务器插件）创建本地服务"><a href="#gulp插件（服务器插件）创建本地服务" class="headerlink" title="gulp插件（服务器插件）创建本地服务"></a>gulp插件（服务器插件）创建本地服务</h3><ol>
+<li>安装插件（插件只有局部，没有全局，所以要安装在项目文件夹中）</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> gulp-<span class="keyword">connect</span></span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li>引入插件</li>
+</ol>
+<ul>
+<li>在gulpfile文件中引用：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="EBNF"><figure class="iseeu highlight /ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">let connect</span> = require(<span class="string">"gulp-connect"</span>);</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>配置gulp-connect</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gulp</span><span class="selector-class">.task</span>(<span class="string">"server"</span>,()=&gt;&#123;</span><br><span class="line"><span class="selector-tag">connect</span><span class="selector-class">.server</span>(&#123;</span><br><span class="line"><span class="attribute">root</span>:<span class="string">"dist"</span>,     <span class="comment">//以哪个文件夹为服务器</span></span><br><span class="line"><span class="attribute">port</span>:<span class="number">8888</span>,       <span class="comment">//端口号</span></span><br><span class="line"><span class="attribute">livereload</span>:true  <span class="comment">//是否可以自动刷新</span></span><br><span class="line">&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ol start="4">
+<li>此时可以在浏览器中输入本地地址,访问服务器</li>
+</ol>
+<ul>
+<li>如果要实现保存自动刷新功能,首先需要在index指令中调用connect插件</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gulp</span><span class="selector-class">.src</span>("<span class="selector-tag">index</span><span class="selector-class">.html</span>")<span class="selector-class">.pipe</span>(<span class="selector-tag">gulp</span><span class="selector-class">.dest</span>("<span class="selector-tag">dist</span>"))<span class="selector-class">.pipe</span>(<span class="selector-tag">connect</span><span class="selector-class">.reload</span>());</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>其次需要同时运行服务器指令和监测指令,可通过默认指令实现</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ADA"><figure class="iseeu highlight /ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.<span class="keyword">task</span>(<span class="string">"default"</span>,[<span class="string">"server"</span>,<span class="string">"watch"</span>]);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>表示先打开server，再打开watch,就可以进行实时监测,实现本地修改保存,服务器自动修改</li>
+</ul>
+<ol start="5">
+<li>服务器代理（解决跨域问题）</li>
+</ol>
+<ul>
+<li>安装http-proxy-middleware插件(gulp代理中间件插件)</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> <span class="keyword">http</span>-proxy-middleware</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>引入插件</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let<span class="built_in"> proxy </span>= require(<span class="string">'http-proxy-middleware'</span>);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>开启服务</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ACTIONSCRIPT"><figure class="iseeu highlight /actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'proxyServer'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">connect.server(&#123;</span><br><span class="line">root: <span class="string">'src'</span>,</span><br><span class="line">port: <span class="number">6666</span>,</span><br><span class="line">middleware: <span class="function"><span class="keyword">function</span><span class="params">(connect, opt)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        proxy(<span class="string">'/api'</span>,  &#123;</span><br><span class="line">            target: <span class="string">'https://api.douban.com/v2'</span>,    <span class="comment">//代理的目标地址</span></span><br><span class="line">            changeOrigin:<span class="literal">true</span></span><br><span class="line">            pathRewrite:&#123;    <span class="comment">//路径重写规则</span></span><br><span class="line">                <span class="string">'^/api'</span>:<span class="string">''</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>说明：proxy()参数解释</li>
+<li>‘/api’      =&gt; 匹配你要代理的请求地址前缀</li>
+<li>target      =&gt; 你要把请求代理到哪</li>
+<li><p>pathRewrite =&gt; 是把在页面中写的请求地址的某部分的重写为后面的字符串</p>
+</li>
+<li><p>此时页面中请求的写法：</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.post(<span class="string">'/api/book/1226666'</span>,<span class="keyword">function</span>(data)&#123;</span><br><span class="line">console.log(data);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="regexp">//</span> 也就是发往 <span class="regexp">/api/</span>book<span class="regexp">/1226666的请求最终会被发往 https:/</span><span class="regexp">/api.douban.com/</span>v2<span class="regexp">/book/</span><span class="number">1226666</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>参考资料：<a href="https://www.jianshu.com/p/cc543fd0d7c5" target="_blank" rel="noopener">https://www.jianshu.com/p/cc543fd0d7c5</a></li>
+</ul>
+<h3 id="扩展练习："><a href="#扩展练习：" class="headerlink" title="扩展练习："></a>扩展练习：</h3><ul>
+<li>文件拷贝</li>
+<li>我们可以通过刚刚学习的拷贝命令去拷贝其他项目中的文件，包括项目中的图片</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="COFFEESCRIPT"><figure class="iseeu highlight /coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">"images"</span>,<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src(<span class="string">"images/*.jpg"</span>).pipe(gulp.dest(<span class="string">"dist/images"</span>))<span class="regexp">//</span>*代表所有</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>拷贝多种文件及文件夹：</li>
+</ul>
+<ol>
+<li>拷贝多种后缀名</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gulp</span><span class="selector-class">.src</span>(<span class="string">"images/*.&#123;jpg,png&#125;"</span>)</span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li>如果要拷贝文件夹下所有内容</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gulp</span><span class="selector-class">.src</span>(<span class="string">"images/*/*"</span>)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>如果要拷贝所有的话， 可以使用 images/*<em>/</em> 去表示当前images文件夹下所有的内容全部进行拷贝。 </li>
+</ul>
+<ol start="3">
+<li>将两个文件夹拷贝到同一个目标文件夹下</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SML"><figure class="iseeu highlight /sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.src([<span class="symbol">'xml</span>/*.xml',<span class="symbol">'json</span>/*.json']).pipe(gulp.dest(<span class="symbol">'dist</span>/data’))</span><br></pre></td></tr></table></figure></div>
+<ol start="4">
+<li>排除!</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gulp</span><span class="selector-class">.src</span>([<span class="string">'xml/*.xml'</span>,<span class="string">'json/*.json'</span>,<span class="string">'!json/secret.json'</span>])<span class="selector-class">.pipe</span>(gulp.dest(<span class="string">'dist/data'</span>))</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>任务合并执行</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="COFFEESCRIPT"><figure class="iseeu highlight /coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'build'</span>,[<span class="string">'index-copy'</span>,<span class="string">'image-copy'</span>,<span class="string">'data'</span>],<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'编译成功'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>侦测文件变化，自动执行任务</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gulp</span><span class="selector-class">.watch</span>()</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">gulp</span><span class="selector-class">.task</span>(<span class="string">'watch'</span>,()=&gt;&#123;</span><br><span class="line"><span class="selector-tag">gulp</span><span class="selector-class">.watch</span>(<span class="string">'index.html'</span>,[<span class="string">'index-copy'</span>]);</span><br><span class="line"><span class="selector-tag">gulp</span><span class="selector-class">.watch</span>(<span class="string">'images/**/*'</span>,[<span class="string">'images-copy'</span>]);</span><br><span class="line"><span class="selector-tag">gulp</span><span class="selector-class">.watch</span>([<span class="string">'json/*.json'</span>,<span class="string">'xml/*.xml'</span>,<span class="string">'!json/secret.json'</span>],[<span class="string">'data'</span>]);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><p>侦测自动执行,如果文件发生改变那么将执行对应任务。 </p>
+</li>
+<li><p>将插件安装到本地之后,要require引入之后才可以正常使用</p>
+</li>
+</ul>
+<ul>
+<li>ES6转ES5 gulp-babel</li>
+<li>用于将es6转成es5：</li>
+<li>需要先安装babel插件</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="AUTOIT"><figure class="iseeu highlight /autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-babel<span class="symbol">@7</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>再安装babel上的将es6转成es5的插件</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CMAKE"><figure class="iseeu highlight /cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> babel-preset-es2015</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>根据babel指引不需要这个，但是实际少了会报错</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="COFFEESCRIPT"><figure class="iseeu highlight /coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install -D @babel/core</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在当前gulp目录中,创建.babelrc的文件,里面的内容是{“presets”:[“es2015”]}</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="COFFEESCRIPT"><figure class="iseeu highlight /coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'toes5'</span>,<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src([<span class="string">'js/*.js'</span>])</span><br><span class="line">.pipe(babel())</span><br><span class="line">.pipe(gulp.dest(<span class="string">'dist/js'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>gulp合并插件 gulp-concat</li>
+<li>用于合并js文件</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SML"><figure class="iseeu highlight /sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="symbol">'scripts'</span>,<span class="literal">()</span>=&gt;&#123;</span><br><span class="line">return gulp.src([<span class="symbol">'js</span>/nav.js',<span class="symbol">'js</span>/banner.js’])</span><br><span class="line">.pipe(babel<span class="literal">()</span>)</span><br><span class="line">.pipe(concat(<span class="symbol">'index</span>.js'))</span><br><span class="line">.pipe(gulp.dest(<span class="symbol">'dist</span>/js'))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>gulp代码压缩插件gulp-uglify</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gulp</span><span class="selector-class">.task</span>(<span class="string">'scripts'</span>,()=&gt;&#123;</span><br><span class="line"><span class="selector-tag">return</span> <span class="selector-tag">gulp</span><span class="selector-class">.src</span>([<span class="string">'js/nav.js'</span>,'js/banner.js’])</span><br><span class="line"><span class="selector-class">.pipe</span>(babel())</span><br><span class="line"><span class="selector-class">.pipe</span>(concat(<span class="string">'index.js'</span>))</span><br><span class="line"><span class="selector-class">.pipe</span>(uglify())</span><br><span class="line"><span class="selector-class">.pipe</span>(gulp.dest(<span class="string">'dist/js'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>我们是否可以保存两份js文件,一份已经压缩,另一份没有压缩的那？</li>
+</ul>
+<ul>
+<li>重命名 gulp-rename插件</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">gulp</span><span class="selector-class">.task</span>(<span class="string">'scripts'</span>,()=&gt;&#123;</span><br><span class="line"><span class="selector-tag">return</span> <span class="selector-tag">gulp</span><span class="selector-class">.src</span>([<span class="string">'js/nav.js'</span>,'js/banner.js’])</span><br><span class="line"><span class="selector-class">.pipe</span>(babel())</span><br><span class="line"><span class="selector-class">.pipe</span>(concat(<span class="string">'index.js'</span>))</span><br><span class="line"><span class="selector-class">.pipe</span>(gulp.dest(<span class="string">'dist/js'</span>))</span><br><span class="line"><span class="selector-class">.pipe</span>(uglify())</span><br><span class="line"><span class="selector-class">.pipe</span>(rename(<span class="string">'index.min.js'</span>))</span><br><span class="line"><span class="selector-class">.pipe</span>(gulp.dest(<span class="string">'dist/js'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>css压缩  gulp-minify-css</li>
+<li>此处需要配合sass插件，将sass文件先编译成css文件后，在进行压缩</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="COFFEESCRIPT"><figure class="iseeu highlight /coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'sass'</span>,<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src(<span class="string">'stylesheet/**/*.scss'</span>)</span><br><span class="line">.pipe(sass())</span><br><span class="line">.pipe(minifyCSS())</span><br><span class="line">.pipe(gulp.dest(<span class="string">'dist/css'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>图片压缩gulp-imagemin插件</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="COFFEESCRIPT"><figure class="iseeu highlight /coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'image-copy'</span>,<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src(<span class="string">'images/**/*’)</span></span><br><span class="line"><span class="string">.pipe(imagemin())</span></span><br><span class="line"><span class="string">.pipe(gulp.dest('</span>dist/images<span class="string">'))</span></span><br><span class="line"><span class="string">&#125;)</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="TYPESCRIPT"><figure class="iseeu highlight /typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入gulp</span></span><br><span class="line"><span class="keyword">let</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);</span><br><span class="line"><span class="comment">// 引入connect</span></span><br><span class="line"><span class="keyword">let</span> connect = <span class="built_in">require</span>(<span class="string">"gulp-connect"</span>);</span><br><span class="line"><span class="comment">// 引入服务器代理插件</span></span><br><span class="line"><span class="keyword">let</span> proxy = <span class="built_in">require</span>(<span class="string">'http-proxy-middleware'</span>);</span><br><span class="line"><span class="comment">// 引入合并js插件</span></span><br><span class="line"><span class="keyword">let</span> concat = <span class="built_in">require</span>(<span class="string">"gulp-concat"</span>);</span><br><span class="line"><span class="comment">// 引入压缩js插件</span></span><br><span class="line"><span class="keyword">let</span> uglify = <span class="built_in">require</span>(<span class="string">"gulp-uglify"</span>);</span><br><span class="line"><span class="comment">// 引入重命名插件</span></span><br><span class="line"><span class="keyword">let</span> rename = <span class="built_in">require</span>(<span class="string">"gulp-rename"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> babel = <span class="built_in">require</span>(<span class="string">"gulp-babel"</span>);</span><br><span class="line"><span class="keyword">let</span> sass=<span class="built_in">require</span>(<span class="string">"gulp-sass"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// task()定义指令（命令）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// hello命令</span></span><br><span class="line">gulp.task(<span class="string">"hello"</span>,<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"hello gulp"</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.将文件从本地文件夹拷贝到上线文件夹，</span></span><br><span class="line"><span class="comment">// 2.每次修改文本地文件能自动转存</span></span><br><span class="line"><span class="comment">// 3.并且通过浏览器打开指定的上线文件夹中的文件</span></span><br><span class="line"><span class="comment">// 4.并且能在修改本地文件后，自动转存并且浏览器自动刷新</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// src()找到指定文件</span></span><br><span class="line"><span class="comment">// pipe()用来连缀执行gulp方法</span></span><br><span class="line"><span class="comment">// dest()用来转存到指定文件夹</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"index"</span>,<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">gulp.src([<span class="string">"src/**/*"</span>,<span class="string">"!src/*.txt"</span>,<span class="string">"!src/sass/*"</span>]) <span class="comment">//转存src下的所有文件夹和文件，不存.txt文件和.sass文件</span></span><br><span class="line">.pipe(gulp.dest(<span class="string">"server"</span>))</span><br><span class="line">.pipe(connect.reload());</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// watch()表示开启监听，监听某个文件的变化，自动执行指定的指令</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"watch"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">gulp.watch(<span class="string">"src/index.html"</span>,[<span class="string">"index"</span>])</span><br><span class="line">gulp.watch(<span class="string">"src/sass/index.scss"</span>,[<span class="string">"sass"</span>])</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"server"</span>,<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">connect.server(&#123;</span><br><span class="line">root:<span class="string">"server"</span>,  <span class="comment">//以哪个文件夹为服务器</span></span><br><span class="line">port:<span class="number">7777</span>,      <span class="comment">//端口号</span></span><br><span class="line">livereload:<span class="literal">true</span>, <span class="comment">//无刷新更新</span></span><br><span class="line">middleware: <span class="function"><span class="keyword">function</span>(<span class="params">connect, opt</span>) </span>&#123;  <span class="comment">// 引入服务器代理插件，实现跨域</span></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    proxy(<span class="string">'/api'</span>,  &#123;</span><br><span class="line">        target: <span class="string">'http://ip.taobao.com/service'</span>,</span><br><span class="line">        changeOrigin:<span class="literal">true</span>,</span><br><span class="line">        pathRewrite:&#123;</span><br><span class="line">            <span class="string">'^/api'</span>:<span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"all"</span>,[<span class="string">"watch"</span>,<span class="string">"server"</span>]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"changeJS"</span>,<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">gulp.src(<span class="string">"src/js/*.js"</span>)</span><br><span class="line">.pipe(concat(<span class="string">"index.js"</span>))</span><br><span class="line">.pipe(gulp.dest(<span class="string">"server/js"</span>))</span><br><span class="line">.pipe(uglify())</span><br><span class="line">.pipe(rename(<span class="string">"index.min.js"</span>))</span><br><span class="line">.pipe(gulp.dest(<span class="string">"server/js"</span>));</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"es6Toes5"</span>,<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">gulp.src(<span class="string">"src/js/banner.js"</span>)</span><br><span class="line">.pipe(babel())</span><br><span class="line">.pipe(gulp.dest(<span class="string">"server/js"</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../11/模块化/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            模块化
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../../04/30/node服务/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Node服务</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="../../../../userinfo" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

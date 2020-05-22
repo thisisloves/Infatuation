@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>面试总结Vue | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="翻过高山，正遇江海。行过雪原，恰逢花期。这大概就是行走的意义。">
+<meta name="keywords" content="面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试总结Vue">
+<meta property="og:url" content="https://github.com/thisisloves/2019/07/07/面试总结vue/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="翻过高山，正遇江海。行过雪原，恰逢花期。这大概就是行走的意义。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-12T04:45:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试总结Vue">
+<meta name="twitter:description" content="翻过高山，正遇江海。行过雪原，恰逢花期。这大概就是行走的意义。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="../../../../userinfo" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-面试总结vue" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      面试总结Vue
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-07-06T16:00:00.000Z" itemprop="datePublished">2019-07-07</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>翻过高山，正遇江海。行过雪原，恰逢花期。这大概就是行走的意义。</p>
+<a id="more"></a>
+<blockquote>
+<p>咖啡苦与甜，不在于怎么搅拌，而在于是否放糖；一段伤痛，不在于怎么忘记，而在于是否有勇气重新开始。</p>
+</blockquote>
+<ol>
+<li>vue组件间传值</li>
+</ol>
+<ul>
+<li>父组件传给子组件：子组件通过<strong>props</strong>方法接受数据;</li>
+<li>子组件传给父组件：$emit方法传递参数 emit: 发出 <strong>(e没t)</strong></li>
+<li>非父子组件间的数据传递，兄弟组件传值eventBus，就是创建一个事件中心，相当于中转站，可以用它来传递事件和接收事件。项目比较小时，用这个比较合适。（虽然也有不少人推荐直接用VUEX，具体来说看需求咯。技术只是手段，目的达到才是王道。）</li>
+</ul>
+<ol start="2">
+<li>vuex状态管理器</li>
+</ol>
+<ul>
+<li>只用来读取的状态集中放在<strong>store</strong>中； 改变状态的方式是提交<strong>mutations</strong>，这是个<strong>同步的事物</strong>； 异步逻辑应该<strong>封装在action</strong>中。</li>
+<li>在main.js引入store</li>
+<li>场景有：单页应用中，组件之间的状态、音乐播放、登录状态、加入购物车</li>
+</ul>
+<p>(1) state</p>
+<ul>
+<li>Vuex 使用单一状态树,即每个应用将仅仅包含一个store 实例，但单一状态树和模块化并不冲突。存放的数据状态，不可以直接修改里面的数据。<br>(2) mutations</li>
+<li>mutations定义的方法动态修改Vuex 的 store 中的状态或数据。<br>(3) getters</li>
+<li>类似vue的计算属性，主要用来过滤一些数据。<br>(4) action </li>
+<li>actions可以理解为通过<strong>将mutations里面处里数据的方法变成可异步的处理数据的方法</strong>，简单的说就是异步操作数据。view 层通过store.dispath 来分发 action。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PF"><figure class="iseeu highlight /pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const store = new Vuex.Store(&#123; //store实例</span><br><span class="line">      <span class="keyword">state</span>: &#123;</span><br><span class="line">         count: <span class="number">0</span></span><br><span class="line">             &#125;,</span><br><span class="line">      mutations: &#123;                </span><br><span class="line">         increment (<span class="keyword">state</span>) &#123;</span><br><span class="line">          <span class="keyword">state</span>.count++</span><br><span class="line">         &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">      actions: &#123; </span><br><span class="line">         increment (context) &#123;</span><br><span class="line">          context.commit('increment')</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<p>(5) modules <strong>(莫丢死)</strong></p>
+<ul>
+<li>项目特别复杂的时候，可以让每一个模块拥有自己的state、mutation、action、getters,使得结构非常清晰，方便管理。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="DTS"><figure class="iseeu highlight /dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const moduleA = &#123;</span><br><span class="line"><span class="symbol">  state:</span> &#123; ... &#125;,</span><br><span class="line"><span class="symbol">  mutations:</span> &#123; ... &#125;,</span><br><span class="line"><span class="symbol">  actions:</span> &#123; ... &#125;,</span><br><span class="line"><span class="symbol">  getters:</span> &#123; ... &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">const moduleB = &#123;</span><br><span class="line"><span class="symbol">  state:</span> &#123; ... &#125;,</span><br><span class="line"><span class="symbol">  mutations:</span> &#123; ... &#125;,</span><br><span class="line"><span class="symbol">  actions:</span> &#123; ... &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">const store = new Vuex.Store(&#123;</span><br><span class="line"><span class="symbol">  modules:</span> &#123;</span><br><span class="line"><span class="symbol">    a:</span> moduleA,</span><br><span class="line"><span class="symbol">    b:</span> moduleB</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>vue生命周期钩子函数</li>
+</ol>
+<ul>
+<li>beforeCreate（创建前） 在数据观测和初始化事件还未开始</li>
+<li>created（创建后） 完成数据观测，属性和方法的运算，初始化事件，$el属性还没有显示出来</li>
+<li>beforeMount（载入前） 在挂载开始之前被调用，相关的render函数首次被调用。实例已完成以下的配置：编译模板，把data里面的数据和模板生成html。注意此时还没有挂载html到页面上。</li>
+<li>mounted（载入后） 在el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用。实例已完成以下的配置：用上面编译好的html内容替换el属性指向的DOM对象。完成模板中的html渲染到html页面中。此过程中进行ajax交互。</li>
+<li>beforeUpdate（更新前） 在数据更新之前调用，发生在虚拟DOM重新渲染和打补丁之前。可以在该钩子中进一步地更改状态，不会触发附加的重渲染过程。</li>
+<li>updated（更新后） 在由于数据更改导致的虚拟DOM重新渲染和打补丁之后调用。调用时，组件DOM已经更新，所以可以执行依赖于DOM的操作。然而在大多数情况下，应该避免在此期间更改状态，因为这可能会导致更新无限循环。该钩子在服务器端渲染期间不被调用。</li>
+<li>beforeDestroy（销毁前） 在实例销毁之前调用。实例仍然完全可用。</li>
+<li>destroyed（销毁后） 在实例销毁之后调用。调用后，所有的事件监听器会被移除，所有的子实例也会被销毁。该钩子在服务器端渲染期间不被调用。</li>
+</ul>
+<ol start="4">
+<li>mvvm</li>
+</ol>
+<ul>
+<li>MVVM 是Model-View-ViewModel的缩写。</li>
+<li>Model代表数据模型，也可以在Model中定义数据修改和操作的业务逻辑</li>
+<li>View 代表UI组件，它负责将数据模型转化成UI展现出来.</li>
+<li>ViewModel监听模型数据的改变和控制视图行为，处理用户交互，简单理解就是一个同步View和Mode的对象，连接Model和View.</li>
+<li>在MVVM架构下,View和Model 之间并没有直接的联系，而是通过ViewModel进行交互，Model和ViewModel之间的交互是双向的，因此View 数据的变化会同步到Model中，而Model 数据的变化也会立即反应到View 上。<br>ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</li>
+</ul>
+<ol start="5">
+<li>数据双向绑定</li>
+</ol>
+<ul>
+<li>原理：实现方式Object.defineProperty() (普肉破里)  </li>
+<li>通过数据劫持结合发布订阅者模式的方法来实现的</li>
+<li><p>vue实现数据双向绑定主要是：采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter,getter,在数据变动时发布消息给订阅者，触发相应监听回调。当把一个普通 Javascript 对象传给 Vue 实例来作为它的 data 选项时，Vue 将遍历它的属性，用 Object.defineProperty 将它们转为 getter/setter。用户看不到 getter/setter，但是在内部它们让 Vue 追踪依赖，在属性被访问和修改时通知变化。</p>
+</li>
+<li><p>vue的数据双向绑定 将MVVM作为数据绑定的入口，整合Observer，Compile和Watcher三者，通过Observer来监听自己的model的数据变化，通过Compile来解析编译模板指令,最终利用watcher搭起observer和Compile之间的通信桥梁，达到数据变化 —&gt;视图更新；视图交互变化(input)—&gt;数据model变更双向绑定效果。</p>
+</li>
+</ul>
+<ol start="6">
+<li>Vue与Angular以及React的区别 ？</li>
+</ol>
+<p>(1) Vue与AngularJS的区别</p>
+<ul>
+<li>相同点：</li>
+<li><p>都支持指令：内置指令和自定义指令；都支持过滤器：内置过滤器和自定义过滤器；都支持双向数据绑定；都不支持低端浏览器。</p>
+</li>
+<li><p>不同点：</p>
+</li>
+<li>AngularJS的学习成本高，比如增加了Dependency Injection特性，而Vue.js本身提供的API都比较简单、直观；在性能上，AngularJS依赖对数据做脏检查，所以Watcher越多越慢；Vue.js使用基于依赖追踪的观察并且使用异步队列更新，所有的数据都是独立触发的。</li>
+</ul>
+<p>(2) Vue与React的区别</p>
+<ul>
+<li>相同点：</li>
+<li>React采用特殊的JSX语法，Vue.js在组件开发中也推崇编写.vue特殊文件格式，对文件内容都有一些约定，两者都需要编译后使用；中心思想相同：一切都是组件，组件实例之间可以嵌套；都提供合理的钩子函数，可以让开发者定制化地去处理需求；<br>都不内置列数AJAX，Route等功能到核心包，而是以插件的方式加载；在组件开发中都支持mixins的特性。</li>
+<li>不同点：</li>
+<li>React采用的Virtual DOM会对渲染出来的结果做检查;Vue.js在模板中提供了指令，过滤器等，可以非常方便，快捷地操作Virtual DOM。</li>
+</ul>
+<ol start="7">
+<li>什么是vue生命周期？</li>
+</ol>
+<ul>
+<li>Vue 实例从创建到销毁的过程，就是生命周期。从开始创建、初始化数据、编译模板、挂载Dom→渲染、更新→渲染、销毁等一系列过程，称之为 Vue 的生命周期。</li>
+</ul>
+<ol start="8">
+<li>vue生命周期的作用是什么？</li>
+</ol>
+<ul>
+<li>它的生命周期中有多个事件钩子，让我们在控制整个Vue实例的过程时更容易形成好的逻辑。</li>
+</ul>
+<ol start="9">
+<li>vue生命周期总共有几个阶段？</li>
+</ol>
+<ul>
+<li>它可以总共分为8个阶段：创建前/后, 载入前/后,更新前/后,销毁前/销毁后。</li>
+</ul>
+<ol start="10">
+<li>第一次页面加载会触发哪几个钩子？</li>
+</ol>
+<ul>
+<li>会触发 下面这几个beforeCreate, created, beforeMount, mounted 。</li>
+</ul>
+<ol start="11">
+<li>DOM 渲染在 哪个周期中就已经完成？</li>
+</ol>
+<ul>
+<li>DOM 渲染在 <strong>mounted 中就已经完成了。（芒腾的）</strong></li>
+</ul>
+<ol start="12">
+<li>vue路由的钩子函数</li>
+</ol>
+<ul>
+<li><p>首页可以控制导航跳转，beforeEach，afterEach等，一般用于页面title的修改。一些需要登录才能调整页面的重定向功能。</p>
+</li>
+<li><p>beforeEach主要有3个参数to，from，next：</p>
+</li>
+</ul>
+<p>(1)to：<strong>route即将进入的目标路由对象</strong><br>(2)from：<strong>route当前导航正要离开的路由</strong><br>(3)next：<strong>function一定要调用该方法resolve这个钩子。执行效果依赖next方法的调用参数。</strong> <strong>可以控制网页的跳转。</strong></p>
+<ol start="13">
+<li>vue-cli如何新增自定义指令？<br>(1) 创建局部指令</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PROCESSING"><figure class="iseeu highlight /processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;    </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 创建指令(可以多个)</span></span><br><span class="line">    directives: &#123;</span><br><span class="line">        <span class="comment">// 指令名称</span></span><br><span class="line">        dir1: &#123;</span><br><span class="line">            inserted(el) &#123;</span><br><span class="line">                <span class="comment">// 指令中第一个参数是当前使用指令的DOM</span></span><br><span class="line">                console.<span class="built_in">log</span>(el);</span><br><span class="line">                console.<span class="built_in">log</span>(arguments);</span><br><span class="line">                <span class="comment">// 对DOM进行操作</span></span><br><span class="line">                el.style.<span class="built_in">width</span> = <span class="string">'200px'</span>;</span><br><span class="line">                el.style.<span class="built_in">height</span> = <span class="string">'200px'</span>;</span><br><span class="line">                el.style.<span class="built_in">background</span> = <span class="string">'#000'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<p>(2)全局指令</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Vue</span><span class="selector-class">.directive</span>(<span class="string">'dir2'</span>, &#123;</span><br><span class="line">    <span class="selector-tag">inserted</span>(el) &#123;</span><br><span class="line">        <span class="selector-tag">console</span><span class="selector-class">.log</span>(el);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<p>(3)指令的使用</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="APPLESCRIPT"><figure class="iseeu highlight /applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> v-dir1&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> v-dir2&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></div>
+<ol start="14">
+<li>vue如何自定义一个过滤器？</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="DJANGO"><figure class="iseeu highlight /django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></span><br><span class="line"><span class="xml">     <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"msg"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">     </span><span class="template-variable">&#123;&#123;msg| capitalize &#125;&#125;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VIM"><figure class="iseeu highlight /vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">vm</span>=<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="keyword">e</span><span class="variable">l:</span><span class="string">"#app"</span>,</span><br><span class="line">    dat<span class="variable">a:</span>&#123;</span><br><span class="line">        ms<span class="variable">g:</span><span class="string">''</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">filter</span><span class="variable">s:</span> &#123;</span><br><span class="line">      capitalize: <span class="function"><span class="keyword">function</span> <span class="params">(value)</span> &#123;</span></span><br><span class="line">        <span class="keyword">if</span> (!value) <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">        value = value.toString()</span><br><span class="line">        <span class="keyword">return</span> value.charAt(<span class="number">0</span>).toUpperCase() + value.slice(<span class="number">1</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>全局定义过滤器</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LIVECODESERVER"><figure class="iseeu highlight /livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.<span class="built_in">filter</span>(<span class="string">'capitalize'</span>, <span class="function"><span class="keyword">function</span> (<span class="title">value</span>) &#123;</span></span><br><span class="line">  <span class="keyword">if</span> (!<span class="built_in">value</span>) <span class="literal">return</span> <span class="string">''</span></span><br><span class="line">  <span class="built_in">value</span> = <span class="built_in">value</span>.toString()</span><br><span class="line">  <span class="literal">return</span> <span class="built_in">value</span>.charAt(<span class="number">0</span>).toUpperCase() + <span class="built_in">value</span>.slice(<span class="number">1</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>过滤器接收表达式的值 (msg) 作为第一个参数。capitalize 过滤器将会收到 msg的值作为第一个参数。</li>
+</ul>
+<ol start="15">
+<li>对keep-alive 的了解？</li>
+</ol>
+<ul>
+<li>keep-alive是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。</li>
+<li>在vue 2.1.0 版本之后，keep-alive新加入了两个属性: include(包含的组件缓存) 与 exclude(排除的组件不缓存，优先级大于include) 。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">'include_components'</span> <span class="attr">exclude</span>=<span class="string">'exclude_components'</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 该组件是否缓存取决于include和exclude属性 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>参数解释</li>
+<li>include - <strong>字符串或正则表达式，只有名称匹配的组件会被缓存</strong></li>
+<li>exclude - <strong>字符串或正则表达式，任何名称匹配的组件都不会被缓存</strong></li>
+<li>include 和 exclude 的属性允许组件有条件地缓存。二者都可以用“，”分隔字符串、正则表达式、数组。当使用正则或者是数组时，要记得使用v-bind。</li>
+</ul>
+<ol start="16">
+<li>css只在当前组件起作用</li>
+</ol>
+<ul>
+<li>在style标签中写入scoped即可 例如：<style scoped></style></li>
+</ul>
+<ol start="17">
+<li>v-if 和 v-show 区别</li>
+</ol>
+<ul>
+<li>v-if按照<strong>条件是否渲染</strong>，<strong>v-show是display的block或none</strong>；</li>
+</ul>
+<ol start="18">
+<li>$route和$router的区别</li>
+</ol>
+<ul>
+<li>$route是<strong>路由信息对象</strong>，包括path，params，hash，query，fullPath，matched，name等路由信息参数。</li>
+<li>而$router是<strong>路由实例</strong>对象包括了路由的跳转方法，钩子函数等。</li>
+</ul>
+<ol start="19">
+<li>vue.js的两个核心是什么？</li>
+</ol>
+<ul>
+<li>数据驱动、组件系统</li>
+</ul>
+<ol start="20">
+<li>vue几种常用的指令</li>
+</ol>
+<ul>
+<li>v-for 、 v-if 、v-bind、v-on、v-show、v-else</li>
+</ul>
+<ol start="21">
+<li>vue常用的修饰符？</li>
+</ol>
+<ul>
+<li>.prevent: 提交事件不再重载页面；.stop: 阻止单击事件冒泡；.self: 当事件发生在该元素本身而不是子元素的时候会触发；.capture: 事件侦听，事件发生的时候会调用</li>
+</ul>
+<ol start="22">
+<li>v-on 可以绑定多个方法吗？</li>
+</ol>
+<ul>
+<li>可以</li>
+</ul>
+<ol start="23">
+<li>vue中 key 值的作用？</li>
+</ol>
+<ul>
+<li>当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用“就地复用”策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序，而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。<strong>key的作用主要是为了高效的更新虚拟DOM。</strong></li>
+</ul>
+<ol start="24">
+<li>什么是vue的计算属性？</li>
+</ol>
+<ul>
+<li>在模板中放入太多的逻辑会让模板过重且难以维护，在需要对数据进行复杂处理，且可能多次使用的情况下，尽量采取计算属性的方式。</li>
+<li>好处：<br>(1)使得数据处理结构清晰；<br>(2)依赖于数据，数据更新，处理结果自动更新；<br>(3)计算属性内部this指向vm实例；<br>(4)在template调用时，直接写计算属性名即可；<br>(5)常用的是getter方法，获取数据，也可以使用set方法改变数据；<br>(6)相较于methods<strong>买色式*</strong>，不管依赖的数据变不变，methods都会重新计算，但是依赖数据不变的时候computed从缓存中获取，不会重新计算。</li>
+</ul>
+<ol start="25">
+<li>vue等单页面应用及其优缺点<br>答：优点：Vue 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件，核心是一个响应的数据绑定系统。MVVM、数据驱动、组件化、轻量、简洁、高效、快速、模块友好。<br>缺点：不支持低版本的浏览器，最低只支持到IE9；不利于SEO的优化（如果要支持SEO，建议通过服务端来进行渲染组件）；第一次加载首页耗时相对长一些；不可以使用浏览器的导航按钮需要自行实现前进、后退。</li>
+</ol>
+<ol start="26">
+<li>vue计算属性和监听属性的区别</li>
+</ol>
+<ul>
+<li>computer</li>
+</ul>
+<ol>
+<li>是计算值</li>
+<li>应用：就是简化tempalte里面双花括号计算和处理props或$emit的传值</li>
+<li>具有缓存性，页面重新渲染值不变化,计算属性会立即返回之前的计算结果，而不必再次执行函数</li>
+</ol>
+<ul>
+<li>watch特性</li>
+</ul>
+<ol>
+<li>是观察的动作</li>
+<li>应用：监听props，$emit或本组件的值执行异步操作</li>
+<li>无缓存性，页面重新渲染时值不变化也会执行</li>
+</ol>
+<ol start="27">
+<li>v-model </li>
+</ol>
+<ul>
+<li><p>表单输入绑定</p>
+</li>
+<li><p>v-model 指令在表单 输入框 复选框  元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 v-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。</p>
+</li>
+<li><p>v-model 会忽略所有表单元素的 value、checked、selected 特性的初始值而总是将 Vue 实例的数据作为数据来源。你应该通过 JavaScript 在组件的 data 选项中声明初始值。</p>
+</li>
+<li><p>v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：</p>
+</li>
+<li><p>text 和 textarea 元素使用 value 属性和 input 事件；</p>
+</li>
+<li>checkbox 和 radio 使用 checked 属性和 change 事件；</li>
+<li>select 字段将 value 作为 prop 并将 change 作为事件。</li>
+<li>对于需要使用输入法 (如中文、日文、韩文等) 的语言，你会发现 v-model 不会在输入法组合文字过程中得到更新。如果你也想处理这个过程，请使用 input 事件。</li>
+</ul>
+<ol start="29">
+<li>vue中nextTick的作用</li>
+</ol>
+<ul>
+<li>在下次DOM更新循环结束后执行延迟回调。在修改数据后立即使用这个方法，获取更新后的DOM</li>
+<li>简单理解：DOM中渲染后，自动执行该函数。</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../面试总结js/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            面试总结Js
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../../06/24/H5和C3新增特性/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">H5和C3新增特性</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="../../../../userinfo" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

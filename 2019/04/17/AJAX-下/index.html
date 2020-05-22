@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>AJAX-下 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="难怪这个花季女孩的身上会有一种雪一般的味道，因为曾在孤独一人的世界中生活过，感受过世界上最可怕的寒冷，所以即使在最炙烈的的阳光中都带着微微的凉意。">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AJAX-下">
+<meta property="og:url" content="https://github.com/thisisloves/2019/04/17/AJAX-下/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="难怪这个花季女孩的身上会有一种雪一般的味道，因为曾在孤独一人的世界中生活过，感受过世界上最可怕的寒冷，所以即使在最炙烈的的阳光中都带着微微的凉意。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-19T13:56:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AJAX-下">
+<meta name="twitter:description" content="难怪这个花季女孩的身上会有一种雪一般的味道，因为曾在孤独一人的世界中生活过，感受过世界上最可怕的寒冷，所以即使在最炙烈的的阳光中都带着微微的凉意。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="../../../../userinfo" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-AJAX-下" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      AJAX-下
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-04-16T16:00:00.000Z" itemprop="datePublished">2019-04-17</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JS/">JS</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>难怪这个花季女孩的身上会有一种雪一般的味道，因为曾在孤独一人的世界中生活过，感受过世界上最可怕的寒冷，所以即使在最炙烈的的阳光中都带着微微的凉意。<br><a id="more"></a></p>
+<blockquote>
+<p>愿意给任何人机会，但她生下来就没有机会。不喜欢她的不是你或我，不喜欢她的是这个世界。</p>
+</blockquote>
+<h3 id="数据发送"><a href="#数据发送" class="headerlink" title="数据发送"></a>数据发送</h3><ul>
+<li>POST发送的数据和GET发送的数据被请求地址接收到后显示的格式不一致</li>
+<li>GET发送的数据被解析成key和value</li>
+<li>POST发送的数据会被解析成字符串</li>
+<li>在发送数据之前ajax.send(“user=admin”),设置请求头信息</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ajax</span><span class="selector-class">.setRequestHeader</span>(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</span><br></pre></td></tr></table></figure></div>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><ul>
+<li>什么情况下会发生跨域：</li>
+<li>当本机请求服务器上数据的时候：会发生跨域；</li>
+<li>当本地服务器请求其他服务器数据的时候回发生跨域；</li>
+</ul>
+<ol>
+<li>为什么有跨域</li>
+</ol>
+<ul>
+<li>同源策略：基于浏览器的安全考虑，浏览器各个厂商之间出现了一个约定，这个约定叫做同源策略。这个约定的主要内容就是，域和域之间数据不共通。</li>
+<li>所谓同源是指：协议、域名、端口相同</li>
+</ul>
+<ol start="2">
+<li>跨域的用途</li>
+</ol>
+<ul>
+<li><p>当网站发展壮大到一定地步的时候，会建立很多的节点，各个节点的IP是不同的，所以跨域问题就会出现。</p>
+</li>
+<li><p>当测试阶段数据和本机的IP不通用的时候，那么跨域问题也会发生。</p>
+</li>
+</ul>
+<ol start="3">
+<li>为什么要跨域。</li>
+</ol>
+<ul>
+<li>因为要获得其他域中的数据；</li>
+</ul>
+<h3 id="后台的跨域解决方案"><a href="#后台的跨域解决方案" class="headerlink" title="后台的跨域解决方案"></a>后台的跨域解决方案</h3><ul>
+<li>CORS跨域</li>
+<li>在php中加入以下两句就可以实现跨域访问</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LASSO"><figure class="iseeu highlight /lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">header</span>(<span class="string">'Access-Control-Allow-Origin:*'</span>);<span class="comment">//允许所有来源访问</span></span><br><span class="line"><span class="keyword">header</span>(<span class="string">'Access-Control-Allow-Method:POST,GET'</span>);<span class="comment">//允许访问的方式</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="ajax-post请求"><a href="#ajax-post请求" class="headerlink" title="ajax post请求"></a>ajax post请求</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="QML"><figure class="iseeu highlight /qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> <span class="built_in">url</span>=<span class="string">"http://localhost/1/post.php"</span>;</span><br><span class="line">ajaxPost(<span class="built_in">url</span>,<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    <span class="attribute">user</span>:<span class="string">"admin"</span>,</span><br><span class="line">    <span class="attribute">pass</span>:<span class="number">123</span></span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajaxPost</span>(<span class="params">url,callback,data</span>)</span>&#123;</span><br><span class="line">data=data?<span class="attribute">data</span>:&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> str=<span class="string">""</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> data)&#123;</span><br><span class="line">    str=str+i+<span class="string">"="</span>+data[i]+<span class="string">"&amp;"</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(str);	<span class="comment">//user=admin&amp;pass=123&amp;		</span></span><br><span class="line"><span class="keyword">var</span> ajax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">ajax.open(<span class="string">"post"</span>,<span class="built_in">url</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ajax.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(ajax.readyState == <span class="number">4</span> &amp;&amp; ajax.status == <span class="number">200</span>)&#123;</span><br><span class="line">    callback(ajax.responseText)</span><br><span class="line">&#125;</span><br><span class="line">&#125;<span class="comment">//post不需要用时间戳解决缓存问题</span></span><br><span class="line"><span class="comment">//设置发送头信息，将发送的数据以表单数据的格式发往后台</span></span><br><span class="line">ajax.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">ajax.send(str.slice(<span class="number">0</span>,str.length<span class="number">-1</span>));</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="向服务器发送请求"><a href="#向服务器发送请求" class="headerlink" title="向服务器发送请求"></a>向服务器发送请求</h3><ul>
+<li>如需将请求发送到服务器，我们使用 XMLHttpRequest 对象的 open() 和 send() 方法</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ACCESSLOG"><figure class="iseeu highlight /accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open(<span class="string">"<span class="keyword">GET</span>"</span>,<span class="string">"test1.txt"</span>,true);</span><br><span class="line">xmlhttp.send(string);</span><br></pre></td></tr></table></figure></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">open(method,url,async)</td>
+<td style="text-align:center">规定请求的类型、URL 以及是否异步处理请求</td>
+</tr>
+<tr>
+<td style="text-align:center">send(string)</td>
+<td style="text-align:center">将请求发送到服务器</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>method：请求的类型；GET 或 POST</li>
+<li>url：文件在服务器上的位置</li>
+<li>async：true（异步）或 false（同步）</li>
+<li>string：仅用于 POST 请求</li>
+</ul>
+<h3 id="JSONP封装"><a href="#JSONP封装" class="headerlink" title="JSONP封装"></a>JSONP封装</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>json的封装<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> url=<span class="string">"http://127.0.0.1/1/jsonp5.php"</span>;</span></span><br><span class="line"><span class="actionscript">    jsonp(url,<span class="function"><span class="keyword">function</span><span class="params">(res)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(res)</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line"><span class="actionscript">    user:<span class="string">"root"</span>,</span></span><br><span class="line">    pass:704206198</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">jsonp</span><span class="params">(url,callback,data)</span></span>&#123;</span></span><br><span class="line">    data=data?data:&#123;&#125;;</span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> str=<span class="string">""</span>;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> data)&#123;</span></span><br><span class="line"><span class="actionscript">        str=str+i+<span class="string">"="</span>+data[i]+<span class="string">"&amp;"</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> d=<span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="actionscript">    url = url + <span class="string">"?"</span> + str + <span class="string">"="</span> + d.getTime()</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(url);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> script=<span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span></span><br><span class="line">    script.src= url;</span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.body.appendChild(script)</span></span><br><span class="line">    </span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.fnHtml=<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123; <span class="comment">//局部作用域的全局函数-向上传</span></span></span><br><span class="line">        callback(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="JSONP封装-1"><a href="#JSONP封装-1" class="headerlink" title="JSONP封装"></a>JSONP封装</h3><ul>
+<li>后台接口名不固定，多传一个数据</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="QML"><figure class="iseeu highlight /qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> <span class="built_in">url</span> = <span class="string">"http://127.0.0.1/1/jsonp6.php"</span>;</span><br><span class="line">    jsonp(<span class="built_in">url</span>,<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    <span class="attribute">user</span>:<span class="string">"root"</span>,</span><br><span class="line">    <span class="attribute">pass</span>:<span class="number">704206198</span>,</span><br><span class="line">    <span class="comment">//根据后台指定的字段名cb，传输函数名，函数名就随意了，传给后台的</span></span><br><span class="line">    <span class="attribute">cb</span>:<span class="string">"heiheihe"</span>,</span><br><span class="line">    <span class="comment">//column表示后台接收的要执行的函数名所在的字段名，传给自己函数的</span></span><br><span class="line">    <span class="attribute">column</span>:<span class="string">"cb"</span></span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">url,callback,data</span>)</span>&#123;</span><br><span class="line">data = data || &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> data)&#123;</span><br><span class="line">    str = str + i + <span class="string">"="</span> + data[i] + <span class="string">"&amp;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">url</span> = <span class="built_in">url</span> + <span class="string">"?"</span> + str + <span class="string">"_qft="</span> + d.getTime()</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">url</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">script.src = <span class="built_in">url</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">window</span>[data[data.column]] = <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">    callback(res)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><ul>
+<li><p>这个对象有三种状态：Pending（进行中）、Resolved（已完成，又称 Fulfilled）和 Rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是 Promise 这个名字的由来，承诺，表示其他手段无法改变。</p>
+</li>
+<li><p>这个对象状态有一定顺序， 从 Pending 到Resolved 再到 Rejected 这个顺序不可逆;</p>
+</li>
+</ul>
+<ol>
+<li>进行中</li>
+<li>成功了 || 失败了</li>
+</ol>
+<ul>
+<li>使用:</li>
+</ul>
+<ol>
+<li>首先要实例化promise;</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HAXE"><figure class="iseeu highlight /haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="type">Promise</span>()</span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li>实例化的时候，这个Promise对象接受一个函数参数,这个函数参数有两个参数: success 和 failed;</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">success,failed</span>)</span>&#123;&#125;)</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>然后在函数内部调用 success 代表 决定(成功); failed 代表 失败;</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">success,failed</span>)</span>&#123;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>做一些异步操作</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    success(<span class="string">"成功"</span>);</span><br><span class="line">&#125;, <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random()*<span class="number">1000</span>));</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    failed(<span class="string">"失败了"</span>);</span><br><span class="line">&#125;,<span class="number">500</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+<ol start="4">
+<li>紧接着是resolved的好兄弟 then()</li>
+</ol>
+<ul>
+<li><strong>then</strong>方法接受两个参数，两个参数都是函数，第一个函数成功调用，第二个函数失败时调用;而且then函数会等待， 什么时候 promise对象状态改变了， 什么时候then执行;</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="FORTRAN"><figure class="iseeu highlight /fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p.<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(value)</span></span>&#123;</span><br><span class="line">    console.<span class="built_in">log</span>(<span class="keyword">value</span>);  //成功时调用</span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span><span class="params">(value)</span></span>&#123;</span><br><span class="line">    console.<span class="built_in">log</span>(<span class="keyword">value</span>);  //失败时调用</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<h3 id="promise改造ajax依赖调用"><a href="#promise改造ajax依赖调用" class="headerlink" title="promise改造ajax依赖调用"></a>promise改造ajax依赖调用</h3><ul>
+<li>使用promise检测ajax的请求状态，利用promise的成功状态函数，返回ajax请求到的数据</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../18/Bootstrap/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Bootstrap
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../JSON转换/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">JSON转换</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="../../../../userinfo" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

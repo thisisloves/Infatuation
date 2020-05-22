@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>jQuery Ajax | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="但是我们能说在春天遇到花是对的 而在冬天遇到鱼是错的吗？在错误的时间遇到就能克制自己不喜欢那个人吗？">
+<meta name="keywords" content="jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery Ajax">
+<meta property="og:url" content="https://github.com/thisisloves/2019/04/26/jQuery Ajax/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="但是我们能说在春天遇到花是对的 而在冬天遇到鱼是错的吗？在错误的时间遇到就能克制自己不喜欢那个人吗？">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-28T11:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery Ajax">
+<meta name="twitter:description" content="但是我们能说在春天遇到花是对的 而在冬天遇到鱼是错的吗？在错误的时间遇到就能克制自己不喜欢那个人吗？">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="../../../../userinfo" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-jQuery Ajax" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery Ajax
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-04-25T16:00:00.000Z" itemprop="datePublished">2019-04-26</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>但是我们能说在春天遇到花是对的 而在冬天遇到鱼是错的吗？在错误的时间遇到就能克制自己不喜欢那个人吗？<br><a id="more"></a></p>
+<blockquote>
+<p>世界上有两万个你一见钟情的人，但有可能你一生中一个也遇不到。</p>
+</blockquote>
+<h3 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h3><ul>
+<li>异步和同步</li>
+<li>使用 Ajax 最关键的地方，就是实现异步请求、接受响应及执行回调。那么异步与同步 有什么区别呢？我们普通的 Web 程序开发基本都是同步的，意为执行一段程序才能执行下 一段，类似电话中的通话，一个电话接完才能接听下个电话；而异步可以同时执行多条任务， 感觉有多条线路，类似于短信，不会因为看一条短信而停止接受另一条短信。Ajax 也可以 使用同步模式执行，但同步的模式属于阻塞模式，这样会导致多条线路执行时又必须一条一条执行，会让 Web 页面出现假死状态，所以，一般 Ajax 大部分采用异步模式。</li>
+</ul>
+<ul>
+<li>jQuery对Ajax采用了三层封装，其中最底层的是$.ajax(),中层封装是.load()，$.get()，$.post，最顶层是getScript和getJSON()。</li>
+</ul>
+<h3 id="load-方法"><a href="#load-方法" class="headerlink" title=".load()方法"></a>.load()方法</h3><ul>
+<li>jquery对Ajax进行了大量封装，对于封装方式，jquery采用了三层封装，其中$.ajax()是最底层封装，上层封装方法有.load()方法， $.get()，$.post()方法;</li>
+<li>.load()方法是局部方法,.load()方法中共有三个参数，一个是url，链接地址，第二个是发送的数据data，第三个是回调函数callback，期中第二个参数为非必选参数。</li>
+</ul>
+<ol>
+<li>参数url, 可以提供筛选功能。</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GAUSS"><figure class="iseeu highlight /gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$().<span class="keyword">load</span>('data/test.html ')</span><br><span class="line">$().<span class="keyword">load</span>('data/text.html .<span class="built_in">box</span>')&gt;&gt;&gt;筛选功能</span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li>data参数传入决定，是否以post方式提交参数是一个对象形式传入。</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="POWERSHELL"><figure class="iseeu highlight /powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span>().load(<span class="string">'data/test.html'</span>,&#123; <span class="keyword">data</span>:<span class="string">'admin'</span> &#125;)</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>回调函数function(response,status,xhr){}</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$().load(<span class="string">'data/test.html'</span>,&#123; <span class="attr">data</span>:<span class="string">'admin'</span> &#125;,<span class="function"><span class="keyword">function</span>(<span class="params">response,status,xhr</span>)</span>&#123;&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><p>response ：返回结果，和页面里内容一样 。</p>
+</li>
+<li><p>status ：状态，success，或者error</p>
+</li>
+<li><p>xhr ：XMLHttpRequest，他是<strong>一个对象</strong></p>
+</li>
+<li><p>xhr有四个常用属性</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">responseText</td>
+<td style="text-align:center">作为响应主体被返回的文本</td>
+</tr>
+<tr>
+<td style="text-align:center">responseXML</td>
+<td style="text-align:center">如果响应主体内容类型是”text/xml”或”application/xml”， 则返回包含响应数据的 XMLDOM 文档</td>
+</tr>
+<tr>
+<td style="text-align:center">status</td>
+<td style="text-align:center">响应的 HTTP 状态（状态码）</td>
+</tr>
+<tr>
+<td style="text-align:center">statusText</td>
+<td style="text-align:center">HTTP 状态的说明</td>
+</tr>
+</tbody>
+</table>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
+<li>将html结构分离</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cont"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/2.2.4/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> url=<span class="string">"http://localhost/day30/data/data.html"</span>;   </span></span><br><span class="line"><span class="javascript">    $(<span class="string">".cont"</span>).load(url,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;                   <span class="comment">//引用头部的部分填充进.cont</span></span></span><br><span class="line"><span class="javascript">    $(<span class="string">"cont"</span>).find(<span class="string">"ul"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="number">1</span>);</span></span><br><span class="line">    &#125;)		</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="javascript">    $(<span class="string">".footer"</span>).load(<span class="string">"http://localhost/day30/data/footer.html p"</span>)  <span class="comment">//引用页脚的部分的p填充.footer</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="get-和-post"><a href="#get-和-post" class="headerlink" title="$.get()和$.post()"></a>$.get()和$.post()</h3><ul>
+<li>$.get()和$.post()有四个参数，其中第一个地址参数为必填参数，第二个参数data，和第三个callback函数和.load()方法一样， 第四个参数为type</li>
+<li><p>$.get(‘data/test.html’,{ name:’admin’ },’html’)</p>
+</li>
+<li><p>由于php返回的值默认为纯文本格式，所以数据格式html和text格式可以不写。如果写入数据格式，那么默认会强制转换为该格式。如果传入错误格式，那么不会有返回值。</p>
+</li>
+<li><p>注：一般情况下，type都是只能判断，并不需要人为设置，除非需要打印整个文件的代码，才需要强制类型转换。</p>
+</li>
+<li><p>$.get()和$.post()的差别:$.get()是以get方式提交，$.post()方式是以post方式提交。</p>
+</li>
+</ul>
+<ol>
+<li>get方式提交数据是吧数据放在浏览器网址上面的，post是通过http消息，实体提交的。</li>
+<li>get提交方式有大小限制，限制在2KB，而post方式不收大小限制。</li>
+<li>get方式因为在浏览器中会被历史记录缓存，所以这种提交数据方式并不安全，post方式没有这种问题。</li>
+<li>在服务器端（php语言），get方式通过$GET[]方式获取，post通过$POST[]方式获取。</li>
+</ol>
+<h3 id="post应用"><a href="#post应用" class="headerlink" title="$.post应用"></a>$.post应用</h3><ul>
+<li>$.get和$.post使用一样</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span><span class="attr">id</span>=<span class="string">"btn"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/2.2.4/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> url=<span class="string">"http://localhost/day30/php/data-post.php"</span>;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> xhr=$.post(url,&#123;</span></span><br><span class="line"><span class="actionscript">        user:<span class="string">"admin"</span>,</span></span><br><span class="line">        pass:1234</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="actionscript">        xhr.error(<span class="function"><span class="keyword">function</span><span class="params">(a,b,c)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(a,b,c)</span></span><br><span class="line">        &#125;)</span><br><span class="line"><span class="actionscript">        xhr.success(<span class="function"><span class="keyword">function</span><span class="params">(a,b,c)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(a,b,c)</span></span><br><span class="line">        &#125;)</span><br><span class="line"><span class="javascript">        xhr.then(<span class="function"><span class="keyword">function</span>(<span class="params">a,b,c</span>)</span>&#123;<span class="built_in">console</span>.log(a,b,c)&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">a,b,c</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(a,b,c)</span></span><br><span class="line">        &#125;)</span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(xhr);</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="ajax-方法；"><a href="#ajax-方法；" class="headerlink" title="$.ajax()方法；"></a>$.ajax()方法；</h3><ul>
+<li><p>getScript()和$.getJSON()；</p>
+</li>
+<li><p>jquery封装AJAX的最顶层，用于特定情况下的使用。 有三个参数,与$.get()和$.post()方法，前三个参数相同。</p>
+</li>
+<li><p>getScript()在需要资源的时候加载，是实现资源节约的时候需要用到的一个方法。</p>
+</li>
+<li>$.ajax()方法</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line"><span class="string">url:</span><span class="string">''</span>, 链接路径</span><br><span class="line"><span class="string">type:</span><span class="string">'post/get'</span></span><br><span class="line">用什么方式提交</span><br><span class="line"><span class="string">data:</span>&#123;键:值&#125;,</span><br><span class="line">传入数据用键值对方式传入</span><br><span class="line"><span class="string">success:</span>function()&#123; 成功是传入的参数 &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>表单序列化</li>
+<li>当页面上表单需要提交时，我们如果把数据直接写在data里面工作量会很大，所以出现了表单序列化。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ELIXIR"><figure class="iseeu highlight /elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span><span class="string">'form'</span>).serialize()</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><p>表单序列化是把整个表单内容提取出来，组成一个键值对，并且对URL进行编码。</p>
+</li>
+<li><p>$.ajaxSetup()  ajax初始化对于ajax可以做一个预先设置，减少重复。</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$.ajaxSetup(&#123;</span><br><span class="line"><span class="string">url:</span><span class="string">''</span>,</span><br><span class="line"><span class="string">type:</span><span class="string">'post'</span>,</span><br><span class="line"><span class="string">data:</span>&#123;<span class="string">user:</span><span class="string">'ddd'</span>&#125;</span><br><span class="line">&#125;)</span><br><span class="line">$.ajax(&#123;</span><br><span class="line"><span class="string">success:</span>function(data)&#123;</span><br><span class="line">alert(data)</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<h3 id="ajax应用"><a href="#ajax应用" class="headerlink" title="$.ajax应用"></a>$.ajax应用</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span><span class="attr">id</span>=<span class="string">"btn"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/2.2.4/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">$(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> url=<span class="string">"http://localhost/day30/php/data-post.php"</span>;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> xhr=$.ajax(&#123;</span></span><br><span class="line"><span class="actionscript">        type:<span class="string">"post"</span>,</span></span><br><span class="line">        data:&#123;</span><br><span class="line"><span class="actionscript">            user:<span class="string">"admin"</span>,</span></span><br><span class="line">            pass:1234</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="actionscript">        url:<span class="string">"http://localhost/day30/php/data-post.php"</span>,</span></span><br><span class="line"><span class="actionscript">        success:<span class="function"><span class="keyword">function</span><span class="params">(a,b,c)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(a,b,c,<span class="string">"success"</span>);</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;);</span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(xhr);</span></span><br><span class="line">    </span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>$.param()方法，用来<strong>解析对象</strong></li>
+</ul>
+<h3 id="解析对象方法serialize"><a href="#解析对象方法serialize" class="headerlink" title="解析对象方法serialize()"></a>解析对象方法serialize()</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span><span class="attr">name</span>=<span class="string">"user"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span><span class="attr">name</span>=<span class="string">"pass"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span><span class="attr">name</span>=<span class="string">"tel"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span><span class="attr">id</span>=<span class="string">"btn"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/2.2.4/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="comment">//	    	user=admin&amp;pass=123</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> obj=&#123;</span></span><br><span class="line"><span class="actionscript">        user:<span class="string">"admin"</span>,</span></span><br><span class="line">        pass:123</span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log($.param(obj));  <span class="comment">//user=admin&amp;pass=123</span></span></span><br><span class="line">    </span><br><span class="line"><span class="javascript">    $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log($(<span class="string">"form"</span>).serialize());   <span class="comment">//user=admin&amp;pass=123&amp;tel=123</span></span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>因为浏览器对对象的解析有限，太过复杂的对象无法解析，于是出现了$.param()方法用来解析对象。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">alert</span>($.param(&#123;</span><br><span class="line"><span class="attribute">email</span>:<span class="string">'ddd'</span>,</span><br><span class="line"><span class="attribute">user</span>:<span class="string">'lll'</span></span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">全局函数类型</th>
+<th style="text-align:center">何时被触发</th>
+<th style="text-align:center">参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ajaxStart</td>
+<td style="text-align:center">在jQuery AJAX函数或命令发起时，但在XHR实例被创建之前</td>
+<td style="text-align:center">类型被设置为ajaxStart的全局回调信息对象</td>
+</tr>
+<tr>
+<td style="text-align:center">ajaxSend</td>
+<td style="text-align:center">在XHR实例被创建之后，但在XHR实例被发送给服务器之前</td>
+<td style="text-align:center">类型被设置为ajaxSend的全局回调信息对象；XHR实例；$.ajax()函数使用的属性</td>
+</tr>
+<tr>
+<td style="text-align:center">ajaxSuccess</td>
+<td style="text-align:center">在请求已从服务器返回之后，并且响应包含成功状态码</td>
+<td style="text-align:center">类型被设置为ajaxSuccess的全局回调信息对象；XHR实例；$.ajax()函数使用的属性</td>
+</tr>
+<tr>
+<td style="text-align:center">ajaxError</td>
+<td style="text-align:center">在请求已从服务器返回之后，并且响应包含失败状态码</td>
+<td style="text-align:center">类型被设置为ajaxError的全局回调信息对象；XHR实例；$.ajax()函数使用的属性；被XHR实例返回的异常对象(如果有的话)</td>
+</tr>
+<tr>
+<td style="text-align:center">ajaxComplete</td>
+<td style="text-align:center">在请求已从服务器返回之后，并且在任何已声名的ajaxSuccess或ajaxError回调函数已被调用之后</td>
+<td style="text-align:center">类型被设置为ajaxComplete的全局回调信息对象；XHR实例；$.ajax()函数使用的属性</td>
+</tr>
+<tr>
+<td style="text-align:center">ajaxStop</td>
+<td style="text-align:center">在所有其他AJAX处理完成以及任何其他适用的全局回调函数已被调用之后</td>
+<td style="text-align:center">类型被设置为ajaxStop的全局回调信息对象</td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://datainfo.duapp.com/shopdata/datainfo.html登陆接口及接口文档；登陆注册功能" target="_blank" rel="noopener">http://datainfo.duapp.com/shopdata/datainfo.html登陆接口及接口文档；登陆注册功能</a>;</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../jQuery事件/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            jQuery 事件
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../25/jQuery选择器/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">jQuery选择器</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="../../../../userinfo" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

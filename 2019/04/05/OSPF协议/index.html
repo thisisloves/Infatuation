@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>OSPF协议 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="可你觉得孤独又能怎么样啊?你觉得孤独也不过是心情更差而已嘛。以前没什么人跟你说话，你觉得孤独，也还是没人跟你说话啊。">
+<meta name="keywords" content="网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSPF协议">
+<meta property="og:url" content="https://github.com/thisisloves/2019/04/05/OSPF协议/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="可你觉得孤独又能怎么样啊?你觉得孤独也不过是心情更差而已嘛。以前没什么人跟你说话，你觉得孤独，也还是没人跟你说话啊。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-15T06:45:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OSPF协议">
+<meta name="twitter:description" content="可你觉得孤独又能怎么样啊?你觉得孤独也不过是心情更差而已嘛。以前没什么人跟你说话，你觉得孤独，也还是没人跟你说话啊。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="../../../../userinfo" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-OSPF协议" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      OSPF协议
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-04-04T16:00:00.000Z" itemprop="datePublished">2019-04-05</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/网络/">网络</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>可你觉得孤独又能怎么样啊?你觉得孤独也不过是心情更差而已嘛。以前没什么人跟你说话，你觉得孤独，也还是没人跟你说话啊。<br><a id="more"></a></p>
+<blockquote>
+<p>活着”的概念不是等着慢慢死去，而是要不断地奔跑，跑到很远的地方去看尽可能广大的世界，跑到筋疲力尽才不会后悔。</p>
+</blockquote>
+<h3 id="OSPF路由协议概念及工作原理"><a href="#OSPF路由协议概念及工作原理" class="headerlink" title="OSPF路由协议概念及工作原理"></a>OSPF路由协议概念及工作原理</h3><ul>
+<li><p>OSPF（Open Shortest Path First）路由协议是由IETF（Internet Engineering Task Force）IGP工作小组提出的，是一种基于SPF算法的路由协议</p>
+</li>
+<li><p>OSPF路由协议是一种典型的链路状态（Link-state）的路由协议，一般用于同一个路由域内。在这里，路由域是指一个自治系统（Autonomous System），即AS，它是指一组通过统一的路由政策或路由协议互相交换路由信息的网络。在这个AS中，所有的OSPF路由器都维护一个相同的描述这个AS结构的数据库，该数据库中存放的是路由域中相应链路的状态信息，OSPF路由器正是通过这个数据库计算出其OSPF路由表的。</p>
+</li>
+<li><p>作为一种链路状态的路由协议，OSPF将链路状态广播数据包LSA（Link State Advertisement）传送给在某一区域内的所有路由器，这一点与距离矢量路由协议不同。运行距离矢量路由协议的路由器是将部分或全部的路由表传递给与其相邻的路由器。</p>
+</li>
+</ul>
+<h3 id="数据包格式"><a href="#数据包格式" class="headerlink" title="数据包格式"></a>数据包格式</h3><ul>
+<li><p>在OSPF路由协议的数据包中，其数据包头长为24个字节，包含如下8个字段：</p>
+<ul>
+<li>Version number-定义所采用的OSPF路由协议的版本。</li>
+<li>Type-定义OSPF数据包类型。OSPF数据包共有五种：</li>
+<li>Hello-用于建立和维护相邻的两个OSPF路由器的关系，该数据包是周期性地发送的。</li>
+<li>Database Description-用于描述整个数据库，该数据包仅在OSPF初始化时发送。</li>
+<li>Link state request-用于向相邻的OSPF路由器请求部分或全部的数据，这种数据包是在当路由器发现其数据已经过期时才发送的。</li>
+<li>Link state update-这是对link state请求数据包的响应，即通常所说的LSA数据包。</li>
+<li>Link state acknowledgment-是对LSA数据包的响应。</li>
+<li>Packet length-定义整个数据包的长度。</li>
+<li>Router ID-用于描述数据包的源地址，以IP地址来表示。</li>
+<li>Area ID-用于区分OSPF数据包属于的区域号，所有的OSPF数据包都属于一个特定的OSPF区域。</li>
+<li>Checksum-校验位，用于标记数据包在传递时有无误码。</li>
+<li>Authentication type-定义OSPF验证类型。</li>
+<li>Authentication-包含OSPF验证信息，长为8个字节。</li>
+</ul>
+</li>
+</ul>
+<h3 id="OSPF基本算法"><a href="#OSPF基本算法" class="headerlink" title="OSPF基本算法"></a>OSPF基本算法</h3><ol>
+<li>SPF算法及最短路径树<br>SPF算法是OSPF路由协议的基础。SPF算法有时也被称为Dijkstra算法，这是因为最短路径优先算法SPF是Dijkstra发明的。SPF算法将每一个路由器作为根（ROOT）来计算其到每一个目的地路由器的距离，每一个路由器根据一个统一的数据库会计算出路由域的拓扑结构图，该结构图类似于一棵树，在SPF算法中，被称为最短路径树。在OSPF路由协议中，最短路径树的树干长度，即OSPF路由器至每一个目的地路由器的距离，称为OSPF的Cost，其算法为：Cost = 100×106/链路带宽</li>
+</ol>
+<ul>
+<li><p>在这里，链路带宽以bps来表示。也就是说，OSPF的Cost 与链路的带宽成反比，带宽越高，Cost越小，表示OSPF到目的地的距离越近。举例来说，FDDI或快速以太网的Cost为1，2M串行链路的Cost为48，10M以太网的Cost为10等。</p>
+<ol start="2">
+<li>链路状态算法<br>作为一种典型的链路状态的路由协议，OSPF还得遵循链路状态路由协议的统一算法。链路状态的算法非常简单，在这里将链路状态算法概括为以下四个步骤：</li>
+</ol>
+</li>
+<li><p>当路由器初始化或当网络结构发生变化（例如增减路由器，链路状态发生变化等）时，路由器会产生链路状态广播数据包LSA(Link-State Advertisement)，该数据包里包含路由器上所有相连链路，也即为所有端口的状态信息。</p>
+</li>
+<li><p>所有路由器会通过一种被称为刷新（Flooding）的方法来交换链路状态数据。Flooding是指路由器将其LSA数据包传送给所有与其相邻的OSPF路由器，相邻路由器根据其接收到的链路状态信息更新自己的数据库，并将该链路状态信息转送给与其相邻的路由器，直至稳定的一个过程。 当网络重新稳定下来，也可以说OSPF路由协议收敛下来时，所有的路由器会根据其各自的链路状态信息数据库计算出各自的路由表。该路由表中包含路由器到每一个可到达目的地的Cost以及到达该目的地所要转发的下一个路由器（next-hop）。</p>
+</li>
+<li><p>第4个步骤实际上是指OSPF路由协议的一个特性。当网络状态比较稳定时，网络中传递的链路状态信息是比较少的，或者可以说，当网络稳定时，网络中是比较安静的。这也正是链路状态路由协议区别与距离矢量路由协议的一大特点。</p>
+</li>
+</ul>
+<h3 id="OSPF路由协议的基本特征"><a href="#OSPF路由协议的基本特征" class="headerlink" title="OSPF路由协议的基本特征"></a>OSPF路由协议的基本特征</h3><ul>
+<li><p>前文已经说明了OSPF路由协议是一种链路状态的路由协议，为了更好地说明OSPF路由协议的基本特征，我们将OSPF路由协议与距离矢量路由协议之一的RIP（Routing Information Protocol）作一比较，归纳为如下几点：</p>
+</li>
+<li><p>RIP路由协议中用于表示目的网络远近的唯一参数为跳（HOP），也即到达目的网络所要经过的路由器个数。在RIP路由协议中，该参数被限制为最大15，也就是说RIP路由信息最多能传递至第16个路由器；对于OSPF路由协议，路由表中表示目的网络的参数为Cost，该参数为一虚拟值，与网络中链路的带宽等相关，也就是说OSPF路由信息不受物理跳数的限制。并且，OSPF路由协议还支持TOS（Type of Service）路由，因此，OSPF比较适合应用于大型网络中。</p>
+</li>
+<li><p>RIP路由协议不支持变长子网屏蔽码（VLSM），这被认为是RIP路由协议不适用于大型网络的又一重要原因。采用变长子网屏蔽码可以在最大限度上节约IP地址。OSPF路由协议对VLSM有良好的支持性。</p>
+</li>
+<li><p>RIP路由协议路由收敛较慢。RIP路由协议周期性地将整个路由表作为路由信息广播至网络中，该广播周期为30秒。在一个较为大型的网络中，RIP协议会产生很大的广播信息，占用较多的网络带宽资源；并且由于RIP协议30秒的广播周期，影响了RIP路由协议的收敛，甚至出现不收敛的现象。而OSPF是一种链路状态的路由协议，当网络比较稳定时，网络中的路由信息是比较少的，并且其广播也不是周期性的，因此OSPF路由协议即使是在大型网络中也能够较快地收敛。</p>
+</li>
+<li><p>在RIP协议中，网络是一个平面的概念，并无区域及边界等的定义。随着无级路由CIDR概念的出现，RIP协议就明显落伍了。在OSPF路由协议中，一个网络，或者说是一个路由域可以划分为很多个区域area，每一个区域通过OSPF边界路由器相连，区域间可以通过路由总结（Summary）来减少路由信息，减小路由表，提高路由器的运算速度。</p>
+</li>
+<li><p>OSPF路由协议支持路由验证，只有互相通过路由验证的路由器之间才能交换路由信息。并且OSPF可以对不同的区域定义不同的验证方式，提高网络的安全性。</p>
+</li>
+<li><p>OSPF路由协议对负载分担的支持性能较好。OSPF路由协议支持多条Cost相同的链路上的负载分担，目前一些厂家的路由器支持6条链路的负载分担。</p>
+</li>
+</ul>
+<h3 id="区域及域间路由"><a href="#区域及域间路由" class="headerlink" title="区域及域间路由"></a>区域及域间路由</h3><ul>
+<li><p>前文已经提到过，在OSPF路由协议的定义中，可以将一个路由域或者一个自治系统AS划分为几个区域。在OSPF中，由按照一定的OSPF路由法则组合在一起的一组网络或路由器的集合称为区域（AREA）。</p>
+</li>
+<li><p>在OSPF路由协议中，每一个区域中的路由器都按照该区域中定义的链路状态算法来计算网络拓扑结构，这意味着每一个区域都有着该区域独立的网络拓扑数据库及网络拓扑图。对于每一个区域，其网络拓扑结构在区域外是不可见的，同样，在每一个区域中的路由器对其域外的其余网络结构也不了解。这意味着OSPF路由域中的网络链路状态数据广播被区域的边界挡住了，这样做有利于减少网络中链路状态数据包在全网范围内的广播，也是OSPF将其路由域或一个AS划分成很多个区域的重要原因。</p>
+</li>
+<li><p>随着区域概念的引入，意味着不再是在同一个AS内的所有路由器都有一个相同的链路状态数据库，而是路由器具有与其相连的每一个区域的链路状态信息，即该区域的结构数据库，当一个路由器与多个区域相连时，我们称之为区域边界路由器。一个区域边界路由器有自身相连的所有区域的网络结构数据。在同一个区域中的两个路由器有着对该区域相同的结构数据库。</p>
+</li>
+<li><p>我们可以根据IP数据包的目的地地址及源地址将OSPF路由域中的路由分成两类，当目的地与源地址处于同一个区域中时，称为区域内路由，当目的地与源地址处于不同的区域甚至处于不同的AS时，我们称之为域间路由。</p>
+</li>
+<li><p>OSPF的骨干区域及虚拟链路（Virtual-link）</p>
+</li>
+<li><p>在OSPF路由协议中存在一个骨干区域（Backbone），该区域包括属于这个区域的网络及相应的路由器，骨干区域必须是连续的，同时也要求其余区域必须与骨干区域直接相连。骨干区域一般为区域0，其主要工作是在其余区域间传递路由信息。所有的区域，包括骨干区域之间的网络结构情况是互不可见的，当一个区域的路由信息对外广播时，其路由信息是先传递至区域0(骨干区域)，再由区域0将该路由信息向其余区域作广播。</p>
+</li>
+<li><p>在实际网络中，可能会存在backbone不连续的或者某一个区域与骨干区域物理不相连的情况，在这两种情况下，系统管理员可以通过设置虚拟链路的方法来解决。</p>
+</li>
+<li><p>虚拟链路是设置在两个路由器之间，这两个路由器都有一个端口与同一个非骨干区域相连。虚拟链路被认为是属于骨干区域的，在OSPF路由协议看来，虚拟链路两端的两个路由器被一个点对点的链路连在一起。在OSPF路由协议中，通过虚拟链路的路由信息是作为域内路由来看待的。下面我们分两种情况来说明虚拟链路在OSPF路由协议中的作用。</p>
+</li>
+</ul>
+<ol>
+<li>当一个区域与area0没有物理链路相连时</li>
+</ol>
+<ul>
+<li><p>前文已经提到，一个骨干区域Area 0必须位于所有区域的中心，其余所有区域必须与骨干区域直接相连。但是，也存在一个区域无法与骨干区域建立物理链路的可能性，在这种情况下，我们可以采用虚拟链路。虚拟链路使该区域与骨干区域间建立一个逻辑联接点，该虚拟链路必须建立在两个区域边界路由器之间，并且其中一个区域边界路由器必须属于骨干区域。</p>
+</li>
+<li><p>在上面所示的例子中，区域1与区域0并无物理相连链路，我们可以在路由器A及路由器B之间建立虚拟链路，这样，将区域2作为一个穿透网络（Transit-network），路由器B作为接入点，区域1就与区域0建立了逻辑联接。</p>
+</li>
+</ul>
+<ol start="2">
+<li>当骨干区域不连续时</li>
+</ol>
+<ul>
+<li><p>OSPF路由协议要求骨干区域area0必须是连续的，但是，骨干区域也会出现不连续的情况，例如，当我们想把两个OSPF路由域混合到一起，并且想要使用一个骨干区域时，或者当某些路由器出现故障引起骨干区域不连续的情况，在这些情况下，我们可以采用虚拟链路将两个不连续的区域0连接到一起。这时，虚拟链路的两端必须是两个区域0的边界路由器，并且这两个路由器必须都有处于同一个区域的端口。</p>
+</li>
+<li><p>在上面的例子中，穿过区域1的虚拟链路将两个分为两半的骨干区域连接到一起，路由器A与B之间的路由信息作为OSPF域内路由来处理。</p>
+</li>
+<li><p>另外，当一个非骨干区域的区域分裂成两半时，不能采用虚拟链路的方法来解决。当出现这种情况时，分裂出的其中一个区域将被其余的区域作为域间路由来处理。 残域（Stub area）</p>
+</li>
+<li><p>在OSPF路由协议的链路状态数据库中，可以包括AS外部链路状态信息，这些信息会通过flooding传递到AS内的所有OSPF路由器上。但是，在OSPF路由协议中存在这样一种区域，我们把它称为残域（stub area），AS外部信息不允许广播进/出这个区域。对于残域来说，访问AS外部的数据只能根据默认路由（default-route）来寻址。这样做有利于减小残域内部路由器上的链路状态数据库的大小及存储器的使用，提高路由器计算路由表的速度。</p>
+</li>
+<li><p>当一个OSPF的区域只存在一个区域出口点时，我们可以将该区域配置成一个残域，在这时，该区域的边界路由器会对域内广播默认路由信息。需要注意的是，一个残域中的所有路由器都必须知道自身属于该残域，否则残域的设置没有作用。另外，针对残域还有两点需要注意：一是残域中不允许存在虚拟链路；二是残域中不允许存在AS边界路由器。</p>
+</li>
+</ul>
+<h3 id="OSPF协议路由器及链路状态数据包分类"><a href="#OSPF协议路由器及链路状态数据包分类" class="headerlink" title="OSPF协议路由器及链路状态数据包分类"></a>OSPF协议路由器及链路状态数据包分类</h3><ol>
+<li>OSPF路由器分类</li>
+</ol>
+<ul>
+<li><p>当一个AS划分成几个OSPF区域时，根据一个路由器在相应的区域之内的作用，可以将OSPF路由器作如下分类：</p>
+</li>
+<li><p>内部路由器：当一个OSPF路由器上所有直联的链路都处于同一个区域时，我们称这种路由器为内部路由器。内部路由器上仅仅运行其所属区域的OSPF运算法则。</p>
+</li>
+<li><p>区域边界路由器：当一个路由器与多个区域相连时，我们称之为区域边界路由器。区域边界路由器运行与其相连的所有区域定义的OSPF运算法则，具有相连的每一个区域的网络结构数据，并且了解如何将该区域的链路状态信息广播至骨干区域，再由骨干区域转发至其余区域。</p>
+</li>
+<li><p>AS边界路由器：AS边界路由器是与AS外部的路由器互相交换路由信息的OSPF路由器，该路由器在AS内部广播其所得到的AS外部路由信息；这样AS内部的所有路由器都知道至AS边界路由器的路由信息。AS边界路由器的定义是与前面几种路由器的定义相独立的，一个AS边界路由器可以是一个区域内部路由器或是一个区域边界路由器。</p>
+</li>
+<li><p>指定路由器—DR：在一个广播性的、多接入的网络（例如Ethernet、TokenRing及FDDI环境）中，存在一个指定路由器（Designated Router），指定路由器主要在OSPF协议中完成如下工作：</p>
+</li>
+<li><p>指定路由器产生用于描述所处的网段的链路数据包—network link，该数据包里包含在该网段上所有的路由器，包括指定路由器本身的状态信息。</p>
+</li>
+<li><p>指定路由器与所有与其处于同一网段上的OSPF路由器建立相邻关系。由于OSPF路由器之间通过建立相邻关系及以后的flooding来进行链路状态数据库是同步的，因此，我们可以说指定路由器处于一个网段的中心地位。 ——需要说明的是，指定路由器DR的定义与前面所定义的几种路由器是不同的。DR的选择是通过OSPF的Hello数据包来完成的，在OSPF路由协议初始化的过程中，会通过Hello数据包在一个广播性网段上选出一个ID最大的路由器作为指定路由器DR，并且选出ID次大的路由器作为备份指定路由器BDR，BDR在DR发生故障后能自动替代DR的所有工作。当一个网段上的DR和BDR选择产生后，该网段上的其余所有路由器都只与DR及BDR建立相邻关系。在这里，一个路由器的ID是指向该路由器的标识，一般是指该路由器的环回端口或是该路由器上的最小的IP地址。</p>
+</li>
+</ul>
+<ol start="2">
+<li>OSPF链路状态广播数据包种类</li>
+</ol>
+<ul>
+<li><p>随着OSPF路由器种类概念的引入，OSPF路由协议又对其链路状态广播数据包（LSA）作出了分类。OSPF将链路状态广播数据包共分成5类，分别为：<br>类型1：又被称为路由器链路信息数据包（Router Link），所有的OSPF路由器都会产生这种数据包，用于描述路由器上联接到某一个区域的链路或是某一端口的状态信息。路由器链路信息数据包只会在某一个特定的区域内广播，而不会广播至其它的区域。</p>
+</li>
+<li><p>在类型1的链路数据包中，OSPF路由器通过对数据包中某些特定数据位的设定，告诉其余的路由器自身是一个区域边界路由器或是一个AS边界路由器。并且，类型1的链路状态数据包在描述其所联接的链路时，会根据各链路所联接的网络类型对各链路打上链路标识，Link ID。表一列出了常见的链路类型及链路标识。</p>
+</li>
+<li><p>链路类型 具体描述 链路标识 </p>
+</li>
+</ul>
+<ol>
+<li>用于描述点对点的网络 相邻路由器的路由器标识 </li>
+<li>用于描述至一个广播性网络的链路 DR的端口地址 </li>
+<li>用于描述至非穿透网络，即stub网络的链路 stub网络的网络号码 </li>
+<li>用于描述虚拟链路 相邻路由器的路由器标识</li>
+</ol>
+<ul>
+<li><p>类型2：又被称为网络链路信息数据包（Network Link）。网络链路信息数据包是由指定路由器产生的，在一个广播性的、多点接入的网络，例如以太网、令牌环网及FDDI网络环境中，这种链路状态数据包用来描述该网段上所联接的所有路由器的状态信息。</p>
+</li>
+<li><p>指定路由器DR只有在与至少一个路由器建立相邻关系后才会产生网络链路信息数据包，在该数据包中含有对所有已经与DR建立相邻关系的路由器的描述，包括DR路由器本身。类型2的链路信息只会在包含DR所处的广播性网络的区域中广播，不会广播至其余的OSPF路由区域。</p>
+</li>
+<li><p>类型3和类型4：类型3和类型4的链路状态广播在OSPF路由协议中又称为总结链路信息数据包（Summary Link），该链路状态广播是由区域边界路由器或AS边界路由器产生的。Summary Link描述的是到某一个区域外部的路由信息，这一个目的地地址必须是同一个AS中。Summary Link也只会在某一个特定的区域内广播。类型3与类型4两种总结性链路信息的区别在于，类型3是由区域边界路由器产生的，用于描述到同一个AS中不同区域之间的链路状态；而类型4是由AS边界路由器产生的，用于描述不同AS的链路状态信息。</p>
+</li>
+<li><p>值得一提的是，只有类型3的Summary Link才能广播进一个残域，因为在一个残域中不允许存在AS边界路由器。残域的区域边界路由器产生一条默认的Summary Link对域内广播，从而在其余路由器上产生一条默认路由信息。采用Summary Link可以减小残域中路由器的链路状态数据库的大小，进而减少对路由器资源的利用，提高路由器的运算速度。</p>
+</li>
+<li><p>类型5：类型5的链路状态广播称为AS外部链路状态信息数据包。类型5的链路数据包是由AS边界路由器产生的，用于描述到AS外的目的地的路由信息，该数据包会在AS中除残域以外的所有区域中广播。一般来说，这种链路状态信息描述的是到AS外部某一特定网络的路由信息，在这种情况下，类型5的链路状枋数据包的链路标识采用的是目的地网络的IP地址；在某些情况下，AS边界路由器可以对AS内部广播默认路由信息，在这时，类型5的链路广播数据包的链路标识采用的是默认网络号码0.0.0.0。</p>
+</li>
+</ul>
+<h3 id="OSPF协议工作过程"><a href="#OSPF协议工作过程" class="headerlink" title="OSPF协议工作过程"></a>OSPF协议工作过程</h3><ul>
+<li>OSPF路由协议针对每一个区域分别运行一套独立的计算法则，对于ABR来说，由于一个区域边界路由器同时与几个区域相联，因此一个区域边界路由器上会同时运行几套OSPF计算方法，每一个方法针对一个OSPF区域。下面对OSPF协议运算的全过程作一概括性的描述。</li>
+</ul>
+<ol>
+<li>区域内部路由<br>当一个OSPF路由器初始化时，首先初始化路由器自身的协议数据库，然后等待低层次协议（数据链路层）提示端口是否处于工作状态。</li>
+</ol>
+<ul>
+<li><p>如果低层协议得知一个端口处于工作状态时，OSPF会通过其Hello协议数据包与其余的OSPF路由器建立交互关系。一个OSPF路由器向其相邻路由器发送Hello数据包，如果接收到某一路由器返回的Hello数据包，则在这两个OSPF路由器之间建立起OSPF交互关系，这个过程在OSPF中被称为adjacency。在广播性网络或是在点对点的网络环境中，OSPF协议通过Hello数据包自动地发现其相邻路由器，在这时，OSPF路由器将Hello数据包发送至一特殊的多点广播地址，该多点广播地址为ALLSPFRouters。在一些非广播性的网络环境中，我们需要经过某些设置来发现OSPF相邻路由器。在多接入的环境中，例如以太网的环境，Hello协议数据包还可以用于选择该网络中的指定路由器DR。</p>
+</li>
+<li><p>一个OSPF路由器会与其新发现的相邻路由器建立OSPF的adjacency，并且在一对OSPF路由器之间作链路状态数据库的同步。在多接入的网络环增中，非DR的OSPF路由器只会与指定路由器DR建立adjacency，并且作数据库的同步。OSPF协议数据包的接收及发送正是在一对OSPF的adjacency间进行的。</p>
+</li>
+<li><p>OSPF路由器周期性地产生与其相联的所有链路的状态信息，有时这些信息也被称为链路状态广播LSA（Link State Advertisement）。当路由器相联接的链路状态发生改变时，路由器也会产生链路状态广播信息，所有这些广播数据是通过Flood的方式在某一个OSPF区域内进行的。Flooding算法是一个非常可靠的计算过程，它保证在同一个OSPF区域内的所有路由器都具有一个相同的OSPF数据库。根据这个数据库，OSPF路由器会将自身作为根，计算出一个最短路径树，然后，该路由器会根据最短路径树产生自己的OSPF路由表。</p>
+</li>
+</ul>
+<ol start="2">
+<li>建立OSPF交互关系adjacency</li>
+</ol>
+<ul>
+<li><p>OSPF路由协议通过建立交互关系来交换路由信息，但是并不是所有相邻的路由器会建立OSPF交互关系。下面将OSPF建立adjacency的过程简要介绍一下。</p>
+</li>
+<li><p>OSPF协议是通过Hello协议数据包来建立及维护相邻关系的，同时也用其来保证相邻路由器之间的双向通信。OSPF路由器会周期性地发送Hello数据包，当这个路由器看到自身被列于其它路由器的Hello数据包里时，这两个路由器之间会建立起双向通信。在多接入的环境中，Hello数据包还用于发现指定路由器DR，通过DR来控制与哪些路由器建立交互关系。</p>
+</li>
+<li><p>两个OSPF路由器建立双向通信这后的第二个步骤是进行数据库的同步，数据库同步是所有链路状态路由协议的最大的共性。在OSPF路由协议中，数据库同步关系仅仅在建立交互关系的路由器之间保持。</p>
+</li>
+<li><p>OSPF的数据库同步是通过OSPF数据库描述数据包（Database Description Packets）来进行的。OSPF路由器周期性地产生数据库描述数据包，该数据包是有序的，即附带有序列号，并将这些数据包对相邻路由器广播。相邻路由器可以根据数据库描述数据包的序列号与自身数据库的数据作比较，若发现接收到的数据比数据库内的数据序列号大，则相邻路由器会针对序列号较大的数据发出请求，并用请求得到的数据来更新其链路状态数据库。</p>
+</li>
+<li><p>我们可以将OSPF相邻路由器从发送Hello数据包，建立数据库同步至建立完全的OSPF交互关系的过程分成几个不同的状态，分别为：</p>
+</li>
+<li><p>Down：这是OSPF建立交互关系的初始化状态，表示在一定时间之内没有接收到从某一相邻路由器发送来的信息。在非广播性的网络环境内，OSPF路由器还可能对处于Down状态的路由器发送Hello数据包。</p>
+</li>
+<li><p>Attempt：该状态仅在NBMA环境，例如帧中继、X.25或ATM环境中有效，表示在一定时间内没有接收到某一相邻路由器的信息，但是OSPF路由器仍必须通过以一个较低的频率向该相邻路由器发送Hello数据包来保持联系。</p>
+</li>
+<li><p>Init：在该状态时，OSPF路由器已经接收到相邻路由器发送来的Hello数据包，但自身的IP地址并没有出现在该Hello数据包内，也就是说，双方的双向通信还没有建立起来。 ——2-Way：这个状态可以说是建立交互方式真正的开始步骤。在这个状态，路由器看到自身已经处于相邻路由器的Hello数据包内，双向通信已经建立。指定路由器及备份指定路由器的选择正是在这个状态完成的。在这个状态，OSPF路由器还可以根据其中的一个路由器是否指定路由器或是根据链路是否点对点或虚拟链路来决定是否建立交互关系。</p>
+</li>
+<li><p>Exstart：这个状态是建立交互状态的第一个步骤。在这个状态，路由器要决定用于数据交换的初始的数据库描述数据包的序列号，以保证路由器得到的永远是最新的链路状态信息。同时，在这个状态路由器还必须决定路由器之间的主备关系，处于主控地位的路由器会向处于备份地位的路由器请求链路状态信息。</p>
+</li>
+<li><p>Exchange：在这个状态，路由器向相邻的OSPF路由器发送数据库描述数据包来交换链路状态信息，每一个数据包都有一个数据包序列号。在这个状态，路由器还有可能向相邻路由器发送链路状态请求数据包来请求其相应数据。从这个状态开始，我们说OSPF处于Flood状态。</p>
+</li>
+<li><p>Loading：在loading状态，OSPF路由器会就其发现的相邻路由器的新的链路状态数据及自身的已经过期的数据向相邻路由器提出请求，并等待相邻路由器的回答。</p>
+</li>
+<li><p>Full：这是两个OSPF路由器建立交互关系的最后一个状态，在这时，建立起交互关系的路由器之间已经完成了数据库同步的工作，它们的链路状态数据库已经一致。 7.3 域间路由</p>
+</li>
+<li><p>前面一节描述了OSPF路由协议的单个区域中的计算过程。在单个OSPF区域中，OSPF路由协议不会产生更多的路由信息。为了与其余区域中的OSPF路由器通讯，该区域的边界路由器会产生一些其它的信息对域内广播，这些附加信息描绘了在同一个AS中的其它区域的路由信息。具体路由信息交换过程如下：</p>
+</li>
+<li><p>在OSPF的定义中，所有的区域都必须与区域0相联，因此每一个区域都必须有一个区域边界路由器与区域0相联，这一个区域边界路由器会将其相联接的区域内部结构数据通过Summary Link广播至区域0，也就是广播至所有其它区域的边界路由器。在这时，与区域0相联的边界路由器上有区域0及其它所有区域的链路状态信息，通过这些信息，这些边界路由器能够计算出至相应目的地的路由，并将这些路由信息广播至与其相联接的区域，以便让该区域内部的路由器找到与区域外部通信的最佳路由。</p>
+</li>
+</ul>
+<ol start="3">
+<li>AS外部路由</li>
+</ol>
+<ul>
+<li>一个自治域AS的边界路由器会将AS外部路由信息广播至整个AS中除了残域的所有区域。为了使这些AS外部路由信息生效，AS内部的所有的路由器（除残域内的路由器）都必须知道AS边界路由器的位置，该路由信息是由非残域的区域边界路由器对域内广播的，其链路广播数据包的类型为类型4。</li>
+</ul>
+<h3 id="OSPF路由协议验证"><a href="#OSPF路由协议验证" class="headerlink" title="OSPF路由协议验证"></a>OSPF路由协议验证</h3><ul>
+<li><p>在OSPF路由协议中，所有的路由信息交换都必须经过验证。在前文所描述的OSPF协议数据包结构中，包含有一个验证域及一个64位长度的验证数据域，用于特定的验证方式的计算。</p>
+</li>
+<li><p>OSPF数据交换的验证是基于每一个区域来定义的，也就是说，当在某一个区域的一个路由器上定义了一种验证方式时，必须在该区域的所有路由器上定义相同的协议验证方式。另外一些与验证相关的参数也可以基于每一个端口来定义，例如当采用单一口令验证时，我们可以对某一区域内部的每一个网络设置不同的口令字。 ——在OSPF路由协议的定义中，初始定义了两种协议验证方式，方式0及方式1，分别介绍如下：</p>
+</li>
+<li><p>验证方式0：采用验证方式0表示OSPF对所交换的路由信息不验证。在OSPF的数据包头内64位的验证数据位可以包含任何数据，OSPF接收到路由数据后对数据包头内的验证数据位不作任何处理。</p>
+</li>
+<li><p>验证方式1：验证方式1为简单口令字验证。这种验证方式是基于一个区域内的每一个网络来定义的，每一个发送至该网络的数据包的包头内都必须具有相同的64位长度的验证数据位，也就是说验证方式1的口令字长度为64bits，或者为8个字符。</p>
+</li>
+</ul>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>前文介绍了OSPF路由协议的概念及该协议的工作原理。OSPF路由协议定义于RFC1247及RFC1583，该协议提供了一个不同的网络通过同一种TCP/IP协议交换网络信息的途径。作为一种链路状态的路由协议，OSPF具备许多优点：快速收敛，支持变长网络屏蔽码，支持CIDR以及地址summary，具有层次化的网络结构，支持路由信息验证等。所有这些特点保证了OSPF路由协议能够被应用到大型的、复杂的网络环境中。</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../生成树协议/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            STP生成树协议
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../局域网城域网标准/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">IEE802标准</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="../../../../userinfo" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

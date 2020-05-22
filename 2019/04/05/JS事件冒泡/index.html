@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JS事件冒泡 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="打开这扇门你就会进入新的世界，但那样你就再也回不去了……你每做出一个新的选择，其他选项就消失了。自始至终，你都只有一条路走">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS事件冒泡">
+<meta property="og:url" content="https://github.com/thisisloves/2019/04/05/JS事件冒泡/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="打开这扇门你就会进入新的世界，但那样你就再也回不去了……你每做出一个新的选择，其他选项就消失了。自始至终，你都只有一条路走">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/04/04/5ca5ce48d2931.jpg">
+<meta property="og:updated_time" content="2019-04-20T03:23:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS事件冒泡">
+<meta name="twitter:description" content="打开这扇门你就会进入新的世界，但那样你就再也回不去了……你每做出一个新的选择，其他选项就消失了。自始至终，你都只有一条路走">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/04/5ca5ce48d2931.jpg">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="../../../../userinfo" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-JS事件冒泡" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      JS事件冒泡
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-04-04T16:00:00.000Z" itemprop="datePublished">2019-04-05</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JS/">JS</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>打开这扇门你就会进入新的世界，但那样你就再也回不去了……你每做出一个新的选择，其他选项就消失了。自始至终，你都只有一条路走<br><a id="more"></a></p>
+<blockquote>
+<p>绘染绚路,梨映花明,衣非冷矣。 路绘所绮,明为梨现,非失衣寒</p>
+</blockquote>
+<h3 id="事件监听的绑定方式"><a href="#事件监听的绑定方式" class="headerlink" title="事件监听的绑定方式"></a>事件监听的绑定方式</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LESS"><figure class="iseeu highlight /less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">obox</span><span class="selector-class">.addEventListener</span>(<span class="string">"click"</span>,callback,false)  <span class="comment">//正常浏览器</span></span><br><span class="line"><span class="selector-tag">obox</span><span class="selector-class">.attachEvent</span>(<span class="string">"onclick"</span>,callback)  <span class="comment">//IE</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">obox</span><span class="selector-class">.removeEventListener</span>(<span class="string">"click"</span>,fn1); </span><br><span class="line"><span class="selector-tag">obox</span><span class="selector-class">.detachEvent</span>(<span class="string">"onclick"</span>,fn1)</span><br></pre></td></tr></table></figure></div>
+<h3 id="事件冒泡与捕获"><a href="#事件冒泡与捕获" class="headerlink" title="事件冒泡与捕获"></a>事件冒泡与捕获</h3><ul>
+<li>事件冒泡与捕获是 DOM 中事件传播的两种方式，比如说对于注册了相同事件的两个 DOM 元素(简单点就是两个 div，一里一外)，当点击里层  div 的 时候，这两个事件谁先执行。</li>
+<li>冒泡事件，由里向外，最里层的元素先执行，然后冒泡到外层。</li>
+<li>捕获事件，由外向里，最外层的元素先执行，然后传递到内部。</li>
+<li>在 IE 9 之前是只支持事件冒泡，IE 9(包括 IE 9) 之后和目前主流的浏览器都同时支持两种事件。</li>
+<li>如何设置，只需修改 addEventListener的第三个参数，true 为捕获，false 为冒泡，默认为冒泡。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"out"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"in"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> dom_out = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'out'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> dom_in = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'in'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="actionscript">dom_out.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;alert(<span class="string">'out'</span>); &#125;,<span class="literal">false</span>);</span></span><br><span class="line"><span class="actionscript">dom_in.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;alert(<span class="string">'in'</span>); &#125;,<span class="literal">false</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>事件是按照冒泡来执行的，点击里层的 in，会看到先 alert 的顺序是先 “in” 后 “out”，如果把事件改成捕获，alert 的顺序又不一样了。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> dom_out = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'out'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> dom_in = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'in'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="actionscript">dom_out.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;alert(<span class="string">'out'</span>);&#125;,<span class="literal">true</span>);</span></span><br><span class="line"><span class="actionscript">dom_in.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;alert(<span class="string">'in'</span>);&#125;,<span class="literal">true</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>之所以会有冒泡和捕获事件(像 IE 9 之前的浏览器不支持捕获事件)，毕竟在实际中处理事情肯定有个先后顺序，要么由里向外，要么由外向里，两者都是必须的。</li>
+<li>但有时候为了兼容 IE 9 以下版本的浏览器，都会把第三个参数设置成 false 或者默认(默认就是 false)。</li>
+<li>进一步理解冒泡和捕获</li>
+<li><p>现在已经说清楚冒泡和捕获，那么如果同时出现冒泡和捕获会出现什么结果？</p>
+</li>
+<li><p>浏览器处理时间分为两个阶段，捕获阶段和冒泡阶段，</p>
+</li>
+<li>先执行捕获阶段，如果事件是在捕获阶段执行的(true 情况)，则执行；</li>
+<li><p>然后是冒泡阶段，如果事件是在冒泡阶段执行的(false 情况)，则执行；</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"s1"</span>&gt;</span>s1</span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"s2"</span>&gt;</span>s2</span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"s3"</span>&gt;</span>s3</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//设置三个 span，分别是 s1, s2, s3，然后设置 s1，s3 为冒泡执行，s2 为捕获执行：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> s1 = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'s1'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> s2 = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'s2'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> s3 = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'s3'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="actionscript">s1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;alert(<span class="string">'s1'</span>);&#125;,<span class="literal">false</span>);</span></span><br><span class="line"><span class="actionscript">s2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;alert(<span class="string">'s2'</span>);&#125;,<span class="literal">true</span>);</span></span><br><span class="line"><span class="actionscript">s3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;alert(<span class="string">'s3'</span>);&#125;,<span class="literal">false</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>点击 s3，依次 alert s2 =&gt; s3 =&gt; s1，说明：</p>
+</li>
+<li><p>捕获事件和冒泡事件同时存在的，而且捕获事件先执行，冒泡事件后执行；</p>
+</li>
+<li>如果元素存在事件且事件的执行时间与当前逻辑一致(冒泡或捕获)，则执行。</li>
+</ul>
+<h3 id="默认事件取消与停止冒泡"><a href="#默认事件取消与停止冒泡" class="headerlink" title="默认事件取消与停止冒泡"></a>默认事件取消与停止冒泡</h3><ul>
+<li><p>只执行最内层或最外层的事件，根据内外层关系来把范围更广的事件取消掉。event.stopPropagation()(IE 中window.event.cancelBubble = true)可以用来取消事件冒泡。</p>
+</li>
+<li><p>有时候对于浏览器的默认事件也需要取消，这时候用到的函数则是 event.preventDefault()(IE 中window.event.returnValue = false)。</p>
+</li>
+<li>那么默认事件取消和停止冒泡有什么区别呢？我的理解：浏览器的默认事件是指浏览器自己的事件，比如 a 标签 的点击，表单的提交等，取消掉就不会执行；冒泡则取消的是由外向里(捕获)、由里向外(冒泡)，stop 之后，就不会继续遍历了。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ACTIONSCRIPT"><figure class="iseeu highlight /actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span></span>&#123;e.stopPropagation();alert(<span class="string">'s1'</span>);&#125;,<span class="literal">false</span>);</span><br><span class="line">s2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span></span>&#123;e.stopPropagation(); alert(<span class="string">'s2'</span>);&#125;,<span class="literal">true</span>);</span><br><span class="line">s3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span></span>&#123;e.stopPropagation();alert(<span class="string">'s3'</span>);&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>结果是：当点击 s2 或 s3 的时候，都会 alert s2，点击 s1，弹出 s1。因为事件被取消的缘故，点击 s3，执行 s2后就不会在向下执行了。</li>
+<li>在看一个 preventDefault 的例子。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/"</span>&gt;</span>点我回主页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/"</span> <span class="attr">class</span>=<span class="string">"back"</span>&gt;</span>点我不回主页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> back = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'back'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="actionscript">back.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span></span>&#123;</span></span><br><span class="line">e.preventDefault();</span><br><span class="line">&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>第二个链接是不是回不了主页，因为浏览器的默认事件被取消了。</li>
+<li>两个兼容 IE 的函数吧：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ACTIONSCRIPT"><figure class="iseeu highlight /actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stopBubble</span><span class="params">(e)</span> </span>&#123;</span><br><span class="line"><span class="comment">//如果提供了事件对象，则这是一个非IE浏览器</span></span><br><span class="line"><span class="keyword">if</span> (e.stopPropagation)</span><br><span class="line">    <span class="comment">//因此它支持W3C的stopPropagation()方法</span></span><br><span class="line">    e.stopPropagation();</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="comment">//否则，我们需要使用IE的方式来取消事件冒泡</span></span><br><span class="line">    e.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>阻止浏览器的默认行为</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ACTIONSCRIPT"><figure class="iseeu highlight /actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stopDefault</span><span class="params">(e)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(e.preventDefault)&#123;</span><br><span class="line">    e.preventDefault()</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    e.returnValue=<span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;<span class="comment">// 清除右键默认样式</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="冒泡事件阻止"><a href="#冒泡事件阻止" class="headerlink" title="冒泡事件阻止"></a>冒泡事件阻止</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="STAN"><figure class="iseeu highlight /stan"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">e</span>.stopPropagation();</span><br><span class="line"><span class="built_in">e</span>.cancelBubble = true; <span class="comment">//IE</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="浏览器默认行为阻止"><a href="#浏览器默认行为阻止" class="headerlink" title="浏览器默认行为阻止"></a>浏览器默认行为阻止</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="STAN"><figure class="iseeu highlight /stan"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">e</span>.preventDefault();</span><br><span class="line"><span class="built_in">e</span>.returnValue=false;  <span class="comment">//IE</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="Event对象的一些兼容性写法"><a href="#Event对象的一些兼容性写法" class="headerlink" title="Event对象的一些兼容性写法"></a>Event对象的一些兼容性写法</h3><ul>
+<li>获得event对象兼容性写法 </li>
+<li>event || (event = window.event);</li>
+<li>获得target兼容型写法 </li>
+<li>event.target||event.srcElement</li>
+<li>阻止浏览器默认行为兼容性写法 </li>
+<li>event.preventDefault ? event.preventDefault() : (event.returnValue = false);</li>
+<li>阻止冒泡写法 </li>
+<li>event.stopPropagation ? event.stopPropagation() : (event.cancelBubble = true);</li>
+</ul>
+<p><a href="https://i.loli.net/2019/04/04/5ca5ce48d2931.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/04/04/5ca5ce48d2931.jpg" alt="1.jpg"></a></p>
+<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><ul>
+<li>委托的优点<br>(1) 减少内存消耗</li>
+<li>若果我们有一个列表，列表之中有大量的列表项，我们需要在点击列表项的时候响应一个事件；</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>item 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>item 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>item 3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">......  //未知</span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>item n<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>如果给每个列表项一一都绑定一个函数，那对于内存消耗是非常大的，效率上需要消耗很多性能；</li>
+<li>因此，比较好的方法就是把这个点击事件绑定到他的父层，也就是 <code>ul</code> 上，然后在执行事件的时候再去匹配判断目标元素；</li>
+<li>所以事件委托可以减少大量的内存消耗，节约效率。<br>(2) 动态绑定事件</li>
+<li>事件是绑定在父层的，和目标元素的增减是没有关系的，执行到目标元素是在真正响应执行事件函数的过程中去匹配的,</li>
+<li><p>将多个相同子元素的相同事件委托给页面上现存的共同的父元素，利用了事件冒泡的原理，配合事件源找到真正点击的元素，做事件处理</p>
+</li>
+<li><p>target:返回触发此事件的元素（事件的目标节点）</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    *&#123;<span class="attribute">margin</span>: <span class="number">0</span>;<span class="attribute">padding</span>: <span class="number">0</span>;&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-id">#list</span> &#123;<span class="attribute">width</span>: <span class="number">500px</span>;<span class="attribute">margin</span>: <span class="number">50px</span> auto;<span class="attribute">border</span>: <span class="number">1px</span> solid salmon;<span class="attribute">border-radius</span>:<span class="number">5px</span> ;<span class="attribute">box-shadow</span>:<span class="number">2px</span> <span class="number">2px</span> <span class="number">2px</span> <span class="number">4px</span> sandybrown;&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-id">#list</span> <span class="selector-tag">li</span>&#123;<span class="attribute">width</span>: <span class="number">460px</span>;<span class="attribute">height</span>: <span class="number">35px</span>;<span class="attribute">background</span>: skyblue;<span class="attribute">border-radius</span>:<span class="number">5px</span>;<span class="attribute">font</span>: <span class="number">18px</span>/<span class="number">35px</span> <span class="string">"微软雅黑"</span>;<span class="attribute">color</span>: <span class="number">#FFFFFF</span>;<span class="attribute">text-indent</span>: <span class="number">30px</span>;<span class="attribute">margin</span>:<span class="number">10px</span> auto;&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>6<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>7<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>8<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>9<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>10<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> olist=<span class="built_in">document</span>.getElementById(<span class="string">"list"</span>);</span></span><br><span class="line"><span class="actionscript">olist.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">(eve)</span></span>&#123;   <span class="comment">//事件绑定</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">//做兼容型处理</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> e=eve||<span class="built_in">window</span>.event;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> target=e.target||e.srcElement;</span></span><br><span class="line">    </span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(e.target);               <span class="comment">//点到谁 &lt;li&gt;？&lt;/li&gt; 就返回谁  //target返回触发此事件的元素（事件的目标节点）</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">if</span>(target.nodeName==<span class="string">"LI"</span>)&#123;           <span class="comment">//判断是否匹配目标元素</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(e.target.innerHTML); <span class="comment">///点几输出几</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="actionscript">封装事件委托，处理<span class="keyword">this</span>指向</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.onclick = EveEnt(ali,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="actionscript"><span class="comment">// this指向点击的子元素</span></span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">EveEnt</span><span class="params">(achild,callback)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(eve)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> e = eve || <span class="built_in">window</span>.event;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> target = e.target || e.srcElement;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;achild.length;i++)&#123;</span></span><br><span class="line">        if(achild[i] == target)&#123;</span><br><span class="line">            callback.bind(target)();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="事件流状态"><a href="#事件流状态" class="headerlink" title="事件流状态"></a>事件流状态</h3><ul>
+<li>捕获，目标，冒泡</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../08/JS ES6/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            JS ES6
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../载波侦听多路访问/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">载波侦听多路访问</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="../../../../userinfo" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
