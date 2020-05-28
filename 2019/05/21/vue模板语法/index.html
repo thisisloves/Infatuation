@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Vue模板语法 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="世界上有很多猴子，有傻猴子也有聪明猴子，聪明猴子在哪里都能过得好，傻猴子就只能跟着自己认的那个人跑。">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue模板语法">
+<meta property="og:url" content="https://github.com/thisisloves/2019/05/21/vue模板语法/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="世界上有很多猴子，有傻猴子也有聪明猴子，聪明猴子在哪里都能过得好，傻猴子就只能跟着自己认的那个人跑。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-21T14:23:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue模板语法">
+<meta name="twitter:description" content="世界上有很多猴子，有傻猴子也有聪明猴子，聪明猴子在哪里都能过得好，傻猴子就只能跟着自己认的那个人跑。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-vue模板语法" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Vue模板语法
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-05-20T16:00:00.000Z" itemprop="datePublished">2019-05-21</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/vue/">vue</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>世界上有很多猴子，有傻猴子也有聪明猴子，聪明猴子在哪里都能过得好，傻猴子就只能跟着自己认的那个人跑。</p>
+<a id="more"></a>
+<blockquote>
+<p>他会再无忧虑也再无恐惧，四季转换，岁月静好。许多年后他们要是有机会还能相逢一笑，这可能是他们最好的结果。</p>
+</blockquote>
+<h3 id="shim和polyfill"><a href="#shim和polyfill" class="headerlink" title="shim和polyfill"></a>shim和polyfill</h3><ul>
+<li>一个shim是一个库,它将一个新的API引入到一个旧的环境中,而且仅靠旧环境中已有的手段实现</li>
+<li>一个polyfill就是一个用在浏览器API上的shim.我们通常的做法是先检查当前浏览器是否支持某个API, 如果不支持的话就加载对应的polyfill.然后新旧浏览器就都可以使用这个API了.</li>
+<li><p>术语polyfill来自于 一个家装产品Polyfilla: Polyfilla是一个英国产品,在美国称之为Spackling Paste(中国称为腻子).</p>
+</li>
+<li><p>把旧的浏览器想象成为一面有了裂缝的墙.这些<strong>polyfills</strong>会帮助我们把这面墙的裂缝抹平,还我们一个更好的光滑的墙壁(浏览器) Paul Irish发布过一个Polyfills的总结页面“HTML5 Cross Browser Polyfills”</p>
+</li>
+<li><p>.es5-shim是一个shim(而不是polyfill)的例子, 它在ECMAScript 3的引擎上实现了ECMAScript 5的新特性,而且在Node.js上和在浏览器上有完全相同的表现(译者注:因为它能在Node.js上使用,不光浏览器上,所以它不是polyfill).</p>
+</li>
+<li>举个栗子，有些旧浏览器不支持Number.isNaN方法，Polyfill就可以是这样的</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="built_in">Number</span>.isNaN) &#123;</span><br><span class="line">     <span class="built_in">Number</span>.isNaN = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">         <span class="keyword">return</span>(num !== num); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>就是假如浏览器没有Number.isNaN方法，那咱们就给它添加上去，所谓Polyfill就是这样解决API的兼容问题的。</li>
+</ul>
+<h3 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN()"></a>isNaN()</h3><ul>
+<li>isNaN()函数用来确定一个值是否为NaN 。注：isNaN函数内包含一些非常有趣的规则；你也可以通过ECMAScript 2015/ES6 中定义的Number.isNaN()或者 可以使用typeof 来判断该值是否为一个非数字。</li>
+</ul>
+<h3 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h3><ul>
+<li>v-html vue提供的一个指令，相当于原生js中的 innerHTML 的功能,相当于jQuery中的().html() </li>
+<li>v-text vue提供的一个指令，相当于原生js中的 innerText 的功能,相当于 jQuery 中的().text() ,一般会用 文本 形式代替 ,</li>
+<li>作用： 防止XSS,CSRF</li>
+<li>用途：传递的代码中如果有HTML标签，并且需要解析的时候，比如说 详情页面 的 详情部分 ，一搬后台会返回带有图文的一些HTML代码</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">data: &#123;</span><br><span class="line">    msg: '<span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello vue<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h3><ul>
+<li>表达式赞成使用三元（目）运算符，不赞成写其余的业务逻辑</li>
+<li>虽然赞成你使用三元运算符，但不是必须，以此案例为例，可以使用vue的 过滤器(filter)实现</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XQUERY"><figure class="iseeu highlight /xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span><span class="xquery">&#123;&#123;sex==<span class="number">0</span> ? <span class="string">'女'</span> : <span class="string">'男'</span>&#125;</span><span class="xml">&#125; ----</span><span class="xquery">&#123;&#123;sex | sexFilter &#125;</span><span class="xml">&#125;</span></span><br><span class="line"><span class="xml">    </span><span class="xquery">&#123;&#123;msg.split(<span class="string">''</span>)<span class="built_in">.reverse</span>().join(<span class="string">'*'</span>) &#125;</span><span class="xml">&#125;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">Vue.filter('sexFilter',(val)=&gt;</span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery">    <span class="keyword">if</span>(val ===<span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="xquery">        <span class="keyword">return</span> <span class="string">'女'</span></span></span><br><span class="line"><span class="xquery">    &#125;</span><span class="xml">else</span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery">        <span class="keyword">return</span> <span class="string">'男'</span></span></span><br><span class="line"><span class="xquery">    &#125;</span></span><br><span class="line"><span class="xml">&#125;)</span></span><br><span class="line"><span class="xml">const app=new Vue(</span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery">    el: <span class="string">'#app'</span>,</span></span><br><span class="line"><span class="xquery">    data: &#123;</span></span><br><span class="line"><span class="xquery">        sex:<span class="number">0</span>,</span></span><br><span class="line"><span class="xquery">        msg: <span class="string">'hello vue'</span></span></span><br><span class="line"><span class="xquery">    &#125;</span></span><br><span class="line"><span class="xml">&#125;)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><ul>
+<li>vue中含有v-前缀的特殊属性</li>
+<li>input中使用v-model,就会把它的值当做是输入框的value值</li>
+<li>标签上v-html，就会把它的值插入到该标签内部 v-text</li>
+<li>v-if 条件判断 v-else-if v-else</li>
+<li>v-show 条件判断</li>
+<li>v-for 遍历循环使用</li>
+<li>v-on 绑定事件</li>
+<li><p>v-bind 绑定属性</p>
+</li>
+<li><p>不常用的</p>
+</li>
+<li>v-slot</li>
+<li>v-pre</li>
+<li>v-cloak</li>
+<li>v-once</li>
+</ul>
+<h3 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h3><ul>
+<li>事件简写形式 v-on:click =》 @click</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HSP"><figure class="iseeu highlight /hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">button</span> <span class="keyword">onclick</span>=<span class="string">"fn()"</span>&gt;click&lt;/<span class="keyword">button</span>&gt; ---- 原生js</span><br><span class="line">&lt;<span class="keyword">button</span> v-<span class="keyword">on</span>:click=<span class="string">"fn()"</span>&gt;click&lt;/<span class="keyword">button</span>&gt; --- vue</span><br><span class="line">&lt;<span class="keyword">button</span> @click=<span class="string">"fn()"</span>&gt;click&lt;/<span class="keyword">button</span>&gt; --- vue简写</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>属性的简写形式 v-bind:class =&gt; :class</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="APPLESCRIPT"><figure class="iseeu highlight /applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"test"</span>&gt;&lt;/<span class="keyword">div</span>&gt; <span class="comment">--- 原生，test就是一个固定的值</span></span><br><span class="line">&lt;<span class="keyword">div</span> v-bind:<span class="built_in">class</span>=<span class="string">"test"</span>&gt;&lt;/<span class="keyword">div</span>&gt; <span class="comment">--- vue中，test可以是一个变量</span></span><br><span class="line">&lt;<span class="keyword">div</span> :<span class="built_in">class</span>=<span class="string">"test"</span>&gt;&lt;/<span class="keyword">div</span>&gt; <span class="comment">--- vue简写形式</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="绑定属性"><a href="#绑定属性" class="headerlink" title="绑定属性"></a>绑定属性</h3><ul>
+<li><p>绑定属性绑定属性必然跟标签相关</p>
+</li>
+<li><p>img 的 src 属性(从服务器获取了地址)</p>
+</li>
+<li>组件间的传值</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XQUERY"><figure class="iseeu highlight /xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">msg</span>=<span class="string">"msg"</span>&gt;</span>原生的属性，只能是定值<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:msg</span>=<span class="string">"msg"</span>&gt;</span>利用vue的绑定属性，给一个名为msg的属性，添加了一个值为msg的变量<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    1</span><span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span></span><br><span class="line"><span class="xml">    2</span><span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">v-bind:src</span>=<span class="string">"img"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml">const app = new Vue(</span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery">    el: <span class="string">'#app'</span>,</span></span><br><span class="line"><span class="xquery">    data: &#123;</span></span><br><span class="line"><span class="xquery">        msg: <span class="string">'hello vue'</span>,</span></span><br><span class="line"><span class="xquery">        img: <span class="string">'https://cn.vuejs.org/images/logo.png'</span></span></span><br><span class="line"><span class="xquery">    &#125;</span></span><br><span class="line"><span class="xml">&#125;)</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="绑定class"><a href="#绑定class" class="headerlink" title="绑定class"></a>绑定class</h3><ul>
+<li>class与style绑定class 与 style 都属于 HTML 的属性，绑定属性 v-bind:属性 : 属性</li>
+<li>class 绑定如果数据来源是后端提供的 class 的名字，前端不能操控，就需要使用class语法</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.active</span>&#123;</span></span><br><span class="line">        font-size: 40px;</span><br><span class="line"><span class="css">        <span class="selector-tag">color</span>: <span class="selector-id">#f66</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.best</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background</span>: <span class="selector-id">#cccccc</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span></span><br><span class="line">        原生的class</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"&#123;active:flag&#125;"</span>&gt;</span>如果vue项目中的active样式是由flag的值控制的<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"flag ? 'active':''"</span>&gt;</span>可以使用三元运算符代替对象写法<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"[activeClass,testClass]"</span>&gt;</span>数组写法就是先把数据定义好，直接数组包裹即可<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"active test"</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">    el: <span class="string">'#app'</span>,</span></span><br><span class="line">    data: &#123;</span><br><span class="line"><span class="actionscript">        flag: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">        activeClass: <span class="string">'active'</span>,</span></span><br><span class="line"><span class="actionscript">        testClass: <span class="string">'test'</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h3><ul>
+<li>v-if</li>
+<li>v-else-if</li>
+<li>v-else</li>
+<li>v-show</li>
+<li>v-if 渲染还是不渲染 —- 运行时消耗更大</li>
+<li>v-show 显示还是隐藏 —– 初始渲染消耗更大</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">body&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"flag"</span>&gt;</span>如果为真我就显示<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"test===1"</span>&gt;</span>test的值为1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span>test的值不为1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">"flag"</span>&gt;</span>v-show也可以作为条件的判断，但是 显示/隐藏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">    el: <span class="string">'#app'</span>,</span></span><br><span class="line">    data: &#123;</span><br><span class="line"><span class="actionscript">        flag: <span class="literal">true</span>,</span></span><br><span class="line">        test: 1</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="循环遍历"><a href="#循环遍历" class="headerlink" title="循环遍历"></a>循环遍历</h3><ul>
+<li>v-for = “item of/in list” :key=”唯一性的值”</li>
+<li>v-for = “(item, index) of/in list” :key=”index”</li>
+<li>可以遍历数组，可以遍历对象，还可以遍历字符串，一定要记得加 key 值（钥匙与锁的故事 – 详细介绍 — 虚拟DOM算法）</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="DJANGO"><figure class="iseeu highlight /django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in list"</span>&gt;</span></span></span><br><span class="line"><span class="xml">            </span><span class="template-variable">&#123;&#123; item &#125;&#125;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item of list1"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        </span><span class="template-variable">&#123;&#123; item.username &#125;&#125;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item,index) of list1"</span> <span class="attr">:key</span>=<span class="string">"index"</span>&gt;</span></span></span><br><span class="line"><span class="xml">            </span><span class="template-variable">&#123;&#123; index &#125;&#125;</span><span class="xml"> --- </span><span class="template-variable">&#123;&#123; item.username &#125;&#125;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml">    v-for 上面遍历都是数组，还可以遍历对象以及字符串</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"value of obj"</span>&gt;</span></span><span class="template-variable">&#123;&#123; value &#125;&#125;</span><span class="xml"> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>= <span class="string">"(value, key ) of obj"</span>&gt;</span></span><span class="template-variable">&#123;&#123; key &#125;&#125;</span><span class="xml">: </span><span class="template-variable">&#123;&#123; value&#125;&#125;</span><span class="xml"> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"(value,key,index) of obj "</span>&gt;</span></span><span class="template-variable">&#123;&#123;index&#125;&#125;</span><span class="xml"> - </span><span class="template-variable">&#123;&#123; key &#125;&#125;</span><span class="xml">:</span><span class="template-variable">&#123;&#123;value&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"item of msg "</span>&gt;</span></span><span class="template-variable">&#123;&#123; item &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">const app=new Vue(&#123;</span></span><br><span class="line"><span class="xml">    el: '#app',</span></span><br><span class="line"><span class="xml">    data: &#123;</span></span><br><span class="line"><span class="xml">        msg:'hello vue',</span></span><br><span class="line"><span class="xml">        list: [1,2,3,4,5,6],</span></span><br><span class="line"><span class="xml">        list1: [</span></span><br><span class="line"><span class="xml">            &#123;username:'wxx1',password:'123'&#125;,</span></span><br><span class="line"><span class="xml">            &#123;username:'wxx1',password:'123'&#125;,</span></span><br><span class="line"><span class="xml">            &#123;username:'wxx1',password:'123'&#125;</span></span><br><span class="line"><span class="xml">        ],</span></span><br><span class="line"><span class="xml">        obj:&#123;</span></span><br><span class="line"><span class="xml">            a:1,</span></span><br><span class="line"><span class="xml">            b:2</span></span><br><span class="line"><span class="xml">        &#125;</span></span><br><span class="line"><span class="xml">    &#125;</span></span><br><span class="line"><span class="xml">&#125;)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../22/多态和静态/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            多态和静态
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../20/node总结/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Node总结</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

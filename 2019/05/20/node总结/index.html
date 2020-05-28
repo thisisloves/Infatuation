@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Node总结 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="当你不喜欢做什么的时候，勉强自己也没用。你想要装得驯服，可你心底那个倔强的女孩在大声说不，露出她雪白而锋利的虎牙。">
+<meta name="keywords" content="node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node总结">
+<meta property="og:url" content="https://github.com/thisisloves/2019/05/20/node总结/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="当你不喜欢做什么的时候，勉强自己也没用。你想要装得驯服，可你心底那个倔强的女孩在大声说不，露出她雪白而锋利的虎牙。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-20T02:02:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node总结">
+<meta name="twitter:description" content="当你不喜欢做什么的时候，勉强自己也没用。你想要装得驯服，可你心底那个倔强的女孩在大声说不，露出她雪白而锋利的虎牙。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-node总结" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Node总结
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-05-19T16:00:00.000Z" itemprop="datePublished">2019-05-20</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/node/">node</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>当你不喜欢做什么的时候，勉强自己也没用。你想要装得驯服，可你心底那个倔强的女孩在大声说不，露出她雪白而锋利的虎牙。<br><a id="more"></a> </p>
+<blockquote>
+<p>比起她恨你，更可怕的是她根本不在乎你做过什么。</p>
+</blockquote>
+<h3 id="node-js-Express-里常常见到function-req-res-next-这3个参数分别是什么意思呢？"><a href="#node-js-Express-里常常见到function-req-res-next-这3个参数分别是什么意思呢？" class="headerlink" title="node.js Express 里常常见到function(req, res, next), 这3个参数分别是什么意思呢？"></a>node.js Express 里常常见到function(req, res, next), 这3个参数分别是什么意思呢？</h3><ul>
+<li>req :  request的缩写， 请求的数据Request 对象表示 HTTP 请求，包含了请求查询字符串，参数，内容，HTTP 头部等属性。</li>
+<li>我们常用req.body.xx来表示POST的xx属性</li>
+<li>res:   response的缩写， 响应的数据Response 对象表示 HTTP 响应，即在接收到请求时向客户端发送的 HTTP 响应数据。</li>
+<li>我们常常用res.send() 传送HTTP响应 , res.render()渲染结果页面</li>
+<li>next 则是前往下一个中间件，执行相同路径的下一个方法。</li>
+<li>比如checkNotLogin函数里末尾有next();</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LUA"><figure class="iseeu highlight /lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkNotLogin</span><span class="params">(req, res, next)</span></span> </span><br><span class="line">   &#123; <span class="built_in">next</span>();&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>那么app.get(‘/reg’, checkNotLogin);就会继续执行下一个同样是”/reg”路径的方法</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ACTIONSCRIPT"><figure class="iseeu highlight /actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/reg'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<h3 id="get和post请求在node中使用的不同"><a href="#get和post请求在node中使用的不同" class="headerlink" title="get和post请求在node中使用的不同"></a>get和post请求在node中使用的不同</h3><ul>
+<li>场景就是单纯登录操作：传递两个参数用户名和密码</li>
+</ul>
+<h4 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h4><ul>
+<li>前台：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">login</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> name = $(<span class="string">'#name'</span>).val();</span><br><span class="line"><span class="keyword">var</span> password = $(<span class="string">'#password'</span>).val();</span><br><span class="line"><span class="keyword">if</span> (!name || !password) &#123;</span><br><span class="line">alert(<span class="string">'用户名和密码都不能为空'</span>);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">$.ajax(</span><br><span class="line">&#123;</span><br><span class="line">type: <span class="string">'get'</span>,</span><br><span class="line">url: <span class="string">'/login'</span>,</span><br><span class="line">data: &#123;</span><br><span class="line">name: name,</span><br><span class="line">password: password</span><br><span class="line">&#125;,</span><br><span class="line">dataType: <span class="string">'json'</span>,</span><br><span class="line">success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (data) &#123;</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">error: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">alert(<span class="string">'登录失败!'</span>);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>后台：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> router = express.Router();</span><br><span class="line">router.get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> name = req.query.name;</span><br><span class="line"><span class="keyword">var</span> pass = req.query.password;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'name:'</span> + name);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'pass:'</span> + pass);</span><br><span class="line"><span class="keyword">if</span> (name == <span class="string">'sis'</span> &amp;&amp; pass == <span class="string">'1'</span>) &#123;</span><br><span class="line">res.send(<span class="string">'1'</span>);</span><br><span class="line">&#125;</span><br><span class="line">res.end(<span class="string">'is over'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+<h4 id="post请求："><a href="#post请求：" class="headerlink" title="post请求："></a>post请求：</h4><ul>
+<li>前台：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">login</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> name = $(<span class="string">'#name'</span>).val();</span><br><span class="line"><span class="keyword">var</span> password = $(<span class="string">'#password'</span>).val();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!name || !password) &#123;</span><br><span class="line">alert(<span class="string">'用户名和密码都不能为空'</span>);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">$.ajax(</span><br><span class="line">&#123;</span><br><span class="line">type: <span class="string">'post'</span>,</span><br><span class="line">url: <span class="string">'/login'</span>,</span><br><span class="line">data: &#123;</span><br><span class="line">name: name,</span><br><span class="line">password: password</span><br><span class="line">&#125;,</span><br><span class="line">dataType: <span class="string">'json'</span>,</span><br><span class="line">success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (data) &#123;</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">error: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">alert(<span class="string">'登录失败!'</span>);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>后台：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> router = express.Router();</span><br><span class="line">router.post(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> name = req.body.name;</span><br><span class="line"><span class="keyword">var</span> pass = req.body.password;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'name:'</span> + name);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'pass:'</span> + pass);</span><br><span class="line"><span class="keyword">if</span> (name == <span class="string">'sis'</span> &amp;&amp; pass == <span class="string">'1'</span>) &#123;</span><br><span class="line">res.send(<span class="string">'1'</span>);</span><br><span class="line">&#125;</span><br><span class="line">res.end(<span class="string">'is over'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>从文章中可以明显看出get和post请求在node中区别，使用get请求时一定要使用get方法进行监听，并且获取传递过来的参数是要使用query</li>
+<li>使用post请求时一定要使用post方法进行监听，同时获取数据是要使用body。</li>
+<li>还有一种方法传递参数给server，就是使用路径的方式，可以利用web server的http routing来解析，常见于各种web Framework。</li>
+<li>这不算是传统标准规范的做法，是属于htto routing的延伸使用</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="FORTRAN"><figure class="iseeu highlight /fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router.get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span> &#123;</span><br><span class="line">console.<span class="built_in">log</span>(req.params.<span class="keyword">name</span>);</span><br><span class="line">console.<span class="built_in">log</span>(req.params.password);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<h3 id="query参数的获取"><a href="#query参数的获取" class="headerlink" title="query参数的获取"></a>query参数的获取</h3><ul>
+<li>url假设:<a href="http://localhost:3000/users/zqzjs?name=zhaoqize&amp;word=cool&amp;job[st]=web" target="_blank" rel="noopener">http://localhost:3000/users/zqzjs?name=zhaoqize&amp;word=cool&amp;job[st]=web</a></li>
+<li>路由的定义:</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ACTIONSCRIPT"><figure class="iseeu highlight /actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">router.get(<span class="string">'/:name'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res, next)</span> </span>&#123;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ol>
+<li>获取?name=zhaoqize这样的参数</li>
+</ol>
+<ul>
+<li>req.query.name</li>
+</ul>
+<ol start="2">
+<li>获取&amp;job[st]=web这样的参数</li>
+</ol>
+<ul>
+<li>req.query.job.st</li>
+</ul>
+<ol start="3">
+<li>获取?name=zhaoqize参数的另外一种写法(4.x版本中该方法已被废弃)</li>
+</ol>
+<ul>
+<li>req.param(‘name’)</li>
+</ul>
+<ol start="4">
+<li>获取所有参数</li>
+</ol>
+<ul>
+<li>JSON.stringify(req.query)</li>
+</ul>
+<h3 id="queryString"><a href="#queryString" class="headerlink" title="queryString"></a>queryString</h3><ul>
+<li>querystring字面上的意思就是查询字符串，一般是对http请求所带的数据进行解析。querystring模块只提供4个方法：</li>
+</ul>
+<ol>
+<li>querystring.parse</li>
+<li>querystring.stringify</li>
+<li>querystring.escape</li>
+<li>querystring.unescape</li>
+</ol>
+<ul>
+<li><p>这4个方法是相对应的</p>
+</li>
+<li><p>首先，使用querystring模块之前，需要require进来：</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="EBNF"><figure class="iseeu highlight /ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">const querystring</span> = require(<span class="string">"querystring"</span>);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>其次，就可以使用模块下的方法了：</li>
+</ul>
+<ol>
+<li>querystring.parse(str,separator,eq,options)</li>
+</ol>
+<ul>
+<li><p>parse这个方法是将一个字符串反序列化为一个对象。</p>
+</li>
+<li><p>参数：</p>
+</li>
+<li>str指需要反序列化的字符串;</li>
+<li>separator（可省）指用于分割str这个字符串的字符或字符串，默认值为”&amp;”;</li>
+<li>eq（可省）指用于划分键和值的字符或字符串，默认值为”=”;</li>
+<li>options（可省）该参数是一个对象，里面可设置maxKeys和decodeURIComponent这两个属性：</li>
+<li>maxKeys：传入一个number类型，指定解析键值对的最大值，默认值为1000，如果设置为0时，则取消解析的数量限制;</li>
+<li>decodeURIComponent:传入一个function，用于对含有%的字符串进行解码，默认值为querystring.unescape。</li>
+<li>在官方API的例子中，使用 *gbkDecodeURIComponent这个方法会报错，显示gbkDecodeURIComponent is no defined，这是因为在使用这个gbkDecodeURIComponent这个方法之前需要先进行定义。</li>
+<li>在API中也写了Assuming gbkDecodeURIComponent function already exists…这句话的意思是”假设这个gbkDecodeURIComponent方法已经存在”。</li>
+</ul>
+<ul>
+<li>querystring.parse</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ADA"><figure class="iseeu highlight /ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">querystring.parse(<span class="string">"name=whitemu&amp;sex=man&amp;sex=women"</span>);</span><br><span class="line"> /*</span><br><span class="line"><span class="keyword">return</span>:</span><br><span class="line">&#123; name: <span class="symbol">'whitemu</span>', sex: [ <span class="symbol">'man</span>', <span class="symbol">'women</span>' ] &#125;</span><br><span class="line">*/</span><br><span class="line">querystring.parse(<span class="string">"name=whitemu#sex=man#sex=women"</span>,<span class="string">"#"</span>,null,&#123;maxKeys:<span class="number">2</span>&#125;);</span><br><span class="line">/*</span><br><span class="line"><span class="keyword">return</span>:</span><br><span class="line">&#123; name: <span class="symbol">'whitemu</span>', sex: <span class="symbol">'man</span>' &#125;</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>querystring.stringify(obj,separator,eq,options)</li>
+<li><p>stringify这个方法是将一个对象序列化成一个字符串，与querystring.parse相对</p>
+</li>
+<li><p>参数：</p>
+</li>
+<li>obj指需要序列化的对象</li>
+<li>separator（可省）用于连接键值对的字符或字符串，默认值为”&amp;”;</li>
+<li>eq（可省）用于连接键和值的字符或字符串，默认值为”=”;</li>
+<li>options（可省）传入一个对象，该对象可设置encodeURIComponent这个属性：</li>
+<li><p>encodeURIComponent:值的类型为function，可以将一个不安全的url字符串转换成百分比的形式，默认值为querystring.escape()。</p>
+</li>
+<li><p>querystring.stringify</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">querystring.stringify(&#123;<span class="string">name:</span> <span class="string">'whitemu'</span>, <span class="string">sex:</span> [ <span class="string">'man'</span>, <span class="string">'women'</span> ] &#125;);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">return:</span></span><br><span class="line"><span class="comment">'name=whitemu&amp;sex=man&amp;sex=women'</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">querystring.stringify(&#123;<span class="string">name:</span> <span class="string">'whitemu'</span>, <span class="string">sex:</span> [ <span class="string">'man'</span>, <span class="string">'women'</span> ] &#125;,<span class="string">"*"</span>,<span class="string">"$"</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">return:</span></span><br><span class="line"><span class="comment">'name$whitemu*sex$man*sex$women'</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>querystring.escape(str)</li>
+<li><p>escape可使传入的字符串进行编码</p>
+</li>
+<li><p>querystring.escape</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LLVM"><figure class="iseeu highlight /llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">querystring.escape(<span class="string">"name=慕白"</span>)<span class="comment">;</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">return:</span></span><br><span class="line"><span class="comment">'name%3D%E6%85%95%E7%99%BD'</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>querystring.unescape(str)</li>
+<li><p>unescape方法可将含有%的字符串进行解码</p>
+</li>
+<li><p>querystring.unescape</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LLVM"><figure class="iseeu highlight /llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">querystring.unescape('name<span class="symbol">%3</span>D<span class="symbol">%E6</span><span class="symbol">%85</span><span class="symbol">%95</span><span class="symbol">%E7</span><span class="symbol">%99</span><span class="symbol">%BD</span>')<span class="comment">;</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">return:</span></span><br><span class="line"><span class="comment">'name=慕白'</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>querystring这个模块相对的还是比较简单，仅有4个方法。</li>
+</ul>
+<ol>
+<li>querystring.stringify序列化;</li>
+<li>querystring.parse反序列化;</li>
+<li>querystring.escape编码;</li>
+<li>squerystring.unescape解码;</li>
+</ol>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../21/vue模板语法/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Vue模板语法
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../FTP协议/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">FTP协议</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>载波侦听多路访问 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="你在阳光里垂下头，回忆曾亲吻过你脸颊的那个天使，即使她不再出现。有些爱稍纵即逝，却铭心刻骨。它在命运里烧成灰烬，却在记忆里拔节生根。">
+<meta name="keywords" content="网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="载波侦听多路访问">
+<meta property="og:url" content="https://github.com/thisisloves/2019/04/05/载波侦听多路访问/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="你在阳光里垂下头，回忆曾亲吻过你脸颊的那个天使，即使她不再出现。有些爱稍纵即逝，却铭心刻骨。它在命运里烧成灰烬，却在记忆里拔节生根。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-15T14:34:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="载波侦听多路访问">
+<meta name="twitter:description" content="你在阳光里垂下头，回忆曾亲吻过你脸颊的那个天使，即使她不再出现。有些爱稍纵即逝，却铭心刻骨。它在命运里烧成灰烬，却在记忆里拔节生根。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-载波侦听多路访问" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      载波侦听多路访问
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-04-04T16:00:00.000Z" itemprop="datePublished">2019-04-05</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/网络/">网络</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>你在阳光里垂下头，回忆曾亲吻过你脸颊的那个天使，即使她不再出现。<br>有些爱稍纵即逝，却铭心刻骨。<br>它在命运里烧成灰烬，却在记忆里拔节生根。<br><a id="more"></a></p>
+<blockquote>
+<p>这个世界有多大，取决于你认识的人，你每认识一个人，世界对你来说就会变大一些。</p>
+</blockquote>
+<h3 id="CSMA-CD-概述"><a href="#CSMA-CD-概述" class="headerlink" title="CSMA/CD 概述"></a>CSMA/CD 概述</h3><ul>
+<li>CSMA/CD协议（Carrier Sense 54 Access with Collision Detection）即载波帧听多路访问/冲突检测</li>
+<li>载波侦听：多个计算机在发送数据帧前，首先帧听是否空闲，如果空闲，则发送数据帧；否则等待，继续帧听直到信道空闲。</li>
+<li>多路访问：许多计算机以多点接入方式连接在一根总线上，都有访问总线的权利。</li>
+<li>CSMA/CD采用IEEE 802.3标准。</li>
+</ul>
+<h3 id="CSMA-CD控制方式原理"><a href="#CSMA-CD控制方式原理" class="headerlink" title="CSMA/CD控制方式原理"></a>CSMA/CD控制方式原理</h3><ul>
+<li>各工作站在发送数据前，需先侦听信道是否空闲。若空闲，则立即发送数据；若信道忙碌，则等待一段时间至信道中的信息传输结束后再发送数据；若在上一段信息发送结束后，同时有两个或两个以上的节点都提出发送请求，则判定为冲突；若侦听到冲突，则所有节点立即停止发送数据，等待一段随机时间，再重新尝试发送。</li>
+<li>CSMA/CD控制方式作用: 提供寻址和媒体存取的控制方式，使得不同设备或网络上的节点可以在多点的网络上通信而不相互冲突。</li>
+</ul>
+<h3 id="CSMA-CD-特点"><a href="#CSMA-CD-特点" class="headerlink" title="CSMA/CD 特点"></a>CSMA/CD 特点</h3><ol>
+<li>使用 CSMA/CD 协议的以太网不能进行全双工通信,而只能进行双向交替通信（半双工通信）。</li>
+<li>计算机发送数据帧之后的一小段时间内，存在着遭遇冲突的可能性。</li>
+<li>冲突不确定性使整个以太网平均数据率远小于以太网最高数据率。</li>
+</ol>
+<h3 id="CSMA-CA"><a href="#CSMA-CA" class="headerlink" title="CSMA/CA"></a>CSMA/CA</h3><ul>
+<li>CSMA/CA （Carrier Sense Multiple Access with Collision Avoidance） 即载波侦听多路访问／冲突避免。</li>
+<li>采用该协议要求设备要主动避免冲突而非被动侦测的方式来解决冲突问题。避免冲突的方法主要有两个： </li>
+</ul>
+<ol>
+<li>监听到信道空闲时，并不是立即发送，而是等待一段时间再发送数据。 </li>
+<li>先发送一个很小的信道侦测帧RTS，如果收到最近的接入点返回的CTS，就认为信道是空闲的，然后再发送数据</li>
+</ol>
+<h3 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h3><ol>
+<li>首先检测信道是否有使用，如果检测出信道空闲，则等待一段随机时间后，才送出数据。 </li>
+<li>接收端如果正确收到此帧，则经过一段时间间隔后，向发送端发送确认帧ACK。 </li>
+<li>发送端收到ACK帧，确定数据正确传输，在经历一段时间间隔后，再发送数据。</li>
+</ol>
+<h3 id="CSMA-CD-与CSMA-CA-两者区别"><a href="#CSMA-CD-与CSMA-CA-两者区别" class="headerlink" title="CSMA/CD 与CSMA/CA  两者区别"></a>CSMA/CD 与CSMA/CA  两者区别</h3><ol>
+<li>CSMA/CD主要着眼点在冲突的侦测，当侦测到冲突时，进行相应的处理，要求设备能一边侦测一边发送数据。 </li>
+<li>CSMA/CA主要着眼点在冲突的避免，协议里也看到经常是等待一段时间再做动作，通过退避尽量去避免冲突，还有就是先发送一些特别小的信道侦测帧来测试信道是否有冲突。</li>
+</ol>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
+<li>CSMA/CD主要适用以太网。 </li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../计算机端口/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            计算机端口
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../路由协议/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">路由协议</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

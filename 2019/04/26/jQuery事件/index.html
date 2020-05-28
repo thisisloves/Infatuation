@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>jQuery 事件 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="人生在世很多事都想不过来，很多帐都算不过来，想什么?冲上去就好了!怎么不是过一生？想烟花也是过一生，想樱花也是过一生，只要亮过和盛开过，不就好了么?既然如此，还有什么可犹豫的!">
+<meta name="keywords" content="jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery 事件">
+<meta property="og:url" content="https://github.com/thisisloves/2019/04/26/jQuery事件/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="人生在世很多事都想不过来，很多帐都算不过来，想什么?冲上去就好了!怎么不是过一生？想烟花也是过一生，想樱花也是过一生，只要亮过和盛开过，不就好了么?既然如此，还有什么可犹豫的!">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-28T13:26:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery 事件">
+<meta name="twitter:description" content="人生在世很多事都想不过来，很多帐都算不过来，想什么?冲上去就好了!怎么不是过一生？想烟花也是过一生，想樱花也是过一生，只要亮过和盛开过，不就好了么?既然如此，还有什么可犹豫的!">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-jQuery事件" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery 事件
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-04-25T16:00:00.000Z" itemprop="datePublished">2019-04-26</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>人生在世很多事都想不过来，很多帐都算不过来，想什么?冲上去就好了!怎么不是过一生？想烟花也是过一生，想樱花也是过一生，只要亮过和盛开过，不就好了么?既然如此，还有什么可犹豫的!<br><a id="more"></a></p>
+<blockquote>
+<p>他清楚的知道，这次醒来，将再也不会有天使低头，似乎要亲吻他的脸颊。</p>
+</blockquote>
+<h3 id="jQuery事件绑定"><a href="#jQuery事件绑定" class="headerlink" title="jQuery事件绑定"></a>jQuery事件绑定</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click'</span>,[date],fn)</span><br><span class="line"></span><br><span class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click'</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],<span class="function"><span class="keyword">function</span>(<span class="params">evt</span>)</span>&#123;</span><br><span class="line">    alert(evt.data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<p>(1).同时绑定多个事件，共用一个事件处理函数</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input'</span>).bind(<span class="string">'mouseover mouseout'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="number">1</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<p>(2).同时绑定多个事件，并使用不同的事件处理函数</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input'</span>).bind(&#123;</span><br><span class="line">    mouseout:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;alert(<span class="string">'移除'</span>)&#125;</span><br><span class="line">&#125;,</span><br><span class="line">    mouseover:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;alert(<span class="string">'移入'</span>)&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+<p>(3).同一事件绑定不同的事件处理函数</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click'</span>,fn1)</span><br><span class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click'</span>,fn2)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//执行顺序为事件绑定的顺序</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="事件解绑"><a href="#事件解绑" class="headerlink" title="事件解绑"></a>事件解绑</h3><ul>
+<li>$(‘input’).unbind()不传参数的时候默认移除该DOM元素上的所有的事件</li>
+<li>$(‘input’).unbind(‘mouseover’)移出该DOM元素上参数(‘mouseover’)的事件</li>
+</ul>
+<h3 id="jQuery事件"><a href="#jQuery事件" class="headerlink" title="jQuery事件"></a>jQuery事件</h3><ul>
+<li>juqery事件就是将JavaScrit事件简写(省略了on)，然后在后面加上括号。(注：前缀必须是jQuery对象)</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;$(<span class="built_in">document</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//事件处理函数</span></span><br><span class="line">&#125;)&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>mouseover,mouseout和mouserenter,mouseleave的差别</li>
+<li>mouseover当事件发生在当前元素外上的时候，会立即触发mouseout</li>
+<li>mouseenter只要事件还在当前元素内，无论是否移动到子集元素上，都不会触发mouseleave事件,无事件冒泡</li>
+<li>hover事件相当于给元素同时绑定了mouseenter和mouseleave</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SCILAB"><figure class="iseeu highlight /scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div'</span>).hover(fn1.fn2)  <span class="comment">//鼠标移入执行fn1,鼠标移出执行fn2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span><span class="params">()</span>&#123;<span class="title">alert</span><span class="params">(1)</span>&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span><span class="params">()</span>&#123;<span class="title">alert</span><span class="params">(2)</span>&#125;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><ul>
+<li><p>Javascript事件对象是浏览器默认传入的，但对于浏览器的兼容问题，我们需要对事件进行兼容，但是jQuery不需要</p>
+</li>
+<li><p>event.target 获取绑定事件的DOM元素</p>
+</li>
+<li>event.type 获取事件的类型</li>
+<li>event.data 获取事件中传递的数据</li>
+<li>event.pageX/pageY  获取根据页面原点的X,Y值</li>
+<li>event.screenX/screenY 获取根据显示器窗口的X,Y值</li>
+<li>event.offsetX/offsetY 获取根据父元素的X,Y值</li>
+<li>event.which 获取当前鼠标点击的键 1,2,3</li>
+<li>event.altKey/shiftKey/ctrlKey/ 返回true,false</li>
+</ul>
+<h3 id="事件冒泡（默认事件）"><a href="#事件冒泡（默认事件）" class="headerlink" title="事件冒泡（默认事件）"></a>事件冒泡（默认事件）</h3><ul>
+<li>preventDefault()    //阻止默认行为   &gt;&gt;&gt;&gt;  contextmenu</li>
+<li>stopPropagation()  //取消事件冒泡</li>
+<li>return false  阻止默认事件和事件冒泡  双层阻止</li>
+</ul>
+<h3 id="模拟事件"><a href="#模拟事件" class="headerlink" title="模拟事件"></a>模拟事件</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GCODE"><figure class="iseeu highlight /gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$<span class="comment">('input')</span>.trigger<span class="comment">('click')</span>;</span><br><span class="line"><span class="comment">(jquery对象)</span>.trigger方法<span class="comment">(事件名)</span>；</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>模拟用户触发事件：同时触发事件冒泡。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ELIXIR"><figure class="iseeu highlight /elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span><span class="string">'input'</span>).triggerHandler(<span class="string">'click'</span>)</span><br><span class="line"></span><br><span class="line">(jquery对象).triggerHandler方法(事件名)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>模拟用户触发事件：不触发事件冒泡。</li>
+<li>计时器自动执行事件时可用</li>
+</ul>
+<h3 id="事件的命名空间"><a href="#事件的命名空间" class="headerlink" title="事件的命名空间"></a>事件的命名空间</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     alert(<span class="number">1</span>)</span><br><span class="line">&#125;)</span><br><span class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click.abc'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     alert(<span class="number">1</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>方便模拟事件、解绑事件时选定特定事件。</li>
+</ul>
+<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><ul>
+<li><p>什么是事件委托：有 100 个学生同时在某天中午收到快递，但这 100 个学生不可能同时站在学校门口等，那么都会委托门卫去收取，然后再逐个交给学生。 而在 jQuery 中，我们通过事件冒泡的特性，让子元素绑定的事件冒泡到父元素(或祖先元素) 上，然后再进行相关处理即可。</p>
+</li>
+<li><p>传统事件绑定，会让性能变得很低，造成程序中非常多的冗余，事件委托完美解决了这个问题，他只需要给父级元素绑定一个事件，那么他的自己元素全部会在事件流中接受到事件，并对事件处理函数做出相应。</p>
+</li>
+<li><p>一个新的方法on(on已经全面取代了bind)</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div'</span>).on(<span class="string">'click'</span>,<span class="string">'input'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">evt</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// alert(evt.target)</span></span><br><span class="line">        $(<span class="string">'div'</span>).append($(<span class="string">'input'</span>).eq(<span class="number">0</span>).clone(<span class="literal">true</span>))</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-class">.box</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>;<span class="attribute">height</span>:<span class="number">200px</span>;<span class="attribute">background</span>: red&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>link1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>link2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>link3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>link4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>link5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>link6<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/2.2.4/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>--&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">$(<span class="string">".box"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="number">1</span>)</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">//不会触发事件冒泡的进入和执行</span></span></span><br><span class="line"><span class="javascript">$(<span class="string">".box"</span>).hover(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">"进入"</span>);</span></span><br><span class="line"><span class="actionscript">&#125;,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">"离开"</span>);</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="javascript">$(<span class="string">".box"</span>).on(<span class="string">"click.abc"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="number">1</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript">$(<span class="string">".box"</span>).on(<span class="string">"click.qwe"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="number">2</span>);<span class="comment">//点一下同时触发</span></span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript">$(<span class="string">".list"</span>).on(<span class="string">"click"</span>,<span class="string">"li"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="keyword">this</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="triggerHandler-方法"><a href="#triggerHandler-方法" class="headerlink" title="triggerHandler()方法"></a>triggerHandler()方法</h3><ul>
+<li>鼠标放在上面每1000毫秒执行一次-轮播图</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.box</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>;<span class="attribute">height</span>: <span class="number">200px</span>;<span class="attribute">background</span>: red;&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/2.2.4/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>--&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">$(<span class="string">".box"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="number">123</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript">setInterval(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">".box"</span>).triggerHandler(<span class="string">"click"</span>);<span class="comment">//鼠标放在上面每1000毫秒执行一次</span></span></span><br><span class="line">&#125;,1000)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../28/JS堆和栈/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            JS堆和栈
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../jQuery Ajax/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">jQuery Ajax</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

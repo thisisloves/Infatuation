@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>面试总结Js | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="付出真心，才会得到真心，却可能伤的彻底；保持距离，才能保护自己，却注定永远寂寞。">
+<meta name="keywords" content="面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试总结Js">
+<meta property="og:url" content="https://github.com/thisisloves/2019/07/07/面试总结js/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="付出真心，才会得到真心，却可能伤的彻底；保持距离，才能保护自己，却注定永远寂寞。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-08T15:42:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试总结Js">
+<meta name="twitter:description" content="付出真心，才会得到真心，却可能伤的彻底；保持距离，才能保护自己，却注定永远寂寞。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-面试总结js" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      面试总结Js
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-07-06T16:00:00.000Z" itemprop="datePublished">2019-07-07</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>付出真心，才会得到真心，却可能伤的彻底；保持距离，才能保护自己，却注定永远寂寞。</p>
+<a id="more"></a>
+<blockquote>
+<p>当你知道迷惑时，并不可怜，当你不知道迷惑时，才是最可怜的。</p>
+</blockquote>
+<ol>
+<li>箭头函数</li>
+</ol>
+<ul>
+<li>没有局部this的指向</li>
+<li>不能new</li>
+</ul>
+<ol start="2">
+<li>promise</li>
+</ol>
+<ul>
+<li>处理异步操作</li>
+<li>Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</li>
+<li>Promise对象有以下两个特点。</li>
+</ul>
+<p>(1)对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是Promise这个名字的由来，它的英语意思就是“承诺”，表示其他手段无法改变。</p>
+<p>(2)一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise对象的状态改变，只有两种可能：从pending变为fulfilled和从pending变为rejected。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果，这时就称为 resolved（已定型）。如果改变已经发生了，你再对Promise对象添加回调函数，也会立即得到这个结果。这与事件（Event）完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。</p>
+<ul>
+<li><p>有了Promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。</p>
+</li>
+<li><p>Promise也有一些缺点。首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</p>
+</li>
+</ul>
+<ol start="3">
+<li>promise异步模式</li>
+</ol>
+<ul>
+<li>Promise.all( ) 和 Promise.race( )</li>
+<li>区别</li>
+<li>all会将传入的数组中的所有 Promise 全部决议以后，将决议值以数组的形式传入到观察回调中，任何一个 Promise决议为拒绝，那么就会调用拒绝回调<br>r* ace会将传入的数组中的所有 promise 中第一个决议的决议值传递给观察回调，即使决议结果是拒绝的。</li>
+</ul>
+<ol start="4">
+<li>set和map</li>
+</ol>
+<p>(1)set</p>
+<ul>
+<li>它类似于数组，但是成员的值都是唯一的，没有重复的值。</li>
+<li>Set本身是一个构造函数，用来生成 Set 数据结构。</li>
+<li>Set 结构不会添加重复的值</li>
+</ul>
+<p>(2)map</p>
+<ul>
+<li>它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现。如果你需要“键值对”的数据结构，Map 比 Object 更合适。</li>
+</ul>
+<ol start="5">
+<li>let 和const</li>
+</ol>
+<ul>
+<li><p>let (1) 暂时性死区<br>(2) 不存在变量提升<br>(3) 不允许重复声明<br>(4) 块级作用域</p>
+</li>
+<li><p>const<br>(1) 声明一个只读的常量。一旦声明，常量的值就不能改变。</p>
+</li>
+</ul>
+<ol start="6">
+<li>原型和原型链</li>
+</ol>
+<ul>
+<li><p>每一个<strong>函数对象</strong>都有一个原型对象prototype,用来继承 </p>
+</li>
+<li><p>所有的<strong>obj对象</strong>(普通对象)都具有proto 属性（null 和 undefined除外 )，而且指向创造obj对象的函数对象（生成实例的构造函数）的prototype属性。</p>
+</li>
+</ul>
+<ol start="7">
+<li>浏览器兼容</li>
+</ol>
+<ul>
+<li>g24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8.也可以引用一段脚本处理.</li>
+<li>浏览器默认的margin和padding不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。</li>
+<li>IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。</li>
+<li>浮动ie产生的双倍距离（IE6双边距问题：在IE6下，如果对元素设置了浮动，同时又设置了margin-left或margin-right，margin值会加倍。）</li>
+</ul>
+<p>(1)事件冒泡<br>(2)阻止默认事件<br>(3)事件对象</p>
+<ol start="8">
+<li>post和get区别</li>
+</ol>
+<ul>
+<li>因为GET方法请求的参数都是放在请求的url上的，所以它与POST有以下明显的区别：</li>
+<li>GET请求可以被添加到书签中，也可保存在浏览器历史记录中，POST不能</li>
+<li>GET请求可以被浏览器缓存，POST不能</li>
+<li>GET请求收到URL长度限制，所以数据长度也受限制，POST不会</li>
+<li>GET请求只能传输ASCII字符，而POST不受此限制，还可以传输二进制数据</li>
+</ul>
+<p>在语义上两个方法也有区别：</p>
+<ul>
+<li>GET 代表获取指定服务器上资源</li>
+<li>POST 代表向指定的资源提交要被处理的数据</li>
+</ul>
+<ol start="9">
+<li>cookie session </li>
+</ol>
+<p>(1)cookie数据存放在客户的浏览器上，session数据放在服务器上。</p>
+<p>(2)cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗</p>
+<ul>
+<li>考虑到安全应当使用session。</li>
+</ul>
+<p>(3)session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能</p>
+<ul>
+<li>考虑到减轻服务器性能方面，应当使用COOKIE。</li>
+</ul>
+<p>(4)单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。</p>
+<p>(5)所以个人建议：</p>
+<p>(6)将登陆信息等重要信息存放为SESSION</p>
+<p>(7)其他信息如果需要保留，可以放在COOKIE中</p>
+<ol start="10">
+<li>XML和JSON的区别？</li>
+</ol>
+<ul>
+<li>XML是标准通用标记语言 (SGML) 的子集，而标签语言（如HTML）的好处就是易懂。</li>
+<li>优点：上手简单，非开发人员也可以快速上手（产品经理们很喜欢）。</li>
+<li>缺点：</li>
+<li>XML多余的数据比较多，所以数据量大，传输时占用更多空间</li>
+<li>客户端和服务端解析XML都要比较繁琐，需要大量代码</li>
+<li>JSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。重点在轻上，结构与JavaScript中的Object类似。</li>
+<li>优点：</li>
+<li>数据量小，利于网络传输</li>
+<li>方便解析，客户端和服务端都有基础的解析方法</li>
+</ul>
+<ol start="11">
+<li>数组去重</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HAXE"><figure class="iseeu highlight /haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">let <span class="keyword">set</span> = <span class="keyword">new</span> <span class="type">Set</span>(arr);</span><br><span class="line">let <span class="keyword">new</span><span class="type">Arr</span> = <span class="keyword">Array</span>.from(<span class="keyword">set</span>);</span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Arr</span>); <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure></div>
+<ol start="12">
+<li>冒泡排序</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ACTIONSCRIPT"><figure class="iseeu highlight /actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> <span class="params">(arr)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> max = arr.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; max; j++) &#123;</span><br><span class="line">    <span class="comment">// 声明一个变量，作为标志位</span></span><br><span class="line">    <span class="keyword">var</span> done = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; max - j; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[i] &gt; arr[i + <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="keyword">var</span> temp = arr[i];</span><br><span class="line">        arr[i] = arr[i + <span class="number">1</span>];</span><br><span class="line">        arr[i + <span class="number">1</span>] = temp;</span><br><span class="line">        done = <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (done) &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">bubbleSort(arr);</span><br></pre></td></tr></table></figure></div>
+<p>14.小程序开发流程<br>(1)申请账号<br>(2)安装开发工具<br>(3)创建第一个小程序<br>(4)编译预览</p>
+<p>(5)提交审核<br>(6)发布<br>(7)运营</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../09/vue脚手架scss引入/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Vue脚手架scss引入
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../面试总结vue/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">面试总结Vue</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

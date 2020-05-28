@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JS面向对象-下 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="We are all little monsters, one day will be just Ultraman kill. Yeah, you little monster, but little monsters have little monster’s good friend, afraid of being lonely little monsters get together, bu">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS面向对象-下">
+<meta property="og:url" content="https://github.com/thisisloves/2019/04/12/JS面向对象-下/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="We are all little monsters, one day will be just Ultraman kill. Yeah, you little monster, but little monsters have little monster’s good friend, afraid of being lonely little monsters get together, bu">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/04/15/5cb3d71e58c06.jpg">
+<meta property="og:updated_time" content="2019-04-20T03:53:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS面向对象-下">
+<meta name="twitter:description" content="We are all little monsters, one day will be just Ultraman kill. Yeah, you little monster, but little monsters have little monster’s good friend, afraid of being lonely little monsters get together, bu">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/15/5cb3d71e58c06.jpg">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-JS面向对象-下" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      JS面向对象-下
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-04-11T16:00:00.000Z" itemprop="datePublished">2019-04-12</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JS/">JS</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>We are all little monsters, one day will be just Ultraman kill. Yeah, you little monster, but little monsters have little monster’s good friend, afraid of being lonely little monsters get together, but if justice Ultrama<br><a id="more"></a></p>
+<blockquote>
+<p>首先，所有女孩都是要追的！你不主动你惦记着人家主动跟你表白？其次，对于女孩最重要的无非是幸福感，这个男孩有用没用不是绝对重要的，而是，你能不能给她幸福感！</p>
+</blockquote>
+<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><ul>
+<li>new：new执行函数，函数没有返回值，都会返回对象，没有返回值，返回的是和函数同名的函数</li>
+<li><p>new执行函数，函数中的this，指向new出来的实例 </p>
+</li>
+<li><p>原型对象(prototype):函数身上的一个对象属性，当函数能被new时，这个属性会作为new出来的实例的父级类型，被实例的<strong>proto</strong>指向。</p>
+</li>
+<li><p>原型链(<strong>proto</strong>)：每个类型身上的一个<strong>proto</strong>,指向自身的父级类型，当这个类型访问某些属性或者方法时，如果自身存在，直接执行。不存在，顺着<strong>proto</strong>依次向上找，找到了就执行，找不到就报错。</p>
+</li>
+<li><p>this:正常情况下，this指向调用当前函数的对象</p>
+</li>
+<li>new情况下，this指向new出来的实例</li>
+<li>改变的情况下，改成什么就是什么</li>
+<li>但是，this永远是对象</li>
+</ul>
+<h3 id="放大镜"><a href="#放大镜" class="headerlink" title="放大镜"></a>放大镜</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">     *&#123;<span class="attribute">margin</span>: <span class="number">0</span>;<span class="attribute">padding</span>: <span class="number">0</span>;&#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.s_box</span>&#123;<span class="attribute">width</span>: <span class="number">400px</span>;<span class="attribute">height</span>: <span class="number">300px</span>;<span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">40px</span>;<span class="attribute">position</span>: absolute;&#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.s_box</span>&gt;<span class="selector-tag">img</span>&#123;<span class="attribute">width</span>: <span class="number">400px</span>;<span class="attribute">height</span>: <span class="number">300px</span>;&#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.s_box</span>&gt;<span class="selector-tag">span</span>&#123;<span class="attribute">width</span>: <span class="number">80px</span>;<span class="attribute">height</span>: <span class="number">60px</span>;<span class="attribute">background</span>: <span class="number">#FA8072</span>;<span class="attribute">display</span>: block;<span class="attribute">position</span>: absolute;<span class="attribute">top</span>: <span class="number">0</span>;<span class="attribute">left</span>: <span class="number">0</span>;<span class="attribute">opacity</span>: <span class="number">0.6</span>;<span class="attribute">display</span>: none;&#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.b_box</span>&#123;<span class="attribute">width</span>: <span class="number">410px</span>;<span class="attribute">height</span>: <span class="number">300px</span>;<span class="attribute">z-index</span>: <span class="number">2</span>;<span class="attribute">position</span>: absolute;<span class="attribute">left</span>: <span class="number">500px</span>;<span class="attribute">top</span>: <span class="number">20px</span>;<span class="attribute">overflow</span>: hidden;&#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.b_box</span>&gt;<span class="selector-tag">img</span>&#123;<span class="attribute">width</span>:<span class="number">2000px</span>;<span class="attribute">height</span>:<span class="number">1500px</span>;<span class="attribute">z-index</span>: -<span class="number">1</span>;<span class="attribute">position</span>: absolute;<span class="attribute">top</span>: <span class="number">0</span>;<span class="attribute">left</span>: <span class="number">0</span>;&#125;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"s_box"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/1.jpg"</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"b_box"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/1.jpg"</span> /&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"> <span class="function"><span class="keyword">function</span> <span class="title">Magnifier</span><span class="params">()</span></span></span></span><br><span class="line"><span class="actionscript">     <span class="keyword">this</span>.init();</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> Magnifier.prototype.init=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">     <span class="keyword">this</span>.sbox=<span class="built_in">document</span>.querySelector(<span class="string">".s_box"</span>);</span></span><br><span class="line"><span class="javascript">     <span class="keyword">this</span>.ospan=<span class="built_in">document</span>.querySelector(<span class="string">".s_box span"</span>);</span></span><br><span class="line"><span class="javascript">     <span class="keyword">this</span>.bbox=<span class="built_in">document</span>.querySelector(<span class="string">".b_box"</span>);</span></span><br><span class="line"><span class="javascript">     <span class="keyword">this</span>.img=<span class="built_in">document</span>.querySelector(<span class="string">".b_box img"</span>);</span></span><br><span class="line"><span class="actionscript">     <span class="keyword">this</span>.addEvent();</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> Magnifier.prototype.addEvent=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">     <span class="keyword">var</span> that=<span class="keyword">this</span>;</span></span><br><span class="line"><span class="actionscript">     <span class="keyword">this</span>.sbox.onmouseover=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line">          that.display();</span><br><span class="line">     &#125;</span><br><span class="line"><span class="actionscript">     <span class="keyword">this</span>.sbox.onmouseout=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line">          that.hide();</span><br><span class="line">     &#125;</span><br><span class="line"><span class="actionscript">     <span class="keyword">this</span>.sbox.onmousemove=<span class="function"><span class="keyword">function</span><span class="params">(eve)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">     <span class="keyword">var</span> e=eve||event.event;</span></span><br><span class="line"><span class="actionscript">     <span class="comment">// e.pageX - this.offsetLeft === e.offsetX</span></span></span><br><span class="line"><span class="actionscript">     <span class="comment">// e.pageY - this.offsetTop === e.offsetY</span></span></span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> l=e.pageX-<span class="keyword">this</span>.offsetLeft;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> r=e.pageY-<span class="keyword">this</span>.offsetTop;</span></span><br><span class="line">          that.move(l,r);</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> Magnifier.prototype.hide=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">          <span class="keyword">this</span>.ospan.style.display=<span class="string">"none"</span>;</span></span><br><span class="line"><span class="actionscript">          <span class="keyword">this</span>.bbox.style.display=<span class="string">"none"</span>;</span></span><br><span class="line">     </span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> Magnifier.prototype.display=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">          <span class="keyword">this</span>.ospan.style.display=<span class="string">"block"</span>;</span></span><br><span class="line"><span class="actionscript">          <span class="keyword">this</span>.bbox.style.display=<span class="string">"block"</span>;	</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> Magnifier.prototype.move=<span class="function"><span class="keyword">function</span><span class="params">(l,r)</span></span>&#123;	</span></span><br><span class="line">     </span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> y=r-(<span class="keyword">this</span>.ospan.offsetHeight/<span class="number">2</span>);</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> x=l-(<span class="keyword">this</span>.ospan.offsetWidth/<span class="number">2</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="handlebars"><span class="xml"> if(x<span class="tag">&lt;<span class="name">0)&#123;x=0;&#125;if(y</span>&lt;<span class="attr">0</span>)&#123;<span class="attr">y</span>=<span class="string">0;&#125;</span></span></span></span></span><br><span class="line"><span class="actionscript"> <span class="keyword">if</span>(x&gt;<span class="keyword">this</span>.sbox.offsetWidth-<span class="keyword">this</span>.ospan.offsetWidth)&#123;</span></span><br><span class="line"><span class="actionscript">     x=<span class="keyword">this</span>.sbox.offsetWidth-<span class="keyword">this</span>.ospan.offsetWidth;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> <span class="keyword">if</span>(y&gt;<span class="keyword">this</span>.sbox.offsetHeight-<span class="keyword">this</span>.ospan.offsetHeight)&#123;</span></span><br><span class="line"><span class="actionscript">     y=<span class="keyword">this</span>.sbox.offsetHeight-<span class="keyword">this</span>.ospan.offsetHeight;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> <span class="keyword">this</span>.ospan.style.left=x+<span class="string">"px"</span>;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">this</span>.ospan.style.top=y+<span class="string">"px"</span>;</span></span><br><span class="line"><span class="javascript"> <span class="built_in">console</span>.log(<span class="keyword">this</span>.ospan.style.left);</span></span><br><span class="line"><span class="javascript"> <span class="built_in">console</span>.log(<span class="keyword">this</span>.ospan.style.top);</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"> <span class="keyword">this</span>.Imgmove(x,y);</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> Magnifier.prototype.Imgmove=<span class="function"><span class="keyword">function</span><span class="params">(x,y)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> c=<span class="keyword">this</span>.img.offsetWidth/<span class="keyword">this</span>.sbox.offsetWidth*x; </span></span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> d=<span class="keyword">this</span>.img.offsetHeight/<span class="keyword">this</span>.sbox.offsetHeight*y;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"> <span class="keyword">this</span>.img.style.left=-c+<span class="string">"px"</span>;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">this</span>.img.style.top=-d+<span class="string">"px"</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> <span class="keyword">new</span> Magnifier();</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="进阶放大镜"><a href="#进阶放大镜" class="headerlink" title="进阶放大镜"></a>进阶放大镜</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">     *&#123;<span class="attribute">margin</span>: <span class="number">0</span>;<span class="attribute">padding</span>: <span class="number">0</span>;&#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.s_box</span>&#123;<span class="attribute">width</span>: <span class="number">400px</span>;<span class="attribute">height</span>: <span class="number">300px</span>;<span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">40px</span>;<span class="attribute">position</span>: absolute;&#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.s_box</span>&gt;<span class="selector-tag">img</span>&#123;<span class="attribute">width</span>: <span class="number">400px</span>;<span class="attribute">height</span>: <span class="number">300px</span>;&#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.s_box</span>&gt;<span class="selector-tag">span</span>&#123;<span class="attribute">width</span>: <span class="number">80px</span>;<span class="attribute">height</span>: <span class="number">60px</span>;<span class="attribute">display</span>: block;<span class="attribute">position</span>: absolute;<span class="attribute">top</span>: <span class="number">0</span>;<span class="attribute">left</span>: <span class="number">0</span>;<span class="attribute">background</span>: <span class="built_in">url</span>(img/<span class="number">1</span>.jpg);<span class="attribute">background-size</span>:<span class="number">400px</span> <span class="number">300px</span>;<span class="attribute">display</span>: none;<span class="attribute">z-index</span>: <span class="number">1000</span>;&#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.b_box</span>&#123;<span class="attribute">width</span>: <span class="number">410px</span>;<span class="attribute">height</span>: <span class="number">300px</span>;<span class="attribute">z-index</span>: <span class="number">2</span>;<span class="attribute">position</span>: absolute;<span class="attribute">left</span>: <span class="number">500px</span>;<span class="attribute">top</span>: <span class="number">20px</span>;<span class="attribute">overflow</span>: hidden;&#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.b_box</span>&gt;<span class="selector-tag">img</span>&#123;<span class="attribute">width</span>:<span class="number">2000px</span>;<span class="attribute">height</span>:<span class="number">1500px</span>;<span class="attribute">z-index</span>: -<span class="number">1</span>;<span class="attribute">position</span>: absolute;<span class="attribute">top</span>: <span class="number">0</span>;<span class="attribute">left</span>: <span class="number">0</span>;&#125;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"s_box"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/1.jpg"</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"b_box"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/1.jpg"</span> /&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"> <span class="function"><span class="keyword">function</span> <span class="title">Magnifier</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">     <span class="keyword">this</span>.init();</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> Magnifier.prototype.init=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">     <span class="keyword">this</span>.sbox=<span class="built_in">document</span>.querySelector(<span class="string">".s_box"</span>);	</span></span><br><span class="line"><span class="javascript">     <span class="keyword">this</span>.oimg=<span class="built_in">document</span>.querySelector(<span class="string">".s_box img"</span>);	</span></span><br><span class="line"><span class="javascript">     <span class="keyword">this</span>.ospan=<span class="built_in">document</span>.querySelector(<span class="string">".s_box span"</span>);</span></span><br><span class="line"><span class="javascript">     <span class="keyword">this</span>.bbox=<span class="built_in">document</span>.querySelector(<span class="string">".b_box"</span>);</span></span><br><span class="line"><span class="javascript">     <span class="keyword">this</span>.img=<span class="built_in">document</span>.querySelector(<span class="string">".b_box img"</span>);</span></span><br><span class="line"><span class="actionscript">     <span class="keyword">this</span>.addEvent();</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> Magnifier.prototype.addEvent=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">     <span class="keyword">var</span> that=<span class="keyword">this</span>;</span></span><br><span class="line"><span class="actionscript">     <span class="keyword">this</span>.sbox.onmouseover=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line">          that.display();</span><br><span class="line">     &#125;</span><br><span class="line"><span class="actionscript">     <span class="keyword">this</span>.sbox.onmouseout=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line">          that.hide();</span><br><span class="line">     &#125;</span><br><span class="line"><span class="actionscript">     <span class="keyword">this</span>.sbox.onmousemove=<span class="function"><span class="keyword">function</span><span class="params">(eve)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">     <span class="keyword">var</span> e=eve||event.event;</span></span><br><span class="line"><span class="actionscript">          <span class="comment">// e.pageX - this.offsetLeft === e.offsetX</span></span></span><br><span class="line"><span class="actionscript">     <span class="comment">// e.pageY - this.offsetTop === e.offsetY</span></span></span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> l=e.pageX-<span class="keyword">this</span>.offsetLeft;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> r=e.pageY-<span class="keyword">this</span>.offsetTop;</span></span><br><span class="line">          that.move(l,r);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> Magnifier.prototype.hide=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">     <span class="keyword">this</span>.ospan.style.display=<span class="string">"none"</span>;</span></span><br><span class="line"><span class="actionscript">          <span class="keyword">this</span>.bbox.style.display=<span class="string">"none"</span>;</span></span><br><span class="line"><span class="actionscript">          <span class="keyword">this</span>.oimg.style.opacity=<span class="string">"1"</span>;	</span></span><br><span class="line">     </span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> Magnifier.prototype.display=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">          <span class="keyword">this</span>.oimg.style.opacity=<span class="string">"0.6"</span>;</span></span><br><span class="line"><span class="actionscript">          <span class="keyword">this</span>.ospan.style.display=<span class="string">"block"</span>;</span></span><br><span class="line"><span class="actionscript">          <span class="keyword">this</span>.bbox.style.display=<span class="string">"block"</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> Magnifier.prototype.move=<span class="function"><span class="keyword">function</span><span class="params">(l,r)</span></span>&#123;	</span></span><br><span class="line">     </span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> y=r-(<span class="keyword">this</span>.ospan.offsetHeight/<span class="number">2</span>);</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> x=l-(<span class="keyword">this</span>.ospan.offsetWidth/<span class="number">2</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="handlebars"><span class="xml"> if(x<span class="tag">&lt;<span class="name">0)&#123;x=0;&#125;if(y</span>&lt;<span class="attr">0</span>)&#123;<span class="attr">y</span>=<span class="string">0;&#125;</span></span></span></span></span><br><span class="line"><span class="actionscript"> <span class="keyword">if</span>(x&gt;<span class="keyword">this</span>.sbox.offsetWidth-<span class="keyword">this</span>.ospan.offsetWidth)&#123;</span></span><br><span class="line"><span class="actionscript">     x=<span class="keyword">this</span>.sbox.offsetWidth-<span class="keyword">this</span>.ospan.offsetWidth;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> <span class="keyword">if</span>(y&gt;<span class="keyword">this</span>.sbox.offsetHeight-<span class="keyword">this</span>.ospan.offsetHeight)&#123;</span></span><br><span class="line"><span class="actionscript">     y=<span class="keyword">this</span>.sbox.offsetHeight-<span class="keyword">this</span>.ospan.offsetHeight;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> <span class="keyword">this</span>.ospan.style.left=x+<span class="string">"px"</span>;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">this</span>.ospan.style.top=y+<span class="string">"px"</span>; </span></span><br><span class="line"><span class="javascript"> <span class="built_in">console</span>.log(<span class="keyword">this</span>.ospan.style.left);</span></span><br><span class="line"><span class="javascript"> <span class="built_in">console</span>.log(<span class="keyword">this</span>.ospan.style.top);</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">this</span>.ospan.style.backgroundPosition= -x+<span class="string">"px "</span>+ -y +<span class="string">"px"</span>;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">this</span>.Imgmove(x,y);</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> Magnifier.prototype.Imgmove=<span class="function"><span class="keyword">function</span><span class="params">(x,y)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> c=<span class="keyword">this</span>.img.offsetWidth/<span class="keyword">this</span>.sbox.offsetWidth*x;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">var</span> d=<span class="keyword">this</span>.img.offsetHeight/<span class="keyword">this</span>.sbox.offsetHeight*y;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"> <span class="keyword">this</span>.img.style.left=-c+<span class="string">"px"</span>;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">this</span>.img.style.top=-d+<span class="string">"px"</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="actionscript"> <span class="keyword">new</span> Magnifier();</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="瀑布流"><a href="#瀑布流" class="headerlink" title="瀑布流"></a>瀑布流</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-class">.cont</span>&#123;<span class="attribute">margin</span>: <span class="number">0</span> auto;<span class="attribute">position</span>: relative;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.box</span>&#123;<span class="attribute">float</span>: left;<span class="attribute">padding</span>: <span class="number">6px</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.imgbox</span>&#123;<span class="attribute">border</span>: <span class="number">1px</span> springgreen solid;<span class="attribute">border-radius</span>:<span class="number">6px</span>;<span class="attribute">padding</span>: <span class="number">6px</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.imgbox</span> <span class="selector-tag">img</span>&#123;<span class="attribute">width</span>: <span class="number">200px</span>;<span class="attribute">display</span>: block;&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">onload = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">new</span> Cascade;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">Cascade</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">this</span>.cont = <span class="built_in">document</span>.querySelector(<span class="string">".cont"</span>);</span></span><br><span class="line"><span class="javascript"><span class="keyword">this</span>.abox = <span class="built_in">document</span>.querySelectorAll(<span class="string">".box"</span>);</span></span><br><span class="line"><span class="actionscript"><span class="comment">// 获取可视区域的高度</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">this</span>.clientW = <span class="built_in">document</span>.documentElement.clientWidth;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">// 用来存放高度值的数组</span></span></span><br><span class="line"><span class="actionscript"><span class="keyword">this</span>.heightArr = [];</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">// 启动</span></span></span><br><span class="line"><span class="actionscript"><span class="keyword">this</span>.init()</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="actionscript">Cascade.prototype.init = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript"><span class="comment">// 计算并设置大框的宽度，让大框能够居中</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">this</span>.maxNum = <span class="built_in">Math</span>.floor(<span class="keyword">this</span>.clientW / <span class="keyword">this</span>.abox[<span class="number">0</span>].offsetWidth);</span></span><br><span class="line"><span class="actionscript"><span class="keyword">this</span>.cont.style.width = <span class="keyword">this</span>.maxNum * <span class="keyword">this</span>.abox[<span class="number">0</span>].offsetWidth + <span class="string">"px"</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">// 1.区分出第一行和后面的行</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// 2.获取第一行所有的高度</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// 3.找到最矮的那个</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// 4.设置第二行第一个元素的top为第一行最矮的那个高度值</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// 5.left设置成最矮的数据的索引*任意一个元素的宽度</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// 6.修改最矮的数据，加上这次放在自己下面的元素的高度</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// 7.重复第三....</span></span></span><br><span class="line"><span class="actionscript"><span class="keyword">this</span>.line()</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="actionscript">Cascade.prototype.line = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript"><span class="comment">// 1.区分出第一行和后面的行</span></span></span><br><span class="line"><span class="actionscript"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.maxNum;i++)&#123;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 2.获取第一行所有的高度</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">this</span>.heightArr.push(<span class="keyword">this</span>.abox[i].offsetHeight)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="keyword">this</span>.maxNum;i&lt;<span class="keyword">this</span>.abox.length;i++)&#123;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 3.找到最矮的那个和最矮的索引</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> min = getMin(<span class="keyword">this</span>.heightArr)</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> minIndex = <span class="keyword">this</span>.heightArr.indexOf(min)</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 4.设置第二行第一个元素的top为第一行最矮的那个高度值</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">this</span>.abox[i].style.position = <span class="string">"absolute"</span>;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">this</span>.abox[i].style.top = min + <span class="string">"px"</span>;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 5.left设置成最矮的数据的索引*任意一个元素的宽度</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">this</span>.abox[i].style.left = minIndex * <span class="keyword">this</span>.abox[<span class="number">0</span>].offsetWidth + <span class="string">"px"</span>;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 6.修改最矮的数据，加上这次放在自己下面的元素的高度</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">this</span>.heightArr[minIndex] += <span class="keyword">this</span>.abox[i].offsetHeight;</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">getMin</span><span class="params">(arr)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript"><span class="comment">// 注意排序过程中，数组作为一个引用传递的数据，会影响原始数据</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// 所以要先深拷贝出一份，再排序</span></span></span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> newArr = [];</span></span><br><span class="line"><span class="actionscript"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span></span><br><span class="line">    newArr.push(arr[i])</span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="keyword">return</span> newArr.sort(<span class="function">(<span class="params">a,b</span>)=&gt;</span>a-b)[<span class="number">0</span>];</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cont"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"imgbox"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/1.jpg"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="原型和原型链-为了包证对象间的联系"><a href="#原型和原型链-为了包证对象间的联系" class="headerlink" title="原型和原型链-为了包证对象间的联系"></a>原型和原型链-为了包证对象间的联系</h3><ul>
+<li>构造函数与原型</li>
+<li>与大部分面向对象语言不同，JavaScript中并没有引入类（class）的概念，但JavaScript仍然大量地使用了对象，为了保证对象之间的联系， JavaScript引入了原型与原型链的概念。</li>
+<li>在Java中，声明一个实例的写法是这样的：</li>
+<li>ClassName obj = new ClassName()</li>
+<li>复制代码为了保证JavaScript“看起来像Java”，JavaScript中也加入了new操作符：</li>
+<li>var obj = new FunctionName()</li>
+<li>复制代码可以看到，与Java不同的是，JavaScript中的new操作符后面跟的并非类名而是函数名，JavaScript并非通过类而是直接通过构造函数来创建实例。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name, color</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.name = name</span><br><span class="line">   <span class="keyword">this</span>.color = color</span><br><span class="line">   <span class="keyword">this</span>.bark = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'wangwang~'</span>)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> dog1 = <span class="keyword">new</span> Dog(<span class="string">'dog1'</span>, <span class="string">'black'</span>)</span><br><span class="line"><span class="keyword">const</span> dog2 = <span class="keyword">new</span> Dog(<span class="string">'dog2'</span>, <span class="string">'white'</span>)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>复制代码上述代码就是声明一个构造函数并通过构造函数创建实例的过程，这样看起来似乎有点面向对象的样子了，但实际上这种方法还存在一个很大的问题。</li>
+<li>在上面的代码中，有两个实例被创建，它们有自己的名字、颜色，但它们的bark方法是一样的，而通过构造函数创建实例的时候，每创建一个实例，都需要重新创建这个方法，再把它添加到新的实例中。这无疑造成了很大的浪费，既然实例的方法都是一样的，为什么不把这个方法单独放到一个地方，并让所有的实例都可以访问到呢。</li>
+<li><p>这里就需要用到原型（prototype）</p>
+</li>
+<li><p>每一个构造函数都拥有一个prototype属性，这个属性指向一个对象，也就是原型对象。当使用这个构造函数创建实例的时候，prototype属性指向的原型对象就成为实例的原型对象。</p>
+</li>
+<li>原型对象默认拥有一个constructor属性，指向指向它的那个构造函数（也就是说构造函数和原型对象是互相指向的关系）。 </li>
+<li>每个对象都拥有一个隐藏的属性[[prototype]]，指向它的原型对象，这个属性可以通过</li>
+<li>Object.getPrototypeOf(obj) 或 obj.<strong>proto</strong> 来访问。</li>
+<li>实际上，构造函数的prototype属性与它创建的实例对象的[[prototype]]属性指向的是同一个对象，即 对象.<strong>proto</strong> === 函数.prototype 。</li>
+<li>如上文所述，原型对象就是用来存放实例中共有的那部分属性。</li>
+<li>在JavaScript中，所有的对象都是由它的原型对象继承而来，反之，所有的对象都可以作为原型对象存在。</li>
+<li>访问对象的属性时，JavaScript会首先在对象自身的属性内查找，若没有找到，则会跳转到该对象的原型对象中查找。</li>
+</ul>
+<p><a href="https://i.loli.net/2019/04/15/5cb3d71e58c06.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/04/15/5cb3d71e58c06.jpg" alt="1.jpg"></a></p>
+<h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><ul>
+<li>new 创造一个爸爸，并且生出一堆儿子，每个儿子都可以拥有爸爸给孩子的东西，例如钓鱼、做饭（爸爸的方法）</li>
+<li><p>因为在儿子还没有学习这个方法的时候，我们班主任让儿子去钓鱼，那么儿子不会，就会向上查找去叫爸爸，如果爸爸有这个技能，我们就可以成功完成任务了。</p>
+</li>
+<li><p>现在我们来用做简单的语言来阐述一下原型和原型链。</p>
+</li>
+<li>什么是原型？那就是爸爸。</li>
+<li>什么是原型链？那就是爸爸和儿子的关系。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 爸爸(<span class="params">name</span>) </span>&#123;</span><br><span class="line">   <span class="comment">// 现在我给爸爸丢上一些方法</span></span><br><span class="line">   <span class="comment">// 给孩子命名</span></span><br><span class="line">   <span class="keyword">this</span>.name = name;</span><br><span class="line">   <span class="comment">// 爸爸愿意交给儿子可以钓上来你想要的鱼</span></span><br><span class="line">   <span class="keyword">this</span>.goFishing = <span class="function"><span class="keyword">function</span>(<span class="params">fis</span>) </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> fis</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 现在我们来创造儿子</span></span><br><span class="line"><span class="keyword">var</span> 儿子小明 = <span class="keyword">new</span> 爸爸(<span class="string">'小明'</span>)</span><br><span class="line"></span><br><span class="line">儿子小明.name <span class="comment">//"小明"</span></span><br><span class="line">儿子小明.goFishing(<span class="string">'章鱼'</span>) <span class="comment">//"章鱼"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 爸爸没有直接教</span></span><br><span class="line">爸爸.prototype.cook = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   [<span class="string">'米饭'</span>, <span class="string">'爆炒鱿鱼'</span>, <span class="string">'番茄蛋汤'</span>].forEach(<span class="function"><span class="params">i</span> =&gt;</span> <span class="built_in">console</span>.log(i))</span><br><span class="line">&#125;</span><br><span class="line">儿子小明.cook()</span><br><span class="line"><span class="comment">// 米饭 爆炒鱿鱼 番茄蛋汤</span></span><br><span class="line">现在我们打印一下小明儿子。</span><br><span class="line">儿子里面有：&#123;<span class="attr">name</span>: <span class="string">"小明"</span>, <span class="attr">goFishing</span>: ƒ&#125;</span><br><span class="line">这是爸爸直接给儿子的东西。</span><br><span class="line">那么爸爸还没给儿子，儿子却可以使用的到哪里去了呢？</span><br><span class="line"></span><br><span class="line">我们往下再看，有一个__proto__。</span><br><span class="line">在这里面，就能发现爸爸的cook。</span><br><span class="line"></span><br><span class="line">所以爸爸的独门绝技丢在了prototype里面，这里面是儿子不需要学习却可以直接使用</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../13/HTTP和HTTPS/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            HTTP和HTTPS
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../10/JS面向对象-上/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">JS面向对象-上</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

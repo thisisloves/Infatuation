@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JS总结 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="流水潺潺，素手纤纤，青丝束，惊鸿若舞，衣袂飘飘，所谓倾心相许。">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS总结">
+<meta property="og:url" content="https://github.com/thisisloves/2019/05/19/JS总结/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="流水潺潺，素手纤纤，青丝束，惊鸿若舞，衣袂飘飘，所谓倾心相许。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-28T02:54:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS总结">
+<meta name="twitter:description" content="流水潺潺，素手纤纤，青丝束，惊鸿若舞，衣袂飘飘，所谓倾心相许。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-JS总结" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      JS总结
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-05-18T16:00:00.000Z" itemprop="datePublished">2019-05-19</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JS/">JS</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>流水潺潺，素手纤纤，青丝束，惊鸿若舞，衣袂飘飘，所谓倾心相许。<br><a id="more"></a></p>
+<blockquote>
+<p>既不回头，何必不忘。既然无缘，何须誓言。今日种种，似水无痕。明夕何夕，君已陌路。</p>
+</blockquote>
+<h3 id="fn-extend-obj-和-extend-obj"><a href="#fn-extend-obj-和-extend-obj" class="headerlink" title="$.fn.extend(obj)和$.extend(obj)"></a>$.fn.extend(obj)和$.extend(obj)</h3><ul>
+<li>$.extend(obj)是为了扩展jQuery本身，为类添加新的方法</li>
+<li>$.fn.extend(obj)给jQuery对象添加方法。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.extend(&#123;</span><br><span class="line">add:<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">$.add(<span class="number">5</span>,<span class="number">8</span>) <span class="comment">//return  13</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$.fn.extend(&#123;</span><br><span class="line">clickwhile:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="keyword">this</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            alert($(<span class="keyword">this</span>).val()) </span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">$(<span class="string">'input'</span>).clickwhile();<span class="comment">//当点击输入框会弹出该对象的Value值</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="extend-两种写法"><a href="#extend-两种写法" class="headerlink" title="$.extend()两种写法"></a>$.extend()两种写法</h3><ol>
+<li>$.extend(obj)</li>
+</ol>
+<ul>
+<li>这是只有一个参数，代表的意义是：为jQuery类添加类方法，可以理解为添加静态方法，也就是全局方法。</li>
+</ul>
+<ol start="2">
+<li>$.extend( target, object1,  object2,  object3,  object4,[objectN]);</li>
+</ol>
+<ul>
+<li>这是两个或两个以上的参数，代表的意义是：用一个或多个其他对象来扩展一个对象，返回被扩展的对象。即也就是扩展和覆盖了第一个对象。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> aaa=&#123;<span class="attr">name</span>:<span class="string">'1'</span>,<span class="attr">age</span>:<span class="string">'20'</span>,<span class="attr">sex</span>:<span class="string">'NV'</span>&#125;;</span><br><span class="line">        <span class="keyword">var</span> bbb=&#123;<span class="attr">name</span>:<span class="string">'2'</span>,<span class="attr">age</span>:<span class="string">'18'</span>&#125;;</span><br><span class="line">        <span class="keyword">var</span> ccc = $.extend（ aaa, bbb);</span><br><span class="line">        alert(ccc.sex);<span class="comment">//NV</span></span><br><span class="line">        alert(aaa.name);<span class="comment">//2</span></span><br><span class="line">    &#125;)(jQuery);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>没有操作到页面，只是实现了某个功能，比如ajax，cookie，这种适合使用jq的全局方法</li>
+<li>$.extend()</li>
+<li>$.liyang = function(){}</li>
+</ul>
+<ul>
+<li>有操作到页面，比如css，load，attr，width，这种适合使用jq的局部(DOM)方法</li>
+<li>$.fn.extend()</li>
+<li>$.fn.liyang = function(){}</li>
+</ul>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".banner1"</span>).banner(&#123;</span><br><span class="line">items:$(<span class="string">".banner2"</span>).children(<span class="string">".imgbox"</span>).children(<span class="string">"a"</span>),   </span><br><span class="line">left:$(<span class="string">".banner2"</span>).find(<span class="string">"#left"</span>),</span><br><span class="line">right:$(<span class="string">".banner2"</span>).find(<span class="string">"#right"</span>),</span><br><span class="line">list:<span class="literal">false</span>,</span><br><span class="line">autoPlay:<span class="literal">false</span>,</span><br><span class="line">delayTime:<span class="number">3000</span>,</span><br><span class="line">moveTime:<span class="number">1000</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//插件</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;</span><br><span class="line"><span class="meta">"use strict"</span>;   </span><br><span class="line">$.fn.extend(&#123;</span><br><span class="line">banner:<span class="function"><span class="keyword">function</span>(<span class="params">options</span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> bannerObj = &#123;</span><br><span class="line">    index:<span class="number">0</span>,</span><br><span class="line">    iPrev:options.items.length<span class="number">-1</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure></div>
+<h3 id="各种转换"><a href="#各种转换" class="headerlink" title="各种转换"></a>各种转换</h3><ul>
+<li>eval()函数 json转对象</li>
+<li>JSON.parse() JSON转对象</li>
+<li>JSON.stringify() 对象转JSON</li>
+<li>JSON_encode() 关联数组转JSON</li>
+<li>queryString.parse() 字符串形式参数转换成对象 node服务器中</li>
+<li>url.parse(str,true) url转换成对象</li>
+</ul>
+<h3 id="index-方法"><a href="#index-方法" class="headerlink" title="$().index() 方法"></a>$().index() 方法</h3><ul>
+<li>index()方法返回指定元素相对于其他指定元素的 index 位置。</li>
+<li>这些元素可通过 jQuery 选择器或 DOM 元素来指定。</li>
+<li><p>注释：如果未找到元素，index() 将返回 -1。</p>
+</li>
+<li><p>$(selector).index()</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="APPLESCRIPT"><figure class="iseeu highlight /applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul <span class="built_in">id</span>=<span class="string">"test"</span>&gt;</span><br><span class="line">&lt;li&gt;Step <span class="number">1</span>&lt;/li&gt;</span><br><span class="line">&lt;li&gt;Step <span class="number">2</span>&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">$(<span class="string">"#test’"</span>).<span class="keyword">on</span><span class="params">(<span class="string">"click"</span>, <span class="string">"li"</span>, function<span class="params">()</span> &#123;</span></span><br><span class="line"><span class="params">console.log<span class="params">( $<span class="params">(this)</span>.index<span class="params">()</span>)</span>;</span></span><br><span class="line"><span class="params">var index2 =$<span class="params">(this)</span>.parent<span class="params">()</span>.index<span class="params">()</span>;  //也可以获取li父元素的索引</span></span><br><span class="line"><span class="params">&#125;)</span>;</span><br></pre></td></tr></table></figure></div>
+<h3 id="each"><a href="#each" class="headerlink" title="$().each()"></a>$().each()</h3><ul>
+<li>主要对DOM的遍历</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(selector).each(<span class="function"><span class="keyword">function</span>(<span class="params">index,element</span>))</span>&#123;</span><br><span class="line"><span class="comment">//index 选择器的 index 位置</span></span><br><span class="line"><span class="comment">//element 当前的元素(也可使用 "this" 选择器)</span></span><br><span class="line">&#125;</span><br><span class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">$(<span class="string">"li"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">alert($(<span class="keyword">this</span>).text())</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+<h3 id="each-1"><a href="#each-1" class="headerlink" title="$.each"></a>$.each</h3><ul>
+<li>遍历对象或数组</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$.each(<span class="built_in">Array</span>, <span class="function"><span class="keyword">function</span>(<span class="params">i, value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>;      <span class="comment">//this指向当前元素</span></span><br><span class="line">    i;         <span class="comment">//i表示Array当前下标</span></span><br><span class="line">    value;     <span class="comment">//value表示Array当前元素</span></span><br><span class="line">&#125;);</span><br><span class="line">$.each(<span class="built_in">Object</span>, <span class="function"><span class="keyword">function</span>(<span class="params">name, value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>;      <span class="comment">//this指向当前属性的值</span></span><br><span class="line">    name;      <span class="comment">//name表示Object当前属性的名称</span></span><br><span class="line">    value;     <span class="comment">//value表示Object当前属性的值</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+<h3 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h3><ul>
+<li>find() 方法获得当前元素集合中每个元素的后代</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GAMS"><figure class="iseeu highlight /gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//搜索所有段落中的后代 span 元素，并将其颜色设置为红色：</span></span><br><span class="line"><span class="symbol">$</span>(<span class="string">"p"</span>).find(<span class="string">"span"</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);</span><br></pre></td></tr></table></figure></div>
+<h3 id="siblings"><a href="#siblings" class="headerlink" title="siblings()"></a>siblings()</h3><ul>
+<li>siblings() 获得匹配集合中每个元素的同胞</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">//</span>查找每个 p 元素的所有类名为 <span class="string">"selected"</span> 的所有同胞元素：</span><br><span class="line">$(<span class="string">"p"</span>).siblings(<span class="string">".selected"</span>)</span><br></pre></td></tr></table></figure></div>
+<h3 id="bootstrap居中"><a href="#bootstrap居中" class="headerlink" title="bootstrap居中"></a>bootstrap居中</h3><ul>
+<li><p>登录页的form表单可以是使用margin:0 auto的方式，居中对齐</p>
+</li>
+<li><p>div可以使用pull-right, text-center, pull-left</p>
+</li>
+<li><p>按钮或者p标签可以使用text-right, text-center, text-left</p>
+</li>
+</ul>
+<h3 id="node-js-Express-里常常见到function-req-res-next-这3个参数分别是什么意思呢？"><a href="#node-js-Express-里常常见到function-req-res-next-这3个参数分别是什么意思呢？" class="headerlink" title="node.js Express 里常常见到function(req, res, next), 这3个参数分别是什么意思呢？"></a>node.js Express 里常常见到function(req, res, next), 这3个参数分别是什么意思呢？</h3><ul>
+<li>req :  request的缩写， 请求的数据Request 对象表示 HTTP 请求，包含了请求查询字符串，参数，内容，HTTP 头部等属性。</li>
+<li>我们常用req.body.xx来表示POST的xx属性</li>
+<li>res:   response的缩写， 响应的数据Response 对象表示 HTTP 响应，即在接收到请求时向客户端发送的 HTTP 响应数据。</li>
+<li>我们常常用res.send() 传送HTTP响应 , res.render()渲染结果页面</li>
+<li>next 则是前往下一个中间件，执行相同路径的下一个方法。</li>
+<li>比如checkNotLogin函数里末尾有next();</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LUA"><figure class="iseeu highlight /lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkNotLogin</span><span class="params">(req, res, next)</span></span> </span><br><span class="line">   &#123; <span class="built_in">next</span>();&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>那么app.get(‘/reg’, checkNotLogin);就会继续执行下一个同样是”/reg”路径的方法</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ACTIONSCRIPT"><figure class="iseeu highlight /actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/reg'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>&#123;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<h3 id="map方法"><a href="#map方法" class="headerlink" title="map方法"></a>map方法</h3><ul>
+<li>返回一个数组，数组中元素为原始数组的平方根:</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    x = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>)</span><br><span class="line">    x.innerHTML = numbers.map(<span class="built_in">Math</span>.sqrt);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><p>输出2,3,4,5</p>
+</li>
+<li><p>map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。</p>
+</li>
+<li>map() 方法按照原始数组元素顺序依次处理元素。</li>
+<li>map() 不会对空数组进行检测。</li>
+<li>map() 不会改变原始数组。</li>
+</ul>
+<h3 id="filter-方法"><a href="#filter-方法" class="headerlink" title="filter() 方法"></a>filter() 方法</h3><ul>
+<li>返回数组 ages 中所有元素都大于 18 的元素:</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ages = [<span class="number">32</span>, <span class="number">33</span>, <span class="number">16</span>, <span class="number">40</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkAdult</span>(<span class="params">age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> age &gt;= <span class="number">18</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML = ages.filter(checkAdult);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>输出32,33,40</li>
+</ul>
+<ul>
+<li><p>filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。</p>
+</li>
+<li><p>注意： filter() 不会对空数组进行检测。</p>
+</li>
+<li>注意： filter() 不会改变原始数组。</li>
+</ul>
+<h3 id="reverse-方法"><a href="#reverse-方法" class="headerlink" title="reverse() 方法"></a>reverse() 方法</h3><ul>
+<li>用于颠倒数组中元素的顺序</li>
+</ul>
+<h3 id="split-方法"><a href="#split-方法" class="headerlink" title="split() 方法"></a>split() 方法</h3><ul>
+<li>用于把一个字符串分割成字符串数组</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../20/SSR和Socket通讯/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            SSR和Socket
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../15/数据库模块封装/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">数据库模块封装</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

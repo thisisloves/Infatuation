@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Vue双向绑定 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="我很爱很爱你，因为我是在从孤独前往完满的路上遇见了你。之后我也许会遇到比你更好的人，可我再也无法像爱你那样深爱她们，因为那时的我已经百毒不侵。">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue双向绑定">
+<meta property="og:url" content="https://github.com/thisisloves/2019/05/20/vue双向绑定/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="我很爱很爱你，因为我是在从孤独前往完满的路上遇见了你。之后我也许会遇到比你更好的人，可我再也无法像爱你那样深爱她们，因为那时的我已经百毒不侵。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/05/20/5ce29d426dd1270796.png">
+<meta property="og:updated_time" content="2019-05-20T12:28:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue双向绑定">
+<meta name="twitter:description" content="我很爱很爱你，因为我是在从孤独前往完满的路上遇见了你。之后我也许会遇到比你更好的人，可我再也无法像爱你那样深爱她们，因为那时的我已经百毒不侵。">
+<meta name="twitter:image" content="https://i.loli.net/2019/05/20/5ce29d426dd1270796.png">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-vue双向绑定" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Vue双向绑定
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-05-19T16:00:00.000Z" itemprop="datePublished">2019-05-20</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/vue/">vue</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>我很爱很爱你，因为我是在从孤独前往完满的路上遇见了你。之后我也许会遇到比你更好的人，可我再也无法像爱你那样深爱她们，因为那时的我已经百毒不侵。<br><a id="more"></a></p>
+<blockquote>
+<p>所谓的天生一对，就像是嵌在一起的两片拼图，你说不上来他哪里适合你，他也弄不清你们彼此怎么能相互容忍，可你们还是在一起了，而且始终很和谐，轻易也不会掉落一片。</p>
+</blockquote>
+<h3 id="代码命名规范"><a href="#代码命名规范" class="headerlink" title="代码命名规范"></a>代码命名规范</h3><ol>
+<li>BEM</li>
+</ol>
+<ul>
+<li>BEM(Block, Element, Modifier)是由Yandex团队提出的一种前端命名规范。其核心思想是将页面 拆分成一个个独立的富有语义的块(blocks),从而使得团队在开发复杂的项目变得高效，并且十分有利于代码复用，即便团队引入新成员，也容易维护。在某种程度上，BEM和OOP是相似的。</li>
+</ul>
+<ol start="2">
+<li>OOCSS</li>
+</ol>
+<ul>
+<li>OOCSS不是一个框架，也不是一种技术，更不是一种新的语言，他只不过是一种方法，一种书写方法，换句话说OOCSS其核心就是用最简单的方式编写最整洁，最于净的CSS代码，从而使代码更具重用性，可维护性和可扩展性 （ 把原本写在一起的样式， 拆<br>开多个class 写，提高可复用性）</li>
+</ul>
+<ol start="3">
+<li>Eslint</li>
+</ol>
+<ul>
+<li><p><a href="https://www.cnblogs.com/my93/p/5681879.html" target="_blank" rel="noopener">eslint</a> — js书写规范</p>
+</li>
+<li><p>代码检测，是否符合规范</p>
+</li>
+<li>ESLint 这样的可以让你在编码的过程中发现问题，并且可以自己创建检测规则，保持代码编写风格的一致性</li>
+<li>安装依赖</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="MATLAB"><figure class="iseeu highlight /matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm <span class="built_in">i</span> eslint -g</span><br><span class="line">cnpm <span class="built_in">i</span> eslint-plugin-vue -g</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>用命令新建eslintrc.js文件</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ADA"><figure class="iseeu highlight /ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint <span class="comment">--init</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="前端发展历史"><a href="#前端发展历史" class="headerlink" title="前端发展历史"></a>前端发展历史</h3><ul>
+<li>1994年可以看做前端历史的起点</li>
+<li>1995年网景推出了JavaScript</li>
+<li>1996年微软推出了iframe标签， 实现了异步的局部加载</li>
+<li>1999年W3C发布第四代HTML标准，微软推出用于异步数据传输的 ActiveX(ActiveXObject)，各大浏览器厂商模仿实现了 XMLHttpRequest</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">"undefined"</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> ActiveXObject != <span class="string">"undefined"</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> version = [</span><br><span class="line">        <span class="string">"MSXML2.XMLHttp.6.0"</span>,</span><br><span class="line">        <span class="string">"MSXML2.XMLHttp.2.0"</span>,</span><br><span class="line">        <span class="string">"MSXML2.XMLHttp"</span></span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">        <span class="comment">/*return new ActiveXObject(version[i]);*/</span></span><br><span class="line">        <span class="comment">//使用try&#123;&#125;catch&#123;&#125;防止在创建对象时出错</span></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(version[i]);</span><br><span class="line">        &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">            <span class="comment">//TODO handle the exception</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">//如果都不支持，则抛出异常</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"您老的浏览器实在是不行了"</span>)</span><br><span class="line">    <span class="comment">//alert("您老的浏览器实在是不行了");</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>2006年，XMLHttpRequest被W3C正式纳入标准</li>
+<li>2006年, 发布了jQuery</li>
+<li>2008年问世的谷歌V8引擎，发布H5的草案</li>
+<li>2009年发布了第五代JavaScript</li>
+<li>2009年 AngularJS 诞生</li>
+<li>2010年 backbone.js 诞生。</li>
+<li>2011年React和Ember诞生</li>
+<li>2014年Vue.js诞生</li>
+<li>2014年，第五代HTML标准发布</li>
+<li>2014年左右，4G时代到来，混合开发（js, android, ios混合开发）</li>
+<li>2016年 微信小程序诞生</li>
+<li>2017年 微信小程序正式投入运营</li>
+<li><p>2017年底年 微信小游戏</p>
+</li>
+<li><p>以前的三大框架： angular, react, vue</p>
+</li>
+<li>现在： react， vue， 小程序（微信、支付宝、百度、头条）</li>
+</ul>
+<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><ul>
+<li>Vue 是一套用于构建用户界面的渐进式框架</li>
+<li>Vue 被设计为可以自底向上逐层应用</li>
+<li>Vue 的核心库只关注视图层,便于与第三方库或既有项目整合</li>
+<li>Vue 不支持 IE8 及以下版本</li>
+</ul>
+<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><ul>
+<li>MVC框架最早出现在Java领域，然后慢慢在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM</li>
+<li><p>MVC全名是Model View Controller，是模型(model)-视图(view)-控制器(controller)的缩写</p>
+</li>
+<li><p>优点：耦合性低、重用性高、生命周期成本低、部署快、可维护性高、有利软件工程化管理 </p>
+</li>
+<li><p>缺点：由于模型和视图要严格的分离，这样也给调试应用程序带来了一定的困难。每个构件在使用之前都需要经过彻底的测试。</p>
+</li>
+<li><p>MVP</p>
+</li>
+<li><p>MVP是单词Model View Presenter的首字母的缩写，分别表示数据层、视图层、发布层，它是MVC架构的一种演变。作为一种新的模式，MVP与MVC有着一个重大的区别：在MVP中View并不直接使用Model，它们之间的通信是通过Presenter (MVC中的Controller)来进行的，所有的交互都发生在Presenter内部，而在MVC中View会直接从Model中读取数据而不是通过 Controller。 </p>
+</li>
+<li>MVP 模式将 Controller 改名为 Presenter，同时改变了通信方向。各部分之间的通信，都是双向的。</li>
+<li>View 与 Model 不发生联系，都通过 Presenter 传递。</li>
+<li>View 非常薄，不部署任何业务逻辑，称为”被动视图”（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。</li>
+</ul>
+<ul>
+<li>MVVM</li>
+<li>MVVM(Model View ViewModel)是一种基于MVC的设计，开发人员在HTML上写一些Bindings,利用一些指令绑定，就能在Model和ViewModel保持不变的情况下，很方便的将UI设计与业务逻辑分离，从而大大的减少繁琐的DOM操作。</li>
+<li>Model代表我们整个webapp所需要的数据模型，一个典型的例子就是用户信息Model,它应该含有(姓名，年龄等属性)。Model含有大量信息，但它并不具有任何行为逻辑，它只是数据，因而它不会影响浏览器如何展示数据。</li>
+<li>MVVM中View是具有主动性的，因为它包括了一些数据绑定，事件，和行为，这些都会直接影响Model和ViewModel的。它不但负责保持View自身的行为（展示），而还会将自身的变化同步到ViewModel中。</li>
+<li>可以把ViewModel看作一个藏在View后面的好帮手，它把View需要的数据暴露给它，并且赋予View一定的行为能力。</li>
+</ul>
+<h3 id="vue数据双向绑定"><a href="#vue数据双向绑定" class="headerlink" title="vue数据双向绑定"></a>vue数据双向绑定</h3><ul>
+<li><strong>vue数据双向绑定是通过 数据劫持 结合发布者-订阅者模式 的方式来实现的</strong></li>
+<li>数据劫持的实现方式  <strong>object.defineProperty()</strong></li>
+<li>当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter/setter。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XQUERY"><figure class="iseeu highlight /xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">    var Book=</span><span class="xquery">&#123;&#125;</span><span class="xml">;</span></span><br><span class="line"><span class="xml">    var name="";</span></span><br><span class="line"><span class="xml">    Object.defineProperty(Book,'name',</span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery">        set(<span class="keyword">value</span>)&#123;</span></span><br><span class="line"><span class="xquery">           <span class="built_in"> name</span>=<span class="keyword">value</span>;</span></span><br><span class="line"><span class="xquery">            console.log(<span class="string">'你取了一个书名叫做'</span>+<span class="keyword">value</span>)</span></span><br><span class="line"><span class="xquery">        &#125;</span><span class="xml">,get()</span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery">            <span class="keyword">return</span><span class="string">'《'</span><span class="built_in">+name</span>+<span class="string">'》'</span></span></span><br><span class="line"><span class="xquery">        &#125;</span></span><br><span class="line"><span class="xml">    &#125;)</span></span><br><span class="line"><span class="xml">    console.log(Book.name)</span></span><br><span class="line"><span class="xml">    Book.name='123'</span></span><br><span class="line"><span class="xml">    console.log(Book.name)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+<ol>
+<li>实现一个监听器Observer，用来劫持并监听所有属性，如果有变动的，就通知订阅者。</li>
+<li>实现一个订阅者Watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图。</li>
+<li>实现一个解析器Compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。</li>
+</ol>
+<p><img src="https://i.loli.net/2019/05/20/5ce29d426dd1270796.png" alt="938664-20170522225458132-1434604303 [2].png"></p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../this和闭包/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            This和闭包
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../SSR和Socket通讯/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">SSR和Socket</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

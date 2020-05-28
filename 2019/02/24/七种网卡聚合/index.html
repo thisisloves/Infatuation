@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>七种网卡聚合 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="曾几何时 君为能聪明睿智 却傻傻跌入红尘 俟我于江北 日日歌且谣 使我喜笑眷慕 乐而不能去。">
+<meta name="keywords" content="网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="七种网卡聚合">
+<meta property="og:url" content="https://github.com/thisisloves/2019/02/24/七种网卡聚合/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="曾几何时 君为能聪明睿智 却傻傻跌入红尘 俟我于江北 日日歌且谣 使我喜笑眷慕 乐而不能去。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-10T17:04:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="七种网卡聚合">
+<meta name="twitter:description" content="曾几何时 君为能聪明睿智 却傻傻跌入红尘 俟我于江北 日日歌且谣 使我喜笑眷慕 乐而不能去。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-七种网卡聚合" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      七种网卡聚合
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-02-23T16:00:00.000Z" itemprop="datePublished">2019-02-24</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/网络/">网络</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>曾几何时 君为能聪明睿智 却傻傻跌入红尘 俟我于江北 日日歌且谣 使我喜笑眷慕 乐而不能去。<br><a id="more"></a></p>
+<blockquote>
+<p>挥袖抚琴，七弦玲珑，芦苇客舟，烟雨朦胧。</p>
+</blockquote>
+<h3 id="七种网卡绑定模式"><a href="#七种网卡绑定模式" class="headerlink" title="七种网卡绑定模式"></a>七种网卡绑定模式</h3><ul>
+<li>目前网卡绑定mode(0-6)共有七种模式 bond0 bond1 bond2 bond3 bond4 bond5 bond6</li>
+<li>常用的有三种:</li>
+</ul>
+<ol>
+<li>mode=0:平衡负载模式，有自动备援，但是需要switch的支援及设定</li>
+<li>mode=1:自动备援模式，其中一条线断,其他的线路将会自动备援。</li>
+<li>mode=6:平衡负载模式，有自动备援，不必switch的支援及设定。</li>
+</ol>
+<ul>
+<li><p>需要说明的是如果想做成mode 0的负载均衡,仅仅设置这里optionsbond0 miimon=100 mode=0是不够的,与网卡相连的交换机必- 须做特殊配置（这两个端口应该采取聚合方式），因为做bonding的这两块网卡是使用同一个MAC地址.从原理分析一下（bond运行- 在mode0下）： mode 0下bond所绑定的网卡的IP都被修改成相同的mac地址，如果这些网卡都被接在同一个交换机，那么交换机的- arp表里这个mac地址对应的端口就有多 个，那么交换机接受到发往这个mac地址的包应该往哪个端口转发呢？正常情况下mac地址- 是全球唯一的，一个mac地址对应多个端口肯定使交换机迷惑了。所以 mode0下的bond如果连接到交换机，交换机这几个端口应该- 采取聚合方式（cisco称为 ethernetchannel，foundry称为portgroup），因为交换机做了聚合后，聚合下的几个端口也被捆绑- 成一个mac地址.我们的解 决办法是，两个网卡接入不同的交换机即可。 </p>
+</li>
+<li><p>mode6模式下无需配置交换机，因为做bonding的这两块网卡是使用不同的MAC地址。</p>
+</li>
+</ul>
+<h3 id="第一种模式：mod-0-平衡抡循模式策略"><a href="#第一种模式：mod-0-平衡抡循模式策略" class="headerlink" title="第一种模式：mod=0(平衡抡循模式策略)"></a>第一种模式：mod=0(平衡抡循模式策略)</h3><ul>
+<li>特点：传输数据包是依次传输（即第一个走eth0，第二个走eth1,一直循环下去，直至传输完毕），此模式提供负载平衡和容错的- 能力；但是我们知道如果一个连接或者会话从不同的接口发出的话，中途在经过不同的链路，在客户端很可能会出现数据包无序到- 达的问题，而无序到达的数据包需要重新被发送，这样网络吞吐量就会下降。资源利用率为N.</li>
+</ul>
+<h3 id="第二种模式：mod-1-主-备份策略"><a href="#第二种模式：mod-1-主-备份策略" class="headerlink" title="第二种模式：mod=1(主-备份策略)"></a>第二种模式：mod=1(主-备份策略)</h3><ul>
+<li>特点：只有一个设备处于活动的状态，当一个宕掉，另一个马上由备份转换为主设备。mac地址是外部可见得<br>从外面看来，bond的mac地址是唯一的，以避免交换机发生混乱。此模式只提供了容错的能力：由此可见此算法的优点是可以提- 供高网络的连接可用性，但是它的资源利用率很低，只有一个接口处于工作状态，在有n个网络连接的的情况下，资源利用率为1/N</li>
+</ul>
+<h3 id="第3种模式：mod-2-平衡策略"><a href="#第3种模式：mod-2-平衡策略" class="headerlink" title="第3种模式：mod=2(平衡策略)"></a>第3种模式：mod=2(平衡策略)</h3><ul>
+<li>特点：基于指定的传输HASH策略传输数据包。缺省的的策略是：（源MAC地址OXR目标的MAC地址）%slave数量<br>其他的传输策略可以通过xmit_hash选项指定，此模式提供平衡负载和容错的能力。</li>
+</ul>
+<h3 id="第4种模式：mod-3-广播策略"><a href="#第4种模式：mod-3-广播策略" class="headerlink" title="第4种模式：mod=3(广播策略)"></a>第4种模式：mod=3(广播策略)</h3><ul>
+<li>特点：在每个slave接口上传输每个数据包，此模式提供了容错的能力。</li>
+</ul>
+<h3 id="第五种模式：mod-4-即（802-3ad）IEEE802-3ad-Dynamic-link-aggregation-IEE802-3ad-动态链接聚合"><a href="#第五种模式：mod-4-即（802-3ad）IEEE802-3ad-Dynamic-link-aggregation-IEE802-3ad-动态链接聚合" class="headerlink" title="第五种模式：mod=4,即（802.3ad）IEEE802.3ad Dynamic link aggregation (IEE802.3ad 动态链接聚合)"></a>第五种模式：mod=4,即（802.3ad）IEEE802.3ad Dynamic link aggregation (IEE802.3ad 动态链接聚合)</h3><ul>
+<li><p>特点：创建一个聚合组，它们共享同样的速率和双工设定。根据802.3ad规范将多个slave工作在同一个激活的聚合体下。外出流量- 的slave选举是基于传输hash策略，该策略可以通过xmit_hash_policy选项从缺省的OXR策略改变到其他的策略.</p>
+</li>
+<li><p>必要条件：</p>
+</li>
+</ul>
+<ol>
+<li>条件1.ethtool支持获取每个slave的速率和双工设定</li>
+<li>条件2.switch(交换机)支持IEEE802.3ad Dynamic link aggregation</li>
+<li>条件3：大多数switch需要经过特定配置才能支持802.3ad模式。</li>
+</ol>
+<h3 id="第六种模式：mod-5-（适配器传输负载均衡）"><a href="#第六种模式：mod-5-（适配器传输负载均衡）" class="headerlink" title="第六种模式：mod=5,（适配器传输负载均衡）"></a>第六种模式：mod=5,（适配器传输负载均衡）</h3><ul>
+<li>特点：不需要任何特别的switch(交换机）支持的通道bonding.在每个slave 上根据当前的负载（根据速度计算）分配外出流量。- 如果正在接受数据的slave出故障了，另一个slave 接管失败的slave的mac地址。</li>
+<li>必要条件： ethtool支持获取每个slave的速率</li>
+</ul>
+<h3 id="第七种模式：mod-6-即（适配器适应性负载均衡）"><a href="#第七种模式：mod-6-即（适配器适应性负载均衡）" class="headerlink" title="第七种模式：mod=6,即（适配器适应性负载均衡）"></a>第七种模式：mod=6,即（适配器适应性负载均衡）</h3><ul>
+<li>特点:该模式包含balance-alb模式，同时加上针对ipv4流量的接受负载均衡，而且不需要任何交换机的支持。接受负载均衡是通- 过ARP协商实现的。bonding驱动截获本机发送的ARP应答，并把源硬件地址改写为bond中的唯一硬件地址，从而使得不同的对端使- 用不同的硬件进行通信。</li>
+</ul>
+<h3 id="硬盘种类"><a href="#硬盘种类" class="headerlink" title="硬盘种类"></a>硬盘种类</h3><ol>
+<li><p>SATA硬盘：用SATA接口的硬盘又叫串口硬盘，是以后pc机发展的方向，有较强的纠错能力，错误一经发现可以自动纠正，这样就大大提高了数据传输的安全性。一般转速可以达到7200转/分</p>
+</li>
+<li><p>SCSI硬盘：SCSI硬盘采用SCSI接口的硬盘。优点：SCSI接口具有应用范围广，多任务，带宽大，cpu占有率低等。因此在服务器上被广泛使用。缺点:价格昂贵，10000转/分</p>
+</li>
+<li><p>SAS硬盘：SAS即串行连接SCSI，新一代的SCSI技术，和现在的流行的serial硬盘相同，都是采用串行技术以获得更加高的传输速率，一般转速可以到达15000转/分</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../hexo 基本命令/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Hexo 基本命令
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../HCNA/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">HCNA</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

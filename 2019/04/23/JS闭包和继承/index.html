@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JS 闭包和继承 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="人海中偶尔有个背影让你觉得眼熟，你不顾一切地奔过去，在背后喊他，那人转过头来，却是一张陌生的脸……心里有事的时候，人人都会自作多情。">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS 闭包和继承">
+<meta property="og:url" content="https://github.com/thisisloves/2019/04/23/JS闭包和继承/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="人海中偶尔有个背影让你觉得眼熟，你不顾一切地奔过去，在背后喊他，那人转过头来，却是一张陌生的脸……心里有事的时候，人人都会自作多情。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/04/23/5cbf2a2f6230c.png">
+<meta property="og:updated_time" content="2019-04-24T15:13:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS 闭包和继承">
+<meta name="twitter:description" content="人海中偶尔有个背影让你觉得眼熟，你不顾一切地奔过去，在背后喊他，那人转过头来，却是一张陌生的脸……心里有事的时候，人人都会自作多情。">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/23/5cbf2a2f6230c.png">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-JS闭包和继承" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      JS 闭包和继承
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-04-22T16:00:00.000Z" itemprop="datePublished">2019-04-23</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JS/">JS</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>人海中偶尔有个背影让你觉得眼熟，你不顾一切地奔过去，在背后喊他，那人转过头来，却是一张陌生的脸……心里有事的时候，人人都会自作多情。</p>
+<a id="more"></a>
+<blockquote>
+<p>没有一个女孩会真的讨厌一个男孩对她足够诚实和大胆的表白，就算她不接受，她也会记得你。</p>
+</blockquote>
+<h3 id="闭包的概念"><a href="#闭包的概念" class="headerlink" title="闭包的概念"></a>闭包的概念</h3><ul>
+<li>闭包就是函数嵌套时，让局部变量变成自由变量的环境，是一种让局部变量进化的方式</li>
+<li><p>定义在一个函数内部的函数</p>
+</li>
+<li><p>垃圾回收机制：用过一次的东西，先放在一个内存中，不立即删掉，可以随时进行还原或再次使用，直到没有任何作用的时候再清除,如家用电器，电脑回收站</p>
+</li>
+</ul>
+<h3 id="2-闭包的应用场景"><a href="#2-闭包的应用场景" class="headerlink" title="2.闭包的应用场景"></a>2.闭包的应用场景</h3><p>一、 for循环之中：</p>
+<ul>
+<li>for循环之中的i变量会因为for的循环次数被覆盖，所以在for循环内部存在函数时，而且这个函数内会调用i变量，这种情况下就需要用到闭包。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"><span class="built_in">console</span>.log(i);        <span class="comment">//可以访问到每次的i</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>必须满足两个条件：</li>
+</ul>
+<ol>
+<li>在for循环内存在函数</li>
+<li>函数内会调用这个变量</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ali = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">ali[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(i);        <span class="comment">//在函数内部就无法访问到外部变量</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>如何形成闭包</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="MATLAB"><figure class="iseeu highlight /matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var ali = document.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line"><span class="keyword">for</span>(var <span class="built_in">i</span>=<span class="number">0</span>;<span class="built_in">i</span>&lt;<span class="number">10</span>;<span class="built_in">i</span>++)&#123;</span><br><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">(a)</span>&#123;</span></span><br><span class="line">ali[a].onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span>&#123;</span></span><br><span class="line">console.<span class="built_in">log</span>(a);</span><br><span class="line">&#125;</span><br><span class="line">&#125;)(<span class="built_in">i</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>一旦内部函数调用外部函数的局部变量，那么这个时候，这个局部变量就会变成内部函数的私有变量</li>
+</ul>
+<p>二、当需要给setTimeout的回调函数传参时：</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params">a</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//两秒后，undefined</span></span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line">或</span><br><span class="line">setTimeout(fn(<span class="number">10</span>), <span class="number">2000</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//没有延迟，直接打印10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>使用闭包：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//两秒后，10</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = fn(<span class="number">10</span>);</span><br><span class="line">setTimeout(f, <span class="number">2000</span>);</span><br></pre></td></tr></table></figure></div>
+<h3 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h3><ul>
+<li>在构造函数中，同样属于两个新创建的函数，也是不相等的</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ACTIONSCRIPT"><figure class="iseeu highlight /actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span><span class="params">(name)</span></span>&#123;</span><br><span class="line"><span class="keyword">this</span>.name = name;</span><br><span class="line"><span class="keyword">this</span>.show = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1 = <span class="keyword">new</span> Fn(<span class="string">"AAA"</span>);</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="keyword">new</span> Fn(<span class="string">"BBB"</span>);</span><br><span class="line">obj1.show()</span><br><span class="line">obj2.show()</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>此时，任何一个new出来的实例上都有了show方法，可以视为最基础的继承。</li>
+</ul>
+<h3 id="call／apply继承"><a href="#call／apply继承" class="headerlink" title="call／apply继承"></a>call／apply继承</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ACTIONSCRIPT"><figure class="iseeu highlight /actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span><span class="params">(skill)</span></span>&#123;</span><br><span class="line"><span class="keyword">this</span>.skill = skill;</span><br><span class="line"><span class="keyword">this</span>.show = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">alert(<span class="string">"我会"</span>+<span class="keyword">this</span>.skill);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span><span class="params">(abc)</span></span>&#123;</span><br><span class="line"><span class="comment">//这里的this指向函数Son的实例化对象</span></span><br><span class="line"><span class="comment">//将Father里面的this改变成指向Son的实例化对象，当相遇将father里面所有的属性和方法都复制到了son身上</span></span><br><span class="line"><span class="comment">//Father.call(this,abc);//继承结束，call适合固定参数的继承</span></span><br><span class="line"><span class="comment">//Father.apply(this,arguments);//继承结束，apply适合不定参数的继承</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> Father(<span class="string">"绝世木匠"</span>);</span><br><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> Son(<span class="string">"一般木匠"</span>);</span><br><span class="line">f.show()</span><br><span class="line">s.show();</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><p>优点：创建子类实例时，可以向父类的构造器传参；</p>
+</li>
+<li><p>缺点：只能继承构造器中定义的属性和方法，不能继承原型上定义的属性和方法</p>
+</li>
+</ul>
+<h3 id="prototype的概念"><a href="#prototype的概念" class="headerlink" title="prototype的概念"></a>prototype的概念</h3><ul>
+<li>原型对象</li>
+<li>指针  constructor  表示当前函数属于谁，用来指向当前原型所属的函数</li>
+<li><p>原型指针  [[prototype]]  <strong>proto</strong>  相当于一根原型指针，指向当前对象的“父级”</p>
+</li>
+<li><p>可以在当前函数的原型身上添加各种属性和方法，以供使用</p>
+</li>
+<li><p>JS中万物皆对象，所有内容的指针终点都指向Object</p>
+</li>
+</ul>
+<h3 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h3><ul>
+<li>方法一：Son.prototype = new Father();</li>
+<li>//创建一个函数Father，用来做原始对象</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">this</span>.skill = <span class="string">"铁匠"</span></span><br><span class="line">&#125;;</span><br><span class="line">Father.prototype.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.skill)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建一个函数Son，准备继承Father的原型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="comment">//将Son点原型，赋值为一个指针，指向Father的原型</span></span><br><span class="line">Son.prototype = <span class="keyword">new</span> Father();</span><br><span class="line"></span><br><span class="line"><span class="comment">//此时就可以通过执行new Son()获取到从构造函数Father上继承过来属性和方法</span></span><br><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> Son()</span><br><span class="line">s.show();        <span class="comment">//铁匠</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>优点：</li>
+</ul>
+<ol>
+<li>可以访问父类原型上的方法和属性</li>
+<li>简单方便，易于实现</li>
+</ol>
+<ul>
+<li>缺点：</li>
+</ul>
+<ol>
+<li>创建子类实例时，无法向父类的构造器传参</li>
+</ol>
+<ul>
+<li>方法二：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个函数Father，用来做原始对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">this</span>.skill = <span class="string">"铁匠"</span>;</span><br><span class="line">&#125;;</span><br><span class="line">Father.prototype.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建一个函数Son，准备继承Father的原型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="comment">//将Son的原型，设置为Father的原型</span></span><br><span class="line"><span class="comment">//Son.prototype = Father.prototype;</span></span><br><span class="line"><span class="comment">//但是这种拷贝方式为对象的浅拷贝，一旦后期修改Son原型上的方法，会影响到Father的原型</span></span><br><span class="line"><span class="comment">//需采用对象的深拷贝方法</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> Father.prototype)&#123;</span><br><span class="line">Son.prototype[i] = Father.prototype[i];</span><br><span class="line">&#125;</span><br><span class="line">Son.prototype.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"这是子类修改之后的show方法"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> Father()</span><br><span class="line">f.show()</span><br><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> Son()</span><br><span class="line">s.show();</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><p>优点：完全将父类原型上的方法和属性拷贝到子类原型</p>
+</li>
+<li><p>缺点：只能继承原型上的方法和属性，构造函数无法传参和继承</p>
+</li>
+</ul>
+<h3 id="混合继承"><a href="#混合继承" class="headerlink" title="混合继承"></a>混合继承</h3><ul>
+<li>特点：使用call或apply继承父类的构造器中的内容，使用原型继承，继承父类的原型</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">skill,id</span>)</span>&#123;</span><br><span class="line"><span class="keyword">this</span>.skill = skill;</span><br><span class="line"><span class="keyword">this</span>.id = id;</span><br><span class="line">&#125;</span><br><span class="line">Father.prototype.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">alert(<span class="string">"我是father,这是我的技能"</span>+<span class="keyword">this</span>.skill);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">Father.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//如果不做Son的原型继承Father的原型，此时会报错：son.show is not a function</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> Father.prototype)&#123;</span><br><span class="line">Son.prototype[i] = Father.prototype[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//因为，如果不让Son的原型等于Father的原型，Son使用apply是继承不到原型上的方法</span></span><br><span class="line">Son.prototype.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">alert(<span class="string">"我是son,这是我的技能"</span>+<span class="keyword">this</span>.skill);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> Father(<span class="string">"专家级铁匠"</span>,<span class="string">"father"</span>);</span><br><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> Son(<span class="string">"熟练级铁匠"</span>,<span class="string">"son"</span>);</span><br><span class="line">f.show();</span><br><span class="line">s.show();</span><br></pre></td></tr></table></figure></div>
+<h3 id="ES6-class-继承"><a href="#ES6-class-继承" class="headerlink" title="ES6  class 继承"></a>ES6  class 继承</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SCALA"><figure class="iseeu highlight /scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span></span>&#123;</span><br><span class="line">constructor()&#123;</span><br><span class="line">&#125;</span><br><span class="line">show()&#123;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span></span>&#123;</span><br><span class="line">constructor()&#123;</span><br><span class="line"><span class="keyword">super</span>()</span><br><span class="line">&#125;</span><br><span class="line">show()&#123;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="原型对象相关概念解析："><a href="#原型对象相关概念解析：" class="headerlink" title="原型对象相关概念解析："></a>原型对象相关概念解析：</h3><ol>
+<li>对象中的<strong>proto</strong>是什么：</li>
+</ol>
+<ul>
+<li>js中万物皆对象，每个数据都会有一个<strong>proto</strong>的属性，这个属性叫隐式原型，一个对象(obj)的隐式原型(<strong>proto</strong>)指向构造该对象(obj)的构造函数(object())的原型属性(object.prototype)，这样做的原因是为了能够保证实例(obj)能够访问到在构造函数(object())的原型属性(object.prototype)中定义的属性和方法。</li>
+</ul>
+<ol start="2">
+<li>函数中的prototype是什么：</li>
+</ol>
+<ul>
+<li>函数(Function)是一个特殊的对象，除了和其他对象一样有上述<strong>proto</strong>属性之外，还有自己特有的属性——原型（prototype），这个属性被描述成指针，他指向一个对象类型的数据，这个对象的用途就是包含所有将来使用该函数构造出来的可被共享的属性和方法（我们把这个对象叫做原型对象）。</li>
+<li>原型对象内也有一个属性，叫做constructor，这个属性包含了一个指针，指回原函数（类似于arguments.callee。但是arguments只能在函数内部获得，而函数原型对象内的constructor属性，可以在任何能访问到这个函数的位置使用）。</li>
+</ul>
+<ol start="3">
+<li>构造函数，原型，实例之间的关系：<br>(1)构造函数Fn身上有属性prototype为原型对象，原型对象内有constructor属性指向当前prototype所在的构造函数Fn<br>(2)在new执行构造函数Fn时，创造了一个实例对象f，实例对象f的<strong>proto</strong>指向构造函数Fn的原型prototype<br>(3)因为实例对象f的<strong>proto</strong>指向构造函数Fn的原型prototype，所以实例对象f可以间接访问到Fn原型prototype的方法</li>
+</ol>
+<p><a href="https://i.loli.net/2019/04/23/5cbf2a2f6230c.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/04/23/5cbf2a2f6230c.png" alt="640.png"></a></p>
+<ol start="4">
+<li>查看实例对象f是否有指针指向构造函数Fn的原型：</li>
+</ol>
+<ul>
+<li>isPrototypeOf()用于检测两个对象之间似乎否存在这种关系，使用方法如下：</li>
+<li>Fn.prototype.isPrototypeOf(f)    // 查看 Fn 的 prototype 对象，是否是 f 原型</li>
+<li>类似的还有instanceof运算符，使用方法如下：</li>
+<li>console.log(f instanceof Fn)     // 查看 f 对象是否是构造函数 Fn 的实例</li>
+<li>console.log(f instanceof Object)</li>
+<li>两种使用，如果是返回ture，如果不是返回false</li>
+<li>注意：instanceof运算符右侧为构造函数，并且js中所有原型都来自Object构造函数</li>
+</ul>
+<ol start="5">
+<li>javascript解析器访问属性顺序:</li>
+</ol>
+<ul>
+<li><p>当访问实例 f 的属性或方法时，会先在当前实例对象 f 中查找，如果没有，则沿着<strong>proto</strong>继续向上寻找，如果找到最顶头的Object还是找不到，则会抛出undefined。如果在实例中找到，或某层原型中找到，就会读取当前值并执行，同时停止向上找寻。</p>
+</li>
+<li><p>由此可见，解析器的解析顺序遵循就近原则，如果在最近的位置发现属性存在，便不会继续向上找寻。</p>
+</li>
+</ul>
+<h3 id="class使用"><a href="#class使用" class="headerlink" title="class使用"></a>class使用</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">this</span>.name=<span class="string">"admin"</span>;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">this</span>.show=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="actionscript">Fn.prototype.abc=<span class="string">"ahhahahah"</span>;</span></span><br><span class="line"><span class="actionscript">Fn.prototype.init=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> f=<span class="keyword">new</span> Fn();</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(f);  <span class="comment">//Fn</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(f.name);<span class="comment">//admin</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(f.show);<span class="comment">//function()&#123;console.log(this.name)&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(f.abc);<span class="comment">//ahhhahahah</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(f.init);<span class="comment">//function()&#123;&#125;</span></span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">//f是实例,实例中有个属性__proto__,叫做原型链,表示自己的父级类型,实例的_proto_指向自己构造函数的prototype,prptotype中有两个属性</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">//一个叫做constructor,指向构造函数自身,一个叫做__poto__指向父级类型,父级类型是js的Object大对象</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">//console.log(f.__proto__===Fn.prototype)</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">//console.log(Fn.prototype.constructor===Fn)</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">//console.log(Fn.prototyp.e__proto__)</span></span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">//实例身上的所有属性和方法来自于,构造函数内部写给this的属性和方法</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">//实例身上的父级原型的属性和方法来自于,构造函数的prototype对象上的属性和方法</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">//实例找寻方法或者属性的优先级为:先找自身,没有就顺着__proto__向父级类型依次找寻,找到了,就</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">//停下,同时执行,一直到顶都没有,就报错.</span></span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="class"><span class="keyword">class</span> <span class="title">fn</span></span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">constructor</span>()&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.name=<span class="string">"admin"</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.show=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.qwe=<span class="number">123</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">    init()&#123;</span><br><span class="line">        consoel.log(123);</span><br><span class="line">    &#125;</span><br><span class="line">    add()&#123;</span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">"hello"</span>);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> f=<span class="keyword">new</span> fn();</span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(f);       <span class="comment">//fn &#123;name: "admin", show: ƒ, qwe: 123&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(f.name);  <span class="comment">//admin</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(f.show);  <span class="comment">//ƒ ()&#123;console.log(this.name)&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(f.init);  <span class="comment">//ƒ init()&#123;consoel.log(123);	&#125;</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../24/JS设计模式/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            JS设计模式
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../22/LocalStorage/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">LocalStorage和SessionStorage</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

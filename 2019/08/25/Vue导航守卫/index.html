@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Vue 导航守卫 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="全宇宙只有他配得上你，他注定属于你，如果今天不属于，一万年后，他只有你。">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue 导航守卫">
+<meta property="og:url" content="https://github.com/thisisloves/2019/08/25/Vue导航守卫/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="全宇宙只有他配得上你，他注定属于你，如果今天不属于，一万年后，他只有你。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-03T04:08:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue 导航守卫">
+<meta name="twitter:description" content="全宇宙只有他配得上你，他注定属于你，如果今天不属于，一万年后，他只有你。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-Vue导航守卫" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Vue 导航守卫
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-08-24T16:00:00.000Z" itemprop="datePublished">2019-08-25</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/vue/">vue</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>全宇宙只有他配得上你，他注定属于你，如果今天不属于，一万年后，他只有你。</p>
+<a id="more"></a>
+<blockquote>
+<p>我必须承认生命中大部分时光是属于孤独的，努力成长是在孤独里可以进行的最好的游戏。</p>
+</blockquote>
+<h3 id="全局导航守卫（router-beforeEach）"><a href="#全局导航守卫（router-beforeEach）" class="headerlink" title="全局导航守卫（router.beforeEach）"></a>全局导航守卫（router.beforeEach）</h3><ul>
+<li>导航 表示路由正在发生改变</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NIMROD"><figure class="iseeu highlight /nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = new <span class="type">VueRouter</span>(<span class="meta">&#123;...&#125;</span>)</span><br><span class="line"></span><br><span class="line">router.beforeEach((to,<span class="keyword">from</span>,next)=&gt;&#123;</span><br><span class="line">  //...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><p>当一个导航触发的时候，全局前置导航守卫按照顺序调用。守卫是异步解析执行，此时导航在所有守卫resolve完之前一直处于等待中。</p>
+</li>
+<li><p>每个守卫方法接受三个参数</p>
+</li>
+</ul>
+<ol>
+<li>to:Route 即将要进入的目标的路由对象</li>
+<li>from：Route 当前导航正要离开的路由</li>
+<li>next:Function 一定要调用该方法来resolve 这个钩子。执行效果依赖next方法的调用参数</li>
+</ol>
+<p>(1) next() 进行管道的下一个钩子函数，如果所有钩子执行完，则导航状态就是confirmed(确认的)。<br>(2) next(false) 中断当前的导航。如果浏览器的URL改变了(可能是用户手动或者浏览器后退按钮)，那么URL会重置到from 路由对应的地址<br>(3) next(‘/‘)或者next({path:’/‘}) 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。<br>(4) next(error) 如果传入next的参数是一个Error实例，则导航会被终止,且该错误会传递给router.onError()注册过的回调。</p>
+<ul>
+<li>确保要调用next方法，否则钩子就不会被resolved.</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">const router = <span class="keyword">new</span> VueRouter(&#123; ... &#125;) <span class="comment">//这是路由配置，我就不多说了</span></span><br><span class="line"></span><br><span class="line">const whiteList = [<span class="string">'/error'</span>, <span class="string">'/register/regindex'</span>, <span class="string">'/register/userauthent'</span>,  <span class="string">'/register/submit'</span>] <span class="comment">// 路由白名单</span></span><br><span class="line">vueRouter.beforeEach(function(to,from,next)&#123;</span><br><span class="line">    console.log(<span class="string">"进入守卫"</span>);</span><br><span class="line">    <span class="keyword">if</span> (userInfo.user_id&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        console.log(<span class="string">"登录成功"</span>);</span><br><span class="line">        next();   <span class="comment">//记得当所有程序执行完毕后要进行next()，不然是无法继续进行的;</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        console.log(<span class="string">"登录失败"</span>);</span><br><span class="line">        getUserInfo.then(res =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span>(res)&#123;</span><br><span class="line">                <span class="keyword">if</span> (res.user_id)&#123;</span><br><span class="line">                    <span class="keyword">if</span> (res.status == <span class="number">4</span>) &#123;</span><br><span class="line">                        <span class="comment">//账号冻结</span></span><br><span class="line">                        next(&#123; <span class="string">path:</span> <span class="string">'/error'</span>, <span class="string">replace:</span> <span class="literal">true</span>, <span class="string">query:</span> &#123; <span class="string">noGoBack:</span> <span class="literal">true</span> &#125; &#125;)</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (res.status == <span class="number">3</span>) &#123;</span><br><span class="line">                        <span class="comment">//认证审核中</span></span><br><span class="line">                        next(&#123; <span class="string">path:</span> <span class="string">'/register/submit'</span>, <span class="string">replace:</span> <span class="literal">true</span>, <span class="string">query:</span> &#123; <span class="string">noGoBack:</span> <span class="literal">true</span> &#125; &#125;)</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (res.status != <span class="number">1</span> &amp;&amp; res.status != <span class="number">3</span>) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (!res.mobile ) &#123;</span><br><span class="line">                            next(&#123; <span class="string">path:</span> <span class="string">'/register/regindex'</span>, <span class="string">replace:</span> <span class="literal">true</span>, <span class="string">query:</span> &#123; <span class="string">noGoBack:</span> <span class="literal">true</span> &#125;&#125;)</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="comment">//绑定完手机号了</span></span><br><span class="line">                            next(&#123; <span class="string">path:</span> <span class="string">'/register/userauthent'</span>, <span class="string">replace:</span> <span class="literal">true</span>, <span class="string">query:</span> &#123; <span class="string">noGoBack:</span> <span class="literal">true</span> &#125; &#125;)</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    next();  <span class="comment">//记得当所有程序执行完毕后要进行next()，不然是无法继续进行的;</span></span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (whiteList.indexOf(to.path) !== <span class="number">-1</span>) &#123; <span class="comment">// 在免登录白名单，直接进入</span></span><br><span class="line">                        next();  <span class="comment">//记得当所有程序执行完毕后要进行next()，不然是无法继续进行的;</span></span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        next(&#123; <span class="string">path:</span> <span class="string">'/register/regindex'</span>, <span class="string">replace:</span> <span class="literal">true</span>, <span class="string">query:</span> &#123; <span class="string">noGoBack:</span> <span class="literal">true</span> &#125;&#125;)</span><br><span class="line">                    &#125; </span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                  &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;).<span class="keyword">catch</span>(()=&gt;&#123;</span><br><span class="line">            <span class="comment">//跳转失败页面</span></span><br><span class="line">            next(&#123; <span class="string">path:</span> <span class="string">'/error'</span>, <span class="string">replace:</span> <span class="literal">true</span>, <span class="string">query:</span> &#123; <span class="string">noGoBack:</span> <span class="literal">true</span> &#125;&#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">export <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure></div>
+<h3 id="路由导航守卫（beforeEnter）"><a href="#路由导航守卫（beforeEnter）" class="headerlink" title="路由导航守卫（beforeEnter）"></a>路由导航守卫（beforeEnter）</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LISP"><figure class="iseeu highlight /lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  routes:[</span><br><span class="line">    &#123;</span><br><span class="line">      path:'/foo',</span><br><span class="line">      component<span class="symbol">:Foo</span>,</span><br><span class="line">      beforeEnter:(<span class="name">to</span>,from,next)=&gt;&#123;</span><br><span class="line">        if(<span class="name">to</span>.path !=='/user/login' <span class="symbol">&amp;&amp;</span> to.path !== '/user/nologin')&#123;</span><br><span class="line">          if (<span class="name">localStorage</span>.getItem('isLogin')=== 'ok')&#123;</span><br><span class="line">            next('/user/login')</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            next('/user/nologin')</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">          next()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<h3 id="组件内的导航守卫（beforeRouteEnter-beforeRouteUpdate-beforeRouteLeave）"><a href="#组件内的导航守卫（beforeRouteEnter-beforeRouteUpdate-beforeRouteLeave）" class="headerlink" title="组件内的导航守卫（beforeRouteEnter,beforeRouteUpdate,beforeRouteLeave）"></a>组件内的导航守卫（beforeRouteEnter,beforeRouteUpdate,beforeRouteLeave）</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const Foo =&#123;</span><br><span class="line">  tempalte: `...`,</span><br><span class="line">  beforeRouteEnter (to,from,<span class="keyword">next</span>) &#123;</span><br><span class="line">    <span class="regexp">//</span> 在渲染该组件对应路由被confirm 前调用</span><br><span class="line">    <span class="regexp">//</span> 不能获取组件实例 this</span><br><span class="line">    <span class="regexp">//</span> 因为当前守卫执行前，组件实例还没有被创建</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeRouterUpdata (to,from,<span class="keyword">next</span>) &#123;</span><br><span class="line">    <span class="regexp">//</span> 在当前路由改变，但是该组件被复用时调用</span><br><span class="line">    <span class="regexp">//</span> 举例来说，对于一个带有动态参数的路径 <span class="regexp">/foo/</span>:id 在 <span class="regexp">/foo/</span><span class="number">1</span>和 <span class="regexp">/foo/</span><span class="number">2</span> 之间跳转的时候</span><br><span class="line">    <span class="regexp">//</span> 由于会渲染同样的 Foo 组件,因此组件的实例会被复用。而这个钩子就会在这个情况下被调用</span><br><span class="line">    <span class="regexp">//</span> 可以访问组件的实例 this</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeROuteLeave (to, from,<span class="keyword">next</span>) &#123;</span><br><span class="line">    <span class="regexp">//</span> 导航离开该组件的对应路由时调用</span><br><span class="line">    <span class="regexp">//</span> 可以访问组件实例 this</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>beforeRouteEnter 守卫 不能 访问 this，因为守卫在导航确认前被调用,因此即将登场的新组件还没被创建。</li>
+<li>不过，你可以通过传一个回调给 next来访问组件实例。在导航被确认的时候执行回调，并且把组件实例作为回调方法的参数。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VIM"><figure class="iseeu highlight /vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteEnter (<span class="keyword">to</span>, from, <span class="keyword">next</span>) &#123;</span><br><span class="line">  <span class="keyword">next</span>(<span class="keyword">vm</span> =&gt; &#123;</span><br><span class="line">    // 通过 `<span class="keyword">vm</span>` 访问组件实例</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>注意 beforeRouteEnter 是支持给 next 传递回调的唯一守卫。对于 beforeRouteUpdate 和 beforeRouteLeave 来说，this 已经可用了，所以不支持传递回调，因为没有必要了。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQF"><figure class="iseeu highlight /sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteUpdate (<span class="keyword">to</span>, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">  <span class="comment">// just use `this`</span></span><br><span class="line">  this.<span class="built_in">name</span> = <span class="keyword">to</span>.<span class="built_in">params</span>.<span class="built_in">name</span></span><br><span class="line">  next()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>这个离开守卫通常用来禁止用户在还未保存修改前突然离开。该导航可以通过 next(false) 来取消。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="MONKEY"><figure class="iseeu highlight /monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteLeave (<span class="keyword">to</span>, from , <span class="keyword">next</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> answer = window.confirm(<span class="comment">'Do you really want to leave? you have unsaved changes!')</span></span><br><span class="line">  <span class="keyword">if</span> (answer) &#123;</span><br><span class="line">    <span class="keyword">next</span>()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">next</span>(<span class="literal">false</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../28/Echarts基础配置说明/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Echarts基础配置说明
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../24/vue-resource/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Vue-Resource</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

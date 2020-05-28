@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Linux文件系统 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="每个人的一辈子都在跟死亡比偷跑，它想抓住你，你想跑得更远看更美的世界，虽然你明知道还是会被它抓住，可只要还有一口气你就会玩命地跑。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux文件系统">
+<meta property="og:url" content="https://github.com/thisisloves/2019/03/02/Linux文件系统/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="每个人的一辈子都在跟死亡比偷跑，它想抓住你，你想跑得更远看更美的世界，虽然你明知道还是会被它抓住，可只要还有一口气你就会玩命地跑。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-22T05:54:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux文件系统">
+<meta name="twitter:description" content="每个人的一辈子都在跟死亡比偷跑，它想抓住你，你想跑得更远看更美的世界，虽然你明知道还是会被它抓住，可只要还有一口气你就会玩命地跑。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-Linux文件系统" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Linux文件系统
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-03-01T16:00:00.000Z" itemprop="datePublished">2019-03-02</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Linux/">Linux</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>每个人的一辈子都在跟死亡比偷跑，它想抓住你，你想跑得更远看更美的世界，虽然你明知道还是会被它抓住，可只要还有一口气你就会玩命地跑。</p>
+<a id="more"></a>
+<blockquote>
+<p>每个人都会有强撑着坚持下去的理由，很多时候那种理由被称作命运，其实说到底是你自己不愿放手。</p>
+</blockquote>
+<h3 id="linux文件系统"><a href="#linux文件系统" class="headerlink" title="linux文件系统"></a>linux文件系统</h3><ul>
+<li>Filesystem</li>
+<li><p>purpose ：目的</p>
+</li>
+<li><p>/bin:所有用户的基本命令程序文件   binaries:二进制  essential user command binaries 供所有的用户使用的基本命令程序文件</p>
+</li>
+<li>/sbin :供系统管理使用的工具程序仅root用户使用</li>
+<li>/boot（鞋）:引导加载器必须使用到的各种静态文件：kernel,initramfs(initrd),grub等；</li>
+<li>/dev:存储特殊文件或者设备文件</li>
+<li>设备有两种</li>
+</ul>
+<ol>
+<li>字符设备（线性设备）</li>
+<li>块设备（随机设备）</li>
+</ol>
+<ul>
+<li>/etc ：系统程序的配置文件，只能为静态 </li>
+<li>host specific system configuration 主机特定系统配置文件</li>
+<li>/home 普通目录的集中位置：一般每个普通用户的目录默认为此目录下与用户名同名的子目录，/home/Username:</li>
+<li>/lib:（libraries图书馆） 为系统启动或者根文件系统的应用程序（/bin, /sbin等）提供共享库，以及为内核提供内核模块</li>
+<li>lib.so.动态链接的C库</li>
+<li>id* ：运行时链接器/加载器：</li>
+<li>modules:用于存储内核模块的目录</li>
+<li>/lib64:64位系统特有的存放64位共享库的路径</li>
+<li>/media:便携式设备挂载点，cdrom,flop</li>
+<li>/mnt:其它文件系统的挂载点</li>
+<li>/opt:附加应用程序的安装位置，可选路径</li>
+<li>/srv:当前主机为服务提供的数据；</li>
+<li><p>/tem:哪些会产生临时文件的目录；可供用户执行写入操作；有特殊权限；</p>
+</li>
+<li><p>/usr :usr Hierachy ,全局共享的只读路径</p>
+</li>
+</ul>
+<p><strong>/usr文件系统</strong>  </p>
+<ul>
+<li>/usr 文件系统经常很大，因为所有程序安装在这里
+　　</li>
+<li>bin,sbin</li>
+<li>lib,lib64</li>
+<li>include :c程序头文件</li>
+<li>share：命令手册和自带文档架构特有的文件存储位置</li>
+<li>local:另一个层级目录</li>
+<li>x11R6:X-window程序的安装位置</li>
+<li>src:程序源码文件的存储位置</li>
+<li>/usr/local:local hierachy,让系统管理员安装本地应用程序，也通常用于安装第三发程序：</li>
+<li>/var ：/var Hierarchy,存储发生变化的数据的目录：</li>
+</ul>
+<p><strong>/var文件系统</strong> </p>
+<ul>
+<li>/var 包括系统一般运行时要改变的数据.每个系统是特定的，即不通过网络与其他计算机共享. </li>
+<li>cache（cache:高速缓存） Appalication cache data</li>
+<li>lib Variable（变量） satate information （信息）</li>
+<li>local Variable data for /usr/local</li>
+<li>lock  Lock（锁） files</li>
+<li>log  （log 日志）Log files and directories</li>
+<li>opt Vaeiable data for /opt</li>
+<li>run Data relevant to running processees</li>
+<li>spool Application spool data</li>
+<li><p>tmp （temproary 临时文件）Temprorary files preserved between system reboots</p>
+</li>
+<li><p>/proce :内核及进程存储其相关信息:他们多为内核参数，例如net .ipv4.ip_forward,虚拟为net/ipv4/ip_forward,存储于/proc/sys/,因此- 其完整路径为/proc/sys/net/ipv4/ip.forward:</p>
+</li>
+<li>/sys:sysfs虚拟文件系统提供了一种比proc更为理想的访问内核数据的途径：其主要的作用在于管理Linux设备提供一种比proc 更为理想的访问内 核数据的途径：其主要作用在于管理Linux设备提供统一模型的接口。</li>
+</ul>
+<h3 id="linux系统文件类型"><a href="#linux系统文件类型" class="headerlink" title="linux系统文件类型"></a>linux系统文件类型</h3><ul>
+<li>常规文件</li>
+<li>d:directory 目录文件</li>
+<li>b:block device 快设备文件 </li>
+<li>c:character device ,字符设备文件，支持以”character”为单位进行线性访问</li>
+<li>major number :主设备号，用于标识设备类型，进而确定要加载的驱动程序</li>
+<li>minor number : 次设备号，用于标识同一类型中的不同的设备</li>
+<li>8位二进制：0-255</li>
+<li>l：symbolic link 符号链接文件</li>
+<li>p:pipe:命名管道：</li>
+<li>s:socker，套接文件:</li>
+</ul>
+<h3 id="linux基础命令"><a href="#linux基础命令" class="headerlink" title="linux基础命令"></a>linux基础命令</h3><ul>
+<li>which命令</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="DOCKERFILE"><figure class="iseeu highlight /dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which -shows the full path of (<span class="keyword">shell</span><span class="bash">)commands</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>which [options]programname[……]</li>
+<li><p>—-skip –alias 忽略别名</p>
+</li>
+<li><p>whereis 命令</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whereis -locate the binary ,source ,<span class="keyword">and</span><span class="built_in"> manual page </span>files <span class="keyword">for</span> a command</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>whereis [options]name……</li>
+<li><p>-b：仅搜索使用手册文件路径</p>
+</li>
+<li><p>who [OPTION]….</p>
+</li>
+<li>-b: 系统以此次启动的时间</li>
+<li><p>-r:运行级别</p>
+</li>
+<li><p>w命令：</p>
+</li>
+<li>w -Show who is logged on and what they are doing.</li>
+<li><p>显示当前用户</p>
+</li>
+<li><p>free :显示内存和交换分区的使用情况</p>
+</li>
+<li><p>-m 以MB为单位，默认以kb为单位</p>
+</li>
+<li><p>命令历史 ：shell 进程会其会话中保存的次此用户提交执行过的命令</p>
+</li>
+<li>history #:显示最近执行的#条命令</li>
+</ul>
+<ul>
+<li>调用命令历史列表的命令</li>
+<li>！#:再一次调用历史列表中的第#条命令</li>
+<li>！！：再一次执行上一条命令</li>
+<li>！STRING:再一次执行命令列表中开头为STRING开头的命令</li>
+</ul>
+<h3 id="linux基础特性"><a href="#linux基础特性" class="headerlink" title="linux基础特性"></a>linux基础特性</h3><ul>
+<li>100</li>
+<li>命令补全：</li>
+<li>shell程序在接受到用户执行命令的请求，分析完成后，最左侧的字符串会被当成命令</li>
+<li>命令查找机制：</li>
+<li>查找内部命令：</li>
+<li>根据PATH环境变量中设定的目录，自左而右的搜素目录下的文件名：</li>
+<li><p>给定的打头字符串如果能唯一标识某命令程序文件，在击一次tab健，会给出列表</p>
+</li>
+<li><p>路径补全</p>
+</li>
+<li>在给定的起始路径下，以队应路径下的打头字串来逐一匹配起始路径下的每个文件</li>
+<li>tab:</li>
+<li>如果唯一标识，则直接补全：</li>
+<li>否则再一次tab,给出列表：</li>
+</ul>
+<h3 id="目录管理类的命令"><a href="#目录管理类的命令" class="headerlink" title="目录管理类的命令"></a>目录管理类的命令</h3><ul>
+<li>mkdir rmdir</li>
+<li>mkdir:make directories</li>
+<li>mkdir [OPTION ]…..DIRECTORY…</li>
+<li>-P :自动按需要创建父目录</li>
+<li>-v:verbose, 显示详细过程</li>
+<li><p>-m :直接给定权限</p>
+</li>
+<li><p>注意：路径基民若为命令的作用对象：基民之前的路径必须存在</p>
+</li>
+<li><p>rmdir ：remove empty directories</p>
+</li>
+<li>emdir[OPTION]….DIRCTORY….</li>
+<li>-p:删除某目录后，如果目录为空，则一并删除</li>
+<li><p>-v:显示过程</p>
+</li>
+<li><p>bash 的基础特性：命令行展开</p>
+</li>
+<li>~：自动展开为用户的家目录，或者指定的用户的家目录 </li>
+<li>{}：可以承载一个以逗号分隔符的路径列表，并能够将其展开为多个路径</li>
+<li><p>例如：/tmp/{a,b}   相当于 /tmp/a /tmp/b</p>
+</li>
+<li><p>tree命令:</p>
+</li>
+<li>tree [OPTiONS][directory]</li>
+<li>-l level:指定要显示的层级</li>
+</ul>
+<h3 id="bash的基础特性"><a href="#bash的基础特性" class="headerlink" title="bash的基础特性"></a>bash的基础特性</h3><ul>
+<li>命令的执行状态结果</li>
+<li>命令的执行的状态结果</li>
+<li>bash通过状态返回值来输出此结果</li>
+<li>成功：0</li>
+<li>失败：1-255</li>
+<li><p>命令执行完成后，其状态返回值保存于bash的特殊变量$之中；</p>
+</li>
+<li><p>命令正常执行时，有的还返回有命令返回值：</p>
+</li>
+<li><p>根据命令及其功能不相同返回的结果各不相同</p>
+</li>
+<li><p>引用命令的执行结果：$(command)</p>
+</li>
+<li><p>bash的基于特征：</p>
+</li>
+<li>强引用：’’</li>
+<li>弱引用：””</li>
+<li><p>命令引用：··</p>
+</li>
+<li><p>bash基础特性：快捷键</p>
+</li>
+<li><p>Ctrl +a:跳转至命令行行首</p>
+</li>
+<li>Ctrl +e :跳转至命令行尾</li>
+<li>Ctrl+u :删除行至光标所在之间所有的字符</li>
+<li>Ctrl+l:清屏，相当于Clear</li>
+</ul>
+<ul>
+<li>分屏查看命令 ：more和less</li>
+<li>more命令：</li>
+<li>more FILE</li>
+<li><p>特点：翻屏至文件尾后自动退出</p>
+</li>
+<li><p>less命令:</p>
+</li>
+<li><p>less FILE</p>
+</li>
+<li><p>head命令：</p>
+</li>
+<li>查看文件的前n行</li>
+<li>head [Option] FILE</li>
+<li>-n #</li>
+<li><p>-#</p>
+</li>
+<li><p>tail命令</p>
+</li>
+<li>查看命令的最后n行：</li>
+<li>tail [options]FILE</li>
+<li>-n #</li>
+<li>-#</li>
+<li><p>-f:查看文件尾部内容结束后不退出，跟随显示新增的行：</p>
+</li>
+<li><p>stat命令：</p>
+</li>
+<li>stat -display file or file system status</li>
+<li>stat FILE….</li>
+<li>文件：两类类型</li>
+<li>元数据：metadate</li>
+<li>数据 ：data</li>
+<li>时间戳</li>
+<li>access time :2005-12-10 16:12.22.77476764+ 0000</li>
+<li>最近更改：2015 -12-10 16：12：22.77764274 +0000</li>
+<li><p>最近改动：2015-12-10 16：12：22.77764837+00000</p>
+</li>
+<li><p>touch 命令</p>
+</li>
+<li>touch -change file timestamps</li>
+<li>touch [OPTION]…FILE….</li>
+<li>-c :指定的文件路径不存在时不予创建</li>
+<li>-a :仅修改 access time:</li>
+<li>-m：仅修改 modify time:</li>
+</ul>
+<h3 id="linux文件管理工具"><a href="#linux文件管理工具" class="headerlink" title="linux文件管理工具"></a>linux文件管理工具</h3><ul>
+<li><p>cp 命令：copy</p>
+</li>
+<li><p>源文件：目标文件</p>
+</li>
+<li>单源复制:cp[OPTION]…….[-T]sourece dest</li>
+<li>多源复制:cp[OPTION]…..SOURECE……DIRECTORY<pre><code>cp [option]........-t directory  source
+</code></pre></li>
+<li>单源复制   cp [option]……[-T]  SOURCE DEST</li>
+<li>如果dest不存在，则事先创建此文件，并复制源文件的数据到dest中</li>
+<li>如果dest存在</li>
+<li>如果dest是非目录文件，则覆盖目标文件</li>
+<li>如果dest是目标文件，则先在dest目录下创建一个与源文件同名的文件，并复制其数据流</li>
+<li>多源复制 cp [OPTION]…..SOURCE… DIRECTORY</li>
+<li>cp [OPTION]…..-t DIRECTORY SOURCE…</li>
+<li>如果dest不存在：错误</li>
+<li>如果dest存在</li>
+<li>如果dest是非目录文件：错误</li>
+<li><p>如果dest是目录文件：分别复制每个文件至目标目录中，并保存原名      </p>
+</li>
+<li><p>常用选项：</p>
+</li>
+<li>-i: 交互式复制，即覆盖之前提醒用户确认：</li>
+<li>-f:强制覆盖目标文件</li>
+<li>-r:-R:递归符号链接文件本身，而非指向源文件</li>
+<li>-a: |-dR  —preserve all</li>
+<li>mode:权限</li>
+<li>ownership：属主和属组</li>
+<li>timestamps:时间戳</li>
+<li>context:安全标签</li>
+<li>xatter:扩展权限</li>
+<li>links:符号链接</li>
+<li><p>*all:上述所有属性</p>
+</li>
+<li><p>mv命令： move</p>
+</li>
+<li>mv [OPTION]….[-T] SOURCE DEST</li>
+<li>mv [OPTION]…..SOURCE…..DIRECTORY</li>
+<li><p>mv [OPTION]…..-t DIRECTORY SOURCE…</p>
+</li>
+<li><p>常用选项：</p>
+</li>
+<li>-i:交互式</li>
+<li><p>-f:force</p>
+</li>
+<li><p>rm命令：remove</p>
+</li>
+<li><p>rm [OPTION]….FILE..</p>
+</li>
+<li><p>常用选项：</p>
+</li>
+<li>-i:interactive</li>
+<li>-f:force</li>
+<li><p>-r:recursive</p>
+</li>
+<li><p>find命令</p>
+</li>
+<li>find [路径] 表达式       </li>
+<li>主要表达式</li>
+<li>-name 按名字查找</li>
+<li>-group 按组群查找</li>
+<li>-user 按用户名进行查找</li>
+<li>-type 按文件类型进行查找</li>
+<li><p>-size [+|-]文件大小  查找指定大小的文件 +表示超过 -表示不足</p>
+</li>
+<li><p>查找/etc 目录中以fs开头的文件或者目录</p>
+</li>
+<li>find  /etc -name fs*</li>
+<li>查找当前目录所有大于100k的文件或者目录</li>
+<li><p>find size +100k</p>
+</li>
+<li><p>grep命令</p>
+</li>
+<li>grep[OPTIONS]字符串 文件列表</li>
+<li>功能：从指定的文本文件中查找符合条件的字符串默认显示指定的字符串所在行的内容</li>
+<li>-n 显示行号</li>
+<li>-v 显示不包含指定字符串的行</li>
+<li>-i 查找不区分大小写</li>
+<li>查找/etc/passwd文件中包含helen的行，并显示其行号</li>
+<li>grep -n helen /etc/passwd</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../03/ASP三层架构/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            ASP三层架构
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../Linux用户组群/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Linux用户组群</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

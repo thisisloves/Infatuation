@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>ASP实践 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="最后留在记忆深处的总是些虚无缥缈的东西，就像你记住一个人往往不是因为她的美，很多年后你连她的样子都忘记了，可偶然在人流如织的街头闻到她惯用的香水味，你在惊悚中下意识地回过头去，却只看见万千过客的背影。">
+<meta name="keywords" content="ASP.NET">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ASP实践">
+<meta property="og:url" content="https://github.com/thisisloves/2019/03/03/ASP实践/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="最后留在记忆深处的总是些虚无缥缈的东西，就像你记住一个人往往不是因为她的美，很多年后你连她的样子都忘记了，可偶然在人流如织的街头闻到她惯用的香水味，你在惊悚中下意识地回过头去，却只看见万千过客的背影。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-17T11:24:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ASP实践">
+<meta name="twitter:description" content="最后留在记忆深处的总是些虚无缥缈的东西，就像你记住一个人往往不是因为她的美，很多年后你连她的样子都忘记了，可偶然在人流如织的街头闻到她惯用的香水味，你在惊悚中下意识地回过头去，却只看见万千过客的背影。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-ASP实践" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      ASP实践
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-03-02T16:00:00.000Z" itemprop="datePublished">2019-03-03</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>最后留在记忆深处的总是些虚无缥缈的东西，就像你记住一个人往往不是因为她的美，很多年后你连她的样子都忘记了，可偶然在人流如织的街头闻到她惯用的香水味，你在惊悚中下意识地回过头去，却只看见万千过客的背影。<br><a id="more"></a></p>
+<blockquote>
+<p>同一条路，和某些人一起走，就长得离谱，和另外一些人走，就短的让人舍不得迈步子。</p>
+</blockquote>
+<ol>
+<li>在model层添加学生表实体类</li>
+</ol>
+<ul>
+<li>在model层添加一个名称为“Student.cs” 的类文件，并在该文件中创建一个与Student数据表相对应的实体类</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ARDUINO"><figure class="iseeu highlight /arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> ID&#123;<span class="built_in">get</span>;<span class="built_in">set</span>&#125;             <span class="comment">//主键列</span></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">string</span> stuNum&#123;<span class="built_in">get</span>;<span class="built_in">set</span>;&#125;      <span class="comment">//学号</span></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">string</span> stuName&#123;<span class="built_in">get</span>;<span class="built_in">set</span>;&#125;  <span class="comment">//姓名</span></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">string</span> StuClass&#123;<span class="built_in">get</span>;<span class="built_in">set</span>;&#125; <span class="comment">//班级</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">string</span> StuGender&#123;<span class="built_in">get</span>;<span class="built_in">set</span>;&#125;  <span class="comment">//性别</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中，Student类中的属性与Student表中的字段一一对应。</li>
+</ul>
+<ol start="2">
+<li>在数据访问层查询数据（列表显示功能）</li>
+</ol>
+<ul>
+<li>在LessonlDAL层中添加一个名称为StudentDal.cs的类的文件，该类中封装对数据表进行操作的代码。</li>
+<li>首先在该类中先定义一个GetAllStudent()的方法，该方法用于查询数据表中的所有数据。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ZEPHIR"><figure class="iseeu highlight /zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">List</span>&lt;student&gt;GetAllStudent()</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//查询数据的sql语句</span></span><br><span class="line">string sql =<span class="string">"swlect *from Student"</span>;</span><br><span class="line"><span class="comment">//创建Student类型集合</span></span><br><span class="line"><span class="keyword">List</span>&lt;Student&gt;studentList=<span class="keyword">new</span> <span class="keyword">List</span>&lt;Student&gt;();</span><br><span class="line"><span class="comment">//调用ExecuteReader()方法查询数据</span></span><br><span class="line">using (SqlDataReader reader=sqlHelper.ExecuteReader(sql))</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//判断是否获取到数据</span></span><br><span class="line"><span class="keyword">if</span>(reader.HasRows)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//循环读取数据</span></span><br><span class="line"><span class="keyword">while</span>(reader.Read())</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//创建对象用于存储数据</span></span><br><span class="line">Student stu=<span class="keyword">new</span> Student();</span><br><span class="line">stu.ID=reader.GetInt32(<span class="number">0</span>);</span><br><span class="line">stu.StuName=reader.GetString(<span class="number">1</span>);</span><br><span class="line">stu.StuClass=reader.GetString(<span class="number">2</span>);</span><br><span class="line">stu.Subject=reader.GetString(<span class="number">3</span>);</span><br><span class="line"><span class="comment">//判断该列数据是否有值</span></span><br><span class="line">stu.StuAge =convert.IsDBNull(reader[<span class="number">5</span>])?<span class="keyword">null</span>:(<span class="keyword">int</span> ?)reader.GetInt32(<span class="number">5</span>);</span><br><span class="line">stu.StuPhone=reader.GetString(<span class="number">6</span>);</span><br><span class="line">stu.StuGender=reader.GetString(<span class="number">7</span>);</span><br><span class="line"><span class="comment">//将对象添加到集合中</span></span><br><span class="line">studentList.Add(stu);</span><br><span class="line">&#125;&#125;&#125;</span><br><span class="line"><span class="comment">//返回合集对象</span></span><br><span class="line"><span class="keyword">return</span> studentList；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中，GetAllStudent()方法调用了SqlHelper的ExecuteReader()方法查询数据，并将</li>
+<li>数据封装到Student类型的对象中。其中在查询数据时取出数据表中可为空的int类型列的数据赋给</li>
+<li>对象属性的时候，需要通过Convert.IsDBNull()方法判断再进行赋值。</li>
+</ul>
+<ol start="3">
+<li>在业务逻辑层调用数据层（列表显示功能）</li>
+</ol>
+<ul>
+<li>在LessonlBLL层中添加Student.cs文件，在该类中定义一个StudentDal的dal对象和GetAllStudent()方法</li>
+<li>此方法用于调用dal.GetAllStudent()方法并返回执行结果。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CS"><figure class="iseeu highlight /cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Student</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> ID&#123;<span class="keyword">get</span>;<span class="keyword">set</span>&#125;             <span class="comment">//主键列</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> stuNum&#123;<span class="keyword">get</span>;<span class="keyword">set</span>;&#125;      <span class="comment">//学号</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> stuName&#123;<span class="keyword">get</span>;<span class="keyword">set</span>;&#125;  <span class="comment">//姓名</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> StuClass&#123;<span class="keyword">get</span>;<span class="keyword">set</span>;&#125; <span class="comment">//班级</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> StuGender&#123;<span class="keyword">get</span>;<span class="keyword">set</span>;&#125;  <span class="comment">//性别</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span> StudentDal dal=<span class="keyword">new</span> StudentDal();</span><br><span class="line"><span class="comment">//调用GetAllStudent()方法判断集合元素个数</span></span><br><span class="line"><span class="keyword">public</span> List&lt;Student&gt;GetAllStudent()</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> dal.GetAllStudent().Count&gt;<span class="number">0</span>?dal.GetAllStudent():<span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>上述代码的GetAllStudent()方法中，通过调用dal对象的GetAllStudent()获取数据对象集合</li>
+<li>并将获取的数据集合返回。</li>
+</ul>
+<ol start="4">
+<li>在表现层调用业务逻辑层（列表显示功能）</li>
+</ol>
+<ul>
+<li>在LessonIUI层的StudentList.aspx.cs 文件的Page_Load()事件中编写代码，该事件在页面加载时触发，触发时将所有的数据加载到<br>页面中</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">private StudentBll bll=new StudentBll();</span><br><span class="line">proteected void Page_Load(object sender,EventArgs e)</span><br><span class="line">&#123;</span><br><span class="line">//判断用户是否已经登陆</span><br><span class="line">if(Seesion["UserName"]==null)</span><br><span class="line">&#123;</span><br><span class="line">//未登录则跳转到登陆页面</span><br><span class="line">Response.Redirect(".../Login.aspx");</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">//获取Student表中所有的数据</span><br><span class="line">List<span class="tag">&lt;<span class="name">Student</span>&gt;</span>studentList=bll.GetAllStudent();</span><br><span class="line">//创建用于拼接表格的StringBulider();</span><br><span class="line">StringBulider sb=new StringBuilder();</span><br><span class="line">int count=1；//表格中的编号</span><br><span class="line">//拼接表头</span><br><span class="line">sb.Append("<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">'position:absolut;top:25%;left:15%;backgrounf-color:#ffffff;'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"1px;solid"</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>编号<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>学科<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>电话<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span>")；</span><br><span class="line">//循环遍历对象集合将值拼接到表格中</span><br><span class="line">foreach( var item in StudentList)</span><br><span class="line">&#123;</span><br><span class="line">sb.Append(string.Format("<span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;0&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;1&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;2&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;3&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;4&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;5&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;6&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"DeleteStuent.aspx?ID=&#123;8&#125;"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">a</span>&gt;</span>&amp;nbsp&amp;nbsp&amp;nbsp<span class="symbol">&amp;nbsp;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"UpdataStudent.aspx</span></span></span><br><span class="line"><span class="tag"><span class="string">?ID=&#123;8&#125;"</span>&gt;</span>修改<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span>"),count++,item.StuPhone,item.StuClass,item.Subject,item.StuAge,item.StuPhone,</span><br><span class="line">item.StuGender,</span><br><span class="line">item.ID));</span><br><span class="line">&#125;</span><br><span class="line">sb.Append("<span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"9"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"AddStudent.aspx"</span>&gt;</span>添加用户<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span>");</span><br><span class="line">//将表格字符串输出到页面</span><br><span class="line">Response.Write(sb.ToString());</span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中Page_Load()事件中，首先获取登陆时存入到Session对象中的用户名并进行判断</li>
+<li>判断登陆后，通过调用bll的GetAllStudent()方法获取数据集合，遍历集合并将值拼接成表格到输出页面。</li>
+</ul>
+<ol start="5">
+<li>添加页面到导航栏</li>
+</ol>
+<ul>
+<li>为了使页面更加完整，在StudentList.aspx页面的body标签内添加页面导航栏功能的布局代码，具体包括显示登陆的</li>
+<li>用户名，网站主页链接，修改密码链接以及用户退出链接。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="ERB"><figure class="iseeu highlight /erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span>您好<span class="tag">&lt;<span class="name">%=</span></span></span><span class="ruby">Session[<span class="string">"UserName"</span>].ToString()</span><span class="xml"><span class="tag">%&gt;</span>,欢迎使用学生管理系统<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"h_nav"</span>&gt;</span><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"StudentList.aspx"</span>&gt;</span>网站主页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"updatePassWord.aspx"</span>&gt;</span>修改密码<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span> <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"Logoff.ashx"</span>&gt;</span>注销退出<span class="tag">&lt;<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"form1"</span><span class="attr">runat</span>=<span class="string">"server"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>页面需要添加css引用</li>
+</ul>
+<ol start="6">
+<li>添加修改密码的功能（表现层）</li>
+</ol>
+<ul>
+<li>在LessonUI层添加一个updataPassWord.aspx页面，从工具箱中拖拽3个Label控件，3个TextBox控件和两个ImageButton控件到该<br>页面上</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="DJANGO"><figure class="iseeu highlight /django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">from</span> <span class="attr">id</span>=<span class="string">"form1"</span><span class="attr">runt</span>=<span class="string">"sever"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"CenterDiv"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span> =<span class="string">"CenterTitle"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>修改密码<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin-top:40px;height:150px;"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">asp:Label</span> <span class="attr">ID</span>=<span class="string">"lblPwd"</span><span class="attr">runat</span>=<span class="string">"sever"</span><span class="attr">Text</span>=<span class="string">"原始密码"</span><span class="attr">ForeColor</span>=<span class="string">"White"</span><span class="attr">Font-Names</span>=<span class="string">"华文行楷"</span>&gt;</span><span class="tag">&lt;<span class="name">asp:Lable</span>&gt;</span><span class="tag">&lt;<span class="name">asp:TextBox</span> <span class="attr">ID</span></span></span></span><br><span class="line"><span class="xml">="txtPwd"runat="server"TextMode="password"*<span class="tag">&lt;/<span class="name">asp:TextBox</span>&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在开发Asp.net项目时，如果多个页面只有部分内容不同而其他内容相同时可以使用母版页。使用母版页可以很好地实现</li>
+<li>界面设计的模块化，并且实现了代码的重复使用。她的创建和普通的页面一样，其扩展名为.master</li>
+</ul>
+<ol start="7">
+<li>添加修改密码的代码（数据访问层）</li>
+</ol>
+<ul>
+<li>由于修改密码的功能都是登陆功能都是对用户表进行操作，所以在LessonDAL层中创建UserLoginDal类中定义一个</li>
+<li>UpdateUserLogin()方法用于修改用户的密码，具体代码如下</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HAXE"><figure class="iseeu highlight /haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> int UpdateUserLogin(string userName,string <span class="keyword">new</span><span class="type">Pwd</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//修改密码的Sql语句</span></span><br><span class="line">string sql=<span class="string">"update UserLogin set pwd=@pwd where UserName=@UserName"</span>;</span><br><span class="line"><span class="comment">//sql语句的参数</span></span><br><span class="line">SqlParameter[] paras=<span class="keyword">new</span> <span class="type">SqlParameter</span>[]&#123;</span><br><span class="line"><span class="keyword">new</span> <span class="type">SqlParamter</span>(<span class="string">"@pwd"</span>,<span class="keyword">new</span><span class="type">Pwd</span>),</span><br><span class="line"><span class="keyword">new</span> <span class="type">SqlParamter</span>(<span class="string">"@UserName"</span>,userName)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//返回执行语句影响的行数</span></span><br><span class="line">int count =SqlHelper.ExecuteNonQuery(sql,paras);</span><br><span class="line"><span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中，UpdateUserLogin()方法用于修改数据表UserLogin中的pwd字段值。方法中调用SqlHeler的ExecuteNonQuery()方法执行修改操作，并将执行结果返回。</li>
+</ul>
+<ol start="8">
+<li>在逻辑业务层调用数据访问层修改密码（业务逻辑层）</li>
+</ol>
+<ul>
+<li>在LessonlBLL层的UserLoginBll类中定义一个UpdateUserLogin()方法，并在该方法中调用LessonlDAl层</li>
+<li>中的userLoginDal类的UpDateUserLogin()方法。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">UpdateUserLogin</span><span class="params">(<span class="built_in">string</span> userName,<span class="built_in">string</span> newPwd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//判断修改数据影响的行数返回bool值</span></span><br><span class="line"><span class="keyword">return</span> dal.UpdateUserLogin(userName,newPwd)&gt;<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中，UserLoginBll类的UpdateLogin()方法主要用于根据调用数据访问层的UpdateUserLogin()方法</li>
+<li>的结果进行判断，并根据结果返回一个Bool类型的值，该返回提示密码是否更新成功。</li>
+</ul>
+<ol start="9">
+<li>在表现层调用业务逻辑层修改密码（表现层）</li>
+</ol>
+<ul>
+<li>打开LessonIUI层的updatePassWord.aspx文件，找到保存按钮，并作为该按钮注册单击事件</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CS"><figure class="iseeu highlight /cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> UserLoginBll bll=<span class="keyword">new</span> UserLoginBll();</span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">btnSave_Click</span>(<span class="params"><span class="keyword">object</span> sender,EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//获取输入的密码</span></span><br><span class="line"><span class="keyword">string</span> pwd =txtPwd.Text.Trim();</span><br><span class="line"><span class="keyword">string</span> newPwd=txtNewPwd.Text.Trim();</span><br><span class="line"><span class="keyword">string</span> rePwd=txtRePwd.Text.Trim();</span><br><span class="line"><span class="comment">//判断密码是否为空</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">string</span>.IsNullorEmpty(pwd)|| <span class="keyword">string</span>.IsNullorEmpty(newPwd))</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert("</span>原始密码和新密码不能为空<span class="string">")&lt;/script&gt;"</span>)；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//判断两次密码是否一致</span></span><br><span class="line"><span class="keyword">if</span>(newPwd!=rePwd)</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert("</span>两次输入密码不一致<span class="string">")&lt;/script&gt;"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//获取登陆用户实体对象</span></span><br><span class="line">UserLogin user=bll.GetUserLogin(Session[<span class="string">"UserName"</span>].ToString());</span><br><span class="line"><span class="comment">//用户存在且输入的原始密码正确</span></span><br><span class="line"><span class="keyword">if</span>(user !=<span class="literal">null</span> &amp;&amp;user.Pwd==pwd)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//执行修改并通过返回值判断是否修改成功</span></span><br><span class="line"><span class="keyword">if</span>(bll.UpdateUserLogin(Session[<span class="string">"UserName"</span>].ToString());</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//执行修改并通过返回值判断是否修改成功</span></span><br><span class="line"><span class="keyword">if</span>(bll.UpdateUserLogin(Seesion[<span class="string">"UserName"</span>].ToString(),newPwd)</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert("</span>修改成功<span class="string">")&lt;/script&gt;"</span>)；</span><br><span class="line">&#125;</span><br><span class="line">esle</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert("</span>修改失败<span class="string">")&lt;/script&gt;"</span>)；</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;Response.Write(<span class="string">"&lt;script&gt;alert("</span>输入原始密码不正确<span class="string">")&lt;/script&gt;"</span>);</span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中，首先比较用户俩次输入的密码是否一致，并通过Session获取当前登陆的用户名，</li>
+<li>然后根据用户名和新的密码调用逻辑业务层UpdateUseLogin()方法返回密码是否更新成功。</li>
+</ul>
+<ol start="10">
+<li>验证用户是否是否登陆</li>
+</ol>
+<ul>
+<li>由于用户的登录是否保存在Session中的，当Session中的，当Session 过期或用户未登录的，需要用户先登陆，以保证用户账号安全，打开updatePassWord.aspx.cs文件，在Page_Load()事件中判断Session是否过期，具体代码如下所示。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CS"><figure class="iseeu highlight /cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_load</span>(<span class="params"><span class="keyword">object</span> sender,EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//获取Session 数据并判断是否为空</span></span><br><span class="line"><span class="keyword">if</span>(Session[<span class="string">"UserName"</span>==<span class="literal">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">Response.Readirect(<span class="string">"/Login.aspx"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><p>在上述代码中，当updatePassWord.aspx 页面加载时 Page_Load()会被调用，首先会获取Session对象对象中的数据，当获取的的数据null时将页面跳转到登陆页面。</p>
+</li>
+<li><p>在使用Session对象时，Session对象有一个过期时间，这个过程时间默认为20分钟，也可以通过代码进行设置，当20分钟内浏览器没有和服务器发生任何交互时表明Session,此时就会清除Session对象。</p>
+</li>
+</ul>
+<ol start="11">
+<li>测试修改密码功能</li>
+</ol>
+<ul>
+<li>运行项目，输入用户名为admin,密码为123456，并单击登陆按钮，然后单击修改密码的链接跳转到修改密码界面。在该页面输入原始密码为1234<br>56新密码666666单击保存按钮。</li>
+</ul>
+<ol start="12">
+<li>退出登陆功能</li>
+</ol>
+<ul>
+<li>在LessonIUI中添加一个名称为“Logoff.ashx”的文件，打开该文件，文件中编写退出登陆的代码</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VERILOG"><figure class="iseeu highlight /verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">void</span> ProcessRequest(httpContext <span class="keyword">context</span>)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">context</span><span class="variable">.Respons</span><span class="variable">.ContentType</span>=<span class="string">"text/plain"</span>;</span><br><span class="line"><span class="comment">//将session设置为空</span></span><br><span class="line"><span class="keyword">context</span><span class="variable">.Session</span>[<span class="string">"UserName"</span>]=<span class="literal">null</span>;</span><br><span class="line"><span class="comment">//跳转到登陆页面</span></span><br><span class="line"><span class="keyword">context</span><span class="variable">.Response</span><span class="variable">.Redirect</span>(<span class="string">"Login.aspx"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中，首先将Context.Session[“UserName”]值清空，并通过context对象的Response属性的Redirect()方法将页面跳转到登陆页面。</li>
+<li>如果需要在一般处理程序使用Session,就必须实现IRequireSessionState接口</li>
+</ul>
+<ol start="13">
+<li>实现修改学生信息的用户界面</li>
+</ol>
+<ul>
+<li>在LeesonIUI层中添加一个名称为UpdateStudent.aspx页面，打开工具箱，向该界面拖放相关控件，并为控件设置相关属性。</li>
+</ul>
+<ol start="14">
+<li>访问数据库更新学生信息</li>
+</ol>
+<ul>
+<li>由于更新学生信息是对Student表进行操作，直接在LessonlDAL层的StudentDal类中添加一个UpdateStudent()方法用于修改<br>学生信息。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PERL"><figure class="iseeu highlight /perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">int</span> UpdateStudent(Student stu)</span><br><span class="line">&#123;</span><br><span class="line">//修改数据库的sql语句</span><br><span class="line">string sql=<span class="string">"update Student set StuNum=@stuNum,StuName=@StuName,stuClass=@stuClass,subject=@subject,stuAge=@stuAge,</span></span><br><span class="line"><span class="string">StuPhone=@</span></span><br><span class="line"><span class="string">StuPhone,stuGender=@StuGender whereID=@ID"</span>;</span><br><span class="line"></span><br><span class="line">//sql参数数据</span><br><span class="line">Sqlparameter[] paras=new SqlParameter[]&#123;</span><br><span class="line">new SqlParameter(<span class="string">"@ID"</span>,stu.ID),</span><br><span class="line">new SqlParameter(<span class="string">"@StuNum"</span>,StuNum),</span><br><span class="line">new SqlParameter (<span class="string">"@StuClass,StuClass"</span>),</span><br><span class="line">new SqlParameter(<span class="string">"@StuPhone,StuPhone"</span>),</span><br><span class="line">new SqlParameter(<span class="string">"@subject,subject"</span>),</span><br><span class="line">new SqlParameter(<span class="string">"@StuAge,StuAge"</span>),</span><br><span class="line">new SqlParameter(<span class="string">"@StuGender,StuGender"</span>),</span><br><span class="line">&#125;；</span><br><span class="line"><span class="keyword">int</span> count =SqlHelper.ExecuteNonQuery(sql,paras);</span><br><span class="line"><span class="keyword">return</span> count;&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中，UpdateStudent()方法用于修改Student数据表中的数据，调用SqlHelper类的ExecuteNonQuery()方法执行修改操作，并受返回值影响的行数，需要注意StuAge是int 类型，需要进行空值转换。</li>
+</ul>
+<ol start="15">
+<li>实现修改学生信息的LessonsBLL层代码（业务逻辑层）</li>
+</ol>
+<ul>
+<li>实现了数据访问层，接下来在LessonBLL层的StudentBLL定义UpdateStudent（）方法在方法中调用数据访问层的UpdateStudent()方法</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">UpdateStudent</span><span class="params">(Student stu)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//返回修改是否成功的结果</span></span><br><span class="line"><span class="keyword">return</span> dal.UpdateStudent(stu)&gt;<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中，UpdateStudent()方法调用了数据访问层的UpdateStudent()方法，并且根据结果返回一个bool值类型的值。</li>
+</ul>
+<ol start="16">
+<li>实现修改学生信息的LessonIUI层代码（表现层）</li>
+</ol>
+<ul>
+<li>接下来实现表现层的功能，在LessonIUI中打开UpdateStudent.cs文件，在该方法调用业务逻辑层的方法将需要修改<br>的数据显示到界面上。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CS"><figure class="iseeu highlight /cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> StudentBll bll =<span class="keyword">new</span> StudentBll();</span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Page_Load</span>(<span class="params"><span class="keyword">object</span> sender,EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//判断用户是否已经登陆</span></span><br><span class="line"><span class="keyword">if</span>(Session [<span class="string">"UserName"</span>]=<span class="literal">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">Response.Readirect(<span class="string">"/Login.aspx"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//判断是否回转</span></span><br><span class="line"><span class="keyword">if</span>(!IsPostBack)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//获取传递的参数值</span></span><br><span class="line"><span class="keyword">string</span> Id=Request.QueryString[<span class="string">"ID"</span>];</span><br><span class="line"><span class="comment">//判断获取数据ID是否为空</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">string</span>.IsNullOrEmpty(Id))</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert('数据错误')"</span>&lt;/script&gt;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//查询需要修改的数据对象</span></span><br><span class="line">Student stu =bll.SelectStudent(Convert.ToInt32(Id));</span><br><span class="line"><span class="keyword">if</span>(stu ==<span class="literal">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">Response.write(<span class="string">"&lt;script&gt;alert(需要修改的用户不存在)&lt;/script&gt;"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//将获的数据加载到对应的控件中</span></span><br><span class="line">iblld.Text =stu.ID.ToString();</span><br><span class="line">txtStuNum.Text=stu.StuNum;</span><br><span class="line">txtStuName.Text=stu.StuName；</span><br><span class="line">txtSubject.Text=stu.StuClass;</span><br><span class="line">txtStuAge.Text=stu.StuAge ==<span class="literal">null</span>?<span class="string">""</span>:stu.StuAge.ToString();</span><br><span class="line">txtStuPhone.Text=stu.StuPhone;</span><br><span class="line"><span class="keyword">if</span>(stu.StuGender=<span class="string">"男"</span>)</span><br><span class="line">&#123;</span><br><span class="line">radbtnB.Checked=<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (stu.StuGender==<span class="string">"女"</span>)</span><br><span class="line">&#123;</span><br><span class="line">radbtnG.Checked=<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中，首先通过Session 判断用户是否已经登陆，然后通过IsPostBack属性判断页面是否提交数据，接着调用bll</li>
+<li>对象的SelectStudent()方法查询需要修改的学生数据，并加载到控件中。</li>
+</ul>
+<ol start="17">
+<li>实现验证学号的唯一代码（修改功能）</li>
+</ol>
+<ul>
+<li>打开LessonlDAL层中的StudentDal类，在该类中定义一个SelectCount()方法用于查询修改的学号在数据库是否存在</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">SelectCount</span> <span class="params">(<span class="built_in">string</span> stuNum,<span class="keyword">int</span> id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//sql查询语句</span></span><br><span class="line"><span class="built_in">string</span> sql=<span class="string">"select count (*)from Student where StuNum=@StuNum and Id not in (@Id)"</span>;</span><br><span class="line">sqlParameter[] paras =<span class="keyword">new</span> SqlParameter[]&#123;</span><br><span class="line"><span class="keyword">new</span> SqlParameter(<span class="string">"@StuNum"</span>,stuNum),</span><br><span class="line"><span class="keyword">new</span> sqlParameter(<span class="string">"@Id"</span>,id)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//返回数据的第一行第一列</span></span><br><span class="line"><span class="keyword">int</span> count =Convert.ToInt32(sqlHelper.ExecuteScalar(sql,parsa));</span><br><span class="line"><span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>上述代码sql语句查询条件中，“Id not in(@Id)”表示Id值不在括号中</li>
+<li>通过调用Sqlhelper中的ExecuteScalar()方法查询数据。其中，sql语句中的count（）</li>
+<li>是用于统计查询数据条数的函数。接下来打开lessonlBLL层中StudentBLL类，创建一个SelectCount（）方法</li>
+<li>并调用数据访问层的SelectCount()方法。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">bool</span> SelectCount（<span class="built_in">string</span> stuNum,<span class="keyword">int</span> id）</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> dal.SelectCount(stuNum,id)&gt;<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>上述方法中通过dal对象调用数据访问层的SelectCount()方法，根据调用结果进行判断，并返回一个Bool值。该值</li>
+<li>用于判断当前学号是否存在，如果值为true说明数据库已经存在该学号，否则就不存在。</li>
+</ul>
+<ol start="18">
+<li>实现保存修改后的学生信息的代码</li>
+</ol>
+<ul>
+<li>修改完学生信息后，单击保存按钮，进行两个操作。第一判断学号是否唯一，第二是将修改后的信息更新到数据</li>
+<li>库中。接下来打开LessonIUI层中的UpdateStudent.aspx页面，为保存按钮添加事件方法并实现。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CS"><figure class="iseeu highlight /cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> btnUpdate-_Click(<span class="keyword">object</span> sender,EventArgs e)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//实现控件中的数据</span></span><br><span class="line"><span class="keyword">string</span> stuNum=txtStuNum.Text.Trim();</span><br><span class="line"><span class="keyword">string</span> stuName=txtStuName.Text.Trim();</span><br><span class="line"><span class="keyword">string</span> stuClass=txtStuClass.Text.Trim();</span><br><span class="line"><span class="keyword">string</span> subject=txtSubject.Text.Trim();</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">string</span>.IsNullOrEmpty(stuNum))</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert('学号不能为空')&lt;/script&gt;"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">string</span> .IsNullOrEmpty(stuName))</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert('姓名不能为空')&lt;/script&gt;"</span>)；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">string</span>.IsNullorEmpty(stuClass))</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert('班级不能为空')&lt;/script&gt;"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">string</span>.IsNullorEmpty(subject))</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert('学科不能为空')&lt;/script&gt;"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//判断 学号是否重复</span></span><br><span class="line"><span class="keyword">if</span>(bll.SelectCount(stuNum,Convert.ToInt32(lblId.Text)))</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert('学号重复')&lt;/script&gt;"</span>)；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> age;</span><br><span class="line"><span class="comment">//将修改的数据封装到新建对象中</span></span><br><span class="line">Student stu =<span class="keyword">new</span> Student();</span><br><span class="line">stu.ID=Convert.ToInt32(Iblid.Text);</span><br><span class="line"><span class="comment">//设置非空属性的值</span></span><br><span class="line">stu.StuAge=Int32.TypParse(txtStuAge.Text.Trim(),<span class="keyword">out</span> age)?(<span class="keyword">int</span> ?)age:<span class="literal">null</span>;</span><br><span class="line">stu.StuClass=txtStuClass.Text.Trim();</span><br><span class="line">stu.StuGender=radbtnB.Checked?<span class="string">"男"</span>：（radbtnG.Checked?<span class="string">"女"</span>：<span class="string">""</span>）;</span><br><span class="line">stu.StuName=stuName;</span><br><span class="line">stu.StuNum=stuNum;</span><br><span class="line">Stu.Subject=subject;</span><br><span class="line">stu.StuPhone =txtStuPhone.Text.Trim();</span><br><span class="line"><span class="comment">//调用UpdateStudent()方法执行修改</span></span><br><span class="line"><span class="keyword">bool</span> isOk =bll.UpdateStudent(stu);</span><br><span class="line"><span class="keyword">if</span>(isOk)</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert("</span>修改成功<span class="string">"）&lt;/srcipt&gt;"</span>)；</span><br><span class="line">&#125;	</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert("</span>修改失败<span class="string">")&lt;/script&gt;"</span>)</span><br><span class="line">&#125;&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中，首先对用户输入的非空信息进行判断（学号,姓名，班级，学科），然后根据调用bll的SelectCount()方法的结果判断学号是否重复，最后将用户输入的数据封装到对象中，并调用bll的UpdateStudent()方法执行操作。</li>
+</ul>
+<ol start="19">
+<li><p>测试修改功能</p>
+</li>
+<li><p>实现添加学生信息的界面（表现层）</p>
+</li>
+<li><p>编写添加学生信息的代码（数据访问层）</p>
+</li>
+</ol>
+<ul>
+<li>创建完添加学生信息的界面之后，接下来实现数据访问层的添加功能。添加学生信息是对Student表进行操作。所以在LessonlDAl中的StudentDal类编写实现代码，添加一个InsertStudent()方法实现将数据插入到数据库中</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HAXE"><figure class="iseeu highlight /haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> int InsertStudent(Student stu)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//插入数据的sql语句</span></span><br><span class="line">string sql=<span class="string">"insert into Student values(@StuNum,@StuName,@StuClass,@subject,@StuPhone,@StuGender)"</span>;</span><br><span class="line">Sqlparameter []paras =<span class="keyword">new</span> <span class="type">SqlParameter</span>[]&#123;</span><br><span class="line"><span class="keyword">new</span> <span class="type">SqlParameter</span>(<span class="string">"@StuNum"</span>,stu.StuName),</span><br><span class="line"><span class="keyword">new</span> <span class="type">SqlParameter</span>(<span class="string">"@StuClass"</span>,stu.StuClass),</span><br><span class="line"><span class="keyword">new</span> <span class="type">SqlParameter</span>(<span class="string">"@StuPhone"</span>,stu.StuPhone),</span><br><span class="line"><span class="keyword">new</span> <span class="type">SqlParameter</span>(<span class="string">"@subject"</span>,stu,subject),</span><br><span class="line"><span class="keyword">new</span> <span class="type">SqlParameter</span>(<span class="string">"@StuGender"</span>,stu,StuGender),</span><br><span class="line"><span class="keyword">new</span> <span class="type">SqlParameter</span>(<span class="string">"@StuAge"</span>,stu,StuAge==<span class="literal">null</span>?DBNull.Value:<span class="type"></span>(object)stu.StuAge),</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int count=SqlHelper.ExecuteNonQuery(sql,paras);</span><br><span class="line"><span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>上述代码实现了向数据库中插入一条学生信息的功能。其中，在Insert Student（）方法中调用SqlHelper 类的ExcuteNonQuery()方法执行插入操作。接下来实现业务逻辑层的添加功能，打开LessonlBLL层中的StudentBLL类，添加一个InsertStudent()方法并调用数据访问层的InsertStudent()方法具体代码如下</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">InsertStudet</span><span class="params">(Student stu)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> dal.InsertStudent(stu)&gt;<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中调用了数据访问层的InsertStudent()方法，并返回一个bool类型的值用于判断数据</li>
+<li>数据库添加是否成功。由于学生的信息不能重复，在插入到数据库之前需要验证学号是否已经存在。</li>
+<li>打开LessonlDAl层，在studentDal类中添加一个SelectCount（）的重载方法。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> SelectCount （<span class="built_in">string</span> stuNum）</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//查询语句</span></span><br><span class="line"><span class="built_in">string</span> sql=<span class="string">"select count (*)from Student where StuNum=@StuNum"</span>;</span><br><span class="line">SqlParameter para=<span class="keyword">new</span> SqlParameter(<span class="string">"@StuNum"</span>,stuNum);</span><br><span class="line"><span class="keyword">int</span> count =Convert.ToInt32(SqlHelper.ExecuteScalar(sql,para));</span><br><span class="line"><span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>讲解：SelectCount()的重载方法</li>
+<li><p>上述内容讲解了StudentDal类中的两个SelectCount（）方法，即SelectCount（string）和SelectCount(srring,int),这两个方法的方法名相同、参数列表不相同，构成了方法的重载。方法重载的条件是在同一个类中具有两个或者两个以上的方法名相同、参数列表不同的方法。</p>
+</li>
+<li><p>在上述代码中，SelectCount（）方法用于查询数据表中StuNum字段与参数stuNum的值想同的数据条数，<br>并返回查询结果，接下来在lessonBLL层的StudentBLL类中重新定义一个SelectCount（）方法用于调用数据访问<br>层的SelectCount（）方法 具体代码如下</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">Select</span><span class="params">(<span class="built_in">string</span> stuNum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> dal.SelectCount(stuNum)&gt;<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中，业务逻辑层调用数据访问层的SelectCount（string）方法，并根据判断调用的结果返回一个bool值。</li>
+</ul>
+<ol start="22">
+<li>实现添加学生信息到数据库的代码（表现层）</li>
+</ol>
+<ul>
+<li>在实现数据访问层和业务逻辑层的功能后，接下来打开LessonIUI中的AddStudent.aspx页面，并在该页面找到保存按钮，为该按钮添加单击事件。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CS"><figure class="iseeu highlight /cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">btnInsert_Click</span>(<span class="params"><span class="keyword">object</span> sender,EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//获取输入框的内容</span></span><br><span class="line"><span class="keyword">string</span> stuNum =txtStuNum.Text.Trim();</span><br><span class="line"><span class="keyword">string</span> stuName =txtStuName.Text.Trim();</span><br><span class="line"><span class="keyword">string</span> stuClass=txtStuClass.Text.Trim();</span><br><span class="line"><span class="keyword">string</span> subject=txtSubjuct.Text.Trim();</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">string</span>.isNullOrEmptty(stuNum))</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert('学号不能为空')&lt;/script&gt;"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">string</span>.isNullOrEmptty(stuName))</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert('姓名不能为空')&lt;/script&gt;"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">string</span>.isNullOrEmptty(stuClass))</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert('班级不能为空')&lt;/script&gt;"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">string</span>.isNullOrEmptty(subject))</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert('学科不能为空')&lt;/script&gt;"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//判断学号是否重复</span></span><br><span class="line"><span class="keyword">if</span>(bll.SelectCount(StuNum))</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert('学号重复')&lt;/script&gt;"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> age;</span><br><span class="line"><span class="comment">//插入数据</span></span><br><span class="line">Student stu =<span class="keyword">new</span> Student();</span><br><span class="line">stu.StuAge=Int32.TryParse(txtStuAge.Text.Trim(),<span class="keyword">out</span> age)?(<span class="keyword">int</span> ?)age:<span class="literal">null</span>;</span><br><span class="line">stu.StuClass=txxStuClass.Text.Trim();</span><br><span class="line">stu.StuGender=radbtnB.Checked? <span class="string">"男"</span>：（radbtnG.<span class="keyword">checked</span>? <span class="string">"女"</span>：<span class="string">""</span>）；</span><br><span class="line">stu.StuName=stuName;</span><br><span class="line">stu.StuNum=stuNum;</span><br><span class="line">stu.Subject=subject;</span><br><span class="line">stu.StuPhone=txtStuPhone.Text.Trim();</span><br><span class="line"><span class="comment">//执行插入数据</span></span><br><span class="line"><span class="keyword">bool</span> isOk=bll.InsertStudent(stu);</span><br><span class="line"><span class="keyword">if</span>(isOk)</span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert("</span>添加成功<span class="string">")&lt;/script&gt;"</span>)；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">Response.Write(<span class="string">"&lt;script&gt;alert("</span>添加失败<span class="string">")&lt;/script&gt;"</span>)；</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>上述代码中调用bll的InsertStudent()方法执行添加操作.</li>
+</ul>
+<ol start="23">
+<li>实现删除学生信息的功能代码（数据层）</li>
+</ol>
+<ul>
+<li>在完成了学生信息的添加功能后，接下来实现学生信息的删除功能。在STudentDal类中新建一个DelectStudent（）方法用于实现删除学生信息的 功能</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">DeleteStudent</span><span class="params">( <span class="keyword">int</span> id)</span></span>&#123;</span><br><span class="line"><span class="comment">//sql语句</span></span><br><span class="line"><span class="built_in">string</span> sql=<span class="string">"delete Student where ID=@ID"</span>;</span><br><span class="line"><span class="keyword">int</span> count =SqlHelper.ExecuteNonQuery(sql,<span class="keyword">new</span> SqlParameter(<span class="string">"@ID"</span>,id));</span><br><span class="line"><span class="keyword">return</span> coun</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>上述代码中，DeleteStudent（）方法用于删除指定的ID的学生信息并返回执行结果。接下来打开LessonBll层中的StudentBll类，定义一个DeleteStudent()方法用于调用数据访问层的DeleteStduent().</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">DeleteStudent</span><span class="params">(<span class="keyword">int</span> id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> dal.DeleteStudent(id)&gt;<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在上述代码中，通过dal对象调用了数据访问层中的DeleteStudent()方法执行删除操作，并通过删除的结果返回一个bool值，当返回值为true时表示成功。</li>
+</ul>
+<ol start="24">
+<li>实现删除学生信息的代码（业务逻辑层）</li>
+</ol>
+<ul>
+<li>删除操作只需要删除数据然后重新加载页面，没有添加或者修改功能那样有额外的编辑页面，所以直接在LessonIUI层中添加一个 “DeleteStudent.ashx”的一般出理程序实现删除操作。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="VERILOG"><figure class="iseeu highlight /verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">private StudentBll bll=<span class="keyword">new</span> StudentBll();</span><br><span class="line">public <span class="keyword">void</span> ProcessRequest(HttpContextc <span class="keyword">context</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//输出的类型</span></span><br><span class="line"><span class="keyword">context</span><span class="variable">.Response</span><span class="variable">.ContentType</span>=<span class="string">"text/plain"</span>;</span><br><span class="line"><span class="comment">//判断用户是否登陆</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">context</span><span class="variable">.Session</span>[<span class="string">"UserName"</span>]==<span class="literal">null</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">context</span><span class="variable">.Response</span><span class="variable">.Redirect</span>(<span class="string">"/Login.aspx"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//获取需要删除的主键ID并判断是否为空</span></span><br><span class="line"><span class="keyword">string</span> studentID=<span class="keyword">context</span><span class="variable">.Request</span><span class="variable">.QueryString</span>[<span class="string">"ID"</span>];</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../ADO.NET五大对象/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            ADO.NET五大对象
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../ASP数据库/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">ASP数据库</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

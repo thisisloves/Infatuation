@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JS方法总结 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="如果喜欢谁，就满世界去找她，别等她来找你，她可能也在等你……别让她等得对你失望了。如果你喜欢的人要嫁人了，就跟她表白一下，就算为此要把她婚车的车胎打爆也没什么，这是你说出来的最后机会。把这个秘密带进棺材没价值，连陪葬品都算不上。">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS方法总结">
+<meta property="og:url" content="https://github.com/thisisloves/2019/04/01/JS方法总结/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="如果喜欢谁，就满世界去找她，别等她来找你，她可能也在等你……别让她等得对你失望了。如果你喜欢的人要嫁人了，就跟她表白一下，就算为此要把她婚车的车胎打爆也没什么，这是你说出来的最后机会。把这个秘密带进棺材没价值，连陪葬品都算不上。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-20T09:14:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS方法总结">
+<meta name="twitter:description" content="如果喜欢谁，就满世界去找她，别等她来找你，她可能也在等你……别让她等得对你失望了。如果你喜欢的人要嫁人了，就跟她表白一下，就算为此要把她婚车的车胎打爆也没什么，这是你说出来的最后机会。把这个秘密带进棺材没价值，连陪葬品都算不上。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-JS方法总结" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      JS方法总结
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-03-31T16:00:00.000Z" itemprop="datePublished">2019-04-01</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JS/">JS</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>如果喜欢谁，就满世界去找她，别等她来找你，她可能也在等你……别让她等得对你失望了。如果你喜欢的人要嫁人了，就跟她表白一下，就算为此要把她婚车的车胎打爆也没什么，这是你说出来的最后机会。把这个秘密带进棺材没价值，连陪葬品都算不上。<br><a id="more"></a></p>
+<blockquote>
+<p>或许是不知梦的缘故，流离之人追逐幻影。</p>
+</blockquote>
+<blockquote>
+<p>答题技巧： 方法有没有参数，传几个参数，传不同的参数，有什么作用。（思考跟有些类似方法有什么不同）,会不会改变值本身?</p>
+</blockquote>
+<h3 id="数组常用方法"><a href="#数组常用方法" class="headerlink" title="数组常用方法"></a>数组常用方法</h3><ul>
+<li>声明方式</li>
+</ul>
+<ol>
+<li>构造函数的声明方式： var arr = new Array();</li>
+<li>字面量的声明方式：var arr=[];</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>];var i=<span class="number">10</span>;</span><br><span class="line">console.log(arr.splice(<span class="number">2</span>,<span class="number">2</span>));</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>shift() 从前面删除一个元素 会改变原有数组 返回删除的元素</li>
+<li>pop() 从数组尾部删除一个元素 会改变原有数组 返回删除的元素</li>
+<li>unshift() 从前面增加一个或多个元素 会改变原有数组 返回增加后数组的长度</li>
+<li>push() 从后增加一个或多个元素 会改变原有数组 返回增加后数组的长度</li>
+<li>reverse() 数组倒序 会改变原有数组 返回倒序后的数组</li>
+<li>slice()  传入一个值代表从开始截取值的索引到数组结束位置 传入两个值第一个为开始截取值的索引 第二个为截取结束值的索引 可传入负值表 示从后面开始截取数组 不会改变原有数组 返回截取后的数组 </li>
+<li>sort()  数组排序 不传值默认全部转为字符串进行从小到大排序 传两个值，x,y  x-y代表从小到大排序y-x代表从大到小排序 会改变原有数组 返回排序后的数组</li>
+<li>indexOf()  查找数组是否存在某个元素 可传两个值第一个为要查找的元素, 第二个为开始查找的位置,不写默认从第一个开始查找 不改变原有数组 找到元素返回元素的索引值，没到到返回-1</li>
+<li>forEach()数组循环 可传三个值 第一个为当前元素的值，第二个为当前元素的索引值，第三个为当前元素所属于的数组对象，不会改变原有数组 返回新数组;</li>
+<li>map()  可传三个值 第一个为当前元素的值, 第二个为当前元素的索引值，第三个为当前元素所属于的数组对象，不会改变原有数组 返回一个新数 组，数组中的元素为原始数组元素调用函数处理后的值</li>
+<li>filter() 数组过滤 可传三个值 第一个为当前元素的值，第二个为当前元素的索引值，第三个为当前元素所属于的数组对象，不会改变原有数组 返 回过滤后的新数组; </li>
+<li>splice() 任意位置的增加、删除、修改 可传三个值 第一个为开始位置 第二个为改变的元素个数 第三个为替换的内容不写第三个代表删除 会改变原有数组 返回删除或替换的元素</li>
+<li>toString()转换成字符串</li>
+<li>fill()  填充数组 当传一个值的时候：改值为填充的值 传三个参数时第一个为填充的值，第二个为开始位置，第三个为结束位置</li>
+<li>join() 把数组拼接为字符串 传入一个值，传入值为拼接符，不写默认用逗号作为拼接符 不会改变原有数组 返回拼接后的字符串</li>
+<li>join(0) 用0拼接</li>
+<li>concat() 合并数组 可传多个参数 不会改变原有数组 返回合并后的新数组</li>
+<li>length  返回数组长度</li>
+</ul>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><ul>
+<li>声明方式</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PROCESSING"><figure class="iseeu highlight /processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var <span class="built_in">str</span>=<span class="keyword">new</span> Strig(<span class="string">''</span>)</span><br><span class="line">var <span class="built_in">str</span>=<span class="string">"hello word"</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">str</span>.replace(<span class="string">"w"</span>,<span class="string">"ppp"</span>))</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>indexOf()查找是否存在某个元素 可传两个值第一个为要查找的元素 第二个为开始查找的位置 不写默认从第一个开始查找 找到元素返回元素的索引值，没找到返回-</li>
+<li>charAt() 传一个值（索引） 返回对应位置的字符串</li>
+<li>replace()替换 传入两个值 前面的值替换成后面的值 返回替换后的字符串 不会改变原有字符串 </li>
+<li>slice()截取 返回截取的字符串 不会改变原有字符串 传入两值代表从开始位置到结束位置 支持传入负数 代表从后面开始截取</li>
+<li>split()字符串分割为数组  ‘’代表把字符串分割为数组 传入其他值时，以该值为分割线将字符串分割成数组 不会改变原有字符串</li>
+<li>substr()截取 返回截取的字符串 不会改变原有字符串 传入两值第一个代表从开始位置第二个代表截取长度 支持传入负数</li>
+<li>substring()截取 返回截取的字符串 不会改变原有字符串 传入两值代表从开始位置到结束位置 默认把最大值当成结束位置最小值当成开始位置 不支持传入负数 </li>
+<li>charCodeAt()传入一个值 返回对应位置字符的ASCII编码</li>
+<li>concat() 可传入多个值传入的值为要拼接的内容 字符串拼接 不会改原有字符串 返回拼接后的字符串1</li>
+<li><p>lastIndexOf()返回一个指定的字符串值最后出现的位置，如果指定第二个参数 start，则在一个字符串中的指定位置从后向前搜索。找到元素返回元素的索引值，没找到返回-1</p>
+</li>
+<li><p>length 返回字符串的长度</p>
+</li>
+<li>repeat() 字符串重复 不会改变原有字符串  传入一个值代表重复次数 </li>
+<li>toLowerCase()英文字母全部转换成小写 不会改变原有字符串 </li>
+<li>toUpperCase()英文字母全部转换成大写 不会改变原有字符串</li>
+<li>trim()去除字符串前后空格</li>
+</ul>
+<h3 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h3><ul>
+<li><p>声明方式</p>
+</li>
+<li><p>var date=Date() 返回当前系统时间，且为字符串类型 不支持传参</p>
+</li>
+<li>var date= new Date() 不写返回当前系统时间为对象类型 传入一个数字代表格林泥治时间加上传入的毫秒数</li>
+<li>传入一个字符串返回年 传入多个数字或者多字符时返回年月日时分秒 超出月份或者日期自动加1 </li>
+<li>传入日期格式时 超出不会进一显示Invalid Date</li>
+</ul>
+<ul>
+<li>getDate()返回当前日期</li>
+<li>getDay()返回星期（0-6）0为星期天</li>
+<li>getFullYear() 返回当前年份</li>
+<li>getHours()返回当前小时</li>
+<li>getMilliseconds()返回当前毫秒</li>
+<li>getMinutes()返回当前分钟</li>
+<li>getMonth()返回当前月份0-11（0代表1月）</li>
+<li>getSeconds()返回当前秒</li>
+<li>getTime()返回当前日期到格林尼治时间的毫秒数</li>
+<li>setDate()设置日期</li>
+<li>setFullYear()设置年</li>
+<li>setHours()设置小时</li>
+<li>setMilliseconds()设置毫秒</li>
+<li>setMinutes()设置分钟</li>
+<li>setMonth()设置月份 </li>
+<li>setSeconds()设置秒数</li>
+<li>setTime()设置当前日期到格林尼治时间的毫秒数</li>
+<li>toLocaleString() 返回年月日时分秒</li>
+<li>toLocaleDateString()返回年月日</li>
+<li>toLocaleTimeString()返回时分秒，分上午，下午</li>
+</ul>
+<h3 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h3><ul>
+<li>abs()取绝对值</li>
+<li>cbrt()开立方根</li>
+<li>ceil()向上取整</li>
+<li>floor()向下取整</li>
+<li>max()传多个参数，选取传入值中的最大值</li>
+<li>min()传多个参数，选取传入值中的最小值</li>
+<li>pow()传两个参数x,y  代表x的y次幂</li>
+<li>random()无参数，[0,1)之间的随机小数</li>
+<li>round()四舍五入</li>
+<li>sqrt()开平方根</li>
+</ul>
+<h3 id="关于BOM"><a href="#关于BOM" class="headerlink" title="关于BOM"></a>关于BOM</h3><ul>
+<li>BOM是什么？</li>
+<li>浏览器对象模型</li>
+<li>location 浏览器的导航栏</li>
+<li>host: 域名+端口号</li>
+<li>hostName: 域名</li>
+<li>port: 端口号</li>
+<li>href: 完整路径</li>
+<li>search: ？开始到结尾或到#结束（不包括#）</li>
+<li>hash: #及后面的内容</li>
+<li>pathName: 路径地址</li>
+<li>protocol: 传输协议  http:（默认端口号80） https:(默认端口号443)</li>
+<li>reload()  刷新页面 </li>
+<li>assign()  跳转页面，有历史记录 </li>
+<li><p>replace() 跳转页面，无历史记录 </p>
+</li>
+<li><p>history  历史记录</p>
+</li>
+<li>back() 不传参 返回</li>
+<li>forward() 不传参 前进</li>
+<li>go() 不传代表刷新一次，传参1代表前进一次2代表前进两次 -1代表后退一次-2代表后退两次</li>
+<li>length 获取历史记录条数</li>
+<li>navigator 浏览器基本信息</li>
+<li>userAgent 判断浏览器的版本信息</li>
+</ul>
+<h3 id="获取元素节点的方式？"><a href="#获取元素节点的方式？" class="headerlink" title="获取元素节点的方式？"></a>获取元素节点的方式？</h3><ul>
+<li>通过Id获取：document.getElementById() 只能返回一个dom对象</li>
+<li>通过class获取：document.getElementsByClassName() 统一返回类数组</li>
+<li>通过标签名称获取：document.getElemensByTagName(‘标签名’) 无论有无都会返回一个类数组</li>
+<li>通过name获取：document.getElementsByName(‘name的名字’) 返回类数组</li>
+<li>通过css选择器获取：document.querySelectorAll(‘’)   返回所有  返回类数组</li>
+<li>document.querySelector(‘’)   找到第一个即返回  返回类数组</li>
+<li>获取下一个元素同级节点：nextElementSibling</li>
+<li>获取下一个节点同级：nextSibling</li>
+<li>获取上一个元素同级节点：previousElementSibling 没有返回null</li>
+<li>获取父节点：ParentNode</li>
+<li>ParentElement 两者无区别 </li>
+<li>获取子元素节点：Children</li>
+<li>获取所有的子节点:ChildNodes </li>
+<li><p>只有元素节点才有父节点和子节点，文本节点和注释节点无父子节点</p>
+</li>
+<li><p>那几种获取的是集合？</p>
+</li>
+<li>通过class获取：document.getElementsByClassName() 统一返回类数组</li>
+<li>通过标签名称获取：document.getElemensByTagName(‘标签名’) 无论有无都会返回一个类数组</li>
+<li>通过name获取：document.getElementsByName(‘name里的名字’) 返回类数组</li>
+<li>通过css选择器获取：document.querySelectorAll(‘’)   返回所有  返回类数组</li>
+<li><p>document.querySelector(‘’)   找到第一个即返回  返回类数组</p>
+</li>
+<li><p>获取的集合可以使用数组的方法么？</p>
+</li>
+<li>不可以用数组方法</li>
+</ul>
+<h3 id="关于元素节点属性操作"><a href="#关于元素节点属性操作" class="headerlink" title="关于元素节点属性操作"></a>关于元素节点属性操作</h3><ul>
+<li>getAttribute()获取标签中的任何属性</li>
+<li>setAttribute()设置标签中的任何属性</li>
+<li><p>removeAttribute()删除属性节点</p>
+</li>
+<li><p>节点类型</p>
+</li>
+<li>一共有几种节点？</li>
+<li>12种 元素节点 文本节点 注释节点 根节点 属性节点</li>
+<li>需要掌握的四种是哪四种？</li>
+<li>元素节点 文本节点 注释节点 根节点 </li>
+<li>nodeType， nodeName，         nodeValue分别是什么。</li>
+<li>元素节点   1        标签名称（全大写）  null</li>
+<li>文本节点   3        #text              文本内容</li>
+<li>注释节点   8        #comment            注释内容</li>
+<li>根节点     9        #document           null</li>
+</ul>
+<ul>
+<li>创建节点（回答有没有参数，参数是什么）</li>
+<li>document.createElement(); 创建元素节点 有参数参数为标签</li>
+<li>ele.appendchild(div);</li>
+<li>document.createTextNode();创建文本节点 有参数参数为文本内容</li>
+<li>document.createComment()创建注释节点 有参数参数为注释内容</li>
+<li><p>document.createDocumentFragment();创建文档碎片 有参数参数为标签</p>
+</li>
+<li><p>移动节点</p>
+</li>
+<li>ele.appendChild(newEle)</li>
+<li><p>ele添加子节点newEle</p>
+</li>
+<li><p>ele.insertBefore(newEle, oldEle)</p>
+</li>
+<li><p>ele添加子节点newEle</p>
+</li>
+<li><p>ele.remove()</p>
+</li>
+<li>删除节点</li>
+<li>ele.removeChild(oldEle)</li>
+<li><p>删除子节点oldEle</p>
+</li>
+<li><p>ele.replaceChild(newEle, oldEle)</p>
+</li>
+<li><p>子节点newEle替换成oldEle</p>
+</li>
+<li><p>ele.cloneNode(bool)</p>
+</li>
+<li><p>克隆节点</p>
+</li>
+<li><p>查找节点</p>
+</li>
+<li>ele.parentNode 查找父节点</li>
+<li>ele.children  查找子元素节点</li>
+<li>ele.childNodes 查找所有的子节点</li>
+<li>ele.previousElementSibling;查找上一个同级元素节点 没有返回null</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="../../02/JS事件对象-下/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            JS事件对象-下
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../../03/30/JS事件对象-上/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">JS事件对象-上</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 11px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/js/" style="font-size: 12px;">js</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15px;">node</a> <a href="../../../../tags/react/" style="font-size: 19px;">react</a> <a href="../../../../tags/vue/" style="font-size: 17px;">vue</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 12px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 11px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2020/03/08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/20/React键盘事件/">React键盘事件</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/02/05/Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法/">Ant 表单getFieldDecorator、getFieldValue、setFieldValue用法</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2020/01/20/wrappedComponentRef/">wrappedComponentRef</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
