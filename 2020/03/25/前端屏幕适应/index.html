@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>前端屏幕适应 | 遇见</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="不管雨下多久，最终彩虹总会出现。不管你有多难过，始终要相信，幸福就在不远处。">
+<meta name="keywords" content="HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端屏幕适应">
+<meta property="og:url" content="https://github.com/thisisloves/2020/03/25/前端屏幕适应/index.html">
+<meta property="og:site_name" content="遇见">
+<meta property="og:description" content="不管雨下多久，最终彩虹总会出现。不管你有多难过，始终要相信，幸福就在不远处。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-16T07:15:17.370Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端屏幕适应">
+<meta name="twitter:description" content="不管雨下多久，最终彩虹总会出现。不管你有多难过，始终要相信，幸福就在不远处。">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="遇见" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="../../../../css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="../../../../index.html" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="../../../../archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-前端屏幕适应" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      前端屏幕适应
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2020-03-24T16:00:00.000Z" itemprop="datePublished">2020-03-25</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/HTML/">HTML</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>不管雨下多久，最终彩虹总会出现。不管你有多难过，始终要相信，幸福就在不远处。</p>
+<a id="more"></a>
+<blockquote>
+<p>世界上最幸福的事之一，莫过于经过一番努力后，所有东西正慢慢变成你想要的样子。</p>
+</blockquote>
+<h3 id="手机端"><a href="#手机端" class="headerlink" title="手机端"></a>手机端</h3><ul>
+<li>手机尺寸适配太多，统一使用rem</li>
+</ul>
+<ol>
+<li>统一使用rem </li>
+<li>html的font-size:’’,使用js计算</li>
+<li>所有地方间距，字体，div宽高统一使用rem</li>
+</ol>
+<h3 id="PC端"><a href="#PC端" class="headerlink" title="PC端"></a>PC端</h3><h4 id="官网类"><a href="#官网类" class="headerlink" title="官网类"></a>官网类</h4><ul>
+<li>对屏幕自适应要求很高，建议使用媒体查询</li>
+</ul>
+<ol>
+<li>主体可以使用rem，也可使用vh </li>
+<li>html的font-size:’’,使用js计算</li>
+<li>所有地方间距，div宽高统一使用rem或者vh</li>
+<li>字体在pc端都应该最好使用px</li>
+<li>如需适配多种不同屏幕，最优解决方案应该是媒体查询</li>
+</ol>
+<h4 id="大屏幕类"><a href="#大屏幕类" class="headerlink" title="大屏幕类"></a>大屏幕类</h4><ol>
+<li>主体使用vh vw</li>
+<li>字体使用px</li>
+<li>若需适配不同大屏幕，使用媒体查询</li>
+</ol>
+<h4 id="后台系统类"><a href="#后台系统类" class="headerlink" title="后台系统类"></a>后台系统类</h4><ol>
+<li>主体使用vh vw</li>
+<li>字体使用px</li>
+<li>若需适配不同屏幕，使用媒体查询</li>
+</ol>
+<h3 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h3><ol>
+<li><p><a href="https://www.novipnoad.com/" target="_blank" rel="noopener">https://www.novipnoad.com/</a> 以bootstap为框架基础</p>
+</li>
+<li><p><a href="https://preview.pro.ant.design/" target="_blank" rel="noopener">https://preview.pro.ant.design/</a> 结构化后台框架案例 </p>
+</li>
+</ol>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="../../20/前端规范/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">前端规范</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: 'review',
+  oauth: {
+    client_id: '9d19e8ae580ee1c23566',
+    client_secret: '4ba004fee60dc31571cfaed0b3a53afa77a168a5',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="https://i.loli.net/2019/05/20/5ce28d58db2dd87788.jpeg" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ASP-NET/">ASP.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Echarts/">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mock/">mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/sass/">sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/前端规范/">前端规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/动漫/">动漫</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/ASP-NET/" style="font-size: 13.64px;">ASP.NET</a> <a href="../../../../tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="../../../../tags/Echarts/" style="font-size: 13.64px;">Echarts</a> <a href="../../../../tags/HTML/" style="font-size: 18.18px;">HTML</a> <a href="../../../../tags/JS/" style="font-size: 20px;">JS</a> <a href="../../../../tags/Less/" style="font-size: 10.91px;">Less</a> <a href="../../../../tags/Linux/" style="font-size: 14.55px;">Linux</a> <a href="../../../../tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="../../../../tags/PHP/" style="font-size: 10px;">PHP</a> <a href="../../../../tags/git/" style="font-size: 12.73px;">git</a> <a href="../../../../tags/jQuery/" style="font-size: 13.64px;">jQuery</a> <a href="../../../../tags/java/" style="font-size: 10px;">java</a> <a href="../../../../tags/mock/" style="font-size: 10px;">mock</a> <a href="../../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../../tags/node/" style="font-size: 15.45px;">node</a> <a href="../../../../tags/react/" style="font-size: 19.09px;">react</a> <a href="../../../../tags/sass/" style="font-size: 10px;">sass</a> <a href="../../../../tags/vue/" style="font-size: 17.27px;">vue</a> <a href="../../../../tags/前端规范/" style="font-size: 10px;">前端规范</a> <a href="../../../../tags/动漫/" style="font-size: 10px;">动漫</a> <a href="../../../../tags/博客/" style="font-size: 11.82px;">博客</a> <a href="../../../../tags/总结/" style="font-size: 10px;">总结</a> <a href="../../../../tags/网络/" style="font-size: 16.36px;">网络</a> <a href="../../../../tags/面试/" style="font-size: 10.91px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">前端屏幕适应</a>
+          </li>
+        
+          <li>
+            <a href="../../20/前端规范/">前端规范</a>
+          </li>
+        
+          <li>
+            <a href="../../15/URL输入链接穿过登陆访问页面/">URL输入链接穿过登陆访问页面</a>
+          </li>
+        
+          <li>
+            <a href="../../08/Ant树形选择框残留问题/">Ant树形选择框残留问题</a>
+          </li>
+        
+          <li>
+            <a href="../../../02/28/axios请求超时处理/">Axios请求超时处理</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2020 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="../../../../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
