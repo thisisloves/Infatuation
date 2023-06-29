@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Vite | 亦如星辰闪耀长河</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="谁都不会忘记谁、所谓的忘记只是心里那个人被取代了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vite">
+<meta property="og:url" content="https://thisisloves.github.io/2020/06/20/%E5%89%8D%E7%AB%AF-Vite/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="谁都不会忘记谁、所谓的忘记只是心里那个人被取代了。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/14/5zFQgOwR9tS6nf1.png">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/14/B1rIVUYeNicSXzC.png">
+<meta property="article:published_time" content="2020-06-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-06-27T06:20:01.026Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/14/5zFQgOwR9tS6nf1.png">
+  
+    <link rel="alternate" href="/Infatuation/atom.xml" title="亦如星辰闪耀长河" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/Infatuation/css/style.css">
+
+  
+<link rel="stylesheet" href="/Infatuation/css/highlight.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/Infatuation/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/Infatuation/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-前端-Vite" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Vite
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/Infatuation/2020/06/20/%E5%89%8D%E7%AB%AF-Vite/" class="article-date">
+  <time datetime="2020-06-19T16:00:00.000Z" itemprop="datePublished">2020-06-20</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>谁都不会忘记谁、所谓的忘记只是心里那个人被取代了。</p>
+<span id="more"></span>
+
+<h3 id="Vite"><a href="#Vite" class="headerlink" title="Vite"></a>Vite</h3><ul>
+<li>Vite 是构建工具，高阶封装，Vite的官方定位是下一代前端开发和构建工具。</li>
+</ul>
+<h3 id="Vite-由来"><a href="#Vite-由来" class="headerlink" title="Vite 由来"></a>Vite 由来</h3><ul>
+<li><p>实际开发中，我们在编写的代码往往是不能被浏览器直接识别的，比如ES6，TypeScript,Vue文件等。所以此时我们必须通过构建工具来对代码进行转换，编译，类似的工具有webpack,rollup,parcel.但是随着项目越来越大，需要处理的javascript呈指数级增长，模块越来越多。构建工具需要很长时间才能开启服务器，HMR也需要几秒钟才能在浏览器反应过来。所以出现了Vite。</p>
+</li>
+<li><p>Vite作为一个基于浏览器原生ESM的构建工具，它省略了开发环境的打包过程，利用浏览器去解析imports，在服务端按需编译返回。同时，在开发环境拥有速度快到惊人的模块热更新，且热更新的速度不会随着模块增多而变慢。因此，使用Vite进行开发，至少会比Webpack快10倍左右。</p>
+</li>
+</ul>
+<h3 id="Vite-组成"><a href="#Vite-组成" class="headerlink" title="Vite 组成"></a>Vite 组成</h3><ol>
+<li>dev server：利用浏览器的ESM能力来提供源文件，具有丰富的内置功能并具有高效的HMR</li>
+<li>生产构建：生产环境利用Rollup来构建代码，提供指令用来优化构建过程</li>
+</ol>
+<h3 id="Vite-特性"><a href="#Vite-特性" class="headerlink" title="Vite 特性"></a>Vite 特性</h3><ol>
+<li>Instant Server Start —— 即时服务启动</li>
+<li>Lightning Fast HMR —— 闪电般快速的热更新</li>
+<li>Rich Features —— 丰富的功能</li>
+<li>Optimized Build —— 经过优化的构建</li>
+<li>Universal Plugin Interface —— 通用的Plugin接口</li>
+<li>Fully Typed APIs —— 类型齐全的API</li>
+</ol>
+<h3 id="Vite-安装"><a href="#Vite-安装" class="headerlink" title="Vite 安装"></a>Vite 安装</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install vite -g   <span class="comment">//全局安装</span></span><br><span class="line">npm install vite -D   <span class="comment">//局部安</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Vite-原理"><a href="#Vite-原理" class="headerlink" title="Vite 原理"></a>Vite 原理</h3><ol>
+<li><strong>ESM</strong></li>
+</ol>
+<ul>
+<li>ESM的对外接口只是一种静态定义，为编译时加载，遇到模块加载命令import，就会生成一个只读引用。等脚本真正执行时，再根据这个只读引用，到被加载的那个模块内取值。由于ESM编译时就能确定模块的依赖关系，因此能够只包含要运行的代码，可以显著减少文件体积，降低浏览器压力。</li>
+</ul>
+<ol start="2">
+<li><strong>esbuild</strong></li>
+</ol>
+<ul>
+<li>Vite 对 js&#x2F;ts 的处理没有使用如 glup, rollup 等传统打包工具，而是使用了 esbuild。esbuild 是一个全新的js打包工具，底层使用了go，大量使用了并行操作，可以充分利用CPU资源。esbuild支持如babel, 压缩等的功能。</li>
+</ul>
+<ol start="3">
+<li><strong>请求拦截</strong></li>
+</ol>
+<ul>
+<li>Vite 的基本实现原理，就是启动一个 koa 服务器拦截由浏览器请求 ESM的请求。通过请求的路径找到目录下对应的文件做一定的处理最终以 ESM的格式返回给客户端。</li>
+</ul>
+<p><img src="/images/2022/06/14/5zFQgOwR9tS6nf1.png" alt="截屏2022-06-14 上午11.04.27.png"></p>
+<ol start="4">
+<li><strong>热更新</strong></li>
+</ol>
+<ul>
+<li>Vite 的热加载原理，其实就是在客户端与服务端建立了一个 websocket 连接，当代码被修改时，服务端发送消息通知客户端去请求修改模块的代码，完成热更新。</li>
+</ul>
+<ol>
+<li>服务端：服务端做的就是监听代码文件的改变，在合适的时机向客户端发送 websocket 信息通知客户端去请求新的模块代码。</li>
+<li>客户端：Vite 中客户端的 websocket 相关代码在处理 html 中时被写入代码中。可以看到在处理 html 时，vite&#x2F;client 的相关代码已经被插入。</li>
+</ol>
+<h3 id="Vite-和-Webpack"><a href="#Vite-和-Webpack" class="headerlink" title="Vite 和 Webpack"></a>Vite 和 Webpack</h3><p><img src="/images/2022/06/14/B1rIVUYeNicSXzC.png" alt="截屏2022-06-14 上午11.10.19.png"></p>
+<h3 id="Vite-缺点"><a href="#Vite-缺点" class="headerlink" title="Vite 缺点"></a>Vite 缺点</h3><ul>
+<li>目前 Vite 还是使用的 es module 模块不能直接使用生产环境（兼容性问题）。默认情况下，无论是 dev 还是 build 都会直接打出 ESM 版本的代码包，这就要求客户浏览器需要有一个比较新的版本，这放在现在的国情下还是有点难度的。不过 Vite 同时提供了一些弥补的方法，使用 build.polyfillDynamicImport 配置项配合 @vitejs&#x2F;plugin-legacy 打包出一个看起来兼容性比较好的版本。</li>
+<li>生产环境使用 rollup 打包会造成开发环境与生产环境的不一致。</li>
+<li>很多 第三方 sdk 没有产出 ems 格式的的代码，这个需要自己去做一些兼容。</li>
+</ul>
+<h3 id="构建工具和打包工具区别"><a href="#构建工具和打包工具区别" class="headerlink" title="构建工具和打包工具区别"></a>构建工具和打包工具区别</h3><ul>
+<li>构建过程应该包括 预编译、语法检查、词法检查、依赖处理、文件合并、文件压缩、单元测试、版本管理等 。</li>
+<li>打包工具更注重打包这一过程，主要包括依赖管理和版本管理。</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2020/06/20/React-%E5%89%AF%E4%BD%9C%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            副作用
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2020/06/19/React-Fiber%E5%8D%8F%E8%B0%83/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Fiber协调</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" rel="tag">综合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Infatuation/tags/CSS/" style="font-size: 15.45px;">CSS</a> <a href="/Infatuation/tags/ES6/" style="font-size: 15.45px;">ES6</a> <a href="/Infatuation/tags/Echarts/" style="font-size: 10.91px;">Echarts</a> <a href="/Infatuation/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/Infatuation/tags/HTML/" style="font-size: 11.82px;">HTML</a> <a href="/Infatuation/tags/JS/" style="font-size: 20px;">JS</a> <a href="/Infatuation/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/Infatuation/tags/React/" style="font-size: 19.09px;">React</a> <a href="/Infatuation/tags/Redux/" style="font-size: 13.64px;">Redux</a> <a href="/Infatuation/tags/SQL/" style="font-size: 16.36px;">SQL</a> <a href="/Infatuation/tags/Vue/" style="font-size: 14.55px;">Vue</a> <a href="/Infatuation/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/Infatuation/tags/jQuery/" style="font-size: 10.91px;">jQuery</a> <a href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.18px;">前端</a> <a href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 11.82px;">数据结构</a> <a href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.73px;">算法</a> <a href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" style="font-size: 10.91px;">综合</a> <a href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.27px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/Java-%E5%8F%8D%E5%B0%84/">Java反射</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/%E5%89%8D%E7%AB%AF-Tomcat%E9%83%A8%E7%BD%B2/">Tomcat部署前端项目</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/01/Java-%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/29/Java-%E6%B3%9B%E5%9E%8B/">Java泛型</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/28/Java-%E6%9E%9A%E4%B8%BE/">Java枚举</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2023 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+<script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+
+  
+<link rel="stylesheet" href="/Infatuation/fancybox/jquery.fancybox.css">
+
+  
+<script src="/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/Infatuation/js/script.js"></script>
+
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/Infatuation/" class="mobile-nav-link">首页</a>
+  
+    <a href="/Infatuation/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

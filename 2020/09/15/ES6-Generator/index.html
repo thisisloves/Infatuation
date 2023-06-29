@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Generator | 亦如星辰闪耀长河</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="沙罗双树之花色，表盛者必衰之兆， 骄者难久，恰如春宵一梦； 猛者遂灭，好似风前之尘。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Generator">
+<meta property="og:url" content="https://thisisloves.github.io/2020/09/15/ES6-Generator/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="沙罗双树之花色，表盛者必衰之兆， 骄者难久，恰如春宵一梦； 猛者遂灭，好似风前之尘。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-01T07:47:41.367Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="ES6">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/Infatuation/atom.xml" title="亦如星辰闪耀长河" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/Infatuation/css/style.css">
+
+  
+<link rel="stylesheet" href="/Infatuation/css/highlight.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/Infatuation/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/Infatuation/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-ES6-Generator" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Generator
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/Infatuation/2020/09/15/ES6-Generator/" class="article-date">
+  <time datetime="2020-09-14T16:00:00.000Z" itemprop="datePublished">2020-09-15</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Infatuation/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>沙罗双树之花色，表盛者必衰之兆， 骄者难久，恰如春宵一梦； 猛者遂灭，好似风前之尘。</p>
+<span id="more"></span>
+
+<h3 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><ul>
+<li><p>Generator 函数是 ES6 提供的一种异步编程解决方案。</p>
+</li>
+<li><p>Generator 函数是一个状态机，封装了多个内部状态。</p>
+</li>
+<li><p>Generator 函数执行会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。</p>
+</li>
+<li><p>与普通区别</p>
+</li>
+</ul>
+<ol>
+<li>Generator 和函数不同的是，Generator 由 function* 定义（注意多出的*号）。</li>
+<li>函数体内部使用 yield 表达式，定义不同的内部状态。</li>
+<li>除了 return 语句，还可以用 yield 返回多次。</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>* <span class="title function_">foo</span>(<span class="params">x</span>) &#123;</span><br><span class="line">  <span class="keyword">yield</span> x + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span> x + <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">return</span> x + <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">foo</span>(<span class="number">1</span>).<span class="title function_">next</span>()); <span class="comment">// &#123;value: 2, done: false&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">foo</span>(<span class="number">1</span>).<span class="title function_">next</span>()); <span class="comment">// &#123;value: 2, done: false&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">foo</span>(<span class="number">1</span>).<span class="title function_">next</span>()); <span class="comment">// &#123;value: 2, done: false&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">foo</span>(<span class="number">1</span>).<span class="title function_">next</span>()); <span class="comment">// &#123;value: 2, done: false&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ad = <span class="title function_">foo</span>(<span class="number">1</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(ad.<span class="title function_">next</span>()); <span class="comment">// &#123;value: 2, done: false&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(ad.<span class="title function_">next</span>()); <span class="comment">// &#123;value: 3, done: false&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(ad.<span class="title function_">next</span>()); <span class="comment">// &#123;value: 4, done: false&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(ad.<span class="title function_">next</span>()); <span class="comment">// &#123;value: undefined, done: true&#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="yield-表达式"><a href="#yield-表达式" class="headerlink" title="yield 表达式"></a>yield 表达式</h3><ul>
+<li>Generator 函数返回的遍历器对象，只有调用 next 方法才会遍历下一个内部状态，所以其实提供了一种可以暂停执行的函数。yield 表达式就是暂停标志。</li>
+</ul>
+<ul>
+<li>运行逻辑</li>
+</ul>
+<ol>
+<li>遇到 yield 表达式，就暂停执行后面的操作，并将紧跟在 yield 后面的那个表达式的值，作为返回的对象的 value 属性值。</li>
+<li>下一次调用 next 方法时，再继续往下执行，直到遇到下一个 yield 表达式。</li>
+<li>如果没有再遇到新的 yield 表达式，就一直运行到函数结束，直到 return 语句为止，并将 return 语句后面的表达式的值，作为返回的对象的 value 属性值。</li>
+<li>如果该函数没有 return 语句，则返回的对象的 value 属性值为 undefined。</li>
+</ol>
+<ul>
+<li>yield 与 return 区别</li>
+</ul>
+<ol>
+<li>都能返回紧跟在语句后面的那个表达式的值。</li>
+<li>每次遇到 yield，函数暂停执行，下一次再从该位置继续向后执行，而 return 语句不具备位置记忆的功能。</li>
+<li>一个函数里面，只能执行一次（或者说一个）return 语句，但是可以执行多次（或者说多个）yield 表达式。</li>
+<li>正常函数只能返回一个值，因为只能执行一次 return；Generator 函数可以返回一系列的值，因为可以有任意多个 yield。</li>
+</ol>
+<h3 id="Generator-部署-Interator-接口"><a href="#Generator-部署-Interator-接口" class="headerlink" title="Generator 部署 Interator 接口"></a>Generator 部署 Interator 接口</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;小华&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;3&#x27;</span> &#125;;</span><br><span class="line">obj[<span class="title class_">Symbol</span>.<span class="property">iterator</span>] = <span class="keyword">function</span>* () &#123;</span><br><span class="line">  <span class="keyword">let</span> keys = <span class="title class_">Object</span>.<span class="title function_">keys</span>(<span class="variable language_">this</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; keys.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">yield</span> &#123; <span class="attr">value</span>: &#123; [keys[i]]: <span class="variable language_">this</span>[keys[i]] &#125;, <span class="attr">done</span>: <span class="literal">false</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">yield</span> &#123; <span class="attr">value</span>: <span class="literal">undefined</span>, <span class="attr">done</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> obj) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="next-方法"><a href="#next-方法" class="headerlink" title="next 方法"></a>next 方法</h3><ul>
+<li>next 方法可以带一个参数，该参数就会被当作<strong>上一个 yield 表达式的返回值</strong>。</li>
+<li>可以在 Generator 函数运行的不同阶段，从外部向内部注入不同的值，从而调整函数行为。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>* <span class="title function_">foo</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="keyword">yield</span> e;</span><br><span class="line">  <span class="keyword">let</span> y = <span class="keyword">yield</span> e + x;</span><br><span class="line">  <span class="keyword">yield</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> add = <span class="title function_">foo</span>(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// console.log(add.next())   // &#123;value:1,done:false&#125;</span></span><br><span class="line"><span class="comment">// console.log(add.next())   // &#123;value: NaN, done: false&#125;</span></span><br><span class="line"><span class="comment">// console.log(add.next())   // &#123;value: NaN, done: false&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(add.<span class="title function_">next</span>()); <span class="comment">// &#123;value:1,done:false&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(add.<span class="title function_">next</span>(<span class="number">1</span>)); <span class="comment">// &#123;value:2,done:false&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(add.<span class="title function_">next</span>(<span class="number">2</span>)); <span class="comment">// &#123;value:3,done:false&#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><p>next 不传参数情况下，第一次 next() value 为 1 ， 第二次 next() value 等于 1 加上次 yield e 的值 即 undefined + 1 ，第三次 next() 为 value 等于 undefined 加 undefined 的值 即 undefined + undefined</p>
+</li>
+<li><p>next 传参数情况下，第一次 next() value 为 1 ， 第二次 next(1) value 等于 1 加上次 yield e 的值 即 1 + 1 ，第三次 next() 为 value 等于 1 加 2 的值 即 1 + 2</p>
+</li>
+</ul>
+<h3 id="Generator-prototype-throw"><a href="#Generator-prototype-throw" class="headerlink" title="Generator.prototype.throw()"></a>Generator.prototype.throw()</h3><ul>
+<li>Generator 函数返回的遍历器对象，都有一个throw方法，可以在函数体外抛出错误，然后在 Generator 函数体内捕获。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> g = <span class="keyword">function</span>* () &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">yield</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;内部捕获&#x27;</span>, e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i = <span class="title function_">g</span>();</span><br><span class="line">i.<span class="title function_">next</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  i.<span class="keyword">throw</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">  i.<span class="keyword">throw</span>(<span class="string">&#x27;b&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;外部捕获&#x27;</span>, e);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 内部捕获 a</span></span><br><span class="line"><span class="comment">// 外部捕获 b</span></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>throw方法可以接受一个参数，该参数会被catch语句接收，建议抛出Error对象的实例。</li>
+</ul>
+<h3 id="Generator-prototype-return"><a href="#Generator-prototype-return" class="headerlink" title="Generator.prototype.return()"></a>Generator.prototype.return()</h3><ul>
+<li>Generator 函数返回的遍历器对象，还有一个return()方法，可以返回给定的值，并且终结遍历 Generator 函数。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>* <span class="title function_">gen</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> g = <span class="title function_">gen</span>();</span><br><span class="line"></span><br><span class="line">g.<span class="title function_">next</span>()        <span class="comment">// &#123; value: 1, done: false &#125;</span></span><br><span class="line">g.<span class="keyword">return</span>(<span class="string">&#x27;foo&#x27;</span>) <span class="comment">// &#123; value: &quot;foo&quot;, done: true &#125;</span></span><br><span class="line">g.<span class="title function_">next</span>()        <span class="comment">// &#123; value: undefined, done: true &#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="yeild"><a href="#yeild" class="headerlink" title="yeild*"></a>yeild*</h3><ul>
+<li>用来在一个 Generator 函数里面执行另一个 Generator 函数。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>* <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">&#x27;x&#x27;</span>;</span><br><span class="line">  <span class="keyword">yield</span>* <span class="title function_">foo</span>();</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">&#x27;y&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">function</span>* <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">&#x27;x&#x27;</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">&#x27;b&#x27;</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">&#x27;y&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">function</span>* <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">&#x27;x&#x27;</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> v <span class="keyword">of</span> <span class="title function_">foo</span>()) &#123;</span><br><span class="line">    <span class="keyword">yield</span> v;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">&#x27;y&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> v <span class="keyword">of</span> <span class="title function_">bar</span>())&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(v);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &quot;x&quot;</span></span><br><span class="line"><span class="comment">// &quot;a&quot;</span></span><br><span class="line"><span class="comment">// &quot;b&quot;</span></span><br><span class="line"><span class="comment">// &quot;y&quot;</span></span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2020/10/08/ES6-Iterator/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Iterator
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2020/08/20/JS-File%E5%AF%B9%E8%B1%A1%E8%BD%AC%E6%8D%A2Blob/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">File对象转换Blob</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" rel="tag">综合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Infatuation/tags/CSS/" style="font-size: 15.45px;">CSS</a> <a href="/Infatuation/tags/ES6/" style="font-size: 15.45px;">ES6</a> <a href="/Infatuation/tags/Echarts/" style="font-size: 10.91px;">Echarts</a> <a href="/Infatuation/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/Infatuation/tags/HTML/" style="font-size: 11.82px;">HTML</a> <a href="/Infatuation/tags/JS/" style="font-size: 20px;">JS</a> <a href="/Infatuation/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/Infatuation/tags/React/" style="font-size: 19.09px;">React</a> <a href="/Infatuation/tags/Redux/" style="font-size: 13.64px;">Redux</a> <a href="/Infatuation/tags/SQL/" style="font-size: 16.36px;">SQL</a> <a href="/Infatuation/tags/Vue/" style="font-size: 14.55px;">Vue</a> <a href="/Infatuation/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/Infatuation/tags/jQuery/" style="font-size: 10.91px;">jQuery</a> <a href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.18px;">前端</a> <a href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 11.82px;">数据结构</a> <a href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.73px;">算法</a> <a href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" style="font-size: 10.91px;">综合</a> <a href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.27px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/Java-%E5%8F%8D%E5%B0%84/">Java反射</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/%E5%89%8D%E7%AB%AF-Tomcat%E9%83%A8%E7%BD%B2/">Tomcat部署前端项目</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/01/Java-%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/29/Java-%E6%B3%9B%E5%9E%8B/">Java泛型</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/28/Java-%E6%9E%9A%E4%B8%BE/">Java枚举</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2023 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+<script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+
+  
+<link rel="stylesheet" href="/Infatuation/fancybox/jquery.fancybox.css">
+
+  
+<script src="/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/Infatuation/js/script.js"></script>
+
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/Infatuation/" class="mobile-nav-link">首页</a>
+  
+    <a href="/Infatuation/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

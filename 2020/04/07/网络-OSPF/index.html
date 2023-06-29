@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>OSPF | 亦如星辰闪耀长河</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="终是谁使弦断，花落肩头，恍惚迷离。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSPF">
+<meta property="og:url" content="https://thisisloves.github.io/2020/04/07/%E7%BD%91%E7%BB%9C-OSPF/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="终是谁使弦断，花落肩头，恍惚迷离。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/24/HeLpViWUS5oFr3b.png">
+<meta property="article:published_time" content="2020-04-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-06-27T06:20:01.024Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/24/HeLpViWUS5oFr3b.png">
+  
+    <link rel="alternate" href="/Infatuation/atom.xml" title="亦如星辰闪耀长河" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/Infatuation/css/style.css">
+
+  
+<link rel="stylesheet" href="/Infatuation/css/highlight.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/Infatuation/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/Infatuation/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-网络-OSPF" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      OSPF
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/Infatuation/2020/04/07/%E7%BD%91%E7%BB%9C-OSPF/" class="article-date">
+  <time datetime="2020-04-06T16:00:00.000Z" itemprop="datePublished">2020-04-07</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>终是谁使弦断，花落肩头，恍惚迷离。</p>
+<span id="more"></span>
+
+<h3 id="OSPF（开放最短路径优先）"><a href="#OSPF（开放最短路径优先）" class="headerlink" title="OSPF（开放最短路径优先）"></a>OSPF（开放最短路径优先）</h3><ul>
+<li>OSPF（Open Shortest Path First）路由协议是一种典型的<strong>链路状态</strong>（Link-state）的路由协议，一般用于同一个路由域内。在这里，路由域是指一个<strong>自治系统</strong>（Autonomous System），即 AS，它是指一组通过统一的路由政策或路由协议互相交换路由信息的网络。在这个 AS 中，所有的 OSPF 路由器都维护一个相同的描述这个 AS 结构的数据库，该数据库中存放的是路由域中相应链路的状态信息，OSPF 路由器正是通过这个数据库计算出其 OSPF 路由表的。</li>
+<li>作为一种链路状态的路由协议，OSPF 将<strong>链路状态广播数据包 LSA</strong>（Link State Advertisement）传送给在某一区域内的所有路由器，这一点与距离矢量路由协议不同。运行距离矢量路由协议的路由器是将部分或全部的路由表传递给与其相邻的路由器。</li>
+</ul>
+<h3 id="OSPF-特性"><a href="#OSPF-特性" class="headerlink" title="OSPF 特性"></a>OSPF 特性</h3><ol>
+<li>适应范围广：支持大规模网络，最多可支持几百台路由器。</li>
+<li>支持掩码：由于 OSPF 报文中携带掩码信息，所以 OSPF 协议不受自然掩码的限制，对 VLSM 提供很好的支持。</li>
+<li>快速收敛：在网络的拓扑结构发生变化后立即发送更新报文，使这一变化在自治系统中同步。</li>
+<li>无自环：由于 OSPF 根据收集到的链路状态用最短路径树算法计算路由，从算法本身保证了不会生成自环路由。</li>
+<li>区域划分：允许自治系统的网络被划分成区域来管理，区域间传送的路由信息被进一步抽象，从而减少了占用的网络带宽。</li>
+<li>等价路由：支持到同一目的地址的多条等价路由。</li>
+<li>路由分级：使用 4 类不同的路由，按优先顺序来说分别是：区域内路由、区域间路由、第一类外部路由、第二类外部路由。</li>
+<li>支持验证：支持基于区域和接口的报文验证，以保证报文交互的安全性。</li>
+<li>组播发送：在某些类型的链路上以组播地址发送协议报文，减少对其他设备的干扰。</li>
+</ol>
+<h3 id="OSPF-工作过程"><a href="#OSPF-工作过程" class="headerlink" title="OSPF 工作过程"></a>OSPF 工作过程</h3><ol>
+<li>每台路由器学习激活的直接相连的网络。</li>
+<li>每台路由器和直接相连的路由器互交，发送 Hello 报文，建立邻居关系。</li>
+<li>每台路由器构建包含直接相连的链路状态的 LSA（Link-State Advertisement，链路状态通告 LSA）。链路状态通告(LSA)中记录了所有相关的路由器，包括邻路由器的标识、链路类型、带宽等。</li>
+<li>每台路由器泛洪链路状态通告（LSA）给所有的邻路由器，并且自己也在本地储存邻路由发过来的 LSA，然后再将收到的 LSA 泛洪给自己的所有邻居，直到在同一区域中的所有路由器收到了所有的 LSA。每台路由器在本地数据库中保存所有收到的 LSA 副本，这个数据库被称作”链路状态数据库（LSDB，Link-State Database）”</li>
+<li>每台路由器基于本地的”链路状态数据库(LSDB)”执行”最短路径优先（SPF）”算法，并以本路由器为根，生成一个 SPF 树，基于这个 SPF 树计算去往每个网络的最短路径，也就生成了路由表。</li>
+</ol>
+<ul>
+<li><p>五步总结：建立邻居关系——&gt;相互转发 LSA——构建链路状态数据——执行 SPF 算法——生成路由条目</p>
+</li>
+<li><p>邻居表：记录所有建立了邻居关系的路由器，包括相关描述和邻居状态。会定期的相互发送 hello 报文来维护，若在一定的周期内没有收到领居回应的 hello 报文，则认为邻居路由器失效，将它从邻居表中删除。</p>
+</li>
+<li><p>链路状态数据库表（LSDB）：此表里包含了网络拓扑中链路状态的通告。每台路由器在同一个区域内 LSDB 表一样。</p>
+</li>
+<li><p>路由表：在获得完整 LSDB 表后，进行 SPF 算法，形成最优路由加入路由表。</p>
+</li>
+</ul>
+<h3 id="OSPF-分组"><a href="#OSPF-分组" class="headerlink" title="OSPF 分组"></a>OSPF 分组</h3><ul>
+<li>OSPF 协议依靠五种不同类型的分组来建立邻接关系和交换路由信息，即问候分组、数据库描述分组、链路状态请求分组、链路状态更新分组和链路状态确认分组。</li>
+</ul>
+<ol>
+<li>问候(Hello)分组</li>
+</ol>
+<ul>
+<li>OSPF 使用 Hello 分组建立和维护邻接关系。在一个路由器能够给其他路由器分发它的邻居信息前，必须先问候它的邻居们。</li>
+</ul>
+<ol start="2">
+<li>数据库描述(Data base Description，DBD)分组</li>
+</ol>
+<ul>
+<li>DBD 分组不包含完整的“链路状态数据库”信息，只包含数据库中每个条目的概要。当一个路由器首次连入网络，或者刚刚从故障中恢复时，它需要完整的“链路状态数据库”信息。此时，该路由器首先通过 hello 分组与邻居们建立双向通信关系，然后将会收到每个邻居反馈的 DBD 分组。新连入的这个路由器会检查所有概要，然后发送一个或多个链路状态请求分组，取回完整的条目信息。</li>
+</ul>
+<ol start="3">
+<li>链路状态请求(Link State Request，LSR)分组</li>
+</ol>
+<ul>
+<li>LSR 分组用来请求邻居发送其链路状态数据库中某些条目的详细信息。当一个路由器与邻居交换了数据库描述分组后，如果发现它的链路状态数据库缺少某些条目或某些条目已过期，就使用 LSR 分组来取得邻居链路状态数据库中较新的部分。</li>
+</ul>
+<ol start="4">
+<li>链路状态更新(Link State Update，LSU)分组</li>
+</ol>
+<ul>
+<li>LSU 分组被用来应答链路状态请求分组，也可以在链路状态发生变化时实现洪泛(flooding)。在网络运行过程中，只要一个路由器的链路状态发生变化，该路由器就要使用 LSU，用洪泛法向全网更新链路状态。</li>
+</ul>
+<ol start="5">
+<li>链路状态确认(Link State Acknowledgment，LSAck)分组</li>
+</ol>
+<ul>
+<li>LSAck 分组被用来应答链路状态更新分组，对其进行确认，从而使得链路状态更新分组采用的洪泛法变得可靠。</li>
+</ul>
+<h3 id="OPSF-协议优缺点"><a href="#OPSF-协议优缺点" class="headerlink" title="OPSF 协议优缺点"></a>OPSF 协议优缺点</h3><ul>
+<li>优点</li>
+</ul>
+<ol>
+<li>运行链路状态路由协议的路由器通过 LSA 的交换，最后独立的计算出到每个网络的最短路径，相对距离矢量路由具有更强的全局观</li>
+<li>收到邻居的 LSA 后立即泛洪，并且本路由再执行 SPF 算法，比距离矢量路由有更高的收敛速度</li>
+<li>当检测到拓扑发生变化时立即发送更新</li>
+<li>多区域设计，可以将一些问题限制在较小的区域中</li>
+</ol>
+<ul>
+<li>缺点</li>
+</ul>
+<ol>
+<li>内存需求高，需要更强的 CPU 的支持；</li>
+<li>在网络初始化时，大量链路状态包泛洪，会影响网络的可用带宽；</li>
+</ol>
+<h3 id="三层交换机-OSPF-配置"><a href="#三层交换机-OSPF-配置" class="headerlink" title="三层交换机 OSPF 配置"></a>三层交换机 OSPF 配置</h3><p><img src="/images/2022/06/24/HeLpViWUS5oFr3b.png" alt="截屏2022-06-24 下午2.53.10.png"></p>
+<ol>
+<li>接入层交换机配置</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[as-sw1]vlan 10</span><br><span class="line">[as-sw1]int g0/0/1</span><br><span class="line">[as-sw1-GigabitEthernet0/0/1]port link-type access // access 默认模式 多用于连接客户端 </span><br><span class="line">[as-sw1-GigabitEthernet0/0/1]port default vlan 10</span><br><span class="line">[as-sw1-GigabitEthernet0/0/1] q</span><br><span class="line">[as-sw1]int g0/0/2</span><br><span class="line">[as-sw1-GigabitEthernet0/0/2]port link-type trunk  // trunk多用于交换机设备互联vlan 通信</span><br><span class="line">[as-sw1-GigabitEthernet0/0/2]port trunk allow-pass vlan 10</span><br><span class="line">[as-sw1-GigabitEthernet0/0/2] q</span><br><span class="line"></span><br><span class="line">[as-sw2]vlan 20</span><br><span class="line">[as-sw2]int g0/0/1</span><br><span class="line">[as-sw2-GigabitEthernet0/0/1]port link-type access</span><br><span class="line">[as-sw2-GigabitEthernet0/0/1]port default vlan 20</span><br><span class="line">[as-sw2-GigabitEthernet0/0/1] q</span><br><span class="line">[as-sw2]int g0/0/2</span><br><span class="line">[as-sw2-GigabitEthernet0/0/2]port link-type trunk</span><br><span class="line">[as-sw2-GigabitEthernet0/0/2]port trunk allow-pass vlan 20</span><br><span class="line">[as-sw2-GigabitEthernet0/0/2] q</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>核心交换机配置</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">[core-sw1]vlan batch 10 12</span><br><span class="line">[core-sw1]int g0/0/2</span><br><span class="line">[core-sw1-GigabitEthernet0/0/2]port link-type trunk</span><br><span class="line">[core-sw1-GigabitEthernet0/0/2]port trunk allow-pass vlan 10</span><br><span class="line">[core-sw1-GigabitEthernet0/0/2]q</span><br><span class="line">[core-sw1]int g0/0/24</span><br><span class="line">[core-sw1-GigabitEthernet0/0/24]port link-type trunk</span><br><span class="line">[core-sw1-GigabitEthernet0/0/24]port trunk allow-pass vlan 12</span><br><span class="line">[core-sw1-GigabitEthernet0/0/24]undo prot trunk allow-pass vlan 1</span><br><span class="line">[core-sw1-GigabitEthernet0/0/24]q</span><br><span class="line">// 配置VLANIF 接口的 ip 地址</span><br><span class="line">[core-sw1]int vlanif 10</span><br><span class="line">[core-sw1-Vlanif10]ip address 192.168.10.254 24</span><br><span class="line">[core-sw1-Vlanif10]q</span><br><span class="line">[core-sw1]int vlanif 12</span><br><span class="line">[core-sw1-Vlanif12]ip address 10.1.12.1 24</span><br><span class="line">[core-sw1-Vlanif10]q</span><br><span class="line">[core-sw1]int loopback0</span><br><span class="line">[core-sw1-LoopBack0]ip address 1.1.1.1 32</span><br><span class="line">[core-sw1-LoopBack0]q</span><br><span class="line">// 配置 OSPF 路由</span><br><span class="line">[core-sw1]ospf 1 route-id 1.1.1.1</span><br><span class="line">[core-sw1-ospf-1]area 0</span><br><span class="line">[core-sw1-ospf-1-area-0.0.0.0]network 192.168.10.0 0.0.0.255</span><br><span class="line">[core-sw1-ospf-1-area-0.0.0.0]network 10.1.12.0 0.0.0.255</span><br><span class="line">[core-sw1-ospf-1-area-0.0.0.0]q</span><br><span class="line">[core-sw1-ospf-1]q</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[core-sw2]vlan batch 20 12</span><br><span class="line">[core-sw2]int g0/0/2</span><br><span class="line">[core-sw2-GigabitEthernet0/0/2]port link-type trunk</span><br><span class="line">[core-sw2-GigabitEthernet0/0/2]port trunk allow-pass vlan 20</span><br><span class="line">[core-sw2-GigabitEthernet0/0/2]q</span><br><span class="line">[core-sw2]int g0/0/24</span><br><span class="line">[core-sw2-GigabitEthernet0/0/24]port link-type trunk</span><br><span class="line">[core-sw2-GigabitEthernet0/0/24]port trunk allow-pass vlan 12</span><br><span class="line">[core-sw2-GigabitEthernet0/0/24]q</span><br><span class="line">// 配置VLANIF 接口的 ip 地址</span><br><span class="line">[core-sw2]int vlanif 20</span><br><span class="line">[core-sw2-Vlanif20]ip address 192.168.20.254 24</span><br><span class="line">[core-sw2-Vlanif20]q</span><br><span class="line">[core-sw2]int vlanif 12</span><br><span class="line">[core-sw2-Vlanif12]ip address 10.1.12.2 24</span><br><span class="line">[core-sw2-Vlanif12]q</span><br><span class="line">[core-sw2]int loopback0</span><br><span class="line">[core-sw2-LoopBack0]ip address 2.2.2.2 32</span><br><span class="line">[core-sw2-LoopBack0]q</span><br><span class="line">// 配置 OSPF 路由</span><br><span class="line">[core-sw2]ospf 1 route-id 2.2.2.2</span><br><span class="line">[core-sw2-ospf-1]area 0</span><br><span class="line">[core-sw2-ospf-1-area-0.0.0.0]network 192.168.20.0 0.0.0.255</span><br><span class="line">[core-sw2-ospf-1-area-0.0.0.0]network 10.1.12.0 0.0.0.255</span><br><span class="line">[core-sw2-ospf-1-area-0.0.0.0]q</span><br><span class="line">[core-sw2-ospf-1]q</span><br></pre></td></tr></table></figure></div>
+
+<ol start="3">
+<li>PC1 与 PC2 此时已经能够实现互通</li>
+</ol>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2020/04/15/%E7%BB%BC%E5%90%88-%E5%94%AF%E5%BF%83%E5%92%8C%E5%94%AF%E7%89%A9/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            唯心和唯物
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2020/04/07/%E7%BD%91%E7%BB%9C-RIP/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">RIP</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" rel="tag">综合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Infatuation/tags/CSS/" style="font-size: 15.45px;">CSS</a> <a href="/Infatuation/tags/ES6/" style="font-size: 15.45px;">ES6</a> <a href="/Infatuation/tags/Echarts/" style="font-size: 10.91px;">Echarts</a> <a href="/Infatuation/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/Infatuation/tags/HTML/" style="font-size: 11.82px;">HTML</a> <a href="/Infatuation/tags/JS/" style="font-size: 20px;">JS</a> <a href="/Infatuation/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/Infatuation/tags/React/" style="font-size: 19.09px;">React</a> <a href="/Infatuation/tags/Redux/" style="font-size: 13.64px;">Redux</a> <a href="/Infatuation/tags/SQL/" style="font-size: 16.36px;">SQL</a> <a href="/Infatuation/tags/Vue/" style="font-size: 14.55px;">Vue</a> <a href="/Infatuation/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/Infatuation/tags/jQuery/" style="font-size: 10.91px;">jQuery</a> <a href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.18px;">前端</a> <a href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 11.82px;">数据结构</a> <a href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.73px;">算法</a> <a href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" style="font-size: 10.91px;">综合</a> <a href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.27px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/Java-%E5%8F%8D%E5%B0%84/">Java反射</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/%E5%89%8D%E7%AB%AF-Tomcat%E9%83%A8%E7%BD%B2/">Tomcat部署前端项目</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/01/Java-%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/29/Java-%E6%B3%9B%E5%9E%8B/">Java泛型</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/28/Java-%E6%9E%9A%E4%B8%BE/">Java枚举</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2023 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+<script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+
+  
+<link rel="stylesheet" href="/Infatuation/fancybox/jquery.fancybox.css">
+
+  
+<script src="/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/Infatuation/js/script.js"></script>
+
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/Infatuation/" class="mobile-nav-link">首页</a>
+  
+    <a href="/Infatuation/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

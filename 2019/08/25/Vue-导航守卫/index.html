@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Vue导航守卫 | 亦如星辰闪耀长河</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="红藕香残玉簟秋，轻解罗裳，独上兰舟。云中谁寄锦书来？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue导航守卫">
+<meta property="og:url" content="https://thisisloves.github.io/2019/08/25/Vue-%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="红藕香残玉簟秋，轻解罗裳，独上兰舟。云中谁寄锦书来？">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-08-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-01T06:52:15.446Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/Infatuation/atom.xml" title="亦如星辰闪耀长河" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/Infatuation/css/style.css">
+
+  
+<link rel="stylesheet" href="/Infatuation/css/highlight.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/Infatuation/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/Infatuation/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-Vue-导航守卫" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Vue导航守卫
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/Infatuation/2019/08/25/Vue-%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB/" class="article-date">
+  <time datetime="2019-08-24T16:00:00.000Z" itemprop="datePublished">2019-08-25</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Infatuation/tags/Vue/" rel="tag">Vue</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>红藕香残玉簟秋，轻解罗裳，独上兰舟。云中谁寄锦书来？</p>
+<span id="more"></span>
+
+<h3 id="导航守卫"><a href="#导航守卫" class="headerlink" title="导航守卫"></a>导航守卫</h3><ul>
+<li>vue-router 提供的导航守卫主要用来通过跳转或取消的方式守卫导航。</li>
+</ul>
+<h3 id="全局前置守卫（router-beforeEach）"><a href="#全局前置守卫（router-beforeEach）" class="headerlink" title="全局前置守卫（router.beforeEach）"></a>全局前置守卫（router.beforeEach）</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>(&#123; ... &#125;)</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">beforeEach</span>(<span class="function">(<span class="params">to, <span class="keyword">from</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="comment">// 返回 false 以取消导航</span></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><p>当一个导航触发的时候，全局前置导航守卫按照顺序调用。守卫是异步解析执行，此时导航在所有守卫 resolve 完之前一直处于等待中。</p>
+</li>
+<li><p>全局前置守卫参数</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">to</td>
+<td align="center">即将要进入的目标的路由对象</td>
+</tr>
+<tr>
+<td align="center">from</td>
+<td align="center">当前导航正要离开的路由</td>
+</tr>
+<tr>
+<td align="center">next (可选)</td>
+<td align="center">用该方法来 resolve 这个钩子，执行效果依赖 next 方法的调用参数</td>
+</tr>
+</tbody></table>
+<ol>
+<li>to:Route 即将要进入的目标的路由对象</li>
+<li>from：Route 当前导航正要离开的路由</li>
+<li>next:Function 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数</li>
+</ol>
+<ul>
+<li>next不同参数执行效果</li>
+</ul>
+<ol>
+<li>next() 进行管道的下一个钩子函数，如果所有钩子执行完，则导航状态就是 confirmed(确认的)。</li>
+<li>next(false) 中断当前的导航。如果浏览器的 URL 改变了(可能是用户手动或者浏览器后退按钮)，那么 URL 会重置到 from 路由对应的地址</li>
+<li>next(‘&#x2F;‘)或者 next({path:’&#x2F;‘}) 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。</li>
+<li>next(error) 如果传入 next 的参数是一个 Error 实例，则导航会被终止，且该错误会传递给 router.onError()注册过的回调。</li>
+</ol>
+<ul>
+<li>确保要调用 next 方法，否则钩子就不会被 resolved</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">beforeEach</span>(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (to.<span class="property">name</span> !== <span class="string">&#x27;Login&#x27;</span> &amp;&amp; !isAuthenticated) <span class="title function_">next</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;Login&#x27;</span> &#125;)</span><br><span class="line">  <span class="keyword">else</span> <span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="全局解析守卫-router-beforeResolve"><a href="#全局解析守卫-router-beforeResolve" class="headerlink" title="全局解析守卫 (router.beforeResolve )"></a>全局解析守卫 (router.beforeResolve )</h3><ul>
+<li>每次导航时都会触发，但是确保在导航被确认之前，同时在所有组件内守卫和异步路由组件被解析之后，解析守卫就被正确调用。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">beforeResolve</span>(<span class="keyword">async</span> to =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (to.<span class="property">meta</span>.<span class="property">requiresCamera</span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">await</span> <span class="title function_">askForCameraPermission</span>()</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="keyword">if</span> (error <span class="keyword">instanceof</span> <span class="title class_">NotAllowedError</span>) &#123;</span><br><span class="line">        <span class="comment">// ... 处理错误，然后取消导航</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 意料之外的错误，取消导航并把错误传给全局处理器</span></span><br><span class="line">        <span class="keyword">throw</span> error</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+
+
+<h3 id="路由导航守卫（beforeEnter）"><a href="#路由导航守卫（beforeEnter）" class="headerlink" title="路由导航守卫（beforeEnter）"></a>路由导航守卫（beforeEnter）</h3><ul>
+<li>直接在路由配置上定义 beforeEnter 守卫，只在进入路由时触发，不会在 params、query 或 hash 改变时触发。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/foo&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="title class_">Foo</span>,</span><br><span class="line">      <span class="attr">beforeEnter</span>: <span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (to.<span class="property">path</span> !== <span class="string">&#x27;/user/login&#x27;</span> &amp;&amp; to.<span class="property">path</span> !== <span class="string">&#x27;/user/nologin&#x27;</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;isLogin&#x27;</span>) === <span class="string">&#x27;ok&#x27;</span>) &#123;</span><br><span class="line">            <span class="title function_">next</span>(<span class="string">&#x27;/user/login&#x27;</span>);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="title function_">next</span>(<span class="string">&#x27;/user/nologin&#x27;</span>);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="title function_">next</span>();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="组件内的导航守卫（beforeRouteEnter-beforeRouteUpdate-beforeRouteLeave）"><a href="#组件内的导航守卫（beforeRouteEnter-beforeRouteUpdate-beforeRouteLeave）" class="headerlink" title="组件内的导航守卫（beforeRouteEnter,beforeRouteUpdate,beforeRouteLeave）"></a>组件内的导航守卫（beforeRouteEnter,beforeRouteUpdate,beforeRouteLeave）</h3><ul>
+<li>路由组件内直接定义路由导航守卫(传递给路由配置的)</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Foo</span> = &#123;</span><br><span class="line">  <span class="attr">tempalte</span>: <span class="string">`...`</span>,</span><br><span class="line">  <span class="title function_">beforeRouteEnter</span>(<span class="params">to, <span class="keyword">from</span>, next</span>) &#123;</span><br><span class="line">    <span class="comment">// 在渲染该组件对应路由被confirm 前调用</span></span><br><span class="line">    <span class="comment">// 不能获取组件实例 this</span></span><br><span class="line">    <span class="comment">// 因为当前守卫执行前，组件实例还没有被创建</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">beforeRouterUpdata</span>(<span class="params">to, <span class="keyword">from</span>, next</span>) &#123;</span><br><span class="line">    <span class="comment">// 在当前路由改变，但是该组件被复用时调用</span></span><br><span class="line">    <span class="comment">// 举例来说，对于一个带有动态参数的路径 /foo/:id 在 /foo/1和 /foo/2 之间跳转的时候</span></span><br><span class="line">    <span class="comment">// 由于会渲染同样的 Foo 组件,因此组件的实例会被复用。而这个钩子就会在这个情况下被调用</span></span><br><span class="line">    <span class="comment">// 可以访问组件的实例 this</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">beforeROuteLeave</span>(<span class="params">to, <span class="keyword">from</span>, next</span>) &#123;</span><br><span class="line">    <span class="comment">// 导航离开该组件的对应路由时调用</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 this</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>beforeRouteEnter 守卫 不能 访问 this，因为守卫在导航确认前被调用,因此即将登场的新组件还没被创建。</li>
+<li>不过，你可以通过传一个回调给 next 来访问组件实例。在导航被确认的时候执行回调，并且把组件实例作为回调方法的参数。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteEnter (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">  <span class="title function_">next</span>(<span class="function"><span class="params">vm</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 通过 `vm` 访问组件实例</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>注意 beforeRouteEnter 是支持给 next 传递回调的唯一守卫。对于 beforeRouteUpdate 和 beforeRouteLeave 来说，this 已经可用了，所以不支持传递回调，因为没有必要了。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteUpdate (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">  <span class="comment">// just use `this`</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = to.<span class="property">params</span>.<span class="property">name</span></span><br><span class="line">  <span class="title function_">next</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>这个离开守卫通常用来禁止用户在还未保存修改前突然离开。该导航可以通过 next(false) 来取消。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteLeave (to, <span class="keyword">from</span> , next) &#123;</span><br><span class="line">  <span class="keyword">const</span> answer = <span class="variable language_">window</span>.<span class="title function_">confirm</span>(<span class="string">&#x27;Do you really want to leave? you have unsaved changes!&#x27;</span>)</span><br><span class="line">  <span class="keyword">if</span> (answer) &#123;</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">next</span>(<span class="literal">false</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+<h3 id="完整的导航解析流程"><a href="#完整的导航解析流程" class="headerlink" title="完整的导航解析流程"></a>完整的导航解析流程</h3><ol>
+<li>导航被触发。</li>
+<li>在失活的组件里调用 beforeRouteLeave 守卫。</li>
+<li>调用全局的 beforeEach 守卫。</li>
+<li>在重用的组件里调用 beforeRouteUpdate 守卫。</li>
+<li>在路由配置里调用 beforeEnter。</li>
+<li>解析异步路由组件。</li>
+<li>在被激活的组件里调用 beforeRouteEnter。</li>
+<li>调用全局的 beforeResolve 守卫。</li>
+<li>导航被确认。</li>
+<li>调用全局的 afterEach 钩子。</li>
+<li>触发 DOM 更新。</li>
+<li>调用 beforeRouteEnter 守卫中传给 next 的回调函数，创建好的组件实例会作为回调函数的参数传入。</li>
+</ol>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2019/08/29/JS-Array%E5%AF%B9%E8%B1%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Array对象
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2019/08/15/Vuex-Action/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Vuex-Action</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" rel="tag">综合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Infatuation/tags/CSS/" style="font-size: 15.45px;">CSS</a> <a href="/Infatuation/tags/ES6/" style="font-size: 15.45px;">ES6</a> <a href="/Infatuation/tags/Echarts/" style="font-size: 10.91px;">Echarts</a> <a href="/Infatuation/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/Infatuation/tags/HTML/" style="font-size: 11.82px;">HTML</a> <a href="/Infatuation/tags/JS/" style="font-size: 20px;">JS</a> <a href="/Infatuation/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/Infatuation/tags/React/" style="font-size: 19.09px;">React</a> <a href="/Infatuation/tags/Redux/" style="font-size: 13.64px;">Redux</a> <a href="/Infatuation/tags/SQL/" style="font-size: 16.36px;">SQL</a> <a href="/Infatuation/tags/Vue/" style="font-size: 14.55px;">Vue</a> <a href="/Infatuation/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/Infatuation/tags/jQuery/" style="font-size: 10.91px;">jQuery</a> <a href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.18px;">前端</a> <a href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 11.82px;">数据结构</a> <a href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.73px;">算法</a> <a href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" style="font-size: 10.91px;">综合</a> <a href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.27px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/Java-%E5%8F%8D%E5%B0%84/">Java反射</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/%E5%89%8D%E7%AB%AF-Tomcat%E9%83%A8%E7%BD%B2/">Tomcat部署前端项目</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/01/Java-%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/29/Java-%E6%B3%9B%E5%9E%8B/">Java泛型</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/28/Java-%E6%9E%9A%E4%B8%BE/">Java枚举</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2023 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+<script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+
+  
+<link rel="stylesheet" href="/Infatuation/fancybox/jquery.fancybox.css">
+
+  
+<script src="/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/Infatuation/js/script.js"></script>
+
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/Infatuation/" class="mobile-nav-link">首页</a>
+  
+    <a href="/Infatuation/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

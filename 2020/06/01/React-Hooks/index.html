@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>React-Hooks | 亦如星辰闪耀长河</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="我们用零距离的爱，弹奏一曲琴韵笙箫，将生命畅想成天籁之音。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-Hooks">
+<meta property="og:url" content="https://thisisloves.github.io/2020/06/01/React-Hooks/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="我们用零距离的爱，弹奏一曲琴韵笙箫，将生命畅想成天籁之音。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/10/ySU3TtHqDJaimwZ.png">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/05/TxeDFdjNmXorywv.png">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/05/jGmO7u8PLhc6bRw.png">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/10/V46eB9k753w2qmF.png">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/10/hsVtjrKzxHGSdnX.png">
+<meta property="article:published_time" content="2020-05-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-06-27T06:20:00.969Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/05/10/ySU3TtHqDJaimwZ.png">
+  
+    <link rel="alternate" href="/Infatuation/atom.xml" title="亦如星辰闪耀长河" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/Infatuation/css/style.css">
+
+  
+<link rel="stylesheet" href="/Infatuation/css/highlight.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/Infatuation/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/Infatuation/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-React-Hooks" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      React-Hooks
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/Infatuation/2020/06/01/React-Hooks/" class="article-date">
+  <time datetime="2020-05-31T16:00:00.000Z" itemprop="datePublished">2020-06-01</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>我们用零距离的爱，弹奏一曲琴韵笙箫，将生命畅想成天籁之音。</p>
+<span id="more"></span>
+
+<h3 id="Hooks"><a href="#Hooks" class="headerlink" title="Hooks"></a>Hooks</h3><ul>
+<li>Hooks 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</li>
+<li>类组件是一种面向对象思想的体现，类组件之间的状态会随着功能增强而变得越来越臃肿，代码维护成本也比较高，而且不利于后期 tree shaking。所以有必要做出一套函数组件代替类组件的方案，这就是Hooks的由来</li>
+</ul>
+<p><img src="/images/2022/05/10/ySU3TtHqDJaimwZ.png" alt="截屏2022-05-10 下午5.09.03.png"></p>
+<ul>
+<li>dispatcher 是包含了 hooks 函数的共享对象，Hooks queue 用顺序下链接在一起的节点。它的初始状态在首次渲染时被创建。它的状态可以即时更新。</li>
+</ul>
+<h3 id="Hooks-限制"><a href="#Hooks-限制" class="headerlink" title="Hooks 限制"></a>Hooks 限制</h3><ol>
+<li><strong>不在循环、条件或嵌套函数中使用 Hooks</strong></li>
+<li><strong>只能在函数时组件中调用 Hooks</strong></li>
+</ol>
+<ul>
+<li>React Hooks 是<strong>基于数组实现</strong>的，如果在循环、条件或嵌套函数中使用 Hooks，可能会造成取值错位等错误发生。</li>
+</ul>
+<h3 id="Fiber"><a href="#Fiber" class="headerlink" title="Fiber"></a>Fiber</h3><ul>
+<li>React16 以前，对 virtural dom 的更新和渲染是同步的，大量的的同步计算任务阻塞了浏览器的 UI 渲染。默认情况下，JS 运算、页面布局和页面绘制都是运行在浏览器的主线程当中，他们之间是互斥的关系。如果 JS 运算持续占用主线程，页面就没法得到及时的更新。当我们调用 setState 更新页面的时候，React 会遍历应用的所有节点，计算出差异，然后再更新 UI。如果页面元素很多，整个过程占用的时机就可能超过 16 毫秒，就容易出现掉帧的现象。</li>
+</ul>
+<p><img src="/images/2022/05/05/TxeDFdjNmXorywv.png" alt="截屏2022-05-05 下午2.49.29.png"></p>
+<ul>
+<li>fiber 把一个任务分成很多小片，当分配给这个小片的时间用尽的时候，就检查任务列表中有没有新的、优先级更高的任务，有就做这个新任务，没有就继续做原来的任务。这种方式被叫做异步渲染(Async Rendering)。</li>
+</ul>
+<p><img src="/images/2022/05/05/jGmO7u8PLhc6bRw.png" alt="截屏2022-05-05 下午2.49.38.png"></p>
+<ul>
+<li><p>把一个耗时长的任务分成很多小片，每一个小片的运行时间很短，虽然总时间依然很长，但是在每个小片执行完之后，都给其他任务一个执行的机会，这样唯一的线程就不会被独占，其他任务依然有运行的机会。</p>
+</li>
+<li><p>React Fiber 把更新过程碎片化，执行过程如下面的图所示，每执行完一段更新过程，就把控制权交还给 React 负责任务协调的模块，看看有没有其他紧急任务要做，如果没有就继续去更新，如果有紧急任务，那就去做紧急任务。</p>
+</li>
+<li><p>Fiber 数据结构</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Fiber</span> = &#123;</span><br><span class="line">  tag, <span class="comment">// 标记不同的组件类型</span></span><br><span class="line">  key, <span class="comment">// ReactElement里面的key</span></span><br><span class="line">  elementType, <span class="comment">// ReactElement.type，也就是我们调用`createElement`的第一个参数</span></span><br><span class="line">  type, <span class="comment">// 一般是`function`或者`class`</span></span><br><span class="line">  stateNode, <span class="comment">// 在浏览器环境，就是DOM节点</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span>, <span class="comment">// 指向他在Fiber节点树中的`parent`，用来在处理完这个节点之后向上返回</span></span><br><span class="line">  child, <span class="comment">// 单链表树结构，指向自己的第一个子节点</span></span><br><span class="line">  sibling, <span class="comment">// 指向自己的兄弟结构，兄弟节点的return指向同一个父节点</span></span><br><span class="line">  index,</span><br><span class="line">  ref, <span class="comment">// ref属性</span></span><br><span class="line"></span><br><span class="line">  pendingProps, <span class="comment">// 即将更新的props</span></span><br><span class="line">  memoizedProps, <span class="comment">// 更新props</span></span><br><span class="line">  memoizedState, <span class="comment">// 当前状态</span></span><br><span class="line">  dependencies, <span class="comment">// 一个列表，存放这个Fiber依赖的context</span></span><br><span class="line"></span><br><span class="line">  flags, <span class="comment">// Effect，用来记录当前fiber的tag，插入、删除、更新的状态</span></span><br><span class="line">  subtreeFlags,</span><br><span class="line">  deletions,</span><br><span class="line">  updateQueue, <span class="comment">// 该Fiber对应的组件产生的Update会存放在这个队列里面</span></span><br><span class="line">  nextEffect, <span class="comment">// 单链表用来快速查找下一下side effect</span></span><br><span class="line">  firstEffect, <span class="comment">// 自述中第一个side effect</span></span><br><span class="line">  lastEffect, <span class="comment">// 子树中最后一个side effect</span></span><br><span class="line"></span><br><span class="line">  lanes, <span class="comment">// 当前Fiber更新的优先级</span></span><br><span class="line">  childLanes,</span><br><span class="line">  <span class="comment">// 在Fiber树更新的过程中，每个Fiber都会有一个跟其对应的Fiber</span></span><br><span class="line">  <span class="comment">// 我们称他为`current &lt;==&gt; workInProgress`</span></span><br><span class="line">  <span class="comment">// 在渲染完成之后他们会交换位置</span></span><br><span class="line">  alternate,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 用来描述当前Fiber和他子树的`Bitfield`</span></span><br><span class="line">  <span class="comment">// 共存的模式表示这个子树是否默认是异步渲染的</span></span><br><span class="line">  <span class="comment">// Fiber被创建的时候他会继承父Fiber</span></span><br><span class="line">  <span class="comment">// 其他的标识也可以在创建的时候被设置</span></span><br><span class="line">  <span class="comment">// 但是在创建之后不应该再被修改，特别是他的子Fiber创建之前</span></span><br><span class="line">  mode,</span><br><span class="line">  <span class="comment">// 其余为调试相关的，收集每个Fiber和子树渲染时间的</span></span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Hook-本质"><a href="#Hook-本质" class="headerlink" title="Hook 本质"></a>Hook 本质</h3><ul>
+<li>Hook 挂载在 Fiber 结点上的 memoizedState，为链式结构。</li>
+<li>每当 Hook 函数被调用，react 就会创建一个 Hook 对象，并挂在链表的尾部，函数组件之所以能做一些类组件不能做的事儿，就是因为 Hook 对象，函数组件的状态，计算值，缓存等都是交给 Hook 去完成的，这样组件通过 Fiber.memoizedState 属性指向 Hook 链表的头部来关联 Hook 对象和当前组件，这样就发挥了 Hooks 的作用。每次调用 Hooks API 的时候，就会首先调用 createWorkInProgressHook 函数。得到 Hooks 的串联不是一个数组，而是一个链式结构，从根节点 workInProgressHook 向下通过 next 进行串联，这也是为什么 Hooks 不能嵌套使用，不能在条件判断中使用，不能在循环中使用，否则链式就会被破坏。</li>
+</ul>
+<ol>
+<li>状态 Hook(useState)</li>
+</ol>
+<ul>
+<li>在状态 Hook 节点中，会通过 queue 属性上的循环链表记住所有的更新操作，并在 updade 阶段依次执行循环链表中的所有更新操作，最终拿到最新的 state 返回。</li>
+</ul>
+<p><img src="/images/2022/05/10/V46eB9k753w2qmF.png" alt="截屏2022-05-10 下午4.49.55.png"></p>
+<ol start="2">
+<li>副作用 Hook (useEffect)</li>
+</ol>
+<ul>
+<li>在副作用 Hook 节点中，创建 effect 挂载到 Hook 的 memoizedState 中，并添加到环形链表的末尾，该链表会保存到 Fiber 节点的 updateQueue 中，在 commit 阶段执行。</li>
+</ul>
+<p><img src="/images/2022/05/10/hsVtjrKzxHGSdnX.png" alt="截屏2022-05-10 下午4.50.05.png"></p>
+<h3 id="Hook-基础使用"><a href="#Hook-基础使用" class="headerlink" title="Hook 基础使用"></a>Hook 基础使用</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;count&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-xml">          setCount(1);</span></span><br><span class="line"><span class="language-xml">          setCount((state) =&gt; count + 2);</span></span><br><span class="line"><span class="language-xml">          setCount((state) =&gt; count + 3);</span></span><br><span class="line"><span class="language-xml">        &#125;&#125;</span></span><br><span class="line"><span class="language-xml">      &gt;</span></span><br><span class="line"><span class="language-xml">        加</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure></div>
+
+<ol>
+<li>首次渲染主要是初始化 Hook，将初始值存入 Hook 内，将 Hook 插入到 fiber.memoizedState 的末尾。</li>
+<li>setCount 主要是将更新信息插入到 hook.queue.penging 的末尾。这里注意一下为什么没有直接更新 hook.memoizedState 呢？答案是 react 是批量更新的，需要将更新信息先存储下来，等到合适的时机统一计算更新。</li>
+<li>再次渲染主要是根据 setCount 存储的更新信息来计算最新的 state。</li>
+</ol>
+<h3 id="Hook-种类"><a href="#Hook-种类" class="headerlink" title="Hook 种类"></a>Hook 种类</h3><ul>
+<li>所有的钩子都是为函数引入外部功能，react 约定，钩子一律使用 use 前缀命名。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">hook 功能类别</th>
+<th align="center">Hook</th>
+<th align="center">具体功能</th>
+<th align="center">React v18新增</th>
+<th align="center">跨段是否支持(RN)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">数据更新驱动</td>
+<td align="center">useState</td>
+<td align="center">数据驱动更新</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">数据更新驱动</td>
+<td align="center">useReducer</td>
+<td align="center">订阅状态，创建reducer，更新视图</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">数据更新驱动</td>
+<td align="center">useSyncExternalStore</td>
+<td align="center">concurrent模式下，订阅外部数据源，触发更新</td>
+<td align="center">是</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center">数据更新驱动</td>
+<td align="center">usetranstion</td>
+<td align="center">concurrent模式下，过渡更新任务</td>
+<td align="center">是</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center">数据更新驱动</td>
+<td align="center">useDeferredValue</td>
+<td align="center">concurrent模式下，更新状态滞后</td>
+<td align="center">是</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center">执行副作用</td>
+<td align="center">useEffect</td>
+<td align="center">异步状态下，视图更新后，执行副作用</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">执行副作用</td>
+<td align="center">useLayoutEffect</td>
+<td align="center">同步状态下，视图更新前，执行副作用</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">执行副作用</td>
+<td align="center">useInetioonEffect</td>
+<td align="center">用于处理css in js 缺陷问题</td>
+<td align="center">是</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center">状态获取和传递</td>
+<td align="center">useContext</td>
+<td align="center">订阅并获取react context上下文，用于跨层级状态传输</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">状态获取和传递</td>
+<td align="center">useRef</td>
+<td align="center">获取元素或者组件实例</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">状态获取和传递</td>
+<td align="center">useImperativeHandle</td>
+<td align="center">用于函数组件能够被ref获取</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">状态派生和保存</td>
+<td align="center">useMemo</td>
+<td align="center">缓存状态，返回一个缓存的变量</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">状态派生和保存</td>
+<td align="center">useCallback</td>
+<td align="center">缓存状态，返回一个缓存的函数</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">工具hook</td>
+<td align="center">useID</td>
+<td align="center">服务端渲染</td>
+<td align="center">是</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center">工具hook</td>
+<td align="center">useDebugValue</td>
+<td align="center">devtool debug</td>
+<td align="center">否</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2020/06/07/React-useState/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            useState
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2020/05/21/JS-%E9%97%AD%E5%8C%85/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">闭包</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" rel="tag">综合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Infatuation/tags/CSS/" style="font-size: 15.45px;">CSS</a> <a href="/Infatuation/tags/ES6/" style="font-size: 15.45px;">ES6</a> <a href="/Infatuation/tags/Echarts/" style="font-size: 10.91px;">Echarts</a> <a href="/Infatuation/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/Infatuation/tags/HTML/" style="font-size: 11.82px;">HTML</a> <a href="/Infatuation/tags/JS/" style="font-size: 20px;">JS</a> <a href="/Infatuation/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/Infatuation/tags/React/" style="font-size: 19.09px;">React</a> <a href="/Infatuation/tags/Redux/" style="font-size: 13.64px;">Redux</a> <a href="/Infatuation/tags/SQL/" style="font-size: 16.36px;">SQL</a> <a href="/Infatuation/tags/Vue/" style="font-size: 14.55px;">Vue</a> <a href="/Infatuation/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/Infatuation/tags/jQuery/" style="font-size: 10.91px;">jQuery</a> <a href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.18px;">前端</a> <a href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 11.82px;">数据结构</a> <a href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.73px;">算法</a> <a href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" style="font-size: 10.91px;">综合</a> <a href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.27px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/Java-%E5%8F%8D%E5%B0%84/">Java反射</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/%E5%89%8D%E7%AB%AF-Tomcat%E9%83%A8%E7%BD%B2/">Tomcat部署前端项目</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/01/Java-%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/29/Java-%E6%B3%9B%E5%9E%8B/">Java泛型</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/28/Java-%E6%9E%9A%E4%B8%BE/">Java枚举</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2023 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+<script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+
+  
+<link rel="stylesheet" href="/Infatuation/fancybox/jquery.fancybox.css">
+
+  
+<script src="/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/Infatuation/js/script.js"></script>
+
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/Infatuation/" class="mobile-nav-link">首页</a>
+  
+    <a href="/Infatuation/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

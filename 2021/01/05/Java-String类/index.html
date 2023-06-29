@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>String类 | 亦如星辰闪耀长河</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="可惜一溪风月，莫教踏碎琼瑶。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="String类">
+<meta property="og:url" content="https://thisisloves.github.io/2021/01/05/Java-String%E7%B1%BB/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="可惜一溪风月，莫教踏碎琼瑶。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thisisloves.github.io/images/2021/08/16/Xk5A1la48zD7qPw.png">
+<meta property="article:published_time" content="2021-01-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-06-27T07:42:28.166Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://thisisloves.github.io/images/2021/08/16/Xk5A1la48zD7qPw.png">
+  
+    <link rel="alternate" href="/Infatuation/atom.xml" title="亦如星辰闪耀长河" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/Infatuation/css/style.css">
+
+  
+<link rel="stylesheet" href="/Infatuation/css/highlight.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/Infatuation/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/Infatuation/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-Java-String类" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      String类
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/Infatuation/2021/01/05/Java-String%E7%B1%BB/" class="article-date">
+  <time datetime="2021-01-04T16:00:00.000Z" itemprop="datePublished">2021-01-05</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Infatuation/tags/Java/" rel="tag">Java</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>可惜一溪风月，莫教踏碎琼瑶。</p>
+<span id="more"></span>
+
+<h3 id="String-类"><a href="#String-类" class="headerlink" title="String 类"></a>String 类</h3><ul>
+<li>字符串广泛应用 在 Java 编程中，在 Java 中字符串属于对象，Java 提供了 String 类来创建和操作字符串。</li>
+</ul>
+<h3 id="字符串创建"><a href="#字符串创建" class="headerlink" title="字符串创建"></a>字符串创建</h3><ol>
+<li>普通创建</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Runoob&quot;</span>;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>在代码中遇到字符串常量时，这里的值是 “Runoob””，编译器会使用该值创建一个 String 对象。</li>
+<li>和其它对象一样，可以使用关键字和构造方法来创建 String 对象。</li>
+</ul>
+<ol start="2">
+<li>构造函数创建</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String str2= <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Runoob&quot;</span>);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>RuString 创建的字符串存储在公共池中，而 new 创建的字符串对象在堆上</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;Runoob&quot;</span>;              <span class="comment">// String 直接创建</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;Runoob&quot;</span>;              <span class="comment">// String 直接创建</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> s1;                    <span class="comment">// 相同引用</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Runoob&quot;</span>);   <span class="comment">// String 对象创建</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Runoob&quot;</span>);   <span class="comment">// String 对象创建</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p><img src="/images/2021/08/16/Xk5A1la48zD7qPw.png" alt="截屏2021-08-16 下午4.41.45.png"></p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Stringdemo</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span>&#123;</span><br><span class="line">        <span class="type">char</span> [] helloArray = &#123;<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;u&#x27;</span>,<span class="string">&#x27;n&#x27;</span>,<span class="string">&#x27;o&#x27;</span>,<span class="string">&#x27;o&#x27;</span>,<span class="string">&#x27;b&#x27;</span>&#125;;</span><br><span class="line">        <span class="type">String</span> <span class="variable">helloString</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(helloArray);</span><br><span class="line">        System.out.println(helloString)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>结果</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">runoob</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><strong>注意</strong>:String 类是不可改变的，所以你一旦创建了 String 对象，那它的值就无法改变了</li>
+<li>如果需要对字符串做很多修改，那么应该选择使用 StringBuffer &amp; StringBuilder 类。</li>
+</ul>
+<h3 id="字符串长度"><a href="#字符串长度" class="headerlink" title="字符串长度"></a>字符串长度</h3><ul>
+<li>用于获取有关对象的信息的方法称为访问器方法。</li>
+<li>String 类的一个访问器方法是 length() 方法，它返回字符串对象包含的字符数。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">site</span> <span class="operator">=</span> <span class="string">&quot;www.zzzzzz.com&quot;</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> site.length();</span><br><span class="line">        System.out.println( <span class="string">&quot;长度 : &quot;</span> + len );</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="连接字符串"><a href="#连接字符串" class="headerlink" title="连接字符串"></a>连接字符串</h3><ol>
+<li><strong>concat()</strong></li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string1.concat(string2);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>返回 string2 连接 string1 的新字符串。</li>
+</ul>
+<ol start="2">
+<li>使用<strong>加号</strong>操作符来连接字符串</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;Hello,&quot; + &quot; runoob&quot; + &quot;!&quot;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>结果</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;Hello, runoob!&quot;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">string1</span> <span class="operator">=</span> <span class="string">&quot;网址：&quot;</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;1、&quot;</span> + string1 + <span class="string">&quot;www.xxxxxcom&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="创建格式化字符串"><a href="#创建格式化字符串" class="headerlink" title="创建格式化字符串"></a>创建格式化字符串</h3><ul>
+<li>输出格式化数字可以使用 printf() 和 format() 方法。</li>
+<li>String 类使用静态方法 format() 返回一个 String 对象而不是 PrintStream 对象。</li>
+<li>String 类的静态方法 format() 能用来创建可复用的格式化字符串，而不仅仅是用于一次打印输出。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">System.out.printf(<span class="string">&quot;浮点型变量的值为 &quot;</span> +</span><br><span class="line"><span class="string">&quot;%f, 整型变量的值为 &quot;</span> +</span><br><span class="line"><span class="string">&quot; %d, 字符串变量的值为 &quot;</span> +</span><br><span class="line"><span class="string">&quot;is %s&quot;</span>, floatVar, intVar, stringVar);</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String fs;</span><br><span class="line">fs = String.format(<span class="string">&quot;浮点型变量的值为 &quot;</span> +</span><br><span class="line"><span class="string">&quot;%f, 整型变量的值为 &quot;</span> +</span><br><span class="line"><span class="string">&quot; %d, 字符串变量的值为 &quot;</span> +</span><br><span class="line"><span class="string">&quot; %s&quot;</span>, floatVar, intVar, stringVar);</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="String-类方法"><a href="#String-类方法" class="headerlink" title="String 类方法"></a>String 类方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>char charAt(int index)</td>
+<td align="center">返回指定索引处的 char 值。</td>
+</tr>
+<tr>
+<td>int compareTo(Object o)</td>
+<td align="center">把这个字符串和另一个对象比较。</td>
+</tr>
+<tr>
+<td>int compareTo(String anotherString)</td>
+<td align="center">按字典顺序比较两个字符串。</td>
+</tr>
+<tr>
+<td>int compareToIgnoreCase(String str)</td>
+<td align="center">按字典顺序比较两个字符串，不考虑大小写。</td>
+</tr>
+<tr>
+<td>String concat(String str)</td>
+<td align="center">将指定字符串连接到此字符串的结尾。</td>
+</tr>
+<tr>
+<td>boolean contentEquals(StringBuffer sb)</td>
+<td align="center">仅当字符串与指定的 StringBuffer 有相同顺序的字符返回真。</td>
+</tr>
+<tr>
+<td>static String copyValueOf(char[] data)</td>
+<td align="center">返回指定数组中表示该字符序列的 String。</td>
+</tr>
+<tr>
+<td>static String copyValueOf(char[] data,int offset, int count)</td>
+<td align="center">返回指定数组中表示该字符序列的 String。</td>
+</tr>
+<tr>
+<td>boolean endsWith(String suffix)</td>
+<td align="center">测试该字符串是否以指定的后缀结束。</td>
+</tr>
+<tr>
+<td>boolean equals (Objectc anObject)</td>
+<td align="center">将此字符串与指定的对象比较。</td>
+</tr>
+<tr>
+<td>boolean equalsIgnoreCase(String anotherString)</td>
+<td align="center">将此 String 与另一个 String 比较，不考虑大小写。</td>
+</tr>
+<tr>
+<td>byte[] getBytes()</td>
+<td align="center">使用默认字符集将 String 编码为 byte 序列，并存储到新的 byte 数组中。</td>
+</tr>
+<tr>
+<td>byte[] getBytes(String charsetName)</td>
+<td align="center">使用指定的字符集将此 String 编码为 byte 序列，并储存到新的 byte 数组中。</td>
+</tr>
+<tr>
+<td>int hashCode()</td>
+<td align="center">返回此字符串的哈希码。</td>
+</tr>
+<tr>
+<td>int indexOf(int ch)</td>
+<td align="center">返回指定字符在此字符串中第一次出现处的索引。</td>
+</tr>
+<tr>
+<td>int indexOf(int ch, int fromIndex)</td>
+<td align="center">返回在此字符串中第一次出现指定字符处的索引，从指定的索引开始搜索。</td>
+</tr>
+<tr>
+<td>int indexOf(String str)</td>
+<td align="center">返回指定子字符串在此字符串中第一次出现处的索引。</td>
+</tr>
+<tr>
+<td>int indexOf(String str, int fromIndex)</td>
+<td align="center">返回指定子字符串在此字符串中第一次出现处的索引，从指定的索引开始。</td>
+</tr>
+<tr>
+<td>String intern()</td>
+<td align="center">返回字符串对象的规范化表示形式。</td>
+</tr>
+<tr>
+<td>int lastIndexOf(int ch)</td>
+<td align="center">返回指定字符在此字符串中最后一次出现处的索引。</td>
+</tr>
+<tr>
+<td>int lastIndexOf(int ch, int fromIndex)</td>
+<td align="center">返回指定字符在此字符串中最后一次出现处的索引，从指定的索引处开始进行反向搜索。</td>
+</tr>
+<tr>
+<td>int lastIndexOf(String str)</td>
+<td align="center">返回指定子字符串在此字符串中最右边出现处的索引。</td>
+</tr>
+<tr>
+<td>int lastIndexOf(String str, int fromIndex)</td>
+<td align="center">返回指定子字符串在此字符串中最后一次出现处的索引，从指定的索引开始反向搜索。</td>
+</tr>
+<tr>
+<td>int length()</td>
+<td align="center">返回此字符串的长度。</td>
+</tr>
+<tr>
+<td>boolean matches(String regex)</td>
+<td align="center">告知此字符串是否匹配给定的正则表达式。</td>
+</tr>
+<tr>
+<td>String replace(char oldChar, char newChar)</td>
+<td align="center">返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所有 oldChar 得到的。</td>
+</tr>
+<tr>
+<td>String replaceAll(String regex, String replacement)</td>
+<td align="center">使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。</td>
+</tr>
+<tr>
+<td>String replace(char oldChar, char newChar)</td>
+<td align="center">返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所有 oldChar 得到的。</td>
+</tr>
+<tr>
+<td>String replaceAll(String regex, String replacement)</td>
+<td align="center">使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。</td>
+</tr>
+<tr>
+<td>String replaceFirst(String regex, String replacement)</td>
+<td align="center">使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。</td>
+</tr>
+<tr>
+<td>String[] split(String regex)</td>
+<td align="center">根据给定正则表达式的匹配拆分此字符串。</td>
+</tr>
+<tr>
+<td>String[] split(String regex, int limit)</td>
+<td align="center">根据匹配给定的正则表达式来拆分此字符串。</td>
+</tr>
+<tr>
+<td>boolean startsWith(String prefix)</td>
+<td align="center">测试此字符串是否以指定的前缀开始。</td>
+</tr>
+<tr>
+<td>boolean startsWith(String prefix, int toffset)</td>
+<td align="center">测试此字符串从指定索引开始的子字符串是否以指定前缀开始。</td>
+</tr>
+<tr>
+<td>CharSequence subSequence(int beginIndex, int endIndex)</td>
+<td align="center">返回一个新的字符序列，它是此序列的一个子序列。</td>
+</tr>
+<tr>
+<td>String substring(int beginIndex)</td>
+<td align="center">返回一个新的字符串，它是此字符串的一个子字符串。</td>
+</tr>
+<tr>
+<td>String substring(int beginIndex, int endIndex)</td>
+<td align="center">返回一个新字符串，它是此字符串的一个子字符串。</td>
+</tr>
+<tr>
+<td>char[] toCharArray()</td>
+<td align="center">将此字符串转换为一个新的字符数组。</td>
+</tr>
+<tr>
+<td>String toLowerCase()</td>
+<td align="center">使用默认语言环境的规则将此 String 中的所有字符都转换为小写。</td>
+</tr>
+<tr>
+<td>String toLowerCase(Locale locale)</td>
+<td align="center">使用给定 Locale 的规则将此 String 中的所有字符都转换为小写。</td>
+</tr>
+<tr>
+<td>String toString()</td>
+<td align="center">返回此对象本身（它已经是一个字符串！）。</td>
+</tr>
+<tr>
+<td>String toUpperCase()</td>
+<td align="center">使用默认语言环境的规则将此 String 中的所有字符都转换为大写。</td>
+</tr>
+<tr>
+<td>String toUpperCase(Locale locale)</td>
+<td align="center">使用给定 Locale 的规则将此 String 中的所有字符都转换为大写。</td>
+</tr>
+<tr>
+<td>String trim()</td>
+<td align="center">返回字符串的副本，忽略前导空白和尾部空白。</td>
+</tr>
+<tr>
+<td>static String valueOf(primitive data type x)</td>
+<td align="center">返回给定 data type 类型 x 参数的字符串表示形式。</td>
+</tr>
+<tr>
+<td>contains(CharSequence chars)</td>
+<td align="center">判断是否包含指定的字符系列。</td>
+</tr>
+<tr>
+<td>isEmpty()</td>
+<td align="center">判断字符串是否为空。</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2021/01/15/Java-StringBuffer%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            StringBuffer类
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2020/12/26/Java-Scanner%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Scanner类</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" rel="tag">综合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Infatuation/tags/CSS/" style="font-size: 15.45px;">CSS</a> <a href="/Infatuation/tags/ES6/" style="font-size: 15.45px;">ES6</a> <a href="/Infatuation/tags/Echarts/" style="font-size: 10.91px;">Echarts</a> <a href="/Infatuation/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/Infatuation/tags/HTML/" style="font-size: 11.82px;">HTML</a> <a href="/Infatuation/tags/JS/" style="font-size: 20px;">JS</a> <a href="/Infatuation/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/Infatuation/tags/React/" style="font-size: 19.09px;">React</a> <a href="/Infatuation/tags/Redux/" style="font-size: 13.64px;">Redux</a> <a href="/Infatuation/tags/SQL/" style="font-size: 16.36px;">SQL</a> <a href="/Infatuation/tags/Vue/" style="font-size: 14.55px;">Vue</a> <a href="/Infatuation/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/Infatuation/tags/jQuery/" style="font-size: 10.91px;">jQuery</a> <a href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.18px;">前端</a> <a href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 11.82px;">数据结构</a> <a href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.73px;">算法</a> <a href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" style="font-size: 10.91px;">综合</a> <a href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.27px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/Java-%E5%8F%8D%E5%B0%84/">Java反射</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/%E5%89%8D%E7%AB%AF-Tomcat%E9%83%A8%E7%BD%B2/">Tomcat部署前端项目</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/01/Java-%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/29/Java-%E6%B3%9B%E5%9E%8B/">Java泛型</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/28/Java-%E6%9E%9A%E4%B8%BE/">Java枚举</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2023 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+<script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+
+  
+<link rel="stylesheet" href="/Infatuation/fancybox/jquery.fancybox.css">
+
+  
+<script src="/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/Infatuation/js/script.js"></script>
+
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/Infatuation/" class="mobile-nav-link">首页</a>
+  
+    <a href="/Infatuation/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

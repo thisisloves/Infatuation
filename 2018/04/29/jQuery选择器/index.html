@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>jQuery选择器 | 亦如星辰闪耀长河</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="醉漾轻舟，信流引到花深处，尘缘相误，无计花间住。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery选择器">
+<meta property="og:url" content="https://thisisloves.github.io/2018/04/29/jQuery%E9%80%89%E6%8B%A9%E5%99%A8/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="醉漾轻舟，信流引到花深处，尘缘相误，无计花间住。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-04-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-30T02:30:59.327Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="jQuery">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/Infatuation/atom.xml" title="亦如星辰闪耀长河" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/Infatuation/css/style.css">
+
+  
+<link rel="stylesheet" href="/Infatuation/css/highlight.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/Infatuation/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/Infatuation/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-jQuery选择器" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery选择器
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/Infatuation/2018/04/29/jQuery%E9%80%89%E6%8B%A9%E5%99%A8/" class="article-date">
+  <time datetime="2018-04-28T16:00:00.000Z" itemprop="datePublished">2018-04-29</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Infatuation/tags/jQuery/" rel="tag">jQuery</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>醉漾轻舟，信流引到花深处，尘缘相误，无计花间住。</p>
+<span id="more"></span>
+
+<h3 id="jQuery-选择器"><a href="#jQuery-选择器" class="headerlink" title="jQuery 选择器"></a>jQuery 选择器</h3><ul>
+<li>jQuery 选择器允许您对 HTML 元素组或单个元素进行操作。</li>
+<li>jQuery 选择器基于元素的 id、类、类型、属性、属性值等”查找”（或选择）HTML 元素。 它基于已经存在的 CSS 选择器，除此之外，它还有一些自定义的选择器。</li>
+<li>jQuery 中所有选择器都以美元符号开头：$()。</li>
+</ul>
+<h3 id="jQuery-初级选择器"><a href="#jQuery-初级选择器" class="headerlink" title="jQuery 初级选择器"></a>jQuery 初级选择器</h3><table>
+<thead>
+<tr>
+<th align="center">选择器</th>
+<th align="center">css 模式</th>
+<th align="center">jQuery 模式</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">标签名</td>
+<td align="center">div{}</td>
+<td align="center">$(‘div’)</td>
+<td align="center">获取所有 div 标签的 DOM 元素</td>
+</tr>
+<tr>
+<td align="center">ID</td>
+<td align="center">box{}</td>
+<td align="center">$(‘#box’)</td>
+<td align="center">获取一个 ID 为 box 的 DOM 对象</td>
+</tr>
+<tr>
+<td align="center">Class 类名</td>
+<td align="center">.box{}</td>
+<td align="center">$(‘.box’)</td>
+<td align="center">获取所有 class 名为 box 的 DOM 对象</td>
+</tr>
+</tbody></table>
+<ul>
+<li>css3 的子选择器（不兼容 IE6），但是到了 jQuery 中，jQuery 会自行将不兼容 IE 的问题解决掉。</li>
+</ul>
+<h3 id="jQuery-多级选择器"><a href="#jQuery-多级选择器" class="headerlink" title="jQuery 多级选择器"></a>jQuery 多级选择器</h3><table>
+<thead>
+<tr>
+<th align="center">选择器</th>
+<th align="center">CSS 模式</th>
+<th align="center">jQuery 模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">群组选择器</td>
+<td align="center">div,span,p{}</td>
+<td align="center">$(‘div,span,p’)</td>
+</tr>
+<tr>
+<td align="center">后代选择器</td>
+<td align="center">ul li a{}</td>
+<td align="center">$(‘ul li a’)</td>
+</tr>
+<tr>
+<td align="center">通配选择器</td>
+<td align="center">* {}</td>
+<td align="center">$(‘*‘)</td>
+</tr>
+</tbody></table>
+<ul>
+<li>通配选择器：选择所有；对性能有极大的浪费所以不能在全局范围内使用，最好的方法就是在局部环境下使用；</li>
+</ul>
+<h3 id="jQuery-高级选择器"><a href="#jQuery-高级选择器" class="headerlink" title="jQuery 高级选择器"></a>jQuery 高级选择器</h3><p>(1) 层次选择器</p>
+<table>
+<thead>
+<tr>
+<th align="center">选择器</th>
+<th align="center">css 模式</th>
+<th align="center">jQuery 模式</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">后代选择器</td>
+<td align="center">ul li a{}</td>
+<td align="center">$(‘ul li a’)</td>
+<td align="center">获取追溯到的所有元素</td>
+</tr>
+<tr>
+<td align="center">子选择器</td>
+<td align="center">div&gt;p{}</td>
+<td align="center">$(‘div&gt;p’)</td>
+<td align="center">只获取子类节点</td>
+</tr>
+<tr>
+<td align="center">next 选择器</td>
+<td align="center">div+p{}</td>
+<td align="center">$(‘div+p’)</td>
+<td align="center">只获取某节点后一个同级 DOM 元素</td>
+</tr>
+<tr>
+<td align="center">nextAll 选择器</td>
+<td align="center">div~p{}</td>
+<td align="center">$(‘div~p’)</td>
+<td align="center">获取某节点后所有同级 DOM 元素</td>
+</tr>
+</tbody></table>
+<ul>
+<li>jQuery 为后代选择器提供了一个方法 find()这个 find 方法里面有一个参数，就是想要找到的后代（可以是标签，类名，ID）</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;div p&#x27;</span>).<span class="title function_">css</span>(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>) == $(<span class="string">&#x27;div&#x27;</span>).<span class="title function_">find</span>(<span class="string">&#x27;p&#x27;</span>).<span class="title function_">css</span>(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>jQuery 为子选择器提供了一个方法，children()</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;div&gt;p&#x27;</span>).<span class="title function_">css</span>(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>) == $(<span class="string">&#x27;div&#x27;</span>).<span class="title function_">children</span>(<span class="string">&#x27;p&#x27;</span>).<span class="title function_">css</span>(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>jQuery 提供了 next(）, nextAll( ) 选择器，参数同上：注意 next（）选择器，只选择后一个元素。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;div+p&#x27;</span>).<span class="title function_">css</span>(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>) == $(<span class="string">&#x27;div&#x27;</span>).<span class="title function_">next</span>(<span class="string">&#x27;p&#x27;</span>).<span class="title function_">css</span>(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>);</span><br><span class="line">$(<span class="string">&#x27;div~p&#x27;</span>).<span class="title function_">css</span>(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>) == $(<span class="string">&#x27;div&#x27;</span>).<span class="title function_">nextAll</span>(<span class="string">&#x27;p&#x27;</span>).<span class="title function_">css</span>(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>注意：children() , next() , nextAll() 这些方法如果不传递参数的话， 那么就默认传递一个通配符*，通常在使用这些选择器的时候，我们需要精准的选择元素，避免发生各种怪异结果。</li>
+</ul>
+<p>(2). 属性选择器</p>
+<table>
+<thead>
+<tr>
+<th align="center">CSS 模式</th>
+<th align="center">jQuery 模式</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">input[name]</td>
+<td align="center">$(‘input[name]’)</td>
+<td align="center">获取具有这个属性的 DOM 元素</td>
+</tr>
+<tr>
+<td align="center">input[name&#x3D;XXX]</td>
+<td align="center">$(‘input[name&#x3D;XXX]’)</td>
+<td align="center">获取具有属性且属性值为 XXX 的 DOM 元素</td>
+</tr>
+<tr>
+<td align="center">input[value]</td>
+<td align="center">$(‘input[value]</td>
+<td align="center">获取有 value  属性的 DOM 元素</td>
+</tr>
+</tbody></table>
+<p>(3). 伪类选择器</p>
+<table>
+<thead>
+<tr>
+<th align="center">过滤器名</th>
+<th align="center">jQuery 语法</th>
+<th align="center">说明</th>
+<th align="center">返回</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:first</td>
+<td align="center">$(‘li:first’)</td>
+<td align="center">选取第一个元素</td>
+<td align="center">单个元素</td>
+</tr>
+<tr>
+<td align="center">:last</td>
+<td align="center">$(‘li:last’)</td>
+<td align="center">选取最后一个元素</td>
+<td align="center">单个元素</td>
+</tr>
+<tr>
+<td align="center">：not(选择器)</td>
+<td align="center">$(‘li:not(.red)’)</td>
+<td align="center">选取 class 不是 red 的元素</td>
+<td align="center">一组元素</td>
+</tr>
+<tr>
+<td align="center">:even</td>
+<td align="center">$(‘li:even’)</td>
+<td align="center">选择偶数的所有元素</td>
+<td align="center">一组元素</td>
+</tr>
+<tr>
+<td align="center">:odd</td>
+<td align="center">$(‘li:odd’)</td>
+<td align="center">选择所有奇数元素</td>
+<td align="center">一组元素</td>
+</tr>
+<tr>
+<td align="center">：eq</td>
+<td align="center">$(‘li:eq（1）’)</td>
+<td align="center">选择对应下标的元素</td>
+<td align="center">单个元素</td>
+</tr>
+</tbody></table>
+<p>(4). 内容过滤器</p>
+<table>
+<thead>
+<tr>
+<th align="center">过滤器名</th>
+<th align="center">jQuery 语法</th>
+<th align="center">说明</th>
+<th align="center">返回</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:contains(text)</td>
+<td align="center">$(‘li:contains(123456)’)</td>
+<td align="center">选择有 123456 文本的元素</td>
+<td align="center">一组元素</td>
+</tr>
+<tr>
+<td align="center">:empty</td>
+<td align="center">$(li’:empty’)</td>
+<td align="center">选取 li 中不包含子元素或空文本的元素</td>
+<td align="center">一组元素</td>
+</tr>
+<tr>
+<td align="center">：has（选择器）</td>
+<td align="center">$(‘ul:has(.red)’)</td>
+<td align="center">选择子元素含有类 red 的 ul</td>
+<td align="center">一组元素</td>
+</tr>
+</tbody></table>
+<ul>
+<li>jQuery 为了优化:has 选择器性能，提供了一个方法.has()</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;ul:has(.red)&#x27;</span>) == $(<span class="string">&#x27;ul&#x27;</span>).<span class="title function_">has</span>(<span class="string">&#x27;.red&#x27;</span>);</span><br></pre></td></tr></table></figure></div>
+
+<p>(5). 可见性选择器</p>
+<table>
+<thead>
+<tr>
+<th align="center">过滤器名</th>
+<th align="center">jQuery 语法</th>
+<th align="center">说明</th>
+<th align="center">返回</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:hidden</td>
+<td align="center">$(li:hidden)</td>
+<td align="center">选取所有不可见元素</td>
+<td align="center">集合元素</td>
+</tr>
+<tr>
+<td align="center">:visible</td>
+<td align="center">$(‘li:visible’)</td>
+<td align="center">选取所有可见元素</td>
+<td align="center">集合元素</td>
+</tr>
+</tbody></table>
+<ul>
+<li>注：是否可见的判定因素为 display：block &amp; display :none</li>
+</ul>
+<h3 id="jQueryDOM-对象"><a href="#jQueryDOM-对象" class="headerlink" title="jQueryDOM 对象"></a>jQueryDOM 对象</h3><ul>
+<li>jQueryDOM 对象和原生 JavaScriptDOM 对象之间的属性方法不通用</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;DOM&#x27;</span>)[<span class="number">0</span>].<span class="property">style</span>.<span class="property">color</span> = red;</span><br><span class="line">$(<span class="string">&#x27;DOM&#x27;</span>).<span class="title function_">get</span>(<span class="number">0</span>).<span class="property">style</span>.<span class="property">color</span> = red;</span><br><span class="line"><span class="keyword">var</span> obox = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line">$(obox);</span><br></pre></td></tr></table></figure></div>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2018/05/01/jQuery%E4%BA%8B%E4%BB%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            jQuery事件
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2018/04/25/jQuery%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">jQuery基础</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" rel="tag">综合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Infatuation/tags/CSS/" style="font-size: 15.45px;">CSS</a> <a href="/Infatuation/tags/ES6/" style="font-size: 15.45px;">ES6</a> <a href="/Infatuation/tags/Echarts/" style="font-size: 10.91px;">Echarts</a> <a href="/Infatuation/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/Infatuation/tags/HTML/" style="font-size: 11.82px;">HTML</a> <a href="/Infatuation/tags/JS/" style="font-size: 20px;">JS</a> <a href="/Infatuation/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/Infatuation/tags/React/" style="font-size: 19.09px;">React</a> <a href="/Infatuation/tags/Redux/" style="font-size: 13.64px;">Redux</a> <a href="/Infatuation/tags/SQL/" style="font-size: 16.36px;">SQL</a> <a href="/Infatuation/tags/Vue/" style="font-size: 14.55px;">Vue</a> <a href="/Infatuation/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/Infatuation/tags/jQuery/" style="font-size: 10.91px;">jQuery</a> <a href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.18px;">前端</a> <a href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 11.82px;">数据结构</a> <a href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.73px;">算法</a> <a href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" style="font-size: 10.91px;">综合</a> <a href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.27px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/Java-%E5%8F%8D%E5%B0%84/">Java反射</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/%E5%89%8D%E7%AB%AF-Tomcat%E9%83%A8%E7%BD%B2/">Tomcat部署前端项目</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/01/Java-%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/29/Java-%E6%B3%9B%E5%9E%8B/">Java泛型</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/28/Java-%E6%9E%9A%E4%B8%BE/">Java枚举</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2023 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+<script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+
+  
+<link rel="stylesheet" href="/Infatuation/fancybox/jquery.fancybox.css">
+
+  
+<script src="/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/Infatuation/js/script.js"></script>
+
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/Infatuation/" class="mobile-nav-link">首页</a>
+  
+    <a href="/Infatuation/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

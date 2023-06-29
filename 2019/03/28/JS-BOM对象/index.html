@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>BOM对象 | 亦如星辰闪耀长河</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="袭微雨，荡尽心中尘埃，缕清风，吹开陌上花红，如此，心在此岸已无岸，人在天涯已无涯。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BOM对象">
+<meta property="og:url" content="https://thisisloves.github.io/2019/03/28/JS-BOM%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="袭微雨，荡尽心中尘埃，缕清风，吹开陌上花红，如此，心在此岸已无岸，人在天涯已无涯。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-03-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-23T07:00:31.482Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/Infatuation/atom.xml" title="亦如星辰闪耀长河" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/2019/05/20/5ce292afb9f6b42428.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/Infatuation/css/style.css">
+
+  
+<link rel="stylesheet" href="/Infatuation/css/highlight.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/Infatuation/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/Infatuation/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-JS-BOM对象" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      BOM对象
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/Infatuation/2019/03/28/JS-BOM%E5%AF%B9%E8%B1%A1/" class="article-date">
+  <time datetime="2019-03-27T16:00:00.000Z" itemprop="datePublished">2019-03-28</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Infatuation/tags/JS/" rel="tag">JS</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>袭微雨，荡尽心中尘埃，缕清风，吹开陌上花红，如此，心在此岸已无岸，人在天涯已无涯。</p>
+<span id="more"></span>
+
+<h3 id="BOM（Browser-Object-Model"><a href="#BOM（Browser-Object-Model" class="headerlink" title="BOM（Browser Object Model)"></a>BOM（Browser Object Model)</h3><ul>
+<li>浏览器对象模型，浏览器对象模型提供了独立与内容的、可以与浏览器窗口进行互动的对象结构，BOM 由多个对象构成，其中代表浏览器窗口的 window 对象是 BOM 的顶层对象，其他对象都是该对象的子对象。</li>
+</ul>
+<ol>
+<li>window 对象</li>
+</ol>
+<ul>
+<li>是 JS 的最顶层对象，其他的 BOM 对象都是 window 对象的属性；</li>
+</ul>
+<ol start="2">
+<li>document 对象</li>
+</ol>
+<ul>
+<li>文档对象</li>
+</ul>
+<ol start="3">
+<li>location 对象</li>
+</ol>
+<ul>
+<li>浏览器当前 URL 信息</li>
+</ul>
+<ol start="4">
+<li>navigator 对象</li>
+</ol>
+<ul>
+<li>浏览器本身信息；</li>
+</ul>
+<ol start="5">
+<li>screen 对象</li>
+</ol>
+<ul>
+<li>客户端屏幕信息</li>
+</ul>
+<ol start="6">
+<li>history 对象</li>
+</ol>
+<ul>
+<li>浏览器访问历史信息</li>
+</ul>
+<h3 id="原生对象和宿主对象"><a href="#原生对象和宿主对象" class="headerlink" title="原生对象和宿主对象"></a>原生对象和宿主对象</h3><ul>
+<li>原生对象：Number、String、Boolean、Object、Array、Function、Date、RegExp、内置对象</li>
+<li>宿主对象：window、BOM、DOM 等， web 的运行环境，即操作系统、浏览器,宿主提供的对象。</li>
+</ul>
+<h3 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h3><ul>
+<li>BOM 的核心对象是 window，它表示浏览器的一个实例。</li>
+<li>所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。</li>
+<li>全局变量是 window 对象的属性。</li>
+<li>全局函数是 window 对象的方法。</li>
+</ul>
+<h3 id="window-对象方法"><a href="#window-对象方法" class="headerlink" title="window 对象方法"></a>window 对象方法</h3><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">window.open(url,name,specs)</td>
+<td align="center">返回一个新窗口</td>
+</tr>
+<tr>
+<td align="center">window.close()</td>
+<td align="center">关闭浏览器窗口</td>
+</tr>
+<tr>
+<td align="center">window.prompt(对话框消息)</td>
+<td align="center">弹出输入框，点击确认，返回字符串，点击取消，返回 null</td>
+</tr>
+<tr>
+<td align="center">window.confirm(提示信息)</td>
+<td align="center">弹出提示框，点击确定返回 true，点击取消返回</td>
+</tr>
+<tr>
+<td align="center">window.scrollTo(x,y)</td>
+<td align="center">把页面内容滚动到指定的坐标</td>
+</tr>
+<tr>
+<td align="center">window.scrollX</td>
+<td align="center">页面水平方向滚动的像素值</td>
+</tr>
+<tr>
+<td align="center">window.scrollY</td>
+<td align="center">页面垂直方向滚动的像素值</td>
+</tr>
+<tr>
+<td align="center">window.setInterval ( 函数&#x2F;名称 , 毫秒数 )</td>
+<td align="center">表示每经过一定的毫秒后，执行一次相应的函数(重复)</td>
+</tr>
+<tr>
+<td align="center">window.setTimeout ( 函数&#x2F;名称 , 毫秒数 )</td>
+<td align="center">表示经过一定的毫秒后，只执行一次相应的函数(不重复)</td>
+</tr>
+</tbody></table>
+<h3 id="window-对象下的内置子对象"><a href="#window-对象下的内置子对象" class="headerlink" title="window 对象下的内置子对象"></a>window 对象下的内置子对象</h3><ol>
+<li>history 对象</li>
+</ol>
+<ul>
+<li>history 对象包含有关用户的访问历史记录</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">属性或方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">length</td>
+<td align="center">返回浏览器历史列表中的 URL 数量</td>
+</tr>
+<tr>
+<td align="center">history.back()</td>
+<td align="center">后退加一个 url</td>
+</tr>
+<tr>
+<td align="center">histroy.forward()</td>
+<td align="center">前进，需要后退一下之后，才会有前进的方向</td>
+</tr>
+<tr>
+<td align="center">histroy.go(num)</td>
+<td align="center">参数为正，前进相应的数目，为负，后退相应的数目，为 0</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>location 对象</li>
+</ol>
+<ul>
+<li>location 对象包含有关当前页面的 URL 信息</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">属性或方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">location.href</td>
+<td align="center">设置或者返回完整的 url</td>
+</tr>
+<tr>
+<td align="center">location.search</td>
+<td align="center">返回 url?后面的查询部分</td>
+</tr>
+<tr>
+<td align="center">location.hash</td>
+<td align="center">是一个可读的字符串，是 url 的锚部分(从#开始的部分)哈希</td>
+</tr>
+<tr>
+<td align="center">location.reload()</td>
+<td align="center">参刷新页面的方法，一般情况下，传递一个 true,不使用缓存刷新</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>navigator 对象</li>
+</ol>
+<ul>
+<li>navigator 对象用于提供与用户浏览器相关的信息</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">属性或方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">navigator.appCodeName</td>
+<td align="center">返回浏览器的代码名</td>
+</tr>
+<tr>
+<td align="center">navigator.appName</td>
+<td align="center">返回浏览器的名称</td>
+</tr>
+<tr>
+<td align="center">navigator.cookieEnabled</td>
+<td align="center">返回指明浏览器中是否启用 cookie 的布尔值</td>
+</tr>
+<tr>
+<td align="center">navigator.platform</td>
+<td align="center">返回运行浏览器的操作系统平台</td>
+</tr>
+<tr>
+<td align="center">navigator.appVersion</td>
+<td align="center">返回浏览器的平台和版本信息</td>
+</tr>
+<tr>
+<td align="center">navigator.appVersion</td>
+<td align="center">返回用户浏览器发送服务器的 user-agent 头部的值</td>
+</tr>
+</tbody></table>
+<ol start="4">
+<li>screen 对象</li>
+</ol>
+<ul>
+<li>screen 对象包含有关客户端显示屏幕的信息</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">属性或方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">width</td>
+<td align="center">属性返回显示器屏幕的宽度</td>
+</tr>
+<tr>
+<td align="center">height</td>
+<td align="center">属性返回显示器屏幕的高度</td>
+</tr>
+<tr>
+<td align="center">availHeight</td>
+<td align="center">属性返回显示屏幕的高度 (除 Windows 任务栏之外)</td>
+</tr>
+<tr>
+<td align="center">availWidth</td>
+<td align="center">属性返回显示屏幕的宽度 (除 Windows 任务栏之外)</td>
+</tr>
+</tbody></table>
+<ol start="5">
+<li>document 对象</li>
+</ol>
+<ul>
+<li>Document 对象是 Window 对象的一部分，可通过 window.document 属性对其进行访问</li>
+<li>每个载入浏览器的 HTML 文档都会成为 Document 对象</li>
+<li>document 对象与它所包含的各种节点构成了早期的文档对象模型（DOM 0 级）</li>
+<li>document：包含整个 HTML 文档，可被用来访问文档内容及其所有页面元素</li>
+</ul>
+<h3 id="window-事件"><a href="#window-事件" class="headerlink" title="window 事件"></a>window 事件</h3><ol>
+<li>window.onload</li>
+</ol>
+<ul>
+<li>当文档加载完成后执行一些操作</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;页面加载完成&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>window.onscroll</li>
+</ol>
+<ul>
+<li>当页面发生滚动时执行一些操作</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onscroll</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>) <span class="comment">//当页面发生滚动时，打印 1&#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<ol start="3">
+<li>window.onresize</li>
+</ol>
+<ul>
+<li>当窗口发生大小改变的时候执行一些操作</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onresize</span> = <span class="keyword">function</span>（）&#123;<span class="variable language_">console</span>.<span class="property">log</span>（<span class="string">&quot;1&quot;</span>)&#125;</span><br></pre></td></tr></table></figure></div>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2019/03/29/JS-DOM%E5%AF%B9%E8%B1%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            DOM对象
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/Infatuation/2019/03/28/JS-Math%E5%AF%B9%E8%B1%A1/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Math对象</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" rel="tag">综合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Infatuation/tags/CSS/" style="font-size: 15.45px;">CSS</a> <a href="/Infatuation/tags/ES6/" style="font-size: 15.45px;">ES6</a> <a href="/Infatuation/tags/Echarts/" style="font-size: 10.91px;">Echarts</a> <a href="/Infatuation/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/Infatuation/tags/HTML/" style="font-size: 11.82px;">HTML</a> <a href="/Infatuation/tags/JS/" style="font-size: 20px;">JS</a> <a href="/Infatuation/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/Infatuation/tags/React/" style="font-size: 19.09px;">React</a> <a href="/Infatuation/tags/Redux/" style="font-size: 13.64px;">Redux</a> <a href="/Infatuation/tags/SQL/" style="font-size: 16.36px;">SQL</a> <a href="/Infatuation/tags/Vue/" style="font-size: 14.55px;">Vue</a> <a href="/Infatuation/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/Infatuation/tags/jQuery/" style="font-size: 10.91px;">jQuery</a> <a href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.18px;">前端</a> <a href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 11.82px;">数据结构</a> <a href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.73px;">算法</a> <a href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" style="font-size: 10.91px;">综合</a> <a href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.27px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/Java-%E5%8F%8D%E5%B0%84/">Java反射</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/15/%E5%89%8D%E7%AB%AF-Tomcat%E9%83%A8%E7%BD%B2/">Tomcat部署前端项目</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/12/01/Java-%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/29/Java-%E6%B3%9B%E5%9E%8B/">Java泛型</a>
+          </li>
+        
+          <li>
+            <a href="/Infatuation/2021/11/28/Java-%E6%9E%9A%E4%B8%BE/">Java枚举</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2023 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+<script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+
+  
+<link rel="stylesheet" href="/Infatuation/fancybox/jquery.fancybox.css">
+
+  
+<script src="/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/Infatuation/js/script.js"></script>
+
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/Infatuation/" class="mobile-nav-link">首页</a>
+  
+    <a href="/Infatuation/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
