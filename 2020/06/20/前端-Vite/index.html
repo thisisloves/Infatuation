@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://thisisloves.github.io/images/2022/06/14/5zFQgOwR9tS6nf1.png">
 <meta property="og:image" content="https://thisisloves.github.io/images/2022/06/14/B1rIVUYeNicSXzC.png">
 <meta property="article:published_time" content="2020-06-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-27T06:20:01.026Z">
+<meta property="article:modified_time" content="2023-07-03T06:07:02.302Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
@@ -28,17 +28,21 @@
   
     <link rel="alternate" href="/atom.xml" title="亦如星辰闪耀长河" type="application/atom+xml">
   
-  
-    <link rel="icon" href="/images/2019/05/20/5ce292afb9f6b42428.jpeg">
-  
+  <!--  -->
+    <link rel="icon" href="https://thisisloves.github.io/Infatuation/images/2019/05/20/5ce292afb9f6b42428.jpeg">
+  <!--  -->
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  
+  <!-- 
 <link rel="stylesheet" href="/css/style.css">
 
   
 <link rel="stylesheet" href="/css/highlight.css">
+ -->
+
+  <link rel="stylesheet" href="https://thisisloves.github.io/Infatuation/css/style.css">
+  <link rel="stylesheet" href="https://thisisloves.github.io/Infatuation/css/highlight.css">
 
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -169,6 +173,7 @@
 </ol>
 <h3 id="Vite-和-Webpack"><a href="#Vite-和-Webpack" class="headerlink" title="Vite 和 Webpack"></a>Vite 和 Webpack</h3><p><img src="/images/2022/06/14/B1rIVUYeNicSXzC.png" alt="截屏2022-06-14 上午11.10.19.png"></p>
 <h3 id="Vite-缺点"><a href="#Vite-缺点" class="headerlink" title="Vite 缺点"></a>Vite 缺点</h3><ul>
+<li>和 bundle 机制有利有弊一样，unbundle 机制给 Vite 在 dev server 方面获得巨大性能提升的同时，也带来一些负面影响，那就是<strong>首屏和懒加载性能的下降</strong>。</li>
 <li>目前 Vite 还是使用的 es module 模块不能直接使用生产环境（兼容性问题）。默认情况下，无论是 dev 还是 build 都会直接打出 ESM 版本的代码包，这就要求客户浏览器需要有一个比较新的版本，这放在现在的国情下还是有点难度的。不过 Vite 同时提供了一些弥补的方法，使用 build.polyfillDynamicImport 配置项配合 @vitejs&#x2F;plugin-legacy 打包出一个看起来兼容性比较好的版本。</li>
 <li>生产环境使用 rollup 打包会造成开发环境与生产环境的不一致。</li>
 <li>很多 第三方 sdk 没有产出 ems 格式的的代码，这个需要自己去做一些兼容。</li>
@@ -203,8 +208,8 @@
   </div>
   <div class="article-nav-block">
     
-      <a href="/2020/06/19/React-Fiber%E5%8D%8F%E8%B0%83/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">Fiber协调</div>
+      <a href="/2020/06/19/React-%E5%85%A5%E5%8F%A3%E5%87%BD%E6%95%B0%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">React入口函数模式</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
@@ -328,17 +333,22 @@ gitment.render('gitmentContainer')
 <script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script>
 <script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
 
+<!-- 
   
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
   
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
+ -->
+<link href="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.css"/>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.js"></script>
 
-
-
+<script src="https://thisisloves.github.io/Infatuation/js/script.js'"></script>
+<!-- 
 <script src="/js/script.js"></script>
-
+ -->
 
 
 

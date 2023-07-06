@@ -17,28 +17,34 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="忆君心似西江水，日夜东流无歇时。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thisisloves.github.io/images/2023/06/29/tree.png">
+<meta property="og:image" content="https://thisisloves.github.io/images/2023/06/29/link.png">
 <meta property="og:image" content="https://thisisloves.github.io/images/2023/06/27/eKAmXgOWva4CYfc.png">
 <meta property="og:image" content="https://thisisloves.github.io/images/2023/06/27/xO1GdinQwkmJD4y.png">
 <meta property="article:published_time" content="2020-06-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-27T06:20:00.911Z">
+<meta property="article:modified_time" content="2023-06-29T10:08:43.999Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/06/27/eKAmXgOWva4CYfc.png">
+<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/06/29/tree.png">
   
     <link rel="alternate" href="/atom.xml" title="亦如星辰闪耀长河" type="application/atom+xml">
   
-  
-    <link rel="icon" href="/images/2019/05/20/5ce292afb9f6b42428.jpeg">
-  
+  <!--  -->
+    <link rel="icon" href="https://thisisloves.github.io/Infatuation/images/2019/05/20/5ce292afb9f6b42428.jpeg">
+  <!--  -->
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  
+  <!-- 
 <link rel="stylesheet" href="/css/style.css">
 
   
 <link rel="stylesheet" href="/css/highlight.css">
+ -->
+
+  <link rel="stylesheet" href="https://thisisloves.github.io/Infatuation/css/style.css">
+  <link rel="stylesheet" href="https://thisisloves.github.io/Infatuation/css/highlight.css">
 
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -142,13 +148,24 @@
 </ul>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSX"><figure class="iseeu highlight /jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>)</span><br><span class="line"><span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">&#125;, [count]) </span><br></pre></td></tr></table></figure></div>
 
+<h3 id="Effect-列表"><a href="#Effect-列表" class="headerlink" title="Effect 列表"></a>Effect 列表</h3><ul>
+<li>React处理更新非常快。为了达到更好的性能水平，将具有effects的Fiber节点，构建为线性列表，以方便快速迭代。迭代线性列表要比迭代树快的多，因为不需要迭代没有side-effects的节点。</li>
+</ul>
+<p><img src="/images/2023/06/29/tree.png" alt="tree.png"></p>
+<ul>
+<li>Fiber树，其中高亮显示的节点有一些“work”要做。 Effects list列表将把它们链接在一起，这样React就可以遍历时跳过其他节点。</li>
+</ul>
+<p><img src="/images/2023/06/29/link.png" alt="link.png"></p>
+<ul>
+<li>当遍历节点时，React使用firstEffect指针确定列表的起始位置。</li>
+</ul>
 <h3 id="Effect-收集"><a href="#Effect-收集" class="headerlink" title="Effect 收集"></a>Effect 收集</h3><ul>
 <li>如果一个 <strong>fiber node</strong> 被标记了 <strong>effect</strong>，那么 <strong>react</strong> 就会在这个 <strong>fiber node</strong> 完成协调以后，将这个 <strong>fiber node</strong> 收集起来。当整颗 <strong>fiber tree</strong> 完成协调以后，所有被标记 <strong>effect</strong> 的 <strong>fiber node</strong> 都被收集到一起来。</li>
 <li>收集的 <strong>fiber node</strong> 采用<strong>单链表结构存储</strong>，<strong>firstEffect</strong> 指向第一个标记 <strong>effect</strong> 的 <strong>fiber node</strong>，<strong>lastEffect</strong> 标记最后一个 <strong>fiber node</strong>，节点之间通过 <strong>nextEffect</strong> 指针连接。</li>
 <li>由于 <strong>fiber tree</strong> 协调时采用的顺序是<strong>深度优先</strong>，协调完成的顺序是<strong>子节点、子节点兄弟节点、父节点</strong>，所以收集带 <strong>effect</strong> 标记的 <strong>fiber node</strong>时，顺序也是<strong>子节点、子节点兄弟节点、父节点</strong>。</li>
 </ul>
 <p><img src="/images/2023/06/27/eKAmXgOWva4CYfc.png" alt="截屏2023-06-27 上午11.23.57.png"></p>
-<h3 id="effect-的处理"><a href="#effect-的处理" class="headerlink" title="effect 的处理"></a>effect 的处理</h3><ul>
+<h3 id="Effect-的处理"><a href="#Effect-的处理" class="headerlink" title="Effect 的处理"></a>Effect 的处理</h3><ul>
 <li>fiber tree 协调完成， 带 effect 的 fiber node 收集完毕，接下来要做的就是要处理带 effect 的 fiber node。也就是commit阶段。</li>
 </ul>
 <p><img src="/images/2023/06/27/xO1GdinQwkmJD4y.png" alt="截屏2023-06-27 上午11.17.53.png"></p>
@@ -189,11 +206,11 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2020/06/22/React-Concurrent%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <a href="/2020/06/22/React-%E6%9E%B6%E6%9E%84/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption"></strong>
         <div class="article-nav-title">
           
-            Concurrent 模式
+            React架构
           
         </div>
       </a>
@@ -326,17 +343,22 @@ gitment.render('gitmentContainer')
 <script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script>
 <script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
 
+<!-- 
   
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
   
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
+ -->
+<link href="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.css"/>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.js"></script>
 
-
-
+<script src="https://thisisloves.github.io/Infatuation/js/script.js'"></script>
+<!-- 
 <script src="/js/script.js"></script>
-
+ -->
 
 
 
