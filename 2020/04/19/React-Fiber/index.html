@@ -13,23 +13,23 @@
   <meta name="description" content="泪眼问花花不语，乱红飞过秋千去。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fiber(内存中的dom)">
-<meta property="og:url" content="https://thisisloves.github.io/Infatuation/2020/04/19/React-Fiber/index.html">
+<meta property="og:url" content="https://thisisloves.github.io/2020/04/19/React-Fiber/index.html">
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="泪眼问花花不语，乱红飞过秋千去。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/9IqCUOBPWQobzhw.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/05/TxeDFdjNmXorywv.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/05/jGmO7u8PLhc6bRw.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/05/2WpDcFUbodgmlsi.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/txRn4m5Fi3ZTLCv.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/9IqCUOBPWQobzhw.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/05/TxeDFdjNmXorywv.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/05/jGmO7u8PLhc6bRw.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/05/2WpDcFUbodgmlsi.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/txRn4m5Fi3ZTLCv.png">
 <meta property="article:published_time" content="2020-04-18T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-06-30T09:40:31.595Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/05/12/9IqCUOBPWQobzhw.png">
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/9IqCUOBPWQobzhw.png">
   
-    <link rel="alternate" href="/atom.xml" title="亦如星辰闪耀长河" type="application/atom+xml">
+    <link rel="alternate" href="/Infatuation/atom.xml" title="亦如星辰闪耀长河" type="application/atom+xml">
   
   <!--  -->
     <link rel="icon" href="https://thisisloves.github.io/Infatuation/images/2019/05/20/5ce292afb9f6b42428.jpeg">
@@ -38,10 +38,10 @@
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <!-- 
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/Infatuation/css/style.css">
 
   
-<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/Infatuation/css/highlight.css">
  -->
 
   <link rel="stylesheet" href="https://thisisloves.github.io/Infatuation/css/style.css">
@@ -60,11 +60,11 @@
   <div class="head-box global-width">
     <nav class="nav-box nav-right">
       
-        <a class="nav-item" href="/" title
+        <a class="nav-item" href="/Infatuation/" title
         
         >首页</a>
       
-        <a class="nav-item" href="/archives" title
+        <a class="nav-item" href="/Infatuation/archives" title
         
         >归档</a>
       
@@ -101,12 +101,12 @@
     </header>
   
   <div class="article-meta">
-    <a href="/2020/04/19/React-Fiber/" class="article-date">
+    <a href="/Infatuation/2020/04/19/React-Fiber/" class="article-date">
   <time datetime="2020-04-18T16:00:00.000Z" itemprop="datePublished">2020-04-19</time>
 </a>
     
     
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li></ul>
 
   </div>
   
@@ -129,7 +129,7 @@
 <li><strong>调和阶段</strong>(Reconciler)：React 会自顶向下通过递归，遍历新数据生成新的 Virtual DOM，然后通过 Diff 算法，找到需要变更的元素(Patch)，放到更新队列里面去。</li>
 <li><strong>渲染阶段</strong>(Renderer)：遍历更新队列，通过调用宿主环境的API，实际更新渲染对应元素。宿主环境，比如 DOM、Native、WebGL 等。</li>
 </ol>
-<p><img src="/images/2023/05/12/9IqCUOBPWQobzhw.png" alt="截屏2023-05-12 上午11.33.30.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/9IqCUOBPWQobzhw.png" alt="截屏2023-05-12 上午11.33.30.png"></p>
 <ul>
 <li>在协调阶段阶段，由于是采用的递归的遍历方式，这种也被成为 Stack Reconciler，主要是为了区别 Fiber Reconciler 取的一个名字。这种方式有一个特点：一旦任务开始进行，就无法中断，那么 js 将一直占用主线程， 一直要等到整棵 Virtual DOM 树计算完成之后，才能把执行权交给渲染引擎，那么这就会导致一些用户交互、动画等任务无法立即得到处理，就会有卡顿，非常的影响用户体验。</li>
 </ul>
@@ -139,15 +139,15 @@
 <h3 id="Fiber-由来"><a href="#Fiber-由来" class="headerlink" title="Fiber 由来"></a>Fiber 由来</h3><ul>
 <li>React16 以前，对 virtural dom 的更新和渲染是同步的，大量的的同步计算任务阻塞了浏览器的 UI 渲染。默认情况下，JS 运算、页面布局和页面绘制都是运行在浏览器的主线程当中，他们之间是互斥的关系。如果 JS 运算持续占用主线程，页面就没法得到及时的更新。当我们调用 setState 更新页面的时候，React 会遍历应用的所有节点，计算出差异，然后再更新 UI。如果页面元素很多，整个过程占用的时机就可能超过 16 毫秒，就容易出现掉帧的现象。</li>
 </ul>
-<p><img src="/images/2022/05/05/TxeDFdjNmXorywv.png" alt="截屏2022-05-05 下午2.49.29.png"></p>
+<p><img src="/Infatuation/images/2022/05/05/TxeDFdjNmXorywv.png" alt="截屏2022-05-05 下午2.49.29.png"></p>
 <h3 id="Fiber"><a href="#Fiber" class="headerlink" title="Fiber"></a>Fiber</h3><ul>
 <li><strong>fiber 把一个任务分成很多小片，当分配给这个小片的时间用尽的时候，就检查任务列表中有没有新的、优先级更高的任务，有就做这个新任务，没有就继续做原来的任务</strong>。这种方式被叫做<strong>时间分片异步渲染</strong>(Async Rendering)。</li>
 </ul>
-<p><img src="/images/2022/05/05/jGmO7u8PLhc6bRw.png" alt="截屏2022-05-05 下午2.49.38.png"></p>
+<p><img src="/Infatuation/images/2022/05/05/jGmO7u8PLhc6bRw.png" alt="截屏2022-05-05 下午2.49.38.png"></p>
 <h3 id="Fiber-概念"><a href="#Fiber-概念" class="headerlink" title="Fiber 概念"></a>Fiber 概念</h3><ul>
 <li><strong>fiber 其实指的是一种数据结构</strong></li>
 </ul>
-<p><img src="/images/2022/05/05/2WpDcFUbodgmlsi.png" alt="截屏2022-05-05 下午3.18.35.png"></p>
+<p><img src="/Infatuation/images/2022/05/05/2WpDcFUbodgmlsi.png" alt="截屏2022-05-05 下午3.18.35.png"></p>
 <h3 id="Fiber-数据结构"><a href="#Fiber-数据结构" class="headerlink" title="Fiber 数据结构"></a>Fiber 数据结构</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Fiber</span> = &#123;</span><br><span class="line">  tag, <span class="comment">// 标记不同的组件类型</span></span><br><span class="line">  key, <span class="comment">// ReactElement里面的key</span></span><br><span class="line">  elementType, <span class="comment">// ReactElement.type，也就是我们调用`createElement`的第一个参数</span></span><br><span class="line">  type, <span class="comment">// 一般是`function`或者`class`</span></span><br><span class="line">  stateNode, <span class="comment">// 在浏览器环境，就是DOM节点</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span>, <span class="comment">// 指向他在Fiber节点树中的`parent`，用来在处理完这个节点之后向上返回</span></span><br><span class="line">  child, <span class="comment">// 单链表树结构，指向自己的第一个子节点</span></span><br><span class="line">  sibling, <span class="comment">// 指向自己的兄弟结构，兄弟节点的return指向同一个父节点</span></span><br><span class="line">  index,</span><br><span class="line">  ref, <span class="comment">// ref属性</span></span><br><span class="line"></span><br><span class="line">  pendingProps, <span class="comment">// 即将更新的props</span></span><br><span class="line">  memoizedProps, <span class="comment">// 更新props</span></span><br><span class="line">  memoizedState, <span class="comment">// 当前状态</span></span><br><span class="line">  dependencies, <span class="comment">// 一个列表，存放这个Fiber依赖的context</span></span><br><span class="line"></span><br><span class="line">  flags, <span class="comment">// Effect，用来记录当前fiber的tag，插入、删除、更新的状态</span></span><br><span class="line">  subtreeFlags,</span><br><span class="line">  deletions,</span><br><span class="line">  updateQueue, <span class="comment">// 该Fiber对应的组件产生的Update会存放在这个队列里面</span></span><br><span class="line">  nextEffect, <span class="comment">// 单链表用来快速查找下一下side effect</span></span><br><span class="line">  firstEffect, <span class="comment">// 自述中第一个side effect</span></span><br><span class="line">  lastEffect, <span class="comment">// 子树中最后一个side effect</span></span><br><span class="line"></span><br><span class="line">  lanes, <span class="comment">// 当前Fiber更新的优先级</span></span><br><span class="line">  childLanes,</span><br><span class="line">  <span class="comment">// 在Fiber树更新的过程中，每个Fiber都会有一个跟其对应的Fiber</span></span><br><span class="line">  <span class="comment">// 我们称他为`current &lt;==&gt; workInProgress`</span></span><br><span class="line">  <span class="comment">// 在渲染完成之后他们会交换位置</span></span><br><span class="line">  alternate,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 用来描述当前Fiber和他子树的`Bitfield`</span></span><br><span class="line">  <span class="comment">// 共存的模式表示这个子树是否默认是异步渲染的</span></span><br><span class="line">  <span class="comment">// Fiber被创建的时候他会继承父Fiber</span></span><br><span class="line">  <span class="comment">// 其他的标识也可以在创建的时候被设置</span></span><br><span class="line">  <span class="comment">// 但是在创建之后不应该再被修改，特别是他的子Fiber创建之前</span></span><br><span class="line">  mode,</span><br><span class="line">  <span class="comment">// 其余为调试相关的，收集每个Fiber和子树渲染时间的</span></span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 
@@ -185,7 +185,7 @@
 <li>生成 <strong>effectList</strong>。</li>
 <li>根据 EffectList 更新 DOM。</li>
 </ol>
-<p><img src="/images/2023/05/12/txRn4m5Fi3ZTLCv.png" alt="截屏2023-05-12 上午11.42.03.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/txRn4m5Fi3ZTLCv.png" alt="截屏2023-05-12 上午11.42.03.png"></p>
 <ol>
 <li>第一部分从 ReactDOM.render() 方法开始，把接收的 React Element 转换为 Fiber 节点，并为其设置优先级，创建 Update，加入到更新队列，这部分主要是做一些初始数据的准备。</li>
 <li>第二部分主要是三个函数：scheduleWork、requestWork、performWork，即安排工作、申请工作、正式工作三部曲，React 16 新增的异步调用的功能则在这部分实现，这部分就是 Schedule 阶段，前面介绍的 Cooperative Scheduling 就是在这个阶段，只有在这个解决获取到可执行的时间片，第三部分才会继续执行。具体是如何调度的，后面文章再介绍，这是 React 调度的关键过程。</li>
@@ -211,7 +211,7 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2020/04/20/React-%E5%8F%8C%E7%BC%93%E5%AD%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <a href="/Infatuation/2020/04/20/React-%E5%8F%8C%E7%BC%93%E5%AD%98/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption"></strong>
         <div class="article-nav-title">
           
@@ -223,7 +223,7 @@
   </div>
   <div class="article-nav-block">
     
-      <a href="/2020/04/15/%E7%BB%BC%E5%90%88-%E5%94%AF%E5%BF%83%E5%92%8C%E5%94%AF%E7%89%A9/" id="article-nav-older" class="article-nav-link-wrap">
+      <a href="/Infatuation/2020/04/15/%E7%BB%BC%E5%90%88-%E5%94%AF%E5%BF%83%E5%92%8C%E5%94%AF%E7%89%A9/" id="article-nav-older" class="article-nav-link-wrap">
         <div class="article-nav-title">唯心和唯物</div>
         <strong class="article-nav-caption"></strong>
       </a>
@@ -276,7 +276,7 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%BC%E5%90%88/" rel="tag">综合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" rel="tag">综合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
     </div>
   </div>
 
@@ -286,7 +286,7 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CSS/" style="font-size: 15.45px;">CSS</a> <a href="/tags/ES6/" style="font-size: 15.45px;">ES6</a> <a href="/tags/Echarts/" style="font-size: 10.91px;">Echarts</a> <a href="/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/tags/HTML/" style="font-size: 11.82px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/React/" style="font-size: 19.09px;">React</a> <a href="/tags/Redux/" style="font-size: 13.64px;">Redux</a> <a href="/tags/SQL/" style="font-size: 16.36px;">SQL</a> <a href="/tags/Vue/" style="font-size: 14.55px;">Vue</a> <a href="/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/tags/jQuery/" style="font-size: 10.91px;">jQuery</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.18px;">前端</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 11.82px;">数据结构</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.73px;">算法</a> <a href="/tags/%E7%BB%BC%E5%90%88/" style="font-size: 10.91px;">综合</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.27px;">网络</a>
+      <a href="/Infatuation/tags/CSS/" style="font-size: 15.45px;">CSS</a> <a href="/Infatuation/tags/ES6/" style="font-size: 15.45px;">ES6</a> <a href="/Infatuation/tags/Echarts/" style="font-size: 10.91px;">Echarts</a> <a href="/Infatuation/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/Infatuation/tags/HTML/" style="font-size: 11.82px;">HTML</a> <a href="/Infatuation/tags/JS/" style="font-size: 20px;">JS</a> <a href="/Infatuation/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/Infatuation/tags/React/" style="font-size: 19.09px;">React</a> <a href="/Infatuation/tags/Redux/" style="font-size: 13.64px;">Redux</a> <a href="/Infatuation/tags/SQL/" style="font-size: 16.36px;">SQL</a> <a href="/Infatuation/tags/Vue/" style="font-size: 14.55px;">Vue</a> <a href="/Infatuation/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/Infatuation/tags/jQuery/" style="font-size: 10.91px;">jQuery</a> <a href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.18px;">前端</a> <a href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 11.82px;">数据结构</a> <a href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.73px;">算法</a> <a href="/Infatuation/tags/%E7%BB%BC%E5%90%88/" style="font-size: 10.91px;">综合</a> <a href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.27px;">网络</a>
     </div>
   </div>
 
@@ -295,7 +295,7 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2016/01/">January 2016</a></li></ul>
     </div>
   </div>
 
@@ -307,23 +307,23 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
-            <a href="/2021/12/15/Java-%E5%8F%8D%E5%B0%84/">Java反射</a>
+            <a href="/Infatuation/2021/12/15/Java-%E5%8F%8D%E5%B0%84/">Java反射</a>
           </li>
         
           <li>
-            <a href="/2021/12/15/%E5%89%8D%E7%AB%AF-Tomcat%E9%83%A8%E7%BD%B2/">Tomcat部署前端项目</a>
+            <a href="/Infatuation/2021/12/15/%E5%89%8D%E7%AB%AF-Tomcat%E9%83%A8%E7%BD%B2/">Tomcat部署前端项目</a>
           </li>
         
           <li>
-            <a href="/2021/12/01/Java-%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
+            <a href="/Infatuation/2021/12/01/Java-%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
           </li>
         
           <li>
-            <a href="/2021/11/29/Java-%E6%B3%9B%E5%9E%8B/">Java泛型</a>
+            <a href="/Infatuation/2021/11/29/Java-%E6%B3%9B%E5%9E%8B/">Java泛型</a>
           </li>
         
           <li>
-            <a href="/2021/11/28/Java-%E6%9E%9A%E4%B8%BE/">Java枚举</a>
+            <a href="/Infatuation/2021/11/28/Java-%E6%9E%9A%E4%B8%BE/">Java枚举</a>
           </li>
         
       </ul>
@@ -350,19 +350,19 @@ gitment.render('gitmentContainer')
 
 <!-- 
   
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" href="/Infatuation/fancybox/jquery.fancybox.css">
 
   
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
 
  -->
 <link href="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.css"/>
 <script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
 <script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.js"></script>
 
-<script src="https://thisisloves.github.io/Infatuation/js/script.js'"></script>
+<script src="https://thisisloves.github.io/Infatuation/js/script.js"></script>
 <!-- 
-<script src="/js/script.js"></script>
+<script src="/Infatuation/js/script.js"></script>
  -->
 
 
@@ -371,9 +371,9 @@ gitment.render('gitmentContainer')
     <nav id="mobile-nav" class="mobile-nav-box">
   <div class="mobile-nav-img mobile-nav-top"></div>
   
-    <a href="/" class="mobile-nav-link">首页</a>
+    <a href="/Infatuation/" class="mobile-nav-link">首页</a>
   
-    <a href="/archives" class="mobile-nav-link">归档</a>
+    <a href="/Infatuation/archives" class="mobile-nav-link">归档</a>
   
     <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
   
@@ -386,5 +386,5 @@ gitment.render('gitmentContainer')
   <div class="mobile-nav-img  mobile-nav-bottom"></div>
 </nav>    
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
