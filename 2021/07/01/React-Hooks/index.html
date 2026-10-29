@@ -12,7 +12,7 @@
        <meta name="description" content="我们用零距离的爱，弹奏一曲琴韵笙箫，将生命畅想成天籁之音。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Hooks">
-<meta property="og:url" content="https://thisisloves.github.io/2021/07/01/React-Hooks/index.html">
+<meta property="og:url" content="https://thisisloves.github.io/Infatuation/2021/07/01/React-Hooks/index.html">
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="我们用零距离的爱，弹奏一曲琴韵笙箫，将生命畅想成天籁之音。">
 <meta property="og:locale" content="en_US">
@@ -29,7 +29,7 @@
 <meta name="twitter:image" content="https://thisisloves.github.io/images/2022/05/10/ySU3TtHqDJaimwZ.png"> 
     <link
       rel="alternate"
-      href="/atom.xml"
+      href="/Infatuation/atom.xml"
       title="亦如星辰闪耀长河"
       type="application/atom+xml"
     />
@@ -44,10 +44,10 @@
     <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
     
     <!-- 
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/Infatuation/css/style.css">
 
   
-<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/Infatuation/css/highlight.css">
  -->
 
     <link
@@ -72,11 +72,11 @@
   <div class="head-box global-width">
     <nav class="nav-box nav-right">
       
-        <a class="nav-item" href="/" title
+        <a class="nav-item" href="/Infatuation/" title
         
         >首页</a>
       
-        <a class="nav-item" href="/archives" title
+        <a class="nav-item" href="/Infatuation/archives" title
         
         >归档</a>
       
@@ -113,12 +113,12 @@
     </header>
   
   <div class="article-meta">
-    <a href="/2021/07/01/React-Hooks/" class="article-date">
+    <a href="/Infatuation/2021/07/01/React-Hooks/" class="article-date">
   <time datetime="2021-06-30T16:00:00.000Z" itemprop="datePublished">2021-07-01</time>
 </a>
     
     
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li></ul>
 
   </div>
   
@@ -136,7 +136,7 @@
 
 <h3 id="Hooks-是什么"><a href="#Hooks-是什么" class="headerlink" title="Hooks 是什么"></a>Hooks 是什么</h3><p>Hooks 从 React 16.8 起稳定。它们让函数组件拥有状态、副作用和 context，而不必写成类。类组件仍然支持，没有被删除。</p>
 <p>引入 Hooks 的直接原因是复用带状态的逻辑。高阶组件和 render props 能复用，但会多出一层组件、让数据和来源变远。自定义 Hook 只是一个调用了其他 Hook 的函数，没有额外的树节点。<code>this</code> 的绑定、生命周期里副作用和渲染缠在一起，是类组件里更常见的成本。把动机说成「类不利于 tree shaking」，并不是设计文档里的原因。</p>
-<p><img src="/../images/2022/05/10/ySU3TtHqDJaimwZ.png" alt="截屏2022-05-10 下午5.09.03.png"></p>
+<p><img src="/Infatuation/../images/2022/05/10/ySU3TtHqDJaimwZ.png" alt="截屏2022-05-10 下午5.09.03.png"></p>
 <h3 id="调用规则"><a href="#调用规则" class="headerlink" title="调用规则"></a>调用规则</h3><ol>
 <li>只在函数组件或其他自定义 Hook 的 <strong>顶层</strong> 调用。不要放进条件、循环、<code>try/catch</code> 或嵌套函数。</li>
 <li>不要在普通函数、类组件、事件回调里调用。</li>
@@ -145,12 +145,12 @@
 <p>React 用调用顺序把每一次 Hook 和 Fiber 上的节点对上号。中间少调用一次，后面的状态就会错位。条件渲染要放在 Hook <strong>之后</strong>，或者把条件挪进自定义 Hook 的内部实现（自定义 Hook 自己的调用次数在该组件里仍然要稳定）。</p>
 <h3 id="实现是链表，不是数组"><a href="#实现是链表，不是数组" class="headerlink" title="实现是链表，不是数组"></a>实现是链表，不是数组</h3><p>教学里常用「state 存在数组里，下标就是调用序号」来解释规则。真实结构是挂在 <code>fiber.memoizedState</code> 上的 <strong>单向链表</strong>：每个 Hook 节点有 <code>memoizedState</code>、<code>queue</code> 和 <code>next</code>。首次渲染走 mount 版 dispatcher，按顺序创建节点；更新走 update 版 dispatcher，按同样顺序取 <code>next</code>。</p>
 <p>「数组」这个比喻足够解释为什么不能条件调用，但源码里没有一个 <code>hookStates[i]</code> 数组。dispatcher 是当前渲染使用的那一组函数（<code>useState</code>、<code>useEffect</code> 等），mount 与 update 两套实现不同。</p>
-<p><img src="/../images/2022/05/10/V46eB9k753w2qmF.png" alt="截屏2022-05-10 下午4.49.55.png"></p>
-<p><img src="/../images/2022/05/10/hsVtjrKzxHGSdnX.png" alt="截屏2022-05-10 下午4.50.05.png"></p>
+<p><img src="/Infatuation/../images/2022/05/10/V46eB9k753w2qmF.png" alt="截屏2022-05-10 下午4.49.55.png"></p>
+<p><img src="/Infatuation/../images/2022/05/10/hsVtjrKzxHGSdnX.png" alt="截屏2022-05-10 下午4.50.05.png"></p>
 <h3 id="和-Fiber-的关系"><a href="#和-Fiber-的关系" class="headerlink" title="和 Fiber 的关系"></a>和 Fiber 的关系</h3><p>Hook 状态保存在函数组件对应的 Fiber 上，所以组件在树里的位置（类型 + key）决定了状态身份。父组件把子组件的类型换掉或改变 key，Fiber 重建，Hook 链表一起丢掉。</p>
-<p><img src="/../images/2022/05/05/TxeDFdjNmXorywv.png" alt="截屏2022-05-05 下午2.49.29.png"></p>
+<p><img src="/Infatuation/../images/2022/05/05/TxeDFdjNmXorywv.png" alt="截屏2022-05-05 下午2.49.29.png"></p>
 <p>并发渲染可能让函数体执行多次，未提交的那次会丢弃。Hook 的更新队列能承受「算了又重来」。这要求渲染保持纯。下面两张图是时间分片的直觉，调度细节在《React Fiber》和《React Scheduler 调度器》：切片不是 <code>requestIdleCallback</code>，默认大约 5ms 让出一次，而且只发生在并发 render。</p>
-<p><img src="/../images/2022/05/05/jGmO7u8PLhc6bRw.png" alt="截屏2022-05-05 下午2.49.38.png"></p>
+<p><img src="/Infatuation/../images/2022/05/05/jGmO7u8PLhc6bRw.png" alt="截屏2022-05-05 下午2.49.38.png"></p>
 <h3 id="常用-Hook"><a href="#常用-Hook" class="headerlink" title="常用 Hook"></a>常用 Hook</h3><ul>
 <li><strong>useState</strong>：保存渲染所需状态。对象不会像类的 <code>setState</code> 那样合并。</li>
 <li><strong>useReducer</strong>：下一次状态由 reducer 纯函数算出，适合更新依赖前一份状态、或多个子更新一起变。</li>
@@ -217,7 +217,7 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2021/07/11/React-JSX/" id="article-nav-newer" class="article-nav-link-wrap">
+      <a href="/Infatuation/2021/07/11/React-JSX/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption"></strong>
         <div class="article-nav-title">
           
@@ -229,7 +229,7 @@
   </div>
   <div class="article-nav-block">
     
-      <a href="/2021/06/22/React-Fragment/" id="article-nav-older" class="article-nav-link-wrap">
+      <a href="/Infatuation/2021/06/22/React-Fragment/" id="article-nav-older" class="article-nav-link-wrap">
         <div class="article-nav-title">React.Fragment</div>
         <strong class="article-nav-caption"></strong>
       </a>
@@ -282,7 +282,7 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seata/" rel="tag">Seata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Seata/" rel="tag">Seata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
     </div>
   </div>
 
@@ -292,7 +292,7 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Echarts/" style="font-size: 12.86px;">Echarts</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/HTML/" style="font-size: 13.57px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/JVM/" style="font-size: 11.43px;">JVM</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/RabbitMQ/" style="font-size: 10px;">RabbitMQ</a> <a href="/tags/React/" style="font-size: 19.29px;">React</a> <a href="/tags/Redux/" style="font-size: 14.29px;">Redux</a> <a href="/tags/SQL/" style="font-size: 16.43px;">SQL</a> <a href="/tags/Seata/" style="font-size: 10px;">Seata</a> <a href="/tags/Spring/" style="font-size: 12.14px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10.71px;">SpringBoot</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Vuex/" style="font-size: 12.14px;">Vuex</a> <a href="/tags/jQuery/" style="font-size: 12.86px;">jQuery</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 10px;">中间件</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.14px;">前端</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15.71px;">微服务</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.57px;">数据结构</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.29px;">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.86px;">网络</a>
+      <a href="/Infatuation/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/Infatuation/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/Infatuation/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/Infatuation/tags/Echarts/" style="font-size: 12.86px;">Echarts</a> <a href="/Infatuation/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/Infatuation/tags/HTML/" style="font-size: 13.57px;">HTML</a> <a href="/Infatuation/tags/JS/" style="font-size: 20px;">JS</a> <a href="/Infatuation/tags/JVM/" style="font-size: 11.43px;">JVM</a> <a href="/Infatuation/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/Infatuation/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/Infatuation/tags/RabbitMQ/" style="font-size: 10px;">RabbitMQ</a> <a href="/Infatuation/tags/React/" style="font-size: 19.29px;">React</a> <a href="/Infatuation/tags/Redux/" style="font-size: 14.29px;">Redux</a> <a href="/Infatuation/tags/SQL/" style="font-size: 16.43px;">SQL</a> <a href="/Infatuation/tags/Seata/" style="font-size: 10px;">Seata</a> <a href="/Infatuation/tags/Spring/" style="font-size: 12.14px;">Spring</a> <a href="/Infatuation/tags/SpringBoot/" style="font-size: 10.71px;">SpringBoot</a> <a href="/Infatuation/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/Infatuation/tags/Vuex/" style="font-size: 12.14px;">Vuex</a> <a href="/Infatuation/tags/jQuery/" style="font-size: 12.86px;">jQuery</a> <a href="/Infatuation/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 10px;">中间件</a> <a href="/Infatuation/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/Infatuation/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.14px;">前端</a> <a href="/Infatuation/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15.71px;">微服务</a> <a href="/Infatuation/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.57px;">数据结构</a> <a href="/Infatuation/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.29px;">算法</a> <a href="/Infatuation/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.86px;">网络</a>
     </div>
   </div>
 
@@ -301,7 +301,7 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2025/01/">January 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Infatuation/archives/2018/01/">January 2018</a></li></ul>
     </div>
   </div>
 
@@ -313,23 +313,23 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
-            <a href="/2025/12/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%9D%A2%E8%AF%95%E8%A6%81%E7%82%B9/">微服务 面试要点</a>
+            <a href="/Infatuation/2025/12/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%9D%A2%E8%AF%95%E8%A6%81%E7%82%B9/">微服务 面试要点</a>
           </li>
         
           <li>
-            <a href="/2025/12/10/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">微服务 负载均衡</a>
+            <a href="/Infatuation/2025/12/10/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">微服务 负载均衡</a>
           </li>
         
           <li>
-            <a href="/2025/12/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%A6%82%E8%BF%B0%E4%B8%8E%E6%8B%86%E5%88%86/">微服务 概述与拆分</a>
+            <a href="/Infatuation/2025/12/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%A6%82%E8%BF%B0%E4%B8%8E%E6%8B%86%E5%88%86/">微服务 概述与拆分</a>
           </li>
         
           <li>
-            <a href="/2025/11/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Sentinel/">微服务 Sentinel 服务保护</a>
+            <a href="/Infatuation/2025/11/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Sentinel/">微服务 Sentinel 服务保护</a>
           </li>
         
           <li>
-            <a href="/2025/11/12/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Redis/">微服务 Redis</a>
+            <a href="/Infatuation/2025/11/12/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Redis/">微服务 Redis</a>
           </li>
         
       </ul>
@@ -352,19 +352,19 @@ gitment.render('gitmentContainer')
       <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
 
 
-<script src="/fancybox/jquery-2.0.3.min.js"></script>
+<script src="/Infatuation/fancybox/jquery-2.0.3.min.js"></script>
  
-<script src="/fancybox/L2Dwidget.min.js"></script>
+<script src="/Infatuation/fancybox/L2Dwidget.min.js"></script>
 
 <!-- <script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script> -->
 <!-- <script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script> -->
 
  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" href="/Infatuation/fancybox/jquery.fancybox.css">
  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
  
-<script src="/fancybox/jquery.fancybox.js"></script>
+<script src="/Infatuation/fancybox/jquery.fancybox.js"></script>
  
 
 <!-- <link href="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.css"/>
@@ -373,7 +373,7 @@ gitment.render('gitmentContainer')
 
 <!-- <script src="https://thisisloves.github.io/Infatuation/js/script.js"></script> -->
 
-<script src="/js/script.js"></script>
+<script src="/Infatuation/js/script.js"></script>
  
 
 
@@ -381,9 +381,9 @@ gitment.render('gitmentContainer')
     <nav id="mobile-nav" class="mobile-nav-box">
   <div class="mobile-nav-img mobile-nav-top"></div>
   
-    <a href="/" class="mobile-nav-link">首页</a>
+    <a href="/Infatuation/" class="mobile-nav-link">首页</a>
   
-    <a href="/archives" class="mobile-nav-link">归档</a>
+    <a href="/Infatuation/archives" class="mobile-nav-link">归档</a>
   
     <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
   
@@ -396,5 +396,5 @@ gitment.render('gitmentContainer')
   <div class="mobile-nav-img  mobile-nav-bottom"></div>
 </nav>    
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
