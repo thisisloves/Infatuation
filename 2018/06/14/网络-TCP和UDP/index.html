@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+ 
+    <title>网络 TCP 和 UDP | 亦如星辰闪耀长河</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+       <meta name="description" content="风华笔墨，后庭尘埃。便天光云影，不与徘徊。纵三千里河山，亦四十年蓬莱。青丝染霜，镜鸾沉彩。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络 TCP 和 UDP">
+<meta property="og:url" content="https://thisisloves.github.io/2018/06/14/%E7%BD%91%E7%BB%9C-TCP%E5%92%8CUDP/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="风华笔墨，后庭尘埃。便天光云影，不与徘徊。纵三千里河山，亦四十年蓬莱。青丝染霜，镜鸾沉彩。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/EcHXsNCKvOjUhmL.png">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/y19tcabwUEJNdG3.png">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/Rd3mDyqubTI1ehf.png">
+<meta property="article:published_time" content="2018-06-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-29T02:48:30.592Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/15/EcHXsNCKvOjUhmL.png"> 
+    <link
+      rel="alternate"
+      href="/atom.xml"
+      title="亦如星辰闪耀长河"
+      type="application/atom+xml"
+    />
+    
+    <!--  -->
+    <link
+      rel="icon"
+      href="https://thisisloves.github.io/Infatuation/images/2019/05/20/5ce292afb9f6b42428.jpeg"
+    />
+    <!--  -->
+    
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+    
+    <!-- 
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/highlight.css">
+ -->
+
+    <link
+      rel="stylesheet"
+      href="https://thisisloves.github.io/Infatuation/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://thisisloves.github.io/Infatuation/css/highlight.css"
+    />
+  <meta name="generator" content="Hexo 6.3.0"></head>
+</html>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-网络-TCP和UDP" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      网络 TCP 和 UDP
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2018/06/14/%E7%BD%91%E7%BB%9C-TCP%E5%92%8CUDP/" class="article-date">
+  <time datetime="2018-06-13T16:00:00.000Z" itemprop="datePublished">2018-06-14</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>风华笔墨，后庭尘埃。便天光云影，不与徘徊。纵三千里河山，亦四十年蓬莱。青丝染霜，镜鸾沉彩。</p>
+<span id="more"></span>
+
+<h3 id="TCP-提供什么"><a href="#TCP-提供什么" class="headerlink" title="TCP 提供什么"></a>TCP 提供什么</h3><p>TCP（Transmission Control Protocol）是传输层协议，面向连接，提供可靠、有序的字节流。它在两个端点之间工作，不负责替中间路由器选路。可靠性来自序号、确认、重传和校验，不是因为「经过了三次握手」这一句话本身。</p>
+<h3 id="TCP-如何保证可靠"><a href="#TCP-如何保证可靠" class="headerlink" title="TCP 如何保证可靠"></a>TCP 如何保证可靠</h3><ol>
+<li>按接收窗口和 MSS 把字节流分段，接收端按序号重组。分片大小由双方协商，不是只由发送方单方面决定。</li>
+<li>接收端用确认号告诉对方：此序号之前的连续字节已经收到。</li>
+<li>发送端为未确认数据维护重传定时器。超时仍未确认就重传。</li>
+<li>滑动窗口做流量控制。接收端通告自己还能收多少，发送端不能超出这个窗口，避免快的一方灌满慢的一方。</li>
+<li>IP 不保证顺序，TCP 用序号重排后才交给应用。</li>
+<li>重复的报文段按序号丢弃。</li>
+<li>TCP 对头部和数据计算端到端校验和。校验失败则丢弃且不确认，交给对端超时重传。</li>
+</ol>
+<p>连接只在两个端点上维护。中间设备转发的是 IP 分组，不必理解这条 TCP 连接，除非它是做连接跟踪的防火墙或 NAT。</p>
+<h3 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h3><p>慢启动阈值记作 ssthresh，不是「阐值」。拥塞窗口记作 cwnd。</p>
+<table>
+<thead>
+<tr>
+<th align="left">阶段</th>
+<th align="left">发生什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">慢启动</td>
+<td align="left">初始 cwnd 很小。每收到一个对新数据的 ACK，cwnd 大约增加一个 MSS，每个 RTT 近似翻倍</td>
+</tr>
+<tr>
+<td align="left">拥塞避免</td>
+<td align="left">cwnd 超过 ssthresh 后，每个 RTT 大约只增加一个 MSS，改为线性增长</td>
+</tr>
+<tr>
+<td align="left">超时</td>
+<td align="left">ssthresh 设为当前窗口的一半，cwnd 降为 1 个 MSS，重新慢启动</td>
+</tr>
+<tr>
+<td align="left">快速重传</td>
+<td align="left">收到三个重复 ACK，认为该序号丢失，立即重传，不等待 RTO</td>
+</tr>
+<tr>
+<td align="left">快速恢复</td>
+<td align="left">快速重传后不回到 cwnd &#x3D; 1。Reno 把 ssthresh 设为 cwnd&#x2F;2，cwnd 设为 ssthresh + 3，随后进入拥塞避免</td>
+</tr>
+</tbody></table>
+<p>收到三个重复 ACK 时进入快速恢复，用的是 cwnd，不是不存在的 ewnd。超时和三个重复 ACK 是两条不同的恢复路径，不能都写成「重新慢启动」。</p>
+<h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><p>TCP 用三次握手建立连接，避免过期的连接请求把双方带进一条并不存在的会话。流量控制用的是滑动窗口，和握手是两件事。</p>
+<p><img src="/../images/2022/06/15/EcHXsNCKvOjUhmL.png" alt="截屏2022-06-15 上午11.26.56.png"></p>
+<ol>
+<li>客户端发送 SYN，序号为 x，进入 SYN_SENT。状态名是 SYN_SENT，不是 SYN_SEND。</li>
+<li>服务器回 SYN + ACK。序号为 y，确认号为 x + 1，进入 SYN_RCVD。</li>
+<li>客户端回 ACK，确认号为 y + 1，进入 ESTABLISHED。服务器收到这个 ACK 后也进入 ESTABLISHED。</li>
+</ol>
+<p>第三次之前，服务器还不能把这条连接交给应用。双方的初始序号独立选择，确认号总是「期望收到的下一个序号」。</p>
+<h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><p>TCP 全双工，每个方向要单独关闭，所以正常释放是四次挥手。</p>
+<p><img src="/../images/2022/06/15/y19tcabwUEJNdG3.png" alt="截屏2022-06-15 上午11.29.45.png"></p>
+<ol>
+<li>主动关闭方发送 FIN，表示本方向没有更多数据，进入 FIN_WAIT_1。</li>
+<li>被动方确认这个 FIN，进入 CLOSE_WAIT。主动方收到 ACK 后进入 FIN_WAIT_2。应用若还有数据，仍可从被动方向主动方发送。</li>
+<li>被动方的应用关闭套接字，再发送自己的 FIN，进入 LAST_ACK。</li>
+<li>主动方确认这个 FIN，进入 TIME_WAIT，等待 2MSL 后彻底关闭。被动方收到最后的 ACK 后进入 CLOSED。</li>
+</ol>
+<p>TIME_WAIT 保证最后的 ACK 丢失时还能重传，并让旧连接的迟到报文从网络中消失。主动关闭的一端才会进入 TIME_WAIT。若被动方在确认对方 FIN 时自己也没有数据了，ACK 可以和 FIN 放在同一个报文段里，线上就可能只看到三段。</p>
+<h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><p>UDP 在 IP 之上提供无连接的数据报。头部只有源端口、目的端口、长度和校验和，共 8 字节；TCP 头部至少 20 字节。应用一次写入的报文，UDP 既不合并也不拆开，边界由应用自己保持。IPv4 中 UDP 校验和可以是 0，表示不校验；IPv6 中必须校验。</p>
+<p>UDP 没有拥塞窗口，发送速率由应用、带宽和主机处理能力决定。网络差时丢包不会被 UDP 自动重传。实时音视频、DNS 查询、DHCP 常用它。早期一些即时通信以 UDP 为主，现在的产品经常是 UDP、TCP 和 QUIC 混用，不能再说「聊天软件就是 UDP」。</p>
+<h3 id="TCP-与-UDP"><a href="#TCP-与-UDP" class="headerlink" title="TCP 与 UDP"></a>TCP 与 UDP</h3><p><img src="/../images/2022/06/15/Rd3mDyqubTI1ehf.png" alt="截屏2022-06-15 下午2.26.08.png"></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">TCP</th>
+<th align="left">UDP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">连接</td>
+<td align="left">握手后通信</td>
+<td align="left">不建立连接</td>
+</tr>
+<tr>
+<td align="left">可靠性</td>
+<td align="left">确认、重传、按序</td>
+<td align="left">尽最大努力，不确认</td>
+</tr>
+<tr>
+<td align="left">数据形态</td>
+<td align="left">字节流，无消息边界</td>
+<td align="left">数据报，保留边界</td>
+</tr>
+<tr>
+<td align="left">传输方式</td>
+<td align="left">单播</td>
+<td align="left">单播、组播、广播</td>
+</tr>
+<tr>
+<td align="left">头部</td>
+<td align="left">至少 20 字节</td>
+<td align="left">8 字节</td>
+</tr>
+<tr>
+<td align="left">拥塞控制</td>
+<td align="left">有</td>
+<td align="left">无</td>
+</tr>
+</tbody></table>
+<p>TCP 的「可靠」指字节最终按序交给应用，或由应用得知连接失败。它不承诺时延，也不代替应用层的业务确认。</p>
+<h3 id="状态名"><a href="#状态名" class="headerlink" title="状态名"></a>状态名</h3><p>握手用 SYN_SENT 和 SYN_RCVD，不是 SYN_SEND、SYN_RECV。挥手的主动方在发出最后一个 ACK 后进入 TIME_WAIT，时长约两个 MSL。这段时间里同一四元组不能马上重用，是为了让旧报文消失，不是因为实现「反应慢」。</p>
+<p>拥塞窗口的变量是 cwnd。三个重复 ACK 之后进入快速恢复时，ssthresh 取当前窗口的一半，cwnd 设为 ssthresh 加 3 个报文段，不要写成不存在的 ewnd。超时则把 cwnd 降回 1 个报文段再慢启动，两条路径不要合成一句「丢失就慢启动」。</p>
+<p>UDP 头部固定 8 字节，没有序号和窗口。应用若需要可靠，就得自己做确认，或者改用 TCP、QUIC。</p>
+<h3 id="半关闭"><a href="#半关闭" class="headerlink" title="半关闭"></a>半关闭</h3><p>主动方的 FIN 只表示自己不再发送，对端仍可以继续送数据，直到它也发送 FIN。所以正常关闭是四次，而不是把握手的三次倒过来。最后的 ACK 丢失时，TIME_WAIT 里的主动方还能重传。被动方进入 CLOSED，不等待 2MSL。</p>
+<p>慢启动阶段每收到一个确认，拥塞窗口大约增加一个 MSS，一个往返里近似翻倍。超过 ssthresh 后每个往返大约只加一个 MSS。阈值的名字是 ssthresh，不是阐值。UDP 没有这套窗口，发送多快由应用决定，网络拥塞时它不会自己退让。</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2018/06/23/%E7%BD%91%E7%BB%9C-%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            网络 子网划分
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2018/06/04/%E7%BD%91%E7%BB%9C-STP/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">网络 STP</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seata/" rel="tag">Seata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Echarts/" style="font-size: 12.86px;">Echarts</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/HTML/" style="font-size: 13.57px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/JVM/" style="font-size: 11.43px;">JVM</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/RabbitMQ/" style="font-size: 10px;">RabbitMQ</a> <a href="/tags/React/" style="font-size: 19.29px;">React</a> <a href="/tags/Redux/" style="font-size: 14.29px;">Redux</a> <a href="/tags/SQL/" style="font-size: 16.43px;">SQL</a> <a href="/tags/Seata/" style="font-size: 10px;">Seata</a> <a href="/tags/Spring/" style="font-size: 12.14px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10.71px;">SpringBoot</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Vuex/" style="font-size: 12.14px;">Vuex</a> <a href="/tags/jQuery/" style="font-size: 12.86px;">jQuery</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 10px;">中间件</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.14px;">前端</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15.71px;">微服务</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.57px;">数据结构</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.29px;">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.86px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/12/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%9D%A2%E8%AF%95%E8%A6%81%E7%82%B9/">微服务 面试要点</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/10/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">微服务 负载均衡</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%A6%82%E8%BF%B0%E4%B8%8E%E6%8B%86%E5%88%86/">微服务 概述与拆分</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Sentinel/">微服务 Sentinel 服务保护</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/12/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Redis/">微服务 Redis</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2026 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv">99999</span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+
+<script src="/fancybox/jquery-2.0.3.min.js"></script>
+ 
+<script src="/fancybox/L2Dwidget.min.js"></script>
+
+<!-- <script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script> -->
+<!-- <script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script> -->
+
+ 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+ 
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+ 
+<script src="/fancybox/jquery.fancybox.js"></script>
+ 
+
+<!-- <link href="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.css"/>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.js"></script> -->
+
+<!-- <script src="https://thisisloves.github.io/Infatuation/js/script.js"></script> -->
+
+<script src="/js/script.js"></script>
+ 
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

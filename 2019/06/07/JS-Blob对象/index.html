@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+ 
+    <title>JS Blob 对象 | 亦如星辰闪耀长河</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+       <meta name="description" content="世界上有两万人会与你一见钟情，但你这辈子可能一个也遇不到，与其说是一见钟情，不如说是命运。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS Blob 对象">
+<meta property="og:url" content="https://thisisloves.github.io/2019/06/07/JS-Blob%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="世界上有两万人会与你一见钟情，但你这辈子可能一个也遇不到，与其说是一见钟情，不如说是命运。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-06-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-29T02:48:30.613Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary"> 
+    <link
+      rel="alternate"
+      href="/atom.xml"
+      title="亦如星辰闪耀长河"
+      type="application/atom+xml"
+    />
+    
+    <!--  -->
+    <link
+      rel="icon"
+      href="https://thisisloves.github.io/Infatuation/images/2019/05/20/5ce292afb9f6b42428.jpeg"
+    />
+    <!--  -->
+    
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+    
+    <!-- 
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/highlight.css">
+ -->
+
+    <link
+      rel="stylesheet"
+      href="https://thisisloves.github.io/Infatuation/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://thisisloves.github.io/Infatuation/css/highlight.css"
+    />
+  <meta name="generator" content="Hexo 6.3.0"></head>
+</html>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-JS-Blob对象" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      JS Blob 对象
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/06/07/JS-Blob%E5%AF%B9%E8%B1%A1/" class="article-date">
+  <time datetime="2019-06-06T16:00:00.000Z" itemprop="datePublished">2019-06-07</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>世界上有两万人会与你一见钟情，但你这辈子可能一个也遇不到，与其说是一见钟情，不如说是命运。</p>
+<span id="more"></span>
+
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><code>Blob</code> 表示一段不可变的二进制数据，名字来自 Binary Large Object。它不负责打开磁盘路径，只在内存里保存字节和 MIME。<code>File</code> 是 <code>Blob</code> 的子类，多了 <code>name</code> 和 <code>lastModified</code>。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Blob</span>(parts, &#123; <span class="attr">type</span>: <span class="string">&#x27;text/html&#x27;</span> &#125;);</span><br></pre></td></tr></table></figure></div>
+
+<p><code>parts</code> 里可以是字符串、<code>ArrayBuffer</code>、<code>TypedArray</code> 或其他 <code>Blob</code>。字符串按 UTF-8 计入 <code>size</code>。<code>type</code> 默认空字符串，全部转成小写。</p>
+<p>实例只有 <code>size</code>、<code>type</code>，以及不改原对象的 <code>slice(start, end, contentType)</code>。<code>end</code> 不包含在内。不传 <code>contentType</code> 时，新 Blob 的类型是空字符串，不会继承原来的 MIME。</p>
+<p><code>URL.createObjectURL(blob)</code> 生成的是 <code>blob:</code> URL，形如 <code>blob:https://example.com/&lt;uuid&gt;</code>，不是 <code>blob://</code>，也不是把数据嵌进地址的 <code>data:</code> URL。它只在当前文档里有效，用完调用 <code>URL.revokeObjectURL</code>。</p>
+<h3 id="正确示例"><a href="#正确示例" class="headerlink" title="正确示例"></a>正确示例</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> html = <span class="string">&#x27;&lt;a id=&quot;a&quot;&gt;&lt;b id=&quot;b&quot;&gt;hey!&lt;/b&gt;&lt;/a&gt;&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> myBlob = <span class="keyword">new</span> <span class="title class_">Blob</span>([html], &#123; <span class="attr">type</span>: <span class="string">&#x27;text/html&#x27;</span> &#125;);</span><br><span class="line">myBlob.<span class="property">size</span>; <span class="comment">// UTF-8 字节数，这段 ASCII 等于 html.length</span></span><br><span class="line">myBlob.<span class="property">type</span>; <span class="comment">// &#x27;text/html&#x27;</span></span><br><span class="line">myBlob.<span class="title function_">slice</span>(<span class="number">0</span>, <span class="number">4</span>, <span class="string">&#x27;text/plain&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> jsonBlob = <span class="keyword">new</span> <span class="title class_">Blob</span>([<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123; <span class="attr">hello</span>: <span class="string">&#x27;world&#x27;</span> &#125;)], &#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<p>XHR 或 <code>fetch</code> 都可以把响应要成 Blob：</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> res = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;/file/demo&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> blob = <span class="keyword">await</span> res.<span class="title function_">blob</span>();</span><br></pre></td></tr></table></figure></div>
+
+<p>本地预览：</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">img.<span class="property">src</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(file);</span><br><span class="line">img.<span class="property">onload</span> = <span class="function">() =&gt;</span> <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(img.<span class="property">src</span>);</span><br></pre></td></tr></table></figure></div>
+
+<p>同一 Blob 可以放进 <code>FormData</code>，也可以 <code>blob.text()</code>、<code>blob.arrayBuffer()</code>、<code>blob.stream()</code> 读取。这些方法返回 Promise，比再包一层 <code>FileReader</code> 短。</p>
+<h3 id="常见坑"><a href="#常见坑" class="headerlink" title="常见坑"></a>常见坑</h3><ul>
+<li>把协议写成 <code>blob://</code> 或 <code>data://</code>。<code>data:</code> URL 自带内容；<code>blob:</code> 只是一个指向内存对象的键。对象被回收或 revoke 之后，这个地址失效。</li>
+<li><code>slice</code> 第三个参数省略时类型变空，上传时服务端可能认不出文件。需要类型就显式传入 <code>blob.type</code>。</li>
+<li><code>File.lastModifiedDate</code> 已废弃。Blob 本身没有修改时间，时间在 <code>File.lastModified</code> 上。</li>
+<li><code>&lt;input type=&quot;file&quot;&gt;</code> 的值不能由脚本设成某个路径，只能由用户选择。选中后得到的是 <code>FileList</code>。</li>
+<li>大文件用 <code>readAsDataURL</code> 会在 JS 堆里再放一份 Base64。预览和下载用对象 URL 即可。</li>
+<li><code>createObjectURL</code> 不调用 <code>revokeObjectURL</code>，即使用户已经离开预览界面，这份 Blob 仍可能被 URL 拽住。</li>
+</ul>
+<h3 id="和文件、下载"><a href="#和文件、下载" class="headerlink" title="和文件、下载"></a>和文件、下载</h3><p><code>File</code> 可以直接传给任何收 <code>Blob</code> 的 API。若只要其中一段字节，<code>file.slice(start, end, file.type)</code> 得到新的 Blob，原文件不动。<code>end</code> 是开区间，和数组的 <code>slice</code> 一样。</p>
+<p>触发下载时，对象 URL 赋给 <code>&lt;a download&gt;</code> 再点击。文件名以 <code>download</code> 属性和 <code>File.name</code> 为准，Blob 自己没有文件名，不传名字时浏览器可能保存成 <code>download</code> 或 UUID。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">save</span>(<span class="params">blob, filename</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> url = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob);</span><br><span class="line">  <span class="keyword">const</span> a = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">  a.<span class="property">href</span> = url;</span><br><span class="line">  a.<span class="property">download</span> = filename;</span><br><span class="line">  a.<span class="title function_">click</span>();</span><br><span class="line">  <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(url);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><code>fetch</code> 的 <code>res.blob()</code> 在状态码 404 时也会给出一个 Blob，那是错误页的正文。先看 <code>res.ok</code>。把 Blob 交给 <code>URL.createObjectURL</code> 之后，只要 URL 还活着，这块内存就不会被回收。</p>
+<h3 id="类型和字节长度"><a href="#类型和字节长度" class="headerlink" title="类型和字节长度"></a>类型和字节长度</h3><p>字符串按 UTF-8 计算 <code>size</code>。中文一个字通常是 3 个字节，和 <code>string.length</code> 的码元数不同：</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([<span class="string">&#x27;樱&#x27;</span>], &#123; <span class="attr">type</span>: <span class="string">&#x27;text/plain;charset=utf-8&#x27;</span> &#125;);</span><br><span class="line">blob.<span class="property">size</span>; <span class="comment">// 3</span></span><br><span class="line"><span class="string">&#x27;樱&#x27;</span>.<span class="property">length</span>; <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></div>
+
+<p><code>type</code> 会被转成小写，空类型是 <code>&#39;&#39;</code>。<code>slice</code> 不传第三个参数时，新 Blob 的类型变成空字符串，上传前要写回原来的 <code>type</code>，否则服务端只看到一段无名二进制。</p>
+<p><code>createObjectURL</code> 生成的地址以 <code>blob:</code> 开头，后面是源和 UUID。把它放进 <code>&lt;img src&gt;</code> 或 <code>&lt;a href&gt;</code> 都能用，但不能当成可以发给另一台电脑的永久链接。文档关闭或 <code>revokeObjectURL</code> 之后再请求，资源就不在了。同一 Blob 可以创建多个 URL，每个都要单独释放。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>Blob 是带 MIME 的不可变字节块，File 是它的子类。截取用 <code>slice</code>，临时地址用 <code>blob:</code> 而不是 <code>blob://</code>，读内容优先 <code>blob.text()</code> &#x2F; <code>arrayBuffer()</code>，URL 用完就释放。</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/06/17/JS-Cookie/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            JS Cookie
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/05/29/JS-BOM%E5%AF%B9%E8%B1%A1/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">JS BOM 对象</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seata/" rel="tag">Seata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Echarts/" style="font-size: 12.86px;">Echarts</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/HTML/" style="font-size: 13.57px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/JVM/" style="font-size: 11.43px;">JVM</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/RabbitMQ/" style="font-size: 10px;">RabbitMQ</a> <a href="/tags/React/" style="font-size: 19.29px;">React</a> <a href="/tags/Redux/" style="font-size: 14.29px;">Redux</a> <a href="/tags/SQL/" style="font-size: 16.43px;">SQL</a> <a href="/tags/Seata/" style="font-size: 10px;">Seata</a> <a href="/tags/Spring/" style="font-size: 12.14px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10.71px;">SpringBoot</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Vuex/" style="font-size: 12.14px;">Vuex</a> <a href="/tags/jQuery/" style="font-size: 12.86px;">jQuery</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 10px;">中间件</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.14px;">前端</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15.71px;">微服务</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.57px;">数据结构</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.29px;">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.86px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/12/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%9D%A2%E8%AF%95%E8%A6%81%E7%82%B9/">微服务 面试要点</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/10/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">微服务 负载均衡</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%A6%82%E8%BF%B0%E4%B8%8E%E6%8B%86%E5%88%86/">微服务 概述与拆分</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Sentinel/">微服务 Sentinel 服务保护</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/12/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Redis/">微服务 Redis</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2026 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv">99999</span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+
+<script src="/fancybox/jquery-2.0.3.min.js"></script>
+ 
+<script src="/fancybox/L2Dwidget.min.js"></script>
+
+<!-- <script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script> -->
+<!-- <script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script> -->
+
+ 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+ 
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+ 
+<script src="/fancybox/jquery.fancybox.js"></script>
+ 
+
+<!-- <link href="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.css"/>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.js"></script> -->
+
+<!-- <script src="https://thisisloves.github.io/Infatuation/js/script.js"></script> -->
+
+<script src="/js/script.js"></script>
+ 
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

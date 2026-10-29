@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+ 
+    <title>Java 变量类型 | 亦如星辰闪耀长河</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+       <meta name="description" content="有些人一旦错过了，就是一辈子不再主动联系，不愿打扰你的生活，连偶尔的寒暄都没有，成长就是这样的，不断的告别，不断的遇见。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 变量类型">
+<meta property="og:url" content="https://thisisloves.github.io/2024/02/28/Java-%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="有些人一旦错过了，就是一辈子不再主动联系，不愿打扰你的生活，连偶尔的寒暄都没有，成长就是这样的，不断的告别，不断的遇见。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-29T02:48:30.701Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary"> 
+    <link
+      rel="alternate"
+      href="/atom.xml"
+      title="亦如星辰闪耀长河"
+      type="application/atom+xml"
+    />
+    
+    <!--  -->
+    <link
+      rel="icon"
+      href="https://thisisloves.github.io/Infatuation/images/2019/05/20/5ce292afb9f6b42428.jpeg"
+    />
+    <!--  -->
+    
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+    
+    <!-- 
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/highlight.css">
+ -->
+
+    <link
+      rel="stylesheet"
+      href="https://thisisloves.github.io/Infatuation/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://thisisloves.github.io/Infatuation/css/highlight.css"
+    />
+  <meta name="generator" content="Hexo 6.3.0"></head>
+</html>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-Java-变量类型" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Java 变量类型
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2024/02/28/Java-%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/" class="article-date">
+  <time datetime="2024-02-27T16:00:00.000Z" itemprop="datePublished">2024-02-28</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>有些人一旦错过了，就是一辈子不再主动联系，不愿打扰你的生活，连偶尔的寒暄都没有，成长就是这样的，不断的告别，不断的遇见。</p>
+<span id="more"></span>
+
+<h3 id="变量是什么"><a href="#变量是什么" class="headerlink" title="变量是什么"></a>变量是什么</h3><p>变量是带类型、带名字的存储位置。Java 里变量必须先声明再使用，声明时类型就固定了。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type identifier [= value][, identifier [= value]];</span><br></pre></td></tr></table></figure></div>
+
+<p><code>type</code> 是数据类型，<code>identifier</code> 是名字。一次声明多个变量时，类型只写一遍：<code>int i = 0, j = 1;</code>。</p>
+<p>命名约定：变量、参数用 lowerCamelCase；常量（<code>static final</code>）用 <code>UPPER_SNAKE</code>；类名用 UpperCamelCase。名字不能是关键字，区分大小写。</p>
+<h3 id="三种变量"><a href="#三种变量" class="headerlink" title="三种变量"></a>三种变量</h3><p>按声明位置分，不要和「基本类型 &#x2F; 引用类型」混为一谈。那是数据种类，这是变量活在哪里。</p>
+<table>
+<thead>
+<tr>
+<th align="left">种类</th>
+<th align="left">声明位置</th>
+<th align="left">修饰</th>
+<th align="left">一份拷贝属于</th>
+<th align="left">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">局部变量</td>
+<td align="left">方法、构造器、代码块、参数</td>
+<td align="left">不能是 <code>static</code></td>
+<td align="left">每次调用</td>
+<td align="left">无，必须赋值</td>
+</tr>
+<tr>
+<td align="left">实例变量</td>
+<td align="left">类里、方法外</td>
+<td align="left">无 <code>static</code></td>
+<td align="left">每个对象</td>
+<td align="left">有</td>
+</tr>
+<tr>
+<td align="left">类变量</td>
+<td align="left">类里、方法外</td>
+<td align="left"><code>static</code></td>
+<td align="left">整个类一份</td>
+<td align="left">有</td>
+</tr>
+</tbody></table>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Variable</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="type">int</span> <span class="variable">allClicks</span> <span class="operator">=</span> <span class="number">0</span>;     <span class="comment">// 类变量</span></span><br><span class="line">  <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;hello world&quot;</span>;   <span class="comment">// 实例变量</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">method</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;                  <span class="comment">// 局部变量</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><p>局部变量在栈帧里，方法返回就消失。编译器要求：每条可能读到它的路径上都已经赋过值（明确赋值）。只声明 <code>int i;</code> 然后打印，无法编译。</p>
+<p>参数也是局部变量，由调用方传入，方法里给参数重新赋值不会改掉调用方的变量。循环变量的作用域是循环本身（Java 的 <code>for</code> 里声明的变量出了循环就不能用）。</p>
+<p>成员变量可以和局部变量同名，方法里不写前缀时优先指局部变量，要用成员必须写 <code>this.字段名</code>。</p>
+<h3 id="实例变量"><a href="#实例变量" class="headerlink" title="实例变量"></a>实例变量</h3><p>实例变量在方法、构造器、实例初始化块之外声明。对象被 <code>new</code> 出来时分配，对象不可达后由垃圾回收回收。</p>
+<ul>
+<li>每个对象各有一份，改 <code>a.name</code> 不影响 <code>b.name</code>。</li>
+<li>在实例方法里可以直接写字段名。</li>
+<li>在静态方法里没有 <code>this</code>，必须通过引用访问：<code>emp.name</code>。正确拼写是 <code>objectReference.variableName</code>。</li>
+<li>可用访问修饰符限制可见性。对子类可见不等于「全世界可写」，字段尽量 <code>private</code>，用方法修改。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Employee</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">double</span> salary;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">Employee</span><span class="params">(String empName)</span> &#123;</span><br><span class="line">    name = empName;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setSalary</span><span class="params">(<span class="type">double</span> empSal)</span> &#123;</span><br><span class="line">    salary = empSal;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printEmp</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;名字 : &quot;</span> + name);</span><br><span class="line">    System.out.println(<span class="string">&quot;薪水 : &quot;</span> + salary);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Employee</span> <span class="variable">empOne</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Employee</span>(<span class="string">&quot;RUNOOB&quot;</span>);</span><br><span class="line">    empOne.setSalary(<span class="number">1000.0</span>);</span><br><span class="line">    empOne.printEmp();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>「对象一创建，实例变量的值就确定」只对了一半：先按默认值初始化，再跑实例初始化块和构造器，之后还可以被方法改掉。</p>
+<h3 id="类变量"><a href="#类变量" class="headerlink" title="类变量"></a>类变量</h3><p>用 <code>static</code> 声明、写在方法外面。无论 <code>new</code> 多少次，静态变量只有一份，属于类而不属于某个对象。</p>
+<p>类初始化发生在该类第一次主动使用时（创建实例、调用静态方法、读非常量静态字段等），此时按文本顺序执行静态字段初始化和静态块。不是「某个字段第一次被点名时单独诞生」，也不要理解成每个对象创建时复制一份。类可以被卸载（其类加载器可回收时），不一定非要等到进程结束。</p>
+<p>访问方式优先 <code>ClassName.variableName</code>。用 <code>对象.静态变量</code> 能编译，但容易让人以为它是实例字段。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Employee</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">double</span> salary;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">DEPARTMENT</span> <span class="operator">=</span> <span class="string">&quot;开发人员&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    salary = <span class="number">10000</span>;</span><br><span class="line">    System.out.println(DEPARTMENT + <span class="string">&quot;平均工资:&quot;</span> + salary);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><code>static final</code> 是编译期常量时（基本类型或 <code>String</code> 字面量），可以在不触发类初始化的情况下内联进调用方。非常量静态字段则不行。</p>
+<p>实例变量和静态变量都不要滥用公有可变状态。静态可变字段还会带来线程安全问题：多个线程同时 <code>salary++</code> 不是原子的。</p>
+<h3 id="常见坑"><a href="#常见坑" class="headerlink" title="常见坑"></a>常见坑</h3><ol>
+<li>在静态方法里直接写实例字段，编译错误：没有当前对象。</li>
+<li>局部变量加 <code>static</code> 不合法。</li>
+<li><code>static</code> 字段之间互相引用时，顺序就是初始化顺序，写在前面的还没赋完值，读到的是默认值。</li>
+<li>没使用的 <code>import java.io.*</code> 对变量没有任何作用，示例里不需要它。</li>
+<li>参数名和字段同名时忘记 <code>this.salary = salary</code>，字段保持默认值 <code>0</code>。</li>
+</ol>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>先问变量属于一次调用、一个对象，还是整个类。局部变量必须赋值；实例变量每人一份；静态变量全类一份，在类初始化时准备好。对外尽量少暴露字段，用方法表达「允许怎样改」。</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2024/03/08/Java-%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E8%A6%81%E7%82%B9/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Java 基础面试要点
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2024/02/19/Java-%E5%8F%8D%E5%B0%84/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Java 反射</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seata/" rel="tag">Seata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Echarts/" style="font-size: 12.86px;">Echarts</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/HTML/" style="font-size: 13.57px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/JVM/" style="font-size: 11.43px;">JVM</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/RabbitMQ/" style="font-size: 10px;">RabbitMQ</a> <a href="/tags/React/" style="font-size: 19.29px;">React</a> <a href="/tags/Redux/" style="font-size: 14.29px;">Redux</a> <a href="/tags/SQL/" style="font-size: 16.43px;">SQL</a> <a href="/tags/Seata/" style="font-size: 10px;">Seata</a> <a href="/tags/Spring/" style="font-size: 12.14px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10.71px;">SpringBoot</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Vuex/" style="font-size: 12.14px;">Vuex</a> <a href="/tags/jQuery/" style="font-size: 12.86px;">jQuery</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 10px;">中间件</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.14px;">前端</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15.71px;">微服务</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.57px;">数据结构</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.29px;">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.86px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/12/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%9D%A2%E8%AF%95%E8%A6%81%E7%82%B9/">微服务 面试要点</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/10/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">微服务 负载均衡</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%A6%82%E8%BF%B0%E4%B8%8E%E6%8B%86%E5%88%86/">微服务 概述与拆分</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Sentinel/">微服务 Sentinel 服务保护</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/12/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Redis/">微服务 Redis</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2026 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv">99999</span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+
+<script src="/fancybox/jquery-2.0.3.min.js"></script>
+ 
+<script src="/fancybox/L2Dwidget.min.js"></script>
+
+<!-- <script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script> -->
+<!-- <script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script> -->
+
+ 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+ 
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+ 
+<script src="/fancybox/jquery.fancybox.js"></script>
+ 
+
+<!-- <link href="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.css"/>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.js"></script> -->
+
+<!-- <script src="https://thisisloves.github.io/Infatuation/js/script.js"></script> -->
+
+<script src="/js/script.js"></script>
+ 
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

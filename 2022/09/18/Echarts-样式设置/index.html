@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+ 
+    <title>ECharts 样式设置 | 亦如星辰闪耀长河</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+       <meta name="description" content="离恨却如春草，更行更远还生。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECharts 样式设置">
+<meta property="og:url" content="https://thisisloves.github.io/2022/09/18/Echarts-%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="离恨却如春草，更行更远还生。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-29T02:48:30.671Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="Echarts">
+<meta name="twitter:card" content="summary"> 
+    <link
+      rel="alternate"
+      href="/atom.xml"
+      title="亦如星辰闪耀长河"
+      type="application/atom+xml"
+    />
+    
+    <!--  -->
+    <link
+      rel="icon"
+      href="https://thisisloves.github.io/Infatuation/images/2019/05/20/5ce292afb9f6b42428.jpeg"
+    />
+    <!--  -->
+    
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+    
+    <!-- 
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/highlight.css">
+ -->
+
+    <link
+      rel="stylesheet"
+      href="https://thisisloves.github.io/Infatuation/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://thisisloves.github.io/Infatuation/css/highlight.css"
+    />
+  <meta name="generator" content="Hexo 6.3.0"></head>
+</html>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-Echarts-样式设置" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      ECharts 样式设置
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2022/09/18/Echarts-%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE/" class="article-date">
+  <time datetime="2022-09-17T16:00:00.000Z" itemprop="datePublished">2022-09-18</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Echarts/" rel="tag">Echarts</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>离恨却如春草，更行更远还生。</p>
+<span id="more"></span>
+
+<h3 id="颜色给谁"><a href="#颜色给谁" class="headerlink" title="颜色给谁"></a>颜色给谁</h3><p>ECharts 的样式写在 option 里，单位是数值像素，不是 CSS 的 <code>rem</code>。<code>color</code> 是全局调色盘，系列按顺序取色。单个系列用 <code>itemStyle.color</code> 盖过调色盘。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">chart.<span class="title function_">setOption</span>(&#123;</span><br><span class="line">  <span class="attr">color</span>: [<span class="string">&#x27;#5470c6&#x27;</span>, <span class="string">&#x27;#91cc75&#x27;</span>, <span class="string">&#x27;#fac858&#x27;</span>],</span><br><span class="line">  <span class="attr">series</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">      <span class="attr">itemStyle</span>: &#123; <span class="attr">color</span>: <span class="string">&#x27;#5470c6&#x27;</span>, <span class="attr">borderRadius</span>: [<span class="number">4</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">0</span>] &#125;,</span><br><span class="line">      <span class="attr">emphasis</span>: &#123; <span class="attr">itemStyle</span>: &#123; <span class="attr">color</span>: <span class="string">&#x27;#3b52a0&#x27;</span> &#125; &#125;,</span><br><span class="line">      <span class="attr">data</span>: [<span class="number">5</span>, <span class="number">20</span>, <span class="number">36</span>, <span class="number">10</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<p><code>emphasis</code> 是悬停，<code>blur</code> 是「别的数据被选中时，这项变淡」，<code>select</code> 是选中。三者都是状态样式，不要只改 <code>itemStyle</code> 却指望悬停变色。</p>
+<h3 id="线、点、文字"><a href="#线、点、文字" class="headerlink" title="线、点、文字"></a>线、点、文字</h3><p>折线的线宽和线型在 <code>lineStyle</code>，拐点在 <code>symbol</code>、<code>symbolSize</code>。面积是 <code>areaStyle</code>，可以是纯色或 <code>LinearGradient</code>。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; graphic &#125; <span class="keyword">from</span> <span class="string">&#x27;echarts&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fade = <span class="keyword">new</span> graphic.<span class="title class_">LinearGradient</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, [</span><br><span class="line">  &#123; <span class="attr">offset</span>: <span class="number">0</span>, <span class="attr">color</span>: <span class="string">&#x27;rgba(84,112,198,0.45)&#x27;</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">offset</span>: <span class="number">1</span>, <span class="attr">color</span>: <span class="string">&#x27;rgba(84,112,198,0)&#x27;</span> &#125;</span><br><span class="line">]);</span><br></pre></td></tr></table></figure></div>
+
+<p><code>label</code> 控制数据标签。<code>formatter</code> 可以是字符串模板 <code>&#39;&#123;c&#125;&#39;</code> 或函数 <code>(params) =&gt; params.value</code>。标签太多会互相遮挡，用 <code>labelLayout.hideOverlap</code>，或只在 <code>emphasis</code> 里显示。</p>
+<p>坐标轴文字是 <code>axisLabel</code>，轴线是 <code>axisLine</code>，刻度是 <code>axisTick</code>，网格线是 <code>splitLine</code>。想隐藏轴线就把 <code>axisLine.show</code> 设为 <code>false</code>，不要把颜色设成和背景一样蒙混，导出图片时背景不一定还在。</p>
+<h3 id="调色盘函数"><a href="#调色盘函数" class="headerlink" title="调色盘函数"></a>调色盘函数</h3><p><code>itemStyle.color</code> 可以是函数，按 <code>params.dataIndex</code> 返回颜色。大图里这个函数会走很多次，不要在里面创建复杂对象或读 DOM。</p>
+<p>渐变、纹理属于 <code>graphic.LinearGradient</code> &#x2F; <code>RadialGradient</code>。直接写 CSS 渐变字符串不会生效。</p>
+<h3 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h3><p><code>textStyle</code> 出现在 <code>title</code>、<code>legend</code>、<code>axisLabel</code> 等组件上，字段是 <code>color</code>、<code>fontSize</code>、<code>fontFamily</code>、<code>fontWeight</code>。<code>fontSize</code> 是数字。全局默认可以放在根上的 <code>textStyle</code>，各组件再覆盖。</p>
+<p>暗色背景要用深色主题或自己把 <code>axisLabel.color</code>、<code>splitLine.lineStyle.color</code> 调亮。只改系列颜色、不改轴文字，深色页面上字会看不见。</p>
+<h3 id="样式不要写进数据"><a href="#样式不要写进数据" class="headerlink" title="样式不要写进数据"></a>样式不要写进数据</h3><p><code>data: [&#123; value: 10, itemStyle: &#123; color: &#39;red&#39; &#125; &#125;]</code> 能针对单点上色，但主题一换就要改数据。能用 <code>visualMap</code> 表达的映射，不要给每个点写死颜色。见《ECharts 数据视觉映射》。</p>
+<h3 id="易错"><a href="#易错" class="headerlink" title="易错"></a>易错</h3><p>ECharts 5 里 <code>emphasis</code>、<code>blur</code>、<code>select</code> 与 <code>itemStyle</code> 平级。<code>itemStyle.normal</code> 和 <code>itemStyle.emphasis</code> 是 4.x 的套法，现在仍兼容，新配置不要再包一层 <code>normal</code>。</p>
+<p>内置主题名是 <code>&#39;light&#39;</code> 和 <code>&#39;dark&#39;</code>。不传第二个参数时用的是 ECharts 5 的默认色板，和 <code>echarts.init(dom, &#39;light&#39;)</code> 不是同一套颜色：<code>&#39;light&#39;</code> 是另外注册的调色盘。自定义主题要先 <code>echarts.registerTheme(name, theme)</code> 再 <code>init</code>。没注册的名字会变成 <code>undefined</code>，图退回默认外观，不会抛错。</p>
+<p>折线的 <code>itemStyle.color</code> 会同时变成线的颜色。线和点要分开时，线写 <code>lineStyle.color</code>，点写 <code>itemStyle.color</code>。某一系列自己的调色盘写在该系列的 <code>color</code> 数组上，只影响这一系列的数据项；<code>itemStyle.color</code> 仍然盖过调色盘。打开了按数值上色的 <code>visualMap</code> 时，调色盘和写死的 <code>itemStyle.color</code> 都可能被映射结果盖掉。</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2022/09/27/Echarts-%E8%87%AA%E9%80%82%E5%BA%94(rem)/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            ECharts 自适应（rem + 缩放函数）
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2022/09/08/Echarts-%E6%95%B0%E6%8D%AE%E8%A7%86%E8%A7%89%E6%98%A0%E5%B0%84/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">ECharts 数据视觉映射</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seata/" rel="tag">Seata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Echarts/" style="font-size: 12.86px;">Echarts</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/HTML/" style="font-size: 13.57px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/JVM/" style="font-size: 11.43px;">JVM</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/RabbitMQ/" style="font-size: 10px;">RabbitMQ</a> <a href="/tags/React/" style="font-size: 19.29px;">React</a> <a href="/tags/Redux/" style="font-size: 14.29px;">Redux</a> <a href="/tags/SQL/" style="font-size: 16.43px;">SQL</a> <a href="/tags/Seata/" style="font-size: 10px;">Seata</a> <a href="/tags/Spring/" style="font-size: 12.14px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10.71px;">SpringBoot</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Vuex/" style="font-size: 12.14px;">Vuex</a> <a href="/tags/jQuery/" style="font-size: 12.86px;">jQuery</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 10px;">中间件</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.14px;">前端</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15.71px;">微服务</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.57px;">数据结构</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.29px;">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.86px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/12/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%9D%A2%E8%AF%95%E8%A6%81%E7%82%B9/">微服务 面试要点</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/10/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">微服务 负载均衡</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%A6%82%E8%BF%B0%E4%B8%8E%E6%8B%86%E5%88%86/">微服务 概述与拆分</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Sentinel/">微服务 Sentinel 服务保护</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/12/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Redis/">微服务 Redis</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2026 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv">99999</span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+
+<script src="/fancybox/jquery-2.0.3.min.js"></script>
+ 
+<script src="/fancybox/L2Dwidget.min.js"></script>
+
+<!-- <script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script> -->
+<!-- <script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script> -->
+
+ 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+ 
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+ 
+<script src="/fancybox/jquery.fancybox.js"></script>
+ 
+
+<!-- <link href="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.css"/>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.js"></script> -->
+
+<!-- <script src="https://thisisloves.github.io/Infatuation/js/script.js"></script> -->
+
+<script src="/js/script.js"></script>
+ 
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

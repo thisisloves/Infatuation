@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+ 
+    <title>微服务 RabbitMQ 高级 | 亦如星辰闪耀长河</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+       <meta name="description" content="莫听穿林打叶声，何妨吟啸且徐行。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微服务 RabbitMQ 高级">
+<meta property="og:url" content="https://thisisloves.github.io/2025/11/02/%E5%BE%AE%E6%9C%8D%E5%8A%A1-RabbitMQ%E9%AB%98%E7%BA%A7/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="莫听穿林打叶声，何妨吟啸且徐行。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-11-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-29T02:48:30.749Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="微服务">
+<meta name="twitter:card" content="summary"> 
+    <link
+      rel="alternate"
+      href="/atom.xml"
+      title="亦如星辰闪耀长河"
+      type="application/atom+xml"
+    />
+    
+    <!--  -->
+    <link
+      rel="icon"
+      href="https://thisisloves.github.io/Infatuation/images/2019/05/20/5ce292afb9f6b42428.jpeg"
+    />
+    <!--  -->
+    
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+    
+    <!-- 
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/highlight.css">
+ -->
+
+    <link
+      rel="stylesheet"
+      href="https://thisisloves.github.io/Infatuation/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://thisisloves.github.io/Infatuation/css/highlight.css"
+    />
+  <meta name="generator" content="Hexo 6.3.0"></head>
+</html>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-微服务-RabbitMQ高级" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      微服务 RabbitMQ 高级
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2025/11/02/%E5%BE%AE%E6%9C%8D%E5%8A%A1-RabbitMQ%E9%AB%98%E7%BA%A7/" class="article-date">
+  <time datetime="2025-11-01T16:00:00.000Z" itemprop="datePublished">2025-11-02</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>莫听穿林打叶声，何妨吟啸且徐行。</p>
+<span id="more"></span>
+
+<h3 id="对应练习"><a href="#对应练习" class="headerlink" title="对应练习"></a>对应练习</h3><p>基础篇已经跑通 Work、Fanout、Direct、Topic 和监听。本篇在同一套 <code>mq-demo</code> &#x2F; 订单链路上补四件事：堆积时少占内存、超时消息、可靠投递、消费速度。</p>
+<p>业务例子：下单后 15 分钟未支付则关单并恢复库存。强一致扣库存仍见 Seata 篇；关单用消息即可。</p>
+<h3 id="惰性队列"><a href="#惰性队列" class="headerlink" title="惰性队列"></a>惰性队列</h3><p>普通队列把消息尽量留在内存，堆积一高，Broker 内存就紧。惰性队列把消息落到磁盘，内存里只留少量缓存，读的时候再加载。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Argument(name = &quot;x-queue-mode&quot;, value = &quot;lazy&quot;)</span></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>适合订单超时、日志这类会堆一段时间的队列。</li>
+<li>单条延迟略高，换的是内存稳。</li>
+<li>RabbitMQ 3.12 起，经典队列默认更接近落盘。旧版本才需要上面的参数；新版本沿用该参数可能只是告警，以管理台队列类型为准。</li>
+<li>惰性解决的是内存。要副本，另选仲裁队列，两件事分开看。</li>
+</ul>
+<h3 id="死信与-TTL"><a href="#死信与-TTL" class="headerlink" title="死信与 TTL"></a>死信与 TTL</h3><p>消息在三种情况下变成死信：过期、被拒绝且不重新入队、队列超出长度。队列通过 <code>x-dead-letter-exchange</code> 把它交给另一个交换机。</p>
+<p>订单超时用「延迟队列 + 死信」时，延迟队列上不要挂消费者，只负责等时间到：</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Queue(name = &quot;order.delay.queue&quot;, durable = &quot;true&quot;, arguments = &#123;</span></span><br><span class="line"><span class="meta">    @Argument(name = &quot;x-message-ttl&quot;, value = &quot;900000&quot;, type = &quot;java.lang.Long&quot;),</span></span><br><span class="line"><span class="meta">    @Argument(name = &quot;x-dead-letter-exchange&quot;, value = &quot;order.dlx&quot;),</span></span><br><span class="line"><span class="meta">    @Argument(name = &quot;x-dead-letter-routing-key&quot;, value = &quot;order.timeout&quot;)</span></span><br><span class="line"><span class="meta">&#125;)</span></span><br></pre></td></tr></table></figure></div>
+
+<p><code>900000</code> 是 15 分钟，类型必须是整数。写成字符串时，Broker 会拒绝声明。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="TEXT"><figure class="iseeu highlight /text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">order.delay.queue（无人消费，队列 TTL）</span><br><span class="line">  → order.dlx / order.timeout</span><br><span class="line">    → order.timeout.queue（关单消费者）</span><br><span class="line">      → 处理失败再进入 order.fail.queue</span><br></pre></td></tr></table></figure></div>
+
+<p>经典队列若给每条消息不同的 TTL，只检查队头。队头是一条很晚才到期的消息时，后面更短的消息出不去。超时关单让所有消息共用队列 TTL，或者一档延迟一个队列。</p>
+<h3 id="延迟消息的两条路"><a href="#延迟消息的两条路" class="headerlink" title="延迟消息的两条路"></a>延迟消息的两条路</h3><table>
+<thead>
+<tr>
+<th align="left">做法</th>
+<th align="left">要点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">延迟插件</td>
+<td align="left">交换机类型 <code>x-delayed-message</code>，消息头 <code>x-delay</code>（毫秒）</td>
+</tr>
+<tr>
+<td align="left">TTL + 死信</td>
+<td align="left">上一段的队列，不依赖插件</td>
+</tr>
+</tbody></table>
+<p>插件要先启用：<code>rabbitmq-plugins enable rabbitmq_delayed_message_exchange</code>。发送时指定延迟：</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rabbitTemplate.convertAndSend(<span class="string">&quot;order.delay.exchange&quot;</span>, <span class="string">&quot;order.timeout&quot;</span>, orderId, msg -&gt; &#123;</span><br><span class="line">  msg.getMessageProperties().setHeader(<span class="string">&quot;x-delay&quot;</span>, <span class="number">900_000</span>);</span><br><span class="line">  <span class="keyword">return</span> msg;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<p>同一笔订单只走一条链路。插件实现随版本变化，量很大时 TTL + 死信更好观察。</p>
+<h3 id="消息可靠性"><a href="#消息可靠性" class="headerlink" title="消息可靠性"></a>消息可靠性</h3><p>可靠指三截都接上：进了 Broker、重启还在、消费者处理完才确认。</p>
+<ol>
+<li>交换机、队列声明为持久化，消息也要持久化（Spring 对持久化队列默认如此）。</li>
+<li><code>publisher-confirm-type: correlated</code>：到达交换机后回调。</li>
+<li><code>publisher-returns: true</code> 且 mandatory：路由不到任何队列时退回。</li>
+<li>消费端手动 ack，业务提交成功再 <code>basicAck</code>。</li>
+</ol>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rabbitTemplate.setConfirmCallback((data, ack, cause) -&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (!ack) &#123;</span><br><span class="line">    log.warn(<span class="string">&quot;未到达交换机, id=&#123;&#125;, cause=&#123;&#125;&quot;</span>, data == <span class="literal">null</span> ? <span class="string">&quot;&quot;</span> : data.getId(), cause);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<p>Confirm 只说明 Broker 接到了。订单事务和发消息之间仍有空隙：本地事务里同时写订单表和待发消息表，提交后再投递，确认成功才把消息表改成已发送，定时任务扫描未发送的行补投。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onTimeout</span><span class="params">(String orderId, Channel ch,</span></span><br><span class="line"><span class="params">    <span class="meta">@Header(AmqpHeaders.DELIVERY_TAG)</span> <span class="type">long</span> tag)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    orderService.cancelIfUnpaid(orderId);</span><br><span class="line">    ch.basicAck(tag, <span class="literal">false</span>);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    ch.basicNack(tag, <span class="literal">false</span>, <span class="literal">false</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><code>cancelIfUnpaid</code> 按订单号幂等：已支付、已关闭都直接返回；未支付则在一个本地事务里关单并恢复库存。<code>basicNack</code> 的第三个参数为 false，消息不回原队列，转去失败队列，避免毒消息空转。</p>
+<p>手动确认时配置：</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="YAML"><figure class="iseeu highlight /yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">rabbitmq:</span></span><br><span class="line">    <span class="attr">listener:</span></span><br><span class="line">      <span class="attr">simple:</span></span><br><span class="line">        <span class="attr">acknowledge-mode:</span> <span class="string">manual</span></span><br><span class="line">        <span class="attr">prefetch:</span> <span class="number">10</span></span><br><span class="line">        <span class="attr">concurrency:</span> <span class="number">2</span></span><br><span class="line">        <span class="attr">max-concurrency:</span> <span class="number">8</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="堆积与预取"><a href="#堆积与预取" class="headerlink" title="堆积与预取"></a>堆积与预取</h3><p>管理台（15672）看两列：就绪（Ready）是还没分发给消费者的数量，未确认（Unacked）是已经交付但没 ack 的数量。</p>
+<table>
+<thead>
+<tr>
+<th align="left">现象</th>
+<th align="left">处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Ready 持续升高</td>
+<td align="left">消费慢于生产。先缩短单条耗时，再加 <code>concurrency</code>，同时看数据库能否撑住</td>
+</tr>
+<tr>
+<td align="left">Unacked 很高</td>
+<td align="left">预取太大或处理卡住。慢业务把 <code>prefetch</code> 降到 10～20</td>
+</tr>
+<tr>
+<td align="left">重启后消息还在</td>
+<td align="left">队列和消息都已持久化</td>
+</tr>
+<tr>
+<td align="left">重启后消息没了</td>
+<td align="left">缺持久化，或未开确认导致生产者以为发出了</td>
+</tr>
+</tbody></table>
+<p>Spring 监听容器的默认预取是 250。一条消息要处理很久时，这 250 条会堆在同一个消费者上，其它消费者却空闲。预取是「一次最多抱走多少条未确认消息」，把它调小，竞争消费才均匀。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>会堆积的队列优先落盘；延迟用插件或固定 TTL + 死信，避开队头阻塞。</li>
+<li>持久化、Confirm、手动 ack、本地消息表，四段一起才算可靠。</li>
+<li>关单消费者按订单号幂等；堆积时先看 Ready &#x2F; Unacked，再决定是加消费者还是降预取。</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2025/11/12/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Redis/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            微服务 Redis
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2025/10/24/%E5%BE%AE%E6%9C%8D%E5%8A%A1-OpenFeign/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">微服务 OpenFeign</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seata/" rel="tag">Seata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Echarts/" style="font-size: 12.86px;">Echarts</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/HTML/" style="font-size: 13.57px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/JVM/" style="font-size: 11.43px;">JVM</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/RabbitMQ/" style="font-size: 10px;">RabbitMQ</a> <a href="/tags/React/" style="font-size: 19.29px;">React</a> <a href="/tags/Redux/" style="font-size: 14.29px;">Redux</a> <a href="/tags/SQL/" style="font-size: 16.43px;">SQL</a> <a href="/tags/Seata/" style="font-size: 10px;">Seata</a> <a href="/tags/Spring/" style="font-size: 12.14px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10.71px;">SpringBoot</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Vuex/" style="font-size: 12.14px;">Vuex</a> <a href="/tags/jQuery/" style="font-size: 12.86px;">jQuery</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 10px;">中间件</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.14px;">前端</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15.71px;">微服务</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.57px;">数据结构</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.29px;">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.86px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/12/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%9D%A2%E8%AF%95%E8%A6%81%E7%82%B9/">微服务 面试要点</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/10/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">微服务 负载均衡</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%A6%82%E8%BF%B0%E4%B8%8E%E6%8B%86%E5%88%86/">微服务 概述与拆分</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Sentinel/">微服务 Sentinel 服务保护</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/12/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Redis/">微服务 Redis</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2026 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv">99999</span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+
+<script src="/fancybox/jquery-2.0.3.min.js"></script>
+ 
+<script src="/fancybox/L2Dwidget.min.js"></script>
+
+<!-- <script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script> -->
+<!-- <script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script> -->
+
+ 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+ 
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+ 
+<script src="/fancybox/jquery.fancybox.js"></script>
+ 
+
+<!-- <link href="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.css"/>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.js"></script> -->
+
+<!-- <script src="https://thisisloves.github.io/Infatuation/js/script.js"></script> -->
+
+<script src="/js/script.js"></script>
+ 
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

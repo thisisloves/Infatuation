@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+ 
+    <title>网络 RAID | 亦如星辰闪耀长河</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+       <meta name="description" content="人永远看不破的镜花水月，不过我指间烟云世间千年，如我一瞬。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络 RAID">
+<meta property="og:url" content="https://thisisloves.github.io/2018/05/17/%E7%BD%91%E7%BB%9C-RAID/index.html">
+<meta property="og:site_name" content="亦如星辰闪耀长河">
+<meta property="og:description" content="人永远看不破的镜花水月，不过我指间烟云世间千年，如我一瞬。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/1WLoAFBX23Zfcts.png">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/SJTXzCG4QW9m5q8.png">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/W2xSiYJsqMu1F9X.png">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/Scn9DyVBsoTAhOr.png">
+<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/ugaPb3EX9FCn2xl.png">
+<meta property="article:published_time" content="2018-05-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-29T02:48:30.590Z">
+<meta property="article:author" content="Infatuation">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/15/1WLoAFBX23Zfcts.png"> 
+    <link
+      rel="alternate"
+      href="/atom.xml"
+      title="亦如星辰闪耀长河"
+      type="application/atom+xml"
+    />
+    
+    <!--  -->
+    <link
+      rel="icon"
+      href="https://thisisloves.github.io/Infatuation/images/2019/05/20/5ce292afb9f6b42428.jpeg"
+    />
+    <!--  -->
+    
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+    
+    <!-- 
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/highlight.css">
+ -->
+
+    <link
+      rel="stylesheet"
+      href="https://thisisloves.github.io/Infatuation/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://thisisloves.github.io/Infatuation/css/highlight.css"
+    />
+  <meta name="generator" content="Hexo 6.3.0"></head>
+</html>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/chart" title
+        
+        >图表</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/shop/" title
+        
+        >购物</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/cherry" title
+        
+        >半帘梦</a>
+      
+        <a class="nav-item" href="https://thisisloves.github.io/userInfo/index.html" title
+        
+        >个人中心</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-网络-RAID" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      网络 RAID
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2018/05/17/%E7%BD%91%E7%BB%9C-RAID/" class="article-date">
+  <time datetime="2018-05-16T16:00:00.000Z" itemprop="datePublished">2018-05-17</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>人永远看不破的镜花水月，不过我指间烟云世间千年，如我一瞬。</p>
+<span id="more"></span>
+
+<h3 id="RAID-是什么"><a href="#RAID-是什么" class="headerlink" title="RAID 是什么"></a>RAID 是什么</h3><p>RAID（Redundant Array of Independent Disks，独立磁盘冗余阵列）把多块物理盘按某种级别组成一块逻辑盘，用来提高吞吐、容量或容错。级别不同，冗余差很多：RAID 0 没有冗余，RAID 1 才是镜像。下面的容量都按各盘一样大来算；盘大小不一致时，以最小的那块为准。</p>
+<p>JBOD（Just a Bunch Of Disks）只是把盘首尾相接，凑出一个大容量，不是 RAID。写满第一块再写第二块，性能和单盘一样，坏一块就丢那一块上的数据。</p>
+<h3 id="RAID-0-和-RAID-1"><a href="#RAID-0-和-RAID-1" class="headerlink" title="RAID 0 和 RAID 1"></a>RAID 0 和 RAID 1</h3><p>RAID 0 把数据条带化拆到各盘，可以并行读写，没有校验。n 块盘的理论吞吐接近 n 倍，实际受总线限制，到不了理论值。容量是 100%，任意一块损坏，整组数据都不可用。它适合可以重做的缓存、视频暂存，不适合唯一副本。</p>
+<p><img src="/../images/2022/06/15/1WLoAFBX23Zfcts.png" alt="截屏2022-06-15 下午3.31.48.png"></p>
+<p>RAID 1 是镜像：同一份数据写到每一块成员盘。两块盘时容量是一半；n 路镜像的可用容量只有 1&#x2F;n，可以坏掉 n-1 块。读可以分摊到多块盘，写必须写完每一份镜像，所以写不会因为多加盘而变快。它适合系统盘这类更在意副本、可以接受容量损失的场合，不是「顺序读写都最快」的级别。</p>
+<p><img src="/../images/2022/06/15/SJTXzCG4QW9m5q8.png" alt="截屏2022-06-15 下午3.33.29.png"></p>
+<h3 id="RAID-2、3、4"><a href="#RAID-2、3、4" class="headerlink" title="RAID 2、3、4"></a>RAID 2、3、4</h3><p>RAID 2 按位拆分，用海明码做校验。校验位放在第 <code>2^n</code> 位（1、2、4、8……），不是第 <code>2n</code> 位。数据位 k 和校验位 r 满足 <code>2^r ≥ k + r + 1</code>。它能纠正单比特错误，但校验盘太多，重建又慢，现网基本不用。</p>
+<p>RAID 3 至少三块盘：数据按字节交叉写到数据盘，另外一块专用盘存 XOR 校验。可以坏 1 块，可用容量是 <code>(n-1)/n</code>。适合大块顺序读写；随机小写时，每写都要动校验盘，校验盘会成为瓶颈。</p>
+<p>RAID 4 也是专用校验盘，但条带是块而不是字节。随机写仍然挤在同一块校验盘上。RAID 5 把校验轮流放到各盘，就是为了去掉这个热点。RAID 4 同样很少单独使用。</p>
+<h3 id="RAID-5-和-RAID-6"><a href="#RAID-5-和-RAID-6" class="headerlink" title="RAID 5 和 RAID 6"></a>RAID 5 和 RAID 6</h3><p>RAID 5 至少三块盘。数据和一份校验都按条带分散在所有盘上，没有固定的校验盘。坏一块时，用同一条带上其余数据块和校验块重建。可用容量 <code>(n-1)/n</code>，只能再坏 1 块；重建期间如果再坏一块，数据就丢了。</p>
+<p>一次小写通常要读旧数据、读旧校验、写新数据、写新校验，所以随机写比读贵。这叫写惩罚，不是「和 RAID 0 一样快」。</p>
+<p><img src="/../images/2022/06/15/W2xSiYJsqMu1F9X.png" alt="截屏2022-06-15 下午4.31.33.png"></p>
+<p>RAID 6 在每个条带上放两组校验（常见是 P+Q），至少四块盘，可用容量 <code>(n-2)/n</code>，可以同时坏两块。写惩罚比 RAID 5 更大，换来的是重建期间还能再坏一块。</p>
+<p><img src="/../images/2022/06/15/Scn9DyVBsoTAhOr.png" alt="截屏2022-06-15 下午4.03.15.png"></p>
+<h3 id="RAID-10"><a href="#RAID-10" class="headerlink" title="RAID 10"></a>RAID 10</h3><p>RAID 10 是先做镜像、再把镜像对做条带，也就是 RAID 1+0。至少四块盘，容量是 50%。它和 RAID 0+1（先条带、再把两组条带互为镜像）不是同一种故障模型。</p>
+<p>不能写成「一半的盘坏了也一定还能转」。每一对镜像至少要活下来一块。最好的情况是每对各坏一块，最多坏 <code>n/2</code> 块；最坏的情况是同一对里的两块都坏，整组失效。所以保证能承受的是 1 块，不是一半。</p>
+<p><img src="/../images/2022/06/15/ugaPb3EX9FCn2xl.png" alt="截屏2022-06-15 下午4.10.01.png"></p>
+<h3 id="怎么选"><a href="#怎么选" class="headerlink" title="怎么选"></a>怎么选</h3><table>
+<thead>
+<tr>
+<th align="left">级别</th>
+<th align="left">最少盘数</th>
+<th align="left">可用容量</th>
+<th align="left">能承受的坏盘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">JBOD</td>
+<td align="left">1</td>
+<td align="left">100%</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">RAID 0</td>
+<td align="left">2</td>
+<td align="left">100%</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">RAID 1</td>
+<td align="left">2</td>
+<td align="left">1&#x2F;n</td>
+<td align="left">n-1</td>
+</tr>
+<tr>
+<td align="left">RAID 5</td>
+<td align="left">3</td>
+<td align="left">(n-1)&#x2F;n</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">RAID 6</td>
+<td align="left">4</td>
+<td align="left">(n-2)&#x2F;n</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">RAID 10</td>
+<td align="left">4</td>
+<td align="left">50%</td>
+<td align="left">保证 1 块；同一镜像对不能两块都坏</td>
+</tr>
+</tbody></table>
+<p>容量和速度优先、数据可以重做，用 RAID 0。要简单的整盘副本，用 RAID 1。容量和单盘容错兼顾，用 RAID 5；还要防重建期间再坏一块，用 RAID 6。随机读写和故障隔离都要，用 RAID 10，并接受只有一半容量。热备盘是坏了再顶上的空盘，不是一种 RAID 级别。</p>
+<h3 id="四块盘坏一块怎么算回来"><a href="#四块盘坏一块怎么算回来" class="headerlink" title="四块盘坏一块怎么算回来"></a>四块盘坏一块怎么算回来</h3><p>RAID 5 的一条带上，数据和校验满足按位异或为 0。D2 丢失时，用剩下的块再异或一次就能得到它。同时丢两块时，一个方程里有两个未知数，解不出来，这就是 RAID 5 只能坏一块的原因。RAID 6 还有第二组校验，两个未知数仍然有解。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="TEXT"><figure class="iseeu highlight /text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D0 xor D1 xor D2 xor P = 0</span><br><span class="line">D2 丢失：D2 = D0 xor D1 xor P</span><br></pre></td></tr></table></figure></div>
+
+<p>四块 1 TB 的盘，RAID 0 约 4 TB，RAID 5 约 3 TB，RAID 6 和 RAID 10 约 2 TB，两盘 RAID 1 约 1 TB。表里的百分比就是这个比例，不要把 RAID 0 的「n 块」和 RAID 5 的「(n-1)&#x2F;n」当成同一种单位去比。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li>重建要读完整条带，时间随盘容量增长。大盘用 RAID 5 时，重建窗口里再坏一块的风险要单独考虑。</li>
+<li>RAID 不是备份。误删除和勒索软件会写进镜像和校验，只有独立副本能找回。</li>
+<li>条带很大、写入很小，一次写仍会牵动整条带，随机性能更差。控制器缓存若没有掉电保护，已确认的写可能只在缓存里。</li>
+</ul>
+<h3 id="四块盘的两种「先谁后谁」"><a href="#四块盘的两种「先谁后谁」" class="headerlink" title="四块盘的两种「先谁后谁」"></a>四块盘的两种「先谁后谁」</h3><p>把盘编号为 1、2、3、4。RAID 10 先把 1 和 2 做成镜像，3 和 4 做成另一对，再在两对之间条带化。1 和 2 同时坏，这一对的数据没有第二份，整组失败。1 和 3 各坏一块，两对都还活着，可以重建。</p>
+<p>RAID 0+1 是先把 1、2 条带成一组，3、4 条带成另一组，再让两组互为镜像。1 坏了会让前一组整组失效，冗余只剩后面那一组。所以「10」和「01」的坏盘组合不能互换着承诺。</p>
+<p>热备盘平时不存有效条带，坏盘之后才顶上重建。它不增加上表里的可用容量，只缩短开始重建之前的等待。</p>
+<h3 id="写惩罚"><a href="#写惩罚" class="headerlink" title="写惩罚"></a>写惩罚</h3><p>RAID 5 随机写一小块，常常是读旧数据、读旧校验、写新数据、写新校验，四次 IO。RAID 1 是写两份，惩罚是 2。顺序写满一整条带时可以一次算出校验，不必先读旧块。用顺序拷贝的速度评价 RAID 5，会把它的随机写短板掩盖掉。</p>
+<p>误删除会同时写进镜像和校验，RAID 救不回来。备份要在另一组盘或另一台机器上。热备只加快重建开始的时间，不增加可用容量，也代替不了这份备份。</p>
+<p>四块 1 TB 盘：RAID 0 约 4 TB，RAID 5 约 3 TB，RAID 6 与 RAID 10 约 2 TB，两盘镜像约 1 TB。选级别时先扣容量，再看能坏几块。</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2018/05/26/%E7%BD%91%E7%BB%9C-RIP/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            网络 RIP
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2018/05/07/%E7%BD%91%E7%BB%9C-OSPF/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">网络 OSPF</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'thisisloves',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <div class="avatar"  title="头像来自网络"></div>
+    <h3 class="avatar-name">
+      
+        Promise
+      
+    </h3>
+    <p class="avatar-slogan">
+      Do not, for one repulse, give up the purpose that you resolved to effect.
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seata/" rel="tag">Seata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuex/" rel="tag">Vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 15.71px;">CSS</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Echarts/" style="font-size: 12.86px;">Echarts</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/HTML/" style="font-size: 13.57px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/JVM/" style="font-size: 11.43px;">JVM</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/RabbitMQ/" style="font-size: 10px;">RabbitMQ</a> <a href="/tags/React/" style="font-size: 19.29px;">React</a> <a href="/tags/Redux/" style="font-size: 14.29px;">Redux</a> <a href="/tags/SQL/" style="font-size: 16.43px;">SQL</a> <a href="/tags/Seata/" style="font-size: 10px;">Seata</a> <a href="/tags/Spring/" style="font-size: 12.14px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 10.71px;">SpringBoot</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Vuex/" style="font-size: 12.14px;">Vuex</a> <a href="/tags/jQuery/" style="font-size: 12.86px;">jQuery</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 10px;">中间件</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.14px;">前端</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15.71px;">微服务</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.57px;">数据结构</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.29px;">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 17.86px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/12/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%9D%A2%E8%AF%95%E8%A6%81%E7%82%B9/">微服务 面试要点</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/10/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">微服务 负载均衡</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%A6%82%E8%BF%B0%E4%B8%8E%E6%8B%86%E5%88%86/">微服务 概述与拆分</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Sentinel/">微服务 Sentinel 服务保护</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/12/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Redis/">微服务 Redis</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2026 Infatuation &nbsp;&nbsp;
+    <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    <!-- &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a> -->
+    <!-- <br> -->
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv">99999</span>个访客</span>
+  </div>
+</footer>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+
+<script src="/fancybox/jquery-2.0.3.min.js"></script>
+ 
+<script src="/fancybox/L2Dwidget.min.js"></script>
+
+<!-- <script src="https://thisisloves.github.io/Infatuation/js/jquery-2.0.3.min.js"></script> -->
+<!-- <script src="https://thisisloves.github.io/Infatuation/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script> -->
+
+ 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+ 
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+ 
+<script src="/fancybox/jquery.fancybox.js"></script>
+ 
+
+<!-- <link href="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.css"/>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://thisisloves.github.io/Infatuation/fancybox/jquery.fancybox.js"></script> -->
+
+<!-- <script src="https://thisisloves.github.io/Infatuation/js/script.js"></script> -->
+
+<script src="/js/script.js"></script>
+ 
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://thisisloves.github.io/chart" class="mobile-nav-link">图表</a>
+  
+    <a href="https://thisisloves.github.io/shop/" class="mobile-nav-link">购物</a>
+  
+    <a href="https://thisisloves.github.io/cherry" class="mobile-nav-link">半帘梦</a>
+  
+    <a href="https://thisisloves.github.io/userInfo/index.html" class="mobile-nav-link">个人中心</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
