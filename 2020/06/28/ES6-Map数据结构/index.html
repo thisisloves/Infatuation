@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="拂过红尘衣袂，涤荡污浊俗心。 愿纵马而歌归故里，能得你素衣不改，白裙曳地，夹道相迎。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/01/18/Fz4HOeUd9CxGAQo.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/01/18/3GDpS7hIFcMKUbT.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/01/18/Fz4HOeUd9CxGAQo.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/01/18/3GDpS7hIFcMKUbT.png">
 <meta property="article:published_time" content="2020-06-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.627Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.992Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/01/18/Fz4HOeUd9CxGAQo.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/01/18/Fz4HOeUd9CxGAQo.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -131,7 +131,7 @@
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> counts = <span class="keyword">new</span> <span class="title class_">Map</span>();</span><br><span class="line"><span class="keyword">const</span> a = &#123; <span class="attr">id</span>: <span class="number">1</span> &#125;;</span><br><span class="line">counts.<span class="title function_">set</span>(a, <span class="number">1</span>);</span><br><span class="line">counts.<span class="title function_">get</span>(a);</span><br><span class="line">counts.<span class="title function_">get</span>(&#123; <span class="attr">id</span>: <span class="number">1</span> &#125;);</span><br></pre></td></tr></table></figure></div>
 
 <p>第三次 <code>get</code> 是 <code>undefined</code>。两个看起来一样的对象不是同一个键。要用内容当键，把稳定的原始值（id）当键，或在写入前自己规范化。</p>
-<p><img src="/Infatuation/../images/2022/01/18/Fz4HOeUd9CxGAQo.png" alt="截屏2022-01-18 上午10.40.55.png"></p>
+<p><img src="/Infatuation/images/2022/01/18/Fz4HOeUd9CxGAQo.png" alt="截屏2022-01-18 上午10.40.55.png"></p>
 <h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ul>
 <li><code>set</code> 返回 map 自身，可以链式调用。</li>
 <li><code>get</code> 没有该键时返回 <code>undefined</code>。值本身可以是 <code>undefined</code>，所以「有没有」用 <code>has</code>，不要用 <code>get</code> 判断。</li>
@@ -140,7 +140,7 @@
 </ul>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> [key, value] <span class="keyword">of</span> counts) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(key, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<p><img src="/Infatuation/../images/2022/01/18/3GDpS7hIFcMKUbT.png" alt="截屏2022-01-18 上午10.53.07.png"></p>
+<p><img src="/Infatuation/images/2022/01/18/3GDpS7hIFcMKUbT.png" alt="截屏2022-01-18 上午10.53.07.png"></p>
 <h3 id="和对象怎么选"><a href="#和对象怎么选" class="headerlink" title="和对象怎么选"></a>和对象怎么选</h3><p>键是任意值、需要稳定的插入顺序、或键会频繁增删，用 Map。键是固定的一组名字、要 JSON 序列化，用对象或数组。<code>JSON.stringify</code> 对 Map 得到 <code>&#123;&#125;</code>，因为 Map 的数据不在可枚举自有属性上。要存盘就 <code>JSON.stringify([...map])</code>，读回 <code>new Map(JSON.parse(text))</code>。</p>
 <p>对象当键时，Map 持有该对象的引用，键对象无法被垃圾回收。缓存若希望键消失后条目也消失，用 <code>WeakMap</code>。<code>WeakMap</code> 的键必须是对象，不能迭代，没有 <code>size</code>，不能 <code>clear</code>。</p>
 <h3 id="不要用-Map-模拟集合的误用"><a href="#不要用-Map-模拟集合的误用" class="headerlink" title="不要用 Map 模拟集合的误用"></a>不要用 Map 模拟集合的误用</h3><p>只关心键在不在，用 <code>Set</code>。二维计数用 Map 嵌 Map，或把复合键收成字符串，注意分隔符不要出现在数据里。</p>

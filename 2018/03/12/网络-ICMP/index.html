@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="若能将日子从苦洌清茶过成平淡如水，我自守一城三世，眷一人白头。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/16/FVhnl43ycvxzKYS.jpg">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/16/suj34eqgfzmZP52.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/16/FVhnl43ycvxzKYS.jpg">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/16/suj34eqgfzmZP52.png">
 <meta property="article:published_time" content="2018-03-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.587Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.043Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/16/FVhnl43ycvxzKYS.jpg"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/16/FVhnl43ycvxzKYS.jpg"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -128,12 +128,12 @@
 <span id="more"></span>
 
 <h3 id="ICMP-的位置"><a href="#ICMP-的位置" class="headerlink" title="ICMP 的位置"></a>ICMP 的位置</h3><p>ICMP（Internet Control Message Protocol）在主机和路由器之间传递控制信息：目的是否可达、报文为何被丢、时间是否超过。它和 IP 同属网络层，但 ICMP 报文装在 IP 分组里，协议号是 1。IP 本身不通知丢包原因，ICMP 用来补上这类反馈。它不是让 IP 变成可靠传输的手段，出错报告也可以丢失。</p>
-<p><img src="/Infatuation/../images/2022/06/16/FVhnl43ycvxzKYS.jpg" alt="31655367652_.pic.jpg"></p>
+<p><img src="/Infatuation/images/2022/06/16/FVhnl43ycvxzKYS.jpg" alt="31655367652_.pic.jpg"></p>
 <p>一个 ICMP 差错报文里，通常带上引发差错的那个 IP 头，以及原始数据的前 8 个字节，方便发送方认出是哪一个 TCP 报文段或 UDP 数据报。不要把结构说成「IP 头、ICMP 头、再加一份完整的 ICMP 报文」这种循环说法。</p>
 <h3 id="ping-和-traceroute"><a href="#ping-和-traceroute" class="headerlink" title="ping 和 traceroute"></a>ping 和 traceroute</h3><p>ping 发送 Echo Request（类型 8），对端回 Echo Reply（类型 0）。能收到应答，说明来回路径、对方协议栈和本机都允许这种报文。收不到，可能是丢包、过滤或对端禁止 ping，不能直接断定主机不存在。</p>
 <p>traceroute 利用 TTL。第一份探测的 TTL 为 1，第一台路由器减到 0 后丢弃，并回 Time Exceeded。源站因此知道第一跳。然后 TTL 加 1，逐跳收集，直到探测到达终点。</p>
 <p>Linux 传统实现发送 UDP，目的端口从 33434 起。Windows 的 tracert 发送 ICMP Echo。终点的反应也不同：UDP 探测常收到端口不可达，ICMP 探测收到 Echo Reply。两种都叫 traceroute 一类的工具，报文不一定相同。</p>
-<h3 id="类型与代码"><a href="#类型与代码" class="headerlink" title="类型与代码"></a>类型与代码</h3><p><img src="/Infatuation/../images/2022/06/16/suj34eqgfzmZP52.png" alt="截屏2022-06-16 下午5.12.06.png"></p>
+<h3 id="类型与代码"><a href="#类型与代码" class="headerlink" title="类型与代码"></a>类型与代码</h3><p><img src="/Infatuation/images/2022/06/16/suj34eqgfzmZP52.png" alt="截屏2022-06-16 下午5.12.06.png"></p>
 <table>
 <thead>
 <tr>

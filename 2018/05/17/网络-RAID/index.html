@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="人永远看不破的镜花水月，不过我指间烟云世间千年，如我一瞬。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/1WLoAFBX23Zfcts.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/SJTXzCG4QW9m5q8.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/W2xSiYJsqMu1F9X.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/Scn9DyVBsoTAhOr.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/ugaPb3EX9FCn2xl.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/1WLoAFBX23Zfcts.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/SJTXzCG4QW9m5q8.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/W2xSiYJsqMu1F9X.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/Scn9DyVBsoTAhOr.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/ugaPb3EX9FCn2xl.png">
 <meta property="article:published_time" content="2018-05-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.590Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.010Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/15/1WLoAFBX23Zfcts.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/1WLoAFBX23Zfcts.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -133,20 +133,20 @@
 <h3 id="RAID-是什么"><a href="#RAID-是什么" class="headerlink" title="RAID 是什么"></a>RAID 是什么</h3><p>RAID（Redundant Array of Independent Disks，独立磁盘冗余阵列）把多块物理盘按某种级别组成一块逻辑盘，用来提高吞吐、容量或容错。级别不同，冗余差很多：RAID 0 没有冗余，RAID 1 才是镜像。下面的容量都按各盘一样大来算；盘大小不一致时，以最小的那块为准。</p>
 <p>JBOD（Just a Bunch Of Disks）只是把盘首尾相接，凑出一个大容量，不是 RAID。写满第一块再写第二块，性能和单盘一样，坏一块就丢那一块上的数据。</p>
 <h3 id="RAID-0-和-RAID-1"><a href="#RAID-0-和-RAID-1" class="headerlink" title="RAID 0 和 RAID 1"></a>RAID 0 和 RAID 1</h3><p>RAID 0 把数据条带化拆到各盘，可以并行读写，没有校验。n 块盘的理论吞吐接近 n 倍，实际受总线限制，到不了理论值。容量是 100%，任意一块损坏，整组数据都不可用。它适合可以重做的缓存、视频暂存，不适合唯一副本。</p>
-<p><img src="/Infatuation/../images/2022/06/15/1WLoAFBX23Zfcts.png" alt="截屏2022-06-15 下午3.31.48.png"></p>
+<p><img src="/Infatuation/images/2022/06/15/1WLoAFBX23Zfcts.png" alt="截屏2022-06-15 下午3.31.48.png"></p>
 <p>RAID 1 是镜像：同一份数据写到每一块成员盘。两块盘时容量是一半；n 路镜像的可用容量只有 1&#x2F;n，可以坏掉 n-1 块。读可以分摊到多块盘，写必须写完每一份镜像，所以写不会因为多加盘而变快。它适合系统盘这类更在意副本、可以接受容量损失的场合，不是「顺序读写都最快」的级别。</p>
-<p><img src="/Infatuation/../images/2022/06/15/SJTXzCG4QW9m5q8.png" alt="截屏2022-06-15 下午3.33.29.png"></p>
+<p><img src="/Infatuation/images/2022/06/15/SJTXzCG4QW9m5q8.png" alt="截屏2022-06-15 下午3.33.29.png"></p>
 <h3 id="RAID-2、3、4"><a href="#RAID-2、3、4" class="headerlink" title="RAID 2、3、4"></a>RAID 2、3、4</h3><p>RAID 2 按位拆分，用海明码做校验。校验位放在第 <code>2^n</code> 位（1、2、4、8……），不是第 <code>2n</code> 位。数据位 k 和校验位 r 满足 <code>2^r ≥ k + r + 1</code>。它能纠正单比特错误，但校验盘太多，重建又慢，现网基本不用。</p>
 <p>RAID 3 至少三块盘：数据按字节交叉写到数据盘，另外一块专用盘存 XOR 校验。可以坏 1 块，可用容量是 <code>(n-1)/n</code>。适合大块顺序读写；随机小写时，每写都要动校验盘，校验盘会成为瓶颈。</p>
 <p>RAID 4 也是专用校验盘，但条带是块而不是字节。随机写仍然挤在同一块校验盘上。RAID 5 把校验轮流放到各盘，就是为了去掉这个热点。RAID 4 同样很少单独使用。</p>
 <h3 id="RAID-5-和-RAID-6"><a href="#RAID-5-和-RAID-6" class="headerlink" title="RAID 5 和 RAID 6"></a>RAID 5 和 RAID 6</h3><p>RAID 5 至少三块盘。数据和一份校验都按条带分散在所有盘上，没有固定的校验盘。坏一块时，用同一条带上其余数据块和校验块重建。可用容量 <code>(n-1)/n</code>，只能再坏 1 块；重建期间如果再坏一块，数据就丢了。</p>
 <p>一次小写通常要读旧数据、读旧校验、写新数据、写新校验，所以随机写比读贵。这叫写惩罚，不是「和 RAID 0 一样快」。</p>
-<p><img src="/Infatuation/../images/2022/06/15/W2xSiYJsqMu1F9X.png" alt="截屏2022-06-15 下午4.31.33.png"></p>
+<p><img src="/Infatuation/images/2022/06/15/W2xSiYJsqMu1F9X.png" alt="截屏2022-06-15 下午4.31.33.png"></p>
 <p>RAID 6 在每个条带上放两组校验（常见是 P+Q），至少四块盘，可用容量 <code>(n-2)/n</code>，可以同时坏两块。写惩罚比 RAID 5 更大，换来的是重建期间还能再坏一块。</p>
-<p><img src="/Infatuation/../images/2022/06/15/Scn9DyVBsoTAhOr.png" alt="截屏2022-06-15 下午4.03.15.png"></p>
+<p><img src="/Infatuation/images/2022/06/15/Scn9DyVBsoTAhOr.png" alt="截屏2022-06-15 下午4.03.15.png"></p>
 <h3 id="RAID-10"><a href="#RAID-10" class="headerlink" title="RAID 10"></a>RAID 10</h3><p>RAID 10 是先做镜像、再把镜像对做条带，也就是 RAID 1+0。至少四块盘，容量是 50%。它和 RAID 0+1（先条带、再把两组条带互为镜像）不是同一种故障模型。</p>
 <p>不能写成「一半的盘坏了也一定还能转」。每一对镜像至少要活下来一块。最好的情况是每对各坏一块，最多坏 <code>n/2</code> 块；最坏的情况是同一对里的两块都坏，整组失效。所以保证能承受的是 1 块，不是一半。</p>
-<p><img src="/Infatuation/../images/2022/06/15/ugaPb3EX9FCn2xl.png" alt="截屏2022-06-15 下午4.10.01.png"></p>
+<p><img src="/Infatuation/images/2022/06/15/ugaPb3EX9FCn2xl.png" alt="截屏2022-06-15 下午4.10.01.png"></p>
 <h3 id="怎么选"><a href="#怎么选" class="headerlink" title="怎么选"></a>怎么选</h3><table>
 <thead>
 <tr>

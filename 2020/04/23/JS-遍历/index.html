@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="流水潺潺，素手纤纤，青丝束，惊鸿若舞，衣袂飘飘，所谓倾心相许。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/03/07/Q5HXRF9Zfroev8y.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/03/07/Q5HXRF9Zfroev8y.png">
 <meta property="article:published_time" content="2020-04-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.625Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.018Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/03/07/Q5HXRF9Zfroev8y.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/03/07/Q5HXRF9Zfroev8y.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -163,7 +163,7 @@
 </tr>
 </tbody></table>
 <p>空槽会被这三个方法跳过。它们也不能被 <code>break</code> 打断。<code>forEach</code> 里的 <code>return</code> 只结束本次回调，相当于 <code>continue</code>。</p>
-<p><img src="/Infatuation/../images/2022/03/07/Q5HXRF9Zfroev8y.png" alt="截屏2022-03-07 上午10.59.57.png"></p>
+<p><img src="/Infatuation/images/2022/03/07/Q5HXRF9Zfroev8y.png" alt="截屏2022-03-07 上午10.59.57.png"></p>
 <h3 id="正确示例"><a href="#正确示例" class="headerlink" title="正确示例"></a>正确示例</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> ctx = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> halved = arr1.<span class="title function_">map</span>(<span class="keyword">function</span> (<span class="params">item</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> item / <span class="variable language_">this</span>.<span class="property">a</span> / <span class="number">2</span> * <span class="variable language_">this</span>.<span class="property">a</span>;</span><br><span class="line">&#125;, ctx);</span><br><span class="line"><span class="comment">// 更直接：arr1.map((item) =&gt; item / 2)</span></span><br><span class="line"></span><br><span class="line">arr1.<span class="title function_">forEach</span>(<span class="keyword">function</span> (<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(index, item + <span class="variable language_">this</span>.<span class="property">a</span>);</span><br><span class="line">&#125;, ctx);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> unique = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>].<span class="title function_">filter</span>(</span><br><span class="line">  <span class="function">(<span class="params">item, index, self</span>) =&gt;</span> self.<span class="title function_">indexOf</span>(item) === index,</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
 
 <p>对象不要用数组方法。键用 <code>Object.keys</code> &#x2F; <code>Object.entries</code>，所有自有键含不可枚举时用 <code>Reflect.ownKeys</code>。<code>Map</code> 用 <code>for...of</code>。</p>

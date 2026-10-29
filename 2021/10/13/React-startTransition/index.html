@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="人间自是有情痴，此恨无关风与月。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/07/10/1.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/07/11/1.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/07/10/1.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/07/11/1.png">
 <meta property="article:published_time" content="2021-10-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.655Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.004Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/07/10/1.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2023/07/10/1.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -131,10 +131,10 @@
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSX"><figure class="iseeu highlight /jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; startTransition, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">onChange</span>(<span class="params">e, setText, setQuery</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> next = e.<span class="property">target</span>.<span class="property">value</span>;</span><br><span class="line">  <span class="title function_">setText</span>(next);</span><br><span class="line">  <span class="title function_">startTransition</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">setQuery</span>(next);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 <p>回调必须同步执行。里面的 setState 被标成过渡，回调返回后标记结束。在回调里写异步函数，await 之后的 setState <strong>不会</strong>自动变成过渡。</p>
-<p><img src="/Infatuation/../images/2023/07/10/1.png" alt="1.png"></p>
+<p><img src="/Infatuation/images/2023/07/10/1.png" alt="1.png"></p>
 <h3 id="调用位置"><a href="#调用位置" class="headerlink" title="调用位置"></a>调用位置</h3><p>可以在事件、超时、Promise 的继续执行里调用，不限于函数组件顶层，所以它本身不是 Hook。<code>useTransition</code> 才是 Hook，只能在组件或自定义 Hook 顶层调用。</p>
 <p>库代码若不能要求调用方使用 Hook，就导出接收 <code>startTransition</code> 的 API，或在内部直接 <code>import &#123; startTransition &#125; from &#39;react&#39;</code>。这样不强制多一个 <code>isPending</code>。</p>
-<p><img src="/Infatuation/../images/2023/07/11/1.png" alt="1.png"></p>
+<p><img src="/Infatuation/images/2023/07/11/1.png" alt="1.png"></p>
 <h3 id="和-flushSync-相反"><a href="#和-flushSync-相反" class="headerlink" title="和 flushSync 相反"></a>和 flushSync 相反</h3><p><code>flushSync</code> 把更新拉到同步车道，回调返回前提交到 DOM。<code>startTransition</code> 把更新放到可打断的车道，允许旧界面多停留一会儿。同一批用户操作里，紧急反馈用普通 setState 或必要时 <code>flushSync</code>，重的那部分用 <code>startTransition</code>。不要为了「看起来更快」用 <code>flushSync</code> 包住大列表。</p>
 <h3 id="入口"><a href="#入口" class="headerlink" title="入口"></a>入口</h3><p>并发让出依赖 <code>createRoot</code>。在 <code>ReactDOM.render</code> 的树上调用 <code>startTransition</code> 不会获得时间分片。迁移老页面时先换入口，再把重更新包进过渡。详见《React 入口函数模式》。</p>
 

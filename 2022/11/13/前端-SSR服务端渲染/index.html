@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="斗转星移，忧伤轮回，过往成空，却绽放在我梦里最光亮的地方。一纸素笺，画满了流年的殇，一方浅墨，诉尽经年的梦。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/09/8UQMIxanuGrCO3Z.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/09/8UQMIxanuGrCO3Z.png">
 <meta property="article:published_time" content="2022-11-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.673Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.995Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/09/8UQMIxanuGrCO3Z.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/09/8UQMIxanuGrCO3Z.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -159,7 +159,7 @@
 </tbody></table>
 <p>博客和文档优先 SSG。后台管理系统不必为了首屏上 SSR。</p>
 <h3 id="Vue-的两份构建"><a href="#Vue-的两份构建" class="headerlink" title="Vue 的两份构建"></a>Vue 的两份构建</h3><p>Vue 2 常见的 webpack 方案会打出两份产物：给浏览器执行的 client bundle，以及给 <code>vue-server-renderer</code> 用的 server bundle。<code>VueSSRServerPlugin</code> 输出的 <code>vue-ssr-server-bundle.json</code> 是包清单，描述入口和各个 chunk。渲染器在 Node 里根据这份清单执行组件，吐出的是 HTML 字符串。这份 JSON 不是发给浏览器的页面。client manifest 是另一份 JSON，用来给 HTML 写上正确的脚本和样式地址。</p>
-<p><img src="/Infatuation/../images/2022/06/09/8UQMIxanuGrCO3Z.png" alt="截屏2022-06-09 下午5.00.51.png"></p>
+<p><img src="/Infatuation/images/2022/06/09/8UQMIxanuGrCO3Z.png" alt="截屏2022-06-09 下午5.00.51.png"></p>
 <p>源码通常分成三份入口：两边共用的应用工厂（每次请求调用一次，避免用户数据留在单例里）、<code>entry-client.js</code>（在浏览器里挂载并注水）、<code>entry-server.js</code>（返回一个接收路由上下文的渲染函数）。</p>
 <p>Vue 3 使用 <code>@vue/server-renderer</code> 的 <code>renderToString</code>。Nuxt 把路由、预取和部署收成约定。React 生态里对应的是 Next.js 一类元框架，可以按路由选择 SSR、SSG 或流式输出。</p>
 <h3 id="一次请求里发生什么"><a href="#一次请求里发生什么" class="headerlink" title="一次请求里发生什么"></a>一次请求里发生什么</h3><ol>

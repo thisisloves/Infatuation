@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="平生不会相思，才会相思，便害相思。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2021/08/04/zJviloWVI9HsXkL.jpeg">
-<meta property="og:image" content="https://thisisloves.github.io/images/2021/08/04/5R3xLkmOVD9uPAQ.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2021/08/04/zJviloWVI9HsXkL.jpeg">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2021/08/04/5R3xLkmOVD9uPAQ.png">
 <meta property="article:published_time" content="2023-02-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.676Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.019Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2021/08/04/zJviloWVI9HsXkL.jpeg"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2021/08/04/zJviloWVI9HsXkL.jpeg"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -128,7 +128,7 @@
 <span id="more"></span>
 
 <h3 id="图标要能选，并且能画出来"><a href="#图标要能选，并且能画出来" class="headerlink" title="图标要能选，并且能画出来"></a>图标要能选，并且能画出来</h3><p>后台里让运营选择图标时，需要两份东西：一份是图标清单，用来渲染下拉框；一份是运行时能画出这个图标的资源。iconfont（iconfont.cn，阿里巴巴矢量图标库）下载的压缩包里，<code>iconfont.json</code> 是清单，<code>iconfont.js</code> 是 Symbol 脚本。不要把 JSON 当成 <code>scriptUrl</code>。</p>
-<p><img src="/Infatuation/../images/2021/08/04/zJviloWVI9HsXkL.jpeg" alt="1628043411365.jpg"></p>
+<p><img src="/Infatuation/images/2021/08/04/zJviloWVI9HsXkL.jpeg" alt="1628043411365.jpg"></p>
 <p>Ant Design 的 <code>createFromIconfontCN</code> 要求 <code>scriptUrl</code> 指向 Symbol 的脚本地址，可以是包里的 <code>iconfont.js</code>，也可以是在线生成的 <code>//at.alicdn.com/t/c/font_xxx.js</code>。在线地址升级图标后会变，项目里锁定文件更稳。</p>
 <p>JSON 里每个图标有 <code>font_class</code>。Symbol 的引用名一般是 <code>icon-</code> 加上这个 class。两边要使用同一套前缀，和生成脚本时的设置一致。</p>
 <h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><p><code>Option</code> 要从 <code>antd</code> 引入，或者改用 <code>Select.Option</code>。下面只保留和图标有关的代码。</p>
@@ -140,7 +140,7 @@
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSX"><figure class="iseeu highlight /jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Menu</span>.<span class="property">Item</span></span><br><span class="line">  key=&#123;item.<span class="property">id</span>&#125;</span><br><span class="line">  icon=&#123;<span class="language-xml"><span class="tag">&lt;<span class="name">IconFont</span> <span class="attr">type</span>=<span class="string">&#123;</span>`<span class="attr">icon-</span>$&#123;<span class="attr">item.icon</span>&#125;`&#125; /&gt;</span></span>&#125;</span><br><span class="line">&gt;</span><br><span class="line">  &#123;item.<span class="property">name</span>&#125;</span><br><span class="line">&lt;/<span class="title class_">Menu</span>.<span class="property">Item</span>&gt;</span><br></pre></td></tr></table></figure></div>
 
 <p><code>item.icon</code> 为空时不要渲染 <code>IconFont</code>，否则控制台会提示找不到 symbol。可以准备一个默认图标名。</p>
-<p><img src="/Infatuation/../images/2021/08/04/5R3xLkmOVD9uPAQ.png" alt="截屏2021-08-04 上午11.18.40.png"></p>
+<p><img src="/Infatuation/images/2021/08/04/5R3xLkmOVD9uPAQ.png" alt="截屏2021-08-04 上午11.18.40.png"></p>
 <h3 id="字体方式和-Symbol-方式"><a href="#字体方式和-Symbol-方式" class="headerlink" title="字体方式和 Symbol 方式"></a>字体方式和 Symbol 方式</h3><p>下载页若选的是 <code>font-class</code>，页面要引 CSS，再用 <code>&lt;i className=&quot;iconfont icon-user&quot; /&gt;</code>。这种方式是字体，多色图标会丢颜色。<code>createFromIconfontCN</code> 走的是 Symbol，彩色图标能保留，所以脚本必须是 JS，不是 CSS，也不是 JSON。</p>
 <p>两种方式的 class 前缀要和项目里实际引用的前缀一致。混用「CSS 的 font_class」和「Symbol 的 type」会画出空白方框。</p>
 <h3 id="可访问性"><a href="#可访问性" class="headerlink" title="可访问性"></a>可访问性</h3><p>图标旁边已有文字时，给 SVG 加 <code>aria-hidden</code>，避免读屏读两遍。只有图标、没有文字的按钮，用 <code>aria-label</code> 写明动作。不要把图标的英文 class 当按钮名称读出来。</p>

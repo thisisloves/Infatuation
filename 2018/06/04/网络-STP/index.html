@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="终日两相思，为君憔悴尽，百花时。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/21/twRfJiTlrUbjPoG.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/21/twRfJiTlrUbjPoG.png">
 <meta property="article:published_time" content="2018-06-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.591Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.971Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/21/twRfJiTlrUbjPoG.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/21/twRfJiTlrUbjPoG.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -184,7 +184,7 @@
 </tbody></table>
 <p>Learning 会把收到的源 MAC 写入地址表，但仍然不转发用户数据。Learning 状态仍不转发用户数据。从阻塞到转发，Listening 加 Learning 约 30 秒；若还要等 Max Age 判定根信息失效，整段收敛可以到大约 50 秒。</p>
 <p>RSTP（802.1w）把 Blocking、Listening 和 Disabled 合成 Discarding，并用提议&#x2F;同意机制让备用端口快速进入转发。端口角色也更明确：根端口、指定端口、替换端口和备份端口。</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><img src="/Infatuation/../images/2022/06/21/twRfJiTlrUbjPoG.png" alt="截屏2022-06-21 下午3.18.39.png"></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><img src="/Infatuation/images/2022/06/21/twRfJiTlrUbjPoG.png" alt="截屏2022-06-21 下午3.18.39.png"></p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="TEXT"><figure class="iseeu highlight /text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[SW1]stp mode stp</span><br><span class="line">[SW1]stp root primary</span><br><span class="line">[SW2]stp enable</span><br><span class="line">[SW3]stp root secondary</span><br><span class="line">[SW3]stp pathcost-standard legacy</span><br><span class="line">[SW3]interface GigabitEthernet 0/0/3</span><br><span class="line">[SW3-GigabitEthernet0/0/3]stp cost 20000</span><br></pre></td></tr></table></figure></div>
 
 <p><code>stp root primary</code> 把优先级调到足够小，使这台交换机成为根桥。<code>secondary</code> 给备份根一个次优优先级。开销改的是「该接口」，不是「改接口」。</p>

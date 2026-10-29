@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="凄凉别後两应同，最是不胜清怨月明中。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/09/uqry6lRjSze9I7W.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/09/ilSHU2LVhvkaO39.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/09/ExbKVcS9zioeAU6.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/09/uqry6lRjSze9I7W.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/09/ilSHU2LVhvkaO39.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/09/ExbKVcS9zioeAU6.png">
 <meta property="article:published_time" content="2022-11-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.673Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.976Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/09/uqry6lRjSze9I7W.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/09/uqry6lRjSze9I7W.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -130,14 +130,14 @@
 
 <h3 id="SEO-让页面能被抓取并理解"><a href="#SEO-让页面能被抓取并理解" class="headerlink" title="SEO 让页面能被抓取并理解"></a>SEO 让页面能被抓取并理解</h3><p>搜索引擎优化是让爬虫顺利抓到页面、读懂主题，并让真实用户愿意留下。排名没有前端单独能保证的公式。前端负责的是：URL 可访问、HTML 里有正文、标记语义正确、页面足够快且稳定。</p>
 <p>单页应用若只返回空壳，再靠脚本拉内容，抓取会慢一拍，部分环境甚至看不到正文。内容站用服务端渲染或构建时生成 HTML。后台系统不必为 SEO 做 SSR。</p>
-<h3 id="站点结构"><a href="#站点结构" class="headerlink" title="站点结构"></a>站点结构</h3><p><img src="/Infatuation/../images/2022/06/09/uqry6lRjSze9I7W.png" alt="截屏2022-06-09 下午3.40.12.png"></p>
+<h3 id="站点结构"><a href="#站点结构" class="headerlink" title="站点结构"></a>站点结构</h3><p><img src="/Infatuation/images/2022/06/09/uqry6lRjSze9I7W.png" alt="截屏2022-06-09 下午3.40.12.png"></p>
 <ul>
 <li>重要页面从首页三四次点击内能到，并用 <code>&lt;a href&gt;</code> 链接，不要只靠点击事件跳转。爬虫对脚本跳转的跟踪弱于普通链接。</li>
 <li>一套内容只保留一个规范 URL，在 <code>&lt;link rel=&quot;canonical&quot; href=&quot;...&quot;&gt;</code> 里写明。参数顺序不同、末尾斜杠不同都会被当成重复。</li>
 <li>提供 <code>sitemap.xml</code>，并在 <code>robots.txt</code> 里指出它的位置。不要把需要登录的地址放进站点地图。</li>
 <li><code>robots.txt</code> 只是告知，不是权限。隐私页要靠登录校验，不能只写 <code>Disallow</code>。</li>
 </ul>
-<h3 id="页面标记"><a href="#页面标记" class="headerlink" title="页面标记"></a>页面标记</h3><p><img src="/Infatuation/../images/2022/06/09/ilSHU2LVhvkaO39.png" alt="截屏2022-06-09 下午3.42.39.png"></p>
+<h3 id="页面标记"><a href="#页面标记" class="headerlink" title="页面标记"></a>页面标记</h3><p><img src="/Infatuation/images/2022/06/09/ilSHU2LVhvkaO39.png" alt="截屏2022-06-09 下午3.42.39.png"></p>
 <p>每个页面一个 <code>&lt;title&gt;</code>，写清主题，唯一，不要堆关键词。浏览器标签大约显示二十个汉字，写太长会被截。<code>&lt;meta name=&quot;description&quot;&gt;</code> 是摘要候选，不是排名开关，写成完整的一两句话。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>樱花庄 — 前端笔记<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;浏览器渲染、缓存与前端工程的笔记。&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;canonical&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://example.com/posts/seo&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 
@@ -149,7 +149,7 @@
 
 <h3 id="体验信号"><a href="#体验信号" class="headerlink" title="体验信号"></a>体验信号</h3><p>Core Web Vitals 是页面体验的公开指标：LCP 看最大内容何时画出来，INP 看交互后多久给出下一帧（它已经取代 FID），CLS 看布局是否乱跳。对应到前端就是：首屏图片不要懒加载、给图片预留尺寸、拆掉堵住主线程的长脚本、字体加载时留后备。</p>
 <p>HTTPS、移动端能读、没有插页挡住内容，是基础条件。标题党会提高跳出，对排名没有帮助。</p>
-<p><img src="/Infatuation/../images/2022/06/09/ExbKVcS9zioeAU6.png" alt="截屏2022-06-09 下午3.51.01.png"></p>
+<p><img src="/Infatuation/images/2022/06/09/ExbKVcS9zioeAU6.png" alt="截屏2022-06-09 下午3.51.01.png"></p>
 
       
     </div>

@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="曲终人不见，江上数峰青。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/06/27/windows.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/06/27/windows.png">
 <meta property="article:published_time" content="2022-10-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.671Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.023Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="Echarts">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/06/27/windows.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2023/06/27/windows.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -127,7 +127,7 @@
 <span id="more"></span>
 
 <h3 id="整屏按设计稿缩放"><a href="#整屏按设计稿缩放" class="headerlink" title="整屏按设计稿缩放"></a>整屏按设计稿缩放</h3><p>大屏常用固定设计尺寸（例如 1920×1080），外层用 <code>transform: scale</code> 铺满视口。ECharts 若画在被缩放的节点里，鼠标坐标会偏：画布的像素和事件的 CSS 像素不再 1:1。</p>
-<p><img src="/Infatuation/../images/2023/06/27/windows.png" alt="截屏2022-01-18 上午10.40.55.png"></p>
+<p><img src="/Infatuation/images/2023/06/27/windows.png" alt="截屏2022-01-18 上午10.40.55.png"></p>
 <p>稳妥的做法是让图表的 <strong>布局宽高用设计像素</strong>，缩放只发生在外层，并且把同一比例告诉 ECharts 的 <code>resize</code>。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">DESIGN_W</span> = <span class="number">1920</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">DESIGN_H</span> = <span class="number">1080</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fit</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> sx = <span class="variable language_">window</span>.<span class="property">innerWidth</span> / <span class="variable constant_">DESIGN_W</span>;</span><br><span class="line">  <span class="keyword">const</span> sy = <span class="variable language_">window</span>.<span class="property">innerHeight</span> / <span class="variable constant_">DESIGN_H</span>;</span><br><span class="line">  <span class="keyword">const</span> scale = <span class="title class_">Math</span>.<span class="title function_">min</span>(sx, sy);</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;screen&#x27;</span>).<span class="property">style</span>.<span class="property">transform</span> = <span class="string">`scale(<span class="subst">$&#123;scale&#125;</span>)`</span>;</span><br><span class="line">  chart.<span class="title function_">resize</span>(&#123; <span class="attr">width</span>: <span class="variable constant_">DESIGN_W</span>, <span class="attr">height</span>: <span class="number">400</span> &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 

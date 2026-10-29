@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="骊山语罢清宵半，泪雨霖铃终不怨。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/06/05/gaoLmR89WeQ6lVK.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/06/05/gaoLmR89WeQ6lVK.png">
 <meta property="article:published_time" content="2021-12-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.658Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.000Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/06/05/gaoLmR89WeQ6lVK.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2023/06/05/gaoLmR89WeQ6lVK.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -127,7 +127,7 @@
 <span id="more"></span>
 
 <h3 id="用动作描述下一步状态"><a href="#用动作描述下一步状态" class="headerlink" title="用动作描述下一步状态"></a>用动作描述下一步状态</h3><p><code>useReducer(reducer, initialArg, init)</code> 适合下一次状态依赖上一份状态、且更新有明确动作的情况。<code>reducer(state, action)</code> 必须是纯函数：同样的输入永远得到同样的输出，不发请求、不改入参。</p>
-<p><img src="/Infatuation/../images/2023/06/05/gaoLmR89WeQ6lVK.png" alt="截屏2023-06-05 上午10.42.40.png"></p>
+<p><img src="/Infatuation/images/2023/06/05/gaoLmR89WeQ6lVK.png" alt="截屏2023-06-05 上午10.42.40.png"></p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSX"><figure class="iseeu highlight /jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useReducer &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">reducer</span>(<span class="params">state, action</span>) &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.<span class="property">type</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;add&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">count</span>: state.<span class="property">count</span> + action.<span class="property">n</span> &#125;;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;reset&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">count</span>: <span class="number">0</span> &#125;;</span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(action.<span class="property">type</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Counter</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [state, dispatch] = <span class="title function_">useReducer</span>(reducer, &#123; <span class="attr">count</span>: <span class="number">0</span> &#125;);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> dispatch(&#123; type: &#x27;add&#x27;, n: 1 &#125;)&#125;&gt;</span></span><br><span class="line"><span class="language-xml">      &#123;state.count&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 <p><code>dispatch</code> 的引用稳定。React 按队列顺序调用 reducer，所以连续 <code>dispatch</code> 能看到前一条已经算出的 state。这和 <code>useState</code> 的函数式更新是同一套队列。</p>

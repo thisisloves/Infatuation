@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="入我相思门，知我相思苦，长相思兮长相忆，短相思兮无穷极。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2021/07/28/QN9VxWbeLm6yRUY.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2021/07/28/BjXRPOlZCymeUf2.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2021/07/30/lhSgJUd5Lp3T9WR.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2021/07/30/wXRp4IsYaCJNWZE.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2021/07/28/QN9VxWbeLm6yRUY.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2021/07/28/BjXRPOlZCymeUf2.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2021/07/30/lhSgJUd5Lp3T9WR.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2021/07/30/wXRp4IsYaCJNWZE.png">
 <meta property="article:published_time" content="2020-04-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.625Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.982Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2021/07/28/QN9VxWbeLm6yRUY.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2021/07/28/QN9VxWbeLm6yRUY.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -131,16 +131,16 @@
 
 <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>HTTP 缓存是浏览器按响应头决定要不要重新下载资源。它和前进、后退使用的往返缓存（bfcache）不是一回事：bfcache 冻结整页，HTTP 缓存保存的是单个响应。</p>
 <p>查找时先问强缓存是否新鲜。新鲜就不再发请求，开发者工具里常见 <code>200 (from disk cache)</code> 或 memory cache。不新鲜、或者头要求必须再验证，才发条件请求，这就是协商缓存。顺序是「先本地新鲜度，再问服务器」，不是先服务器。</p>
-<p><img src="/Infatuation/../images/2021/07/28/QN9VxWbeLm6yRUY.png" alt="截屏2021-07-28 下午3.40.07.png"></p>
+<p><img src="/Infatuation/images/2021/07/28/QN9VxWbeLm6yRUY.png" alt="截屏2021-07-28 下午3.40.07.png"></p>
 <p>强缓存：</p>
 <ul>
 <li><code>Expires</code>（HTTP&#x2F;1.0）：绝对 GMT 时间。客户端改了系统时钟就会判错。两边都有时，<code>Cache-Control</code> 优先。它没有被从协议里删掉。</li>
 <li><code>Cache-Control</code>（HTTP&#x2F;1.1）：<code>max-age=3600</code> 表示响应生成后的 3600 秒内视为新鲜（还要扣掉 <code>Age</code>）。<code>public</code> 允许共享缓存，<code>private</code> 只允许浏览器。<code>no-cache</code> 是<strong>可以存，但用之前必须向服务器验证</strong>，不是禁用缓存。<code>no-store</code> 才是不要存储。</li>
 </ul>
-<p><img src="/Infatuation/../images/2021/07/28/BjXRPOlZCymeUf2.png" alt="截屏2021-07-28 下午4.44.37.png"></p>
+<p><img src="/Infatuation/images/2021/07/28/BjXRPOlZCymeUf2.png" alt="截屏2021-07-28 下午4.44.37.png"></p>
 <p>协商缓存返回 <code>304</code> 时没有正文，浏览器继续用本地副本；资源变了才是 <code>200</code> 加新正文。验证器两对：<code>ETag</code> &#x2F; <code>If-None-Match</code> 优先于 <code>Last-Modified</code> &#x2F; <code>If-Modified-Since</code>。<code>Last-Modified</code> 精度到秒，同一秒内的修改可能被漏掉。</p>
-<p><img src="/Infatuation/../images/2021/07/30/lhSgJUd5Lp3T9WR.png" alt="111.png"></p>
-<p><img src="/Infatuation/../images/2021/07/30/wXRp4IsYaCJNWZE.png" alt="11112222.png"></p>
+<p><img src="/Infatuation/images/2021/07/30/lhSgJUd5Lp3T9WR.png" alt="111.png"></p>
+<p><img src="/Infatuation/images/2021/07/30/wXRp4IsYaCJNWZE.png" alt="11112222.png"></p>
 <h3 id="正确示例"><a href="#正确示例" class="headerlink" title="正确示例"></a>正确示例</h3><p>带内容哈希的静态文件可以长期强缓存，HTML 相反，要尽快再验证：</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="TEXT"><figure class="iseeu highlight /text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># app.a1b2c3.js</span><br><span class="line">Cache-Control: public, max-age=31536000, immutable</span><br><span class="line"></span><br><span class="line"># index.html</span><br><span class="line">Cache-Control: no-cache</span><br></pre></td></tr></table></figure></div>
 

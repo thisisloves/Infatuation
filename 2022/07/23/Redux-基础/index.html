@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="斜阳独倚西楼，遥山恰对帘钩。人面不知何处，绿波依旧东流。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/04/19/IpJ79Ba3r8lNDfX.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/19/IpJ79Ba3r8lNDfX.png">
 <meta property="article:published_time" content="2022-07-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.669Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.009Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="Redux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/04/19/IpJ79Ba3r8lNDfX.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/19/IpJ79Ba3r8lNDfX.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -128,7 +128,7 @@
 
 <h3 id="Redux-管的是什么"><a href="#Redux-管的是什么" class="headerlink" title="Redux 管的是什么"></a>Redux 管的是什么</h3><p>Redux 把应用里需要共享、需要回溯的状态放进一个 store。界面不直接改这份状态。界面派发一个描述「发生了什么」的 action，reducer 纯函数算出下一份状态，订阅者再渲染。</p>
 <p>它不是 React 的一部分。组件本地的输入草稿、开关，用 <code>useState</code> 更合适。服务端才是权威的数据，也不必整份抄进 Redux。多个相距很远的组件要读同一份客户端状态、或更新规则已经复杂到需要集中测试时，再引入 store。</p>
-<p><img src="/Infatuation/../images/2022/04/19/IpJ79Ba3r8lNDfX.png" alt="截屏2022-04-19 下午3.31.15.png"></p>
+<p><img src="/Infatuation/images/2022/04/19/IpJ79Ba3r8lNDfX.png" alt="截屏2022-04-19 下午3.31.15.png"></p>
 <h3 id="三条约束"><a href="#三条约束" class="headerlink" title="三条约束"></a>三条约束</h3><ol>
 <li><strong>单一 store。</strong> <code>state</code> 是普通对象（或由 reducer 返回的任意可序列化值）。不要把 Promise、函数、类实例塞进 state，时间旅行和持久化都会断。</li>
 <li><strong>state 只读。</strong> 改变它的唯一办法是 <code>dispatch(action)</code>。action 是带 <code>type</code> 字段的普通对象，约定上用 <code>payload</code> 带数据。</li>

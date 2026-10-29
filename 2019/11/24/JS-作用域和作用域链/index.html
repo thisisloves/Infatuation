@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="朝朝暮，云雨定何如，花日穿窗梅小小，雪风洒雨柳疏疏，人唱晚晴初。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/03/02/G6h8zO3L45KobRf.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/03/02/LpBhzZgAtumEM5J.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/03/02/G6h8zO3L45KobRf.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/03/02/LpBhzZgAtumEM5J.png">
 <meta property="article:published_time" content="2019-11-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.620Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.994Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/03/02/G6h8zO3L45KobRf.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/03/02/G6h8zO3L45KobRf.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -135,9 +135,9 @@
 <li>块级作用域：<code>let</code>、<code>const</code>、<code>class</code> 只在声明所在的块（<code>&#123;&#125;</code>、<code>for</code> 的括号）内可见。</li>
 </ol>
 <p>作用域链是内部词法环境的外层引用串起来的链表。查找从<strong>使用处所在的最内层</strong>开始，找不到就沿外层走，直到全局；再没有就抛出 <code>ReferenceError</code>。不是「去创建这个变量的那个函数里取值」——变量只在声明它的作用域里创建一次，内层函数是顺着链去读它。</p>
-<p><img src="/Infatuation/../images/2022/03/02/G6h8zO3L45KobRf.png" alt="截屏2022-03-02 下午4.53.23.png"></p>
+<p><img src="/Infatuation/images/2022/03/02/G6h8zO3L45KobRf.png" alt="截屏2022-03-02 下午4.53.23.png"></p>
 <p><code>bar</code> 写在 <code>fn</code> 里面，<code>bar</code> 的外层就是 <code>fn</code> 的环境，和 <code>bar</code> 将来在哪被调用无关。不同作用域的同名绑定互不影响。</p>
-<p><img src="/Infatuation/../images/2022/03/02/LpBhzZgAtumEM5J.png" alt="截屏2022-03-02 下午4.53.32.png"></p>
+<p><img src="/Infatuation/images/2022/03/02/LpBhzZgAtumEM5J.png" alt="截屏2022-03-02 下午4.53.32.png"></p>
 <h3 id="正确示例"><a href="#正确示例" class="headerlink" title="正确示例"></a>正确示例</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> g = <span class="string">&#x27;global&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">outer</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">inner</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(g, a, b);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> inner;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">outer</span>()();</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> y = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// x 不可见；y 在函数或全局里仍可见</span></span><br></pre></td></tr></table></figure></div>
 
 <p>暂时性死区：<code>let</code> &#x2F; <code>const</code> 会提升到块顶，但在声明语句执行前访问会抛错，不是「没有提升」。</p>

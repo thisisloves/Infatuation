@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="愿我如星君如月，夜夜流光相皎洁。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/10/16/1.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/07/03/2.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/07/03/1.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/07/03/3.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/10/16/2.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/10/16/1.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/07/03/2.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/07/03/1.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/07/03/3.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/10/16/2.png">
 <meta property="article:published_time" content="2022-03-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.663Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.036Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/10/16/1.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2023/10/16/1.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -130,7 +130,7 @@
         <p>愿我如星君如月，夜夜流光相皎洁。</p>
 <span id="more"></span>
 
-<p><img src="/Infatuation/../images/2023/10/16/1.png" alt="4.png"></p>
+<p><img src="/Infatuation/images/2023/10/16/1.png" alt="4.png"></p>
 <h3 id="三层，不是两层"><a href="#三层，不是两层" class="headerlink" title="三层，不是两层"></a>三层，不是两层</h3><p>React 16 之后可以分成三层。应用代码只接触最外面的入口和组件，中间两层在 <code>react-reconciler</code> 里。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSX"><figure class="iseeu highlight /jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> state = <span class="title function_">reconcile</span>(update);</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">UI</span> = <span class="title function_">commit</span>(state);</span><br></pre></td></tr></table></figure></div>
 
@@ -140,9 +140,9 @@
 <li><strong>Renderer</strong>：commit 时把标记落到宿主上。浏览器是 ReactDOM，原生是 React Native，测试渲染器可以产出纯对象。</li>
 </ol>
 <p>React 15 没有 Scheduler。Reconciler 递归调用 <code>mountComponent</code> &#x2F; <code>updateComponent</code>，和 DOM 操作缠在同一次调用栈里，开始了就不能停。层级深时，一次更新超过一帧，输入要等递归结束。</p>
-<p><img src="/Infatuation/../images/2023/07/03/2.png" alt="2.png"></p>
+<p><img src="/Infatuation/images/2023/07/03/2.png" alt="2.png"></p>
 <p>Fiber 把「算出该改什么」和「真正改 DOM」拆开。算的过程在内存里，可以停、可以丢。停的时候页面仍是上一帧的完整界面。</p>
-<p><img src="/Infatuation/../images/2023/07/03/1.png" alt="1.png"></p>
+<p><img src="/Infatuation/images/2023/07/03/1.png" alt="1.png"></p>
 <h3 id="Scheduler-不是-requestIdleCallback-的-polyfill"><a href="#Scheduler-不是-requestIdleCallback-的-polyfill" class="headerlink" title="Scheduler 不是 requestIdleCallback 的 polyfill"></a>Scheduler 不是 requestIdleCallback 的 polyfill</h3><p>2017 年前后的介绍常把 Scheduler 说成 <code>requestIdleCallback</code> 的 polyfill。那是设计草案，不是 React 17 &#x2F; 18 的实现。</p>
 <p><code>requestIdleCallback</code> 只在浏览器认为空闲时触发，页面忙时 React 更新会被推迟；回调的时间预算也不可控。React 的 <code>scheduler</code> 包用 <strong><code>MessageChannel</code></strong> 注册宏任务（<code>setTimeout</code> 仅作退路，因为嵌套定时器有 4ms 下限）。任务开始后看 <code>performance.now()</code>，默认大约 <strong>5ms</strong> 就 <code>shouldYield()</code>。这是「主动切片」，不是「等空闲」。</p>
 <p>并发循环长这样：</p>
@@ -163,9 +163,9 @@
 <li><strong>layout</strong>：<code>useLayoutEffect</code>、<code>componentDidMount</code> &#x2F; <code>componentDidUpdate</code>，此时浏览器还没绘制。</li>
 </ol>
 <p><code>useEffect</code> 不在这三段里同步执行，而是等浏览器绘制之后再跑。</p>
-<p><img src="/Infatuation/../images/2023/07/03/3.png" alt="3.png"></p>
+<p><img src="/Infatuation/images/2023/07/03/3.png" alt="3.png"></p>
 <p>图里渲染阶段的红框可以中断，中断期间用户看不到半成品 DOM。提交阶段对应的 DOM 变更是一次性做完的。</p>
-<p><img src="/Infatuation/../images/2023/10/16/2.png" alt="5.png"></p>
+<p><img src="/Infatuation/images/2023/10/16/2.png" alt="5.png"></p>
 <h3 id="入口决定走哪条路"><a href="#入口决定走哪条路" class="headerlink" title="入口决定走哪条路"></a>入口决定走哪条路</h3><ul>
 <li>React 15：递归 Stack Reconciler。</li>
 <li>React 16–17：Fiber 已在，默认 <code>ReactDOM.render</code> 仍是同步提交。</li>

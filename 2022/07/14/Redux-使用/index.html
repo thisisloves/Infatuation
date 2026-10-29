@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="顷觉日已晚,归思且为安。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/04/20/Tfs64CKrqUbEvpd.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/20/Tfs64CKrqUbEvpd.png">
 <meta property="article:published_time" content="2022-07-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.669Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.981Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="Redux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/04/20/Tfs64CKrqUbEvpd.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/20/Tfs64CKrqUbEvpd.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -126,7 +126,7 @@
         <p>顷觉日已晚,归思且为安。</p>
 <span id="more"></span>
 
-<h3 id="最小可用的一条链"><a href="#最小可用的一条链" class="headerlink" title="最小可用的一条链"></a>最小可用的一条链</h3><p><img src="/Infatuation/../images/2022/04/20/Tfs64CKrqUbEvpd.png" alt="截屏2022-04-20 下午4.48.02.png"></p>
+<h3 id="最小可用的一条链"><a href="#最小可用的一条链" class="headerlink" title="最小可用的一条链"></a>最小可用的一条链</h3><p><img src="/Infatuation/images/2022/04/20/Tfs64CKrqUbEvpd.png" alt="截屏2022-04-20 下午4.48.02.png"></p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; configureStore, createSlice &#125; <span class="keyword">from</span> <span class="string">&#x27;@reduxjs/toolkit&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> counter = <span class="title function_">createSlice</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;counter&#x27;</span>,</span><br><span class="line">  <span class="attr">initialState</span>: &#123; <span class="attr">value</span>: <span class="number">0</span> &#125;,</span><br><span class="line">  <span class="attr">reducers</span>: &#123;</span><br><span class="line">    <span class="title function_">add</span>(<span class="params">state, action</span>) &#123;</span><br><span class="line">      state.<span class="property">value</span> += action.<span class="property">payload</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> &#123; add &#125; = counter.<span class="property">actions</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> store = <span class="title function_">configureStore</span>(&#123;</span><br><span class="line">  <span class="attr">reducer</span>: &#123; <span class="attr">counter</span>: counter.<span class="property">reducer</span> &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
 
 <p>入口只包一次 <code>Provider</code>。多包一层没有合并 store 的作用，内层会挡住外层。</p>

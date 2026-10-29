@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="满目山河空念远，落花风雨更伤春。不如怜取眼前人。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/21/iI4yOuQAwxZXLFJ.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/21/nyQDhTH7sud3fO4.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/21/mGp5yiWHvIL2coX.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/21/Tq9zN2n7dKhBLw3.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/21/iI4yOuQAwxZXLFJ.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/21/nyQDhTH7sud3fO4.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/21/mGp5yiWHvIL2coX.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/21/Tq9zN2n7dKhBLw3.png">
 <meta property="article:published_time" content="2018-06-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.593Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.030Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/21/iI4yOuQAwxZXLFJ.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/21/iI4yOuQAwxZXLFJ.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -131,7 +131,7 @@
 
 <h3 id="子网划分在算什么"><a href="#子网划分在算什么" class="headerlink" title="子网划分在算什么"></a>子网划分在算什么</h3><p>子网划分向主机位借若干位当子网位，把原来的一个网络分成多个互不重叠的小网。借 n 位，得到 <code>2^n</code> 个子网。每个子网里，主机位全 0 是网络地址，全 1 是广播地址，可用主机数是 <code>2^h - 2</code>，h 是剩余主机位数。</p>
 <p>块大小等于 <code>2^h</code>，也就是这一段里的地址总数，含网络地址和广播地址。网络地址必须能被块大小整除。可用主机是块大小减 2，不是块大小本身。</p>
-<p><img src="/Infatuation/../images/2022/06/21/iI4yOuQAwxZXLFJ.png" alt="截屏2022-06-21 上午10.22.43.png"></p>
+<p><img src="/Infatuation/images/2022/06/21/iI4yOuQAwxZXLFJ.png" alt="截屏2022-06-21 上午10.22.43.png"></p>
 <p>早期分类网络要求子网位不能全 0 或全 1。CIDR 实行以后，这两种子网可以使用。子网个数不要再写成 <code>2^n - 2</code>。主机个数仍然要减 2。</p>
 <h3 id="为什么要划分"><a href="#为什么要划分" class="headerlink" title="为什么要划分"></a>为什么要划分</h3><ol>
 <li>缩小广播域。一次广播只在本子网内扩散，不会灌满整个大网。</li>
@@ -141,7 +141,7 @@
 </ol>
 <p>子网划分节省的是地址规划上的浪费，不是把 32 位地址变多。</p>
 <h3 id="掩码与前缀"><a href="#掩码与前缀" class="headerlink" title="掩码与前缀"></a>掩码与前缀</h3><p>掩码从左到右，网络位和子网位为 1，主机位为 0。<code>172.16.45.0/24</code> 的掩码是 <code>255.255.255.0</code>。它是 <code>172.16.0.0/16</code> 里面的一个 &#x2F;24，不能把 <code>172.16.45.0</code> 本身叫成「这个 B 类网络」。</p>
-<p><img src="/Infatuation/../images/2022/06/21/nyQDhTH7sud3fO4.png" alt="截屏2022-06-21 上午10.32.05.png"></p>
+<p><img src="/Infatuation/images/2022/06/21/nyQDhTH7sud3fO4.png" alt="截屏2022-06-21 上午10.32.05.png"></p>
 <table>
 <thead>
 <tr>
@@ -198,11 +198,11 @@
 <p>&#x2F;30 只有两个可用地址，常用于点到点链路。&#x2F;31 在支持 RFC 3021 的设备上可用于链路，两端都当主机，没有单独的广播地址，这时不要再减 2。&#x2F;32 是单台主机。</p>
 <p>要 30 台主机时，主机位至少 5 位，前缀最长是 &#x2F;27，块大小是 32，不是 30。按 30 去切会出现 <code>.0</code>、<code>.30</code>、<code>.60</code>，而 <code>.30</code> 不能被 32 整除，不是合法的 &#x2F;27 网络地址。</p>
 <h3 id="例：192-168-0-0-x2F-24-分成-2-个子网"><a href="#例：192-168-0-0-x2F-24-分成-2-个子网" class="headerlink" title="例：192.168.0.0&#x2F;24 分成 2 个子网"></a>例：192.168.0.0&#x2F;24 分成 2 个子网</h3><p><code>2^n ≥ 2</code>，借 1 位，新前缀 &#x2F;25，块大小 128，每段可用 126。</p>
-<p><img src="/Infatuation/../images/2022/06/21/mGp5yiWHvIL2coX.png" alt="截屏2022-06-21 上午10.46.51.png"></p>
+<p><img src="/Infatuation/images/2022/06/21/mGp5yiWHvIL2coX.png" alt="截屏2022-06-21 上午10.46.51.png"></p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="TEXT"><figure class="iseeu highlight /text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">子网 1  192.168.0.0/25</span><br><span class="line">  可用  192.168.0.1 ～ 192.168.0.126</span><br><span class="line">  广播  192.168.0.127</span><br><span class="line">子网 2  192.168.0.128/25</span><br><span class="line">  可用  192.168.0.129 ～ 192.168.0.254</span><br><span class="line">  广播  192.168.0.255</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="例：192-168-0-0-x2F-24-分成-4-个子网"><a href="#例：192-168-0-0-x2F-24-分成-4-个子网" class="headerlink" title="例：192.168.0.0&#x2F;24 分成 4 个子网"></a>例：192.168.0.0&#x2F;24 分成 4 个子网</h3><p><code>2^n ≥ 4</code>，借 2 位，新前缀 &#x2F;26，块大小 64，每段可用 62。第四个网络地址是 <code>192.168.0.192/26</code>，不是 <code>192.168.192.0/26</code>。</p>
-<p><img src="/Infatuation/../images/2022/06/21/Tq9zN2n7dKhBLw3.png" alt="截屏2022-06-21 上午10.49.32.png"></p>
+<p><img src="/Infatuation/images/2022/06/21/Tq9zN2n7dKhBLw3.png" alt="截屏2022-06-21 上午10.49.32.png"></p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="TEXT"><figure class="iseeu highlight /text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">子网 1  192.168.0.0/26     可用 .1～.62      广播 .63</span><br><span class="line">子网 2  192.168.0.64/26    可用 .65～.126    广播 .127</span><br><span class="line">子网 3  192.168.0.128/26   可用 .129～.190   广播 .191</span><br><span class="line">子网 4  192.168.0.192/26   可用 .193～.254   广播 .255</span><br></pre></td></tr></table></figure></div>
 
 <p>192 可以被 64 整除，所以 <code>.192/26</code> 对齐。<code>.100/26</code> 不是合法网络地址。</p>

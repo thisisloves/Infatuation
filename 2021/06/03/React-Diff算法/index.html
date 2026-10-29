@@ -16,18 +16,18 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="三世风尘仆仆，愿吾安于禅心。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/CmS2XQYpKrAdOHq.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/BwmkGQPpZ4AC9lq.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/vtxTq1KVJWY4oNc.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/04/29/1.jpeg">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/qiunlDLZej6FMAp.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/ymrLg38klqBOaI2.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/CmS2XQYpKrAdOHq.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/BwmkGQPpZ4AC9lq.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/vtxTq1KVJWY4oNc.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/29/1.jpeg">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/qiunlDLZej6FMAp.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/ymrLg38klqBOaI2.png">
 <meta property="article:published_time" content="2021-06-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.644Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.010Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/05/12/CmS2XQYpKrAdOHq.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/CmS2XQYpKrAdOHq.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -137,19 +137,19 @@
 <li>类型不同就拆掉整棵子树再新建。</li>
 <li>同一层用 <strong>key</strong> 识别哪个节点是移动，哪个是新建。</li>
 </ol>
-<p><img src="/Infatuation/../images/2023/05/12/CmS2XQYpKrAdOHq.png" alt="截屏2023-05-12 上午10.08.02.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/CmS2XQYpKrAdOHq.png" alt="截屏2023-05-12 上午10.08.02.png"></p>
 <p>跨层移动在界面上很少见。若真的把一棵子树从 A 的孩子变成 B 的孩子，React 会在旧位置删除、在新位置创建，状态会丢。这是策略，不是漏实现。</p>
 <h3 id="类型不同：整枝替换"><a href="#类型不同：整枝替换" class="headerlink" title="类型不同：整枝替换"></a>类型不同：整枝替换</h3><p><code>div</code> 换成 <code>span</code>，或 <code>UserList</code> 换成 <code>ProductList</code>，key 即便相同也不会复用。旧 Fiber 标删除，新 Fiber 标插入，子树状态全部重置。</p>
-<p><img src="/Infatuation/../images/2023/05/12/BwmkGQPpZ4AC9lq.png" alt="截屏2023-05-12 上午10.27.56.png"></p>
-<p><img src="/Infatuation/../images/2023/05/12/vtxTq1KVJWY4oNc.png" alt="截屏2023-05-12 上午10.27.45.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/BwmkGQPpZ4AC9lq.png" alt="截屏2023-05-12 上午10.27.56.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/vtxTq1KVJWY4oNc.png" alt="截屏2023-05-12 上午10.27.45.png"></p>
 <p>想保留状态，就保持组件类型稳定，把变化放进 props，而不是在父级用条件表达式切换两个不同类型的组件。条件切换时，把状态提升，或把 <code>key</code> 设成同一个稳定值并保证类型不变。反过来，若希望重置状态（例如换了一条用户记录的表单），主动改变 <code>key</code>。</p>
-<h3 id="同一层列表：key"><a href="#同一层列表：key" class="headerlink" title="同一层列表：key"></a>同一层列表：key</h3><p><img src="/Infatuation/../images/2022/04/29/1.jpeg" alt="截屏2023-05-12 上午10.32.49.png"></p>
+<h3 id="同一层列表：key"><a href="#同一层列表：key" class="headerlink" title="同一层列表：key"></a>同一层列表：key</h3><p><img src="/Infatuation/images/2022/04/29/1.jpeg" alt="截屏2023-05-12 上午10.32.49.png"></p>
 <p>没有 key 时，React 按索引复用。只在末尾追加，这样是对的。在头部插入或排序时，索引复用会把后面每个节点都看成「props 变了」，并且把错误的 state 留在原来的索引上。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSX"><figure class="iseeu highlight /jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;todos.<span class="title function_">map</span>(<span class="function">(<span class="params">todo</span>) =&gt;</span> (</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">TodoItem</span> <span class="attr">key</span>=<span class="string">&#123;todo.id&#125;</span> <span class="attr">todo</span>=<span class="string">&#123;todo&#125;</span> /&gt;</span></span></span><br><span class="line">))&#125;</span><br></pre></td></tr></table></figure></div>
 
 <p>key 要在 <strong>兄弟之间</strong> 稳定且唯一。用数组下标做 key，排序和插入时等于没有 key。用 <code>Math.random()</code> 或渲染时才生成的 id，等于每次都是新节点，状态和 DOM 都会重建。</p>
-<p><img src="/Infatuation/../images/2023/05/12/qiunlDLZej6FMAp.png" alt="截屏2023-05-12 上午10.35.23.png"></p>
-<p><img src="/Infatuation/../images/2023/05/12/ymrLg38klqBOaI2.png" alt="截屏2023-05-12 上午10.35.29.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/qiunlDLZej6FMAp.png" alt="截屏2023-05-12 上午10.35.23.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/ymrLg38klqBOaI2.png" alt="截屏2023-05-12 上午10.35.29.png"></p>
 <h3 id="单节点和多节点"><a href="#单节点和多节点" class="headerlink" title="单节点和多节点"></a>单节点和多节点</h3><p>只有一个子元素时，比 type 和 key。相同则更新 props；不同则卸载旧的、挂载新的。</p>
 <p>多个子元素时，React 先从左到右扫一遍，尽量处理「没移动」的前缀。剩下的旧节点放进以 key 为索引的 map，再按新 children 的 key 去取。取到就是移动或更新，取不到就是插入。旧 map 里剩下的删除。移动与否用 <code>lastPlacedIndex</code> 判断：新序列里某个旧节点的旧索引如果比已经放置过的最大索引还小，说明它要往右挪，标上 Placement。</p>
 <p>这是单层算法，不会为了最少 DOM 操作去搜索跨层方案。</p>

@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="我们用零距离的爱，弹奏一曲琴韵笙箫，将生命畅想成天籁之音。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/10/ySU3TtHqDJaimwZ.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/10/V46eB9k753w2qmF.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/10/hsVtjrKzxHGSdnX.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/05/TxeDFdjNmXorywv.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/05/jGmO7u8PLhc6bRw.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/10/ySU3TtHqDJaimwZ.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/10/V46eB9k753w2qmF.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/10/hsVtjrKzxHGSdnX.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/05/TxeDFdjNmXorywv.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/05/jGmO7u8PLhc6bRw.png">
 <meta property="article:published_time" content="2021-06-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.646Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.007Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/05/10/ySU3TtHqDJaimwZ.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/10/ySU3TtHqDJaimwZ.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -132,7 +132,7 @@
 
 <h3 id="Hooks-是什么"><a href="#Hooks-是什么" class="headerlink" title="Hooks 是什么"></a>Hooks 是什么</h3><p>Hooks 从 React 16.8 起稳定。它们让函数组件拥有状态、副作用和 context，而不必写成类。类组件仍然支持，没有被删除。</p>
 <p>引入 Hooks 的直接原因是复用带状态的逻辑。高阶组件和 render props 能复用，但会多出一层组件、让数据和来源变远。自定义 Hook 只是一个调用了其他 Hook 的函数，没有额外的树节点。<code>this</code> 的绑定、生命周期里副作用和渲染缠在一起，是类组件里更常见的成本。把动机说成「类不利于 tree shaking」，并不是设计文档里的原因。</p>
-<p><img src="/Infatuation/../images/2022/05/10/ySU3TtHqDJaimwZ.png" alt="截屏2022-05-10 下午5.09.03.png"></p>
+<p><img src="/Infatuation/images/2022/05/10/ySU3TtHqDJaimwZ.png" alt="截屏2022-05-10 下午5.09.03.png"></p>
 <h3 id="调用规则"><a href="#调用规则" class="headerlink" title="调用规则"></a>调用规则</h3><ol>
 <li>只在函数组件或其他自定义 Hook 的 <strong>顶层</strong> 调用。不要放进条件、循环、<code>try/catch</code> 或嵌套函数。</li>
 <li>不要在普通函数、类组件、事件回调里调用。</li>
@@ -141,12 +141,12 @@
 <p>React 用调用顺序把每一次 Hook 和 Fiber 上的节点对上号。中间少调用一次，后面的状态就会错位。条件渲染要放在 Hook <strong>之后</strong>，或者把条件挪进自定义 Hook 的内部实现（自定义 Hook 自己的调用次数在该组件里仍然要稳定）。</p>
 <h3 id="实现是链表，不是数组"><a href="#实现是链表，不是数组" class="headerlink" title="实现是链表，不是数组"></a>实现是链表，不是数组</h3><p>教学里常用「state 存在数组里，下标就是调用序号」来解释规则。真实结构是挂在 <code>fiber.memoizedState</code> 上的 <strong>单向链表</strong>：每个 Hook 节点有 <code>memoizedState</code>、<code>queue</code> 和 <code>next</code>。首次渲染走 mount 版 dispatcher，按顺序创建节点；更新走 update 版 dispatcher，按同样顺序取 <code>next</code>。</p>
 <p>「数组」这个比喻足够解释为什么不能条件调用，但源码里没有一个 <code>hookStates[i]</code> 数组。dispatcher 是当前渲染使用的那一组函数（<code>useState</code>、<code>useEffect</code> 等），mount 与 update 两套实现不同。</p>
-<p><img src="/Infatuation/../images/2022/05/10/V46eB9k753w2qmF.png" alt="截屏2022-05-10 下午4.49.55.png"></p>
-<p><img src="/Infatuation/../images/2022/05/10/hsVtjrKzxHGSdnX.png" alt="截屏2022-05-10 下午4.50.05.png"></p>
+<p><img src="/Infatuation/images/2022/05/10/V46eB9k753w2qmF.png" alt="截屏2022-05-10 下午4.49.55.png"></p>
+<p><img src="/Infatuation/images/2022/05/10/hsVtjrKzxHGSdnX.png" alt="截屏2022-05-10 下午4.50.05.png"></p>
 <h3 id="和-Fiber-的关系"><a href="#和-Fiber-的关系" class="headerlink" title="和 Fiber 的关系"></a>和 Fiber 的关系</h3><p>Hook 状态保存在函数组件对应的 Fiber 上，所以组件在树里的位置（类型 + key）决定了状态身份。父组件把子组件的类型换掉或改变 key，Fiber 重建，Hook 链表一起丢掉。</p>
-<p><img src="/Infatuation/../images/2022/05/05/TxeDFdjNmXorywv.png" alt="截屏2022-05-05 下午2.49.29.png"></p>
+<p><img src="/Infatuation/images/2022/05/05/TxeDFdjNmXorywv.png" alt="截屏2022-05-05 下午2.49.29.png"></p>
 <p>并发渲染可能让函数体执行多次，未提交的那次会丢弃。Hook 的更新队列能承受「算了又重来」。这要求渲染保持纯。下面两张图是时间分片的直觉，调度细节在《React Fiber》和《React Scheduler 调度器》：切片不是 <code>requestIdleCallback</code>，默认大约 5ms 让出一次，而且只发生在并发 render。</p>
-<p><img src="/Infatuation/../images/2022/05/05/jGmO7u8PLhc6bRw.png" alt="截屏2022-05-05 下午2.49.38.png"></p>
+<p><img src="/Infatuation/images/2022/05/05/jGmO7u8PLhc6bRw.png" alt="截屏2022-05-05 下午2.49.38.png"></p>
 <h3 id="常用-Hook"><a href="#常用-Hook" class="headerlink" title="常用 Hook"></a>常用 Hook</h3><ul>
 <li><strong>useState</strong>：保存渲染所需状态。对象不会像类的 <code>setState</code> 那样合并。</li>
 <li><strong>useReducer</strong>：下一次状态由 reducer 纯函数算出，适合更新依赖前一份状态、或多个子更新一起变。</li>

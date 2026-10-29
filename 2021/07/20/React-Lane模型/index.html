@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="若问相思何处歇，相逢便是相思澈。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/10/16/4.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/10/16/4.png">
 <meta property="article:published_time" content="2021-07-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.647Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.014Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/10/16/4.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2023/10/16/4.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -127,7 +127,7 @@
 <span id="more"></span>
 
 <h3 id="为什么不用一个数字"><a href="#为什么不用一个数字" class="headerlink" title="为什么不用一个数字"></a>为什么不用一个数字</h3><p>React 16 的并发实验用 <code>expirationTime</code>：一个数字，越大越急。它不好表示「这几件更新优先级相同，应该一批做完」，也不好做集合运算。React 17 改成 Lane：用 31 位二进制，每一位是一条车道。位运算就能完成合并、排除和求最高优先级。</p>
-<p><img src="/Infatuation/../images/2023/10/16/4.png" alt="4.png"></p>
+<p><img src="/Infatuation/images/2023/10/16/4.png" alt="4.png"></p>
 <p>赛道这个比喻仍然成立：越靠内圈越短、越优先；相邻几条可以视为同一档，用来容纳被打断后积压的更新。低优先级更容易被打断，所以分到的位数更多。同步更新几乎不会积压，一条 <code>SyncLane</code> 就够。</p>
 <h3 id="React-17-的位图已经过期"><a href="#React-17-的位图已经过期" class="headerlink" title="React 17 的位图已经过期"></a>React 17 的位图已经过期</h3><p>旧稿里的 <code>SyncBatchedLane</code>、<code>InputDiscreteHydrationLane</code>、<code>InputDiscreteLanes</code> 属于 <strong>React 17</strong>。React 18 稳定版拿掉了这两组：离散交互（点击等）多数进入 <code>SyncLane</code>，连续输入单独留下 <code>InputContinuousLane</code>，普通更新收成一条 <code>DefaultLane</code>，过渡更新扩成 16 条。把 17 的常量抄进 18 的源码对不上。</p>
 <p>下面是 <strong>React 18.2</strong> <code>ReactFiberLane</code> 的布局。这是内部实现，19 以后位数还会调，应用不要写死这些掩码。</p>

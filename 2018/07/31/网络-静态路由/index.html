@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="天河夜转漂回星，银浦流云学水声。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/23/guEChi6NGP9po1W.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/23/yPaKA9ZX2NRB5Vw.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/23/46E3n1qQlKIecWr.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/23/guEChi6NGP9po1W.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/23/yPaKA9ZX2NRB5Vw.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/23/46E3n1qQlKIecWr.png">
 <meta property="article:published_time" content="2018-07-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.597Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.975Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/23/guEChi6NGP9po1W.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/23/guEChi6NGP9po1W.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -131,7 +131,7 @@
 <h3 id="静态路由是什么"><a href="#静态路由是什么" class="headerlink" title="静态路由是什么"></a>静态路由是什么</h3><p>静态路由由管理员写进路由表，内容不随拓扑自动变化。直连路由由接口地址自动生成，动态路由由协议学习，两者都不是静态路由。网络已经改变而静态条目没改，转发仍走旧下一跳，可能形成黑洞。</p>
 <p>它不周期通告，不占用协议带宽，别人也不能从路由更新里反推出整张拓扑，所以小网络或安全边界上仍然常用。大网络里没人能手工跟上每一次链路变化，静态路由会成为故障源。拓扑变化后需要手工改配置。</p>
 <h3 id="例：三台三层交换机"><a href="#例：三台三层交换机" class="headerlink" title="例：三台三层交换机"></a>例：三台三层交换机</h3><p>目标是让 <code>10.1.1.0/24</code>、<code>10.1.2.0/24</code>、<code>10.1.3.0/24</code> 互通。互联地址必须和静态路由的下一跳落在同一网段。<code>10.1.4.1/30</code> 只包含 <code>.1</code> 和 <code>.2</code>，对端若配成 <code>.5</code>，两边根本不在一个网络里，路由写了也不会通。</p>
-<p><img src="/Infatuation/../images/2022/06/23/guEChi6NGP9po1W.png" alt="截屏2022-06-23 下午4.25.06.png"></p>
+<p><img src="/Infatuation/images/2022/06/23/guEChi6NGP9po1W.png" alt="截屏2022-06-23 下午4.25.06.png"></p>
 <table>
 <thead>
 <tr>
@@ -190,8 +190,8 @@
 <p>PC1、PC2、PC3 的网关分别是 <code>10.1.1.1</code>、<code>10.1.2.1</code>、<code>10.1.3.1</code>。SwitchB 位于中间，必须有到两侧用户网段的明细。两侧用默认路由就可以把未知目的交给中间设备。</p>
 <p>缺省路由是目的为 <code>0.0.0.0/0</code> 的静态路由。报文匹配不到更长的前缀时才使用它。更长前缀优先于默认路由，这个比较发生在同一张路由表里已经选出候选路由之后。</p>
 <h3 id="主机上的静态路由"><a href="#主机上的静态路由" class="headerlink" title="主机上的静态路由"></a>主机上的静态路由</h3><p>一台电脑要同时访问互联网和内部服务器，而这两处不在同一网关后面时，可以在主机路由表里加一条更具体的静态路由：内部前缀指向内网网关，默认路由仍指向能上互联网的那一个。</p>
-<p><img src="/Infatuation/../images/2022/06/23/yPaKA9ZX2NRB5Vw.png" alt="截屏2022-06-23 下午5.19.21.png"></p>
-<p><img src="/Infatuation/../images/2022/06/23/46E3n1qQlKIecWr.png" alt="截屏2022-06-23 下午5.23.46.png"></p>
+<p><img src="/Infatuation/images/2022/06/23/yPaKA9ZX2NRB5Vw.png" alt="截屏2022-06-23 下午5.19.21.png"></p>
+<p><img src="/Infatuation/images/2022/06/23/46E3n1qQlKIecWr.png" alt="截屏2022-06-23 下午5.23.46.png"></p>
 <p>只改电脑的默认网关，会让所有流量都走向新网关，互联网和内网就只能保住一头。明细路由只把匹配的目的拐进内网。</p>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
 <li>下一跳必须是本机某个接口能直接到达的地址，通常是对端接口地址，不是远端用户网段里的某台 PC。</li>

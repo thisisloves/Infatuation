@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="人生若只如初见，何须感伤离别。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2021/05/07/JZUihrRLVklD3bX.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2021/05/07/VEAxsWS7Hi9Kwuy.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/02/24/OkMuioICHtc9dlB.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/02/25/a2eNzgfyuDnchdB.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2021/05/07/JZUihrRLVklD3bX.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2021/05/07/VEAxsWS7Hi9Kwuy.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/02/24/OkMuioICHtc9dlB.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/02/25/a2eNzgfyuDnchdB.png">
 <meta property="article:published_time" content="2019-12-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.621Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.027Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2021/05/07/JZUihrRLVklD3bX.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2021/05/07/JZUihrRLVklD3bX.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -133,10 +133,10 @@
 <p>多数函数有 <code>prototype</code>。用 <code>new</code> 调用时，新对象的内部槽 <code>[[Prototype]]</code> 指向这个 <code>prototype</code>。读属性时先看对象自身，没有再沿 <code>[[Prototype]]</code> 走，直到 <code>null</code>。<code>Object.prototype</code> 的原型是 <code>null</code>，它是普通对象链的尽头，不是「所有值包括数字和 <code>null</code> 的终点」。原始值没有属性，读 <code>&#39;a&#39;.length</code> 时才会临时装箱。</p>
 <p><code>__proto__</code> 是访问 <code>[[Prototype]]</code> 的历史写法。读用 <code>Object.getPrototypeOf</code>，设对象的原型用 <code>Object.create</code> 或 <code>Object.setPrototypeOf</code>（后者会影响优化，初始化时一次设好即可）。</p>
 <p>箭头函数没有 <code>prototype</code>，也不能 <code>new</code>。<code>typeof</code> 的结果是小写 <code>&quot;function&quot;</code> &#x2F; <code>&quot;object&quot;</code>，没有 <code>&quot;Function&quot;</code> 或 <code>&quot;Objetct&quot;</code>。</p>
-<p><img src="/Infatuation/../images/2021/05/07/JZUihrRLVklD3bX.png" alt="截屏2021-05-07下午6.13.28.png"></p>
-<p><img src="/Infatuation/../images/2021/05/07/VEAxsWS7Hi9Kwuy.png" alt="截屏2021-05-07下午6.22.45.png"></p>
-<p><img src="/Infatuation/../images/2022/02/24/OkMuioICHtc9dlB.png" alt="截屏2022-02-24 下午5.01.30.png"></p>
-<p><img src="/Infatuation/../images/2022/02/25/a2eNzgfyuDnchdB.png" alt="截屏2022-02-25 上午10.18.26.png"></p>
+<p><img src="/Infatuation/images/2021/05/07/JZUihrRLVklD3bX.png" alt="截屏2021-05-07下午6.13.28.png"></p>
+<p><img src="/Infatuation/images/2021/05/07/VEAxsWS7Hi9Kwuy.png" alt="截屏2021-05-07下午6.22.45.png"></p>
+<p><img src="/Infatuation/images/2022/02/24/OkMuioICHtc9dlB.png" alt="截屏2022-02-24 下午5.01.30.png"></p>
+<p><img src="/Infatuation/images/2022/02/25/a2eNzgfyuDnchdB.png" alt="截屏2022-02-25 上午10.18.26.png"></p>
 <h3 id="正确示例"><a href="#正确示例" class="headerlink" title="正确示例"></a>正确示例</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">say</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;小明&#x27;</span>);</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getPrototypeOf</span>(person) === <span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>; <span class="comment">// true</span></span><br><span class="line">person.<span class="property">constructor</span> === <span class="title class_">Person</span>; <span class="comment">// true</span></span><br><span class="line">person.<span class="title function_">say</span>(); <span class="comment">// &#x27;小明&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> bare = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="literal">null</span>);</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getPrototypeOf</span>(bare); <span class="comment">// null，没有 toString，也没有 constructor</span></span><br></pre></td></tr></table></figure></div>
 
 <p>实例上找不到 <code>prototype</code> 属性，那是函数上的。实例通过原型链使用 <code>Person.prototype</code> 上的方法，所以方法只存一份。写在构造函数里的 <code>this.fn = function()&#123;&#125;</code> 是每个实例一份。</p>

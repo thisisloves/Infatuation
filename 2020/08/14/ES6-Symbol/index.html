@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="始于初见，止于终老。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/01/19/hwQeJZt59fiNFLs.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/01/19/YlBxUZDFGXoA2Iw.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/01/19/hwQeJZt59fiNFLs.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/01/19/YlBxUZDFGXoA2Iw.png">
 <meta property="article:published_time" content="2020-08-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.629Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.031Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/01/19/hwQeJZt59fiNFLs.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/01/19/hwQeJZt59fiNFLs.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -130,11 +130,11 @@
 <h3 id="每个-Symbol-都是新值"><a href="#每个-Symbol-都是新值" class="headerlink" title="每个 Symbol() 都是新值"></a>每个 Symbol() 都是新值</h3><p><code>Symbol(&#39;id&#39;)</code> 的参数只是调试用的描述，不参与相等。两次调用得到两个不相等的值，即使描述相同。<code>new Symbol()</code> 会抛错，它不是构造函数。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> id = <span class="title class_">Symbol</span>(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">name</span>: <span class="string">&#x27;映雪&#x27;</span>, [id]: <span class="number">1</span> &#125;;</span><br><span class="line">user[id];</span><br></pre></td></tr></table></figure></div>
 
-<p><img src="/Infatuation/../images/2022/01/19/hwQeJZt59fiNFLs.png" alt="截屏2022-01-19 下午6.02.20.png"></p>
+<p><img src="/Infatuation/images/2022/01/19/hwQeJZt59fiNFLs.png" alt="截屏2022-01-19 下午6.02.20.png"></p>
 <p>Symbol 键不会出现在 <code>for...in</code>、<code>Object.keys</code>、<code>JSON.stringify</code> 里。<code>Object.getOwnPropertySymbols</code> 和 <code>Reflect.ownKeys</code> 能看到。它不是私有属性，只是不容易撞名。真正的私有是类的 <code>#field</code>。</p>
 <h3 id="全局登记"><a href="#全局登记" class="headerlink" title="全局登记"></a>全局登记</h3><p><code>Symbol.for(&#39;id&#39;)</code> 按字符串在全局登记表里查找，没有就创建。同一描述永远得到同一个 Symbol，包括跨 realm 时运行库共享的那张表。<code>Symbol.keyFor(sym)</code> 只对 <code>Symbol.for</code> 登记过的值返回描述，对 <code>Symbol(&#39;id&#39;)</code> 返回 <code>undefined</code>。</p>
 <p>库的扩展键若希望全程序唯一且可复现，用 <code>Symbol.for</code>。只想要「这块代码自己的键」，用 <code>Symbol()</code>，避免别的脚本 <code>Symbol.for</code> 到同一个键改你的字段。</p>
-<p><img src="/Infatuation/../images/2022/01/19/YlBxUZDFGXoA2Iw.png" alt="截屏2022-01-19 下午6.16.03.png"></p>
+<p><img src="/Infatuation/images/2022/01/19/YlBxUZDFGXoA2Iw.png" alt="截屏2022-01-19 下午6.16.03.png"></p>
 <h3 id="内置-Symbol"><a href="#内置-Symbol" class="headerlink" title="内置 Symbol"></a>内置 Symbol</h3><p>语言用一批知名 Symbol 当钩子，而不是往对象上加普通字符串方法，避免和业务字段冲突。</p>
 <ul>
 <li><code>Symbol.iterator</code>：可迭代协议。</li>

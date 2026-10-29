@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="一生一世，如梦初醒。逐梦令，浮生半醒。泪满襟，笑缘尽。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/28/hZ8tszqDkaLuOm3.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/29/zEYS5N2ycWUZ6kP.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/28/hZ8tszqDkaLuOm3.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/29/zEYS5N2ycWUZ6kP.png">
 <meta property="article:published_time" content="2018-04-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.588Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.008Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/28/hZ8tszqDkaLuOm3.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/28/hZ8tszqDkaLuOm3.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -128,7 +128,7 @@
 <span id="more"></span>
 
 <h3 id="IS-IS-是什么"><a href="#IS-IS-是什么" class="headerlink" title="IS-IS 是什么"></a>IS-IS 是什么</h3><p>IS-IS（Intermediate System to Intermediate System）是链路状态内部网关协议，源自 DECnet Phase V，算法和 OSPF 同类：Hello 发现邻居，链路状态泛洪，SPF 计算最短路径。它最初承载 CLNP，后来扩展为集成 IS-IS，也能算 IP 路由。报文直接装在数据链路帧里，不装在 IP 里。</p>
-<p><img src="/Infatuation/../images/2022/06/28/hZ8tszqDkaLuOm3.png" alt="截屏2022-06-28 上午10.40.49.png"></p>
+<p><img src="/Infatuation/images/2022/06/28/hZ8tszqDkaLuOm3.png" alt="截屏2022-06-28 上午10.40.49.png"></p>
 <h3 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h3><ol>
 <li>每个路由器维护链路状态数据库，用 SPF 计算最佳路径。</li>
 <li>用 Hello 建立和维护邻接。</li>
@@ -208,7 +208,7 @@
 </tr>
 </tbody></table>
 <p>点到点链路上，OSPF 要求数据库描述严格确认后才算邻接稳定；IS-IS 的同步过程更简单。不能因此说某一个「更可靠」，只是状态机不同。</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><img src="/Infatuation/../images/2022/06/29/zEYS5N2ycWUZ6kP.png" alt="截屏2022-06-29 下午5.11.25.png"></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><img src="/Infatuation/images/2022/06/29/zEYS5N2ycWUZ6kP.png" alt="截屏2022-06-29 下午5.11.25.png"></p>
 <p>每台路由器进入 IS-IS 进程，指定级别和 NET，再在需要参与的接口上 <code>isis enable</code>。R2 与 R6 的串行链路两端都要启用，只在一端启用则邻接无法建立。防火墙区域、空接口不属于 IS-IS 配置。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="TEXT"><figure class="iseeu highlight /text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">isis 1</span><br><span class="line"> is-level level-2</span><br><span class="line"> network-entity 49.0000.0000.0000.0001.00</span><br><span class="line">interface GigabitEthernet0/0/0</span><br><span class="line"> ip address 10.1.14.1 255.255.255.0</span><br><span class="line"> isis enable 1</span><br><span class="line">interface LoopBack0</span><br><span class="line"> ip address 1.1.1.1 255.255.255.255</span><br><span class="line"> isis enable 1</span><br></pre></td></tr></table></figure></div>
 

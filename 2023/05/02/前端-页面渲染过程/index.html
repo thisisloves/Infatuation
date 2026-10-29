@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="遇见喜欢的人，就像浩劫余生终遇大陆。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/07/tn9H3qlAdDxzmpO.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/07/q8xuYtp6EhInkKJ.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/07/tn9H3qlAdDxzmpO.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/07/q8xuYtp6EhInkKJ.png">
 <meta property="article:published_time" content="2023-05-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.680Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.008Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/07/tn9H3qlAdDxzmpO.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/07/tn9H3qlAdDxzmpO.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -128,7 +128,7 @@
 <span id="more"></span>
 
 <h3 id="从地址到像素"><a href="#从地址到像素" class="headerlink" title="从地址到像素"></a>从地址到像素</h3><p>在地址栏输入 URL 后，浏览器要先找到服务器，取回 HTML，再把 HTML 和 CSS 变成屏幕上的像素。导航和渲染是前后两段，不要合成一步「查缓存」。</p>
-<p><img src="/Infatuation/../images/2022/06/07/tn9H3qlAdDxzmpO.png" alt="截屏2022-06-07 上午10.18.28.png"></p>
+<p><img src="/Infatuation/images/2022/06/07/tn9H3qlAdDxzmpO.png" alt="截屏2022-06-07 上午10.18.28.png"></p>
 <h3 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h3><ol>
 <li>浏览器先看这段地址有没有未过期的 HTTP 缓存（针对整次文档请求）。这和 DNS 缓存不是同一层。</li>
 <li>解析主机名。DNS 结果可能来自浏览器自己的缓存、操作系统缓存、路由器或解析器。经典 DNS 查询常用 UDP 53，响应太大时改走 TCP，现在也有 DNS over HTTPS &#x2F; TLS。不能说 DNS 只能是 UDP。</li>
@@ -138,7 +138,7 @@
 <li>连接多半不会立刻四次挥手关掉。HTTP&#x2F;1.1 默认保持连接，后面的 CSS、JS 可以复用；HTTP&#x2F;2 还在同一连接上多路复用。</li>
 </ol>
 <h3 id="关键渲染路径"><a href="#关键渲染路径" class="headerlink" title="关键渲染路径"></a>关键渲染路径</h3><p>HTML 一边下载一边解析，生成 DOM。遇到没有 <code>async</code> &#x2F; <code>defer</code> 的脚本会停下来执行，因为脚本可能改文档。CSS 不阻止解析，但会阻止渲染：没有 CSSOM 时，浏览器不知道元素该长什么样，不会先画一版再重来。</p>
-<p><img src="/Infatuation/../images/2022/06/07/q8xuYtp6EhInkKJ.png" alt="截屏2022-06-07 上午10.46.30.png"></p>
+<p><img src="/Infatuation/images/2022/06/07/q8xuYtp6EhInkKJ.png" alt="截屏2022-06-07 上午10.46.30.png"></p>
 <ol>
 <li>HTML 解析成 DOM。</li>
 <li>CSS 解析成 CSSOM。</li>

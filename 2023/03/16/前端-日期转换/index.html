@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="多情只有春庭月，犹为离人照落花。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/10/zVXywFhR8fnC5dN.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2019/11/12/uUDzSf6MYZ7T92B.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/10/zVXywFhR8fnC5dN.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2019/11/12/uUDzSf6MYZ7T92B.png">
 <meta property="article:published_time" content="2023-03-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.677Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.048Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/10/zVXywFhR8fnC5dN.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/10/zVXywFhR8fnC5dN.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -128,7 +128,7 @@
 <span id="more"></span>
 
 <h3 id="先分清时间点还是日历日"><a href="#先分清时间点还是日历日" class="headerlink" title="先分清时间点还是日历日"></a>先分清时间点还是日历日</h3><p>日期在前端有三种常见形态：接口里的字符串、<code>Date</code> 表示的时间点、界面上的本地日历。转换前要知道字符串带不带时区。Moment 可以把字符串包成自己的对象，但它已经停止新增功能，新代码用 <code>Intl</code> 和原生 <code>Date</code>，需要和旧项目一样的 API 时用 Day.js。不要为了格式化再引入一整份 Moment。</p>
-<p><img src="/Infatuation/../images/2022/06/10/zVXywFhR8fnC5dN.png" alt="截屏2022-06-10 下午2.19.48.png"></p>
+<p><img src="/Infatuation/images/2022/06/10/zVXywFhR8fnC5dN.png" alt="截屏2022-06-10 下午2.19.48.png"></p>
 <h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>带 <code>Z</code> 或 <code>+08:00</code> 的字符串是明确的时间点：</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> point = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;2019-11-18T12:39:50.000Z&quot;</span>);</span><br></pre></td></tr></table></figure></div>
 
@@ -144,7 +144,7 @@
 
 <p>需要固定的 <code>YYYY-MM-DD HH:mm:ss</code> 时，用上面的分段拼接，并指定 <code>timeZone</code>。不指定时用的是用户操作系统的时区，同一条数据在不同电脑上会差几个小时。</p>
 <p>Moment 项目里如果还没迁走，格式化是 <code>value.format(&quot;YYYY-MM-DD HH:mm:ss&quot;)</code>。<code>moment(字符串, 格式)</code> 的第二个参数是输入格式，不是输出格式。字段名要和数据一致：读 <code>term_validity</code> 就不要把另一个字段 <code>lastinspection</code> 传进去。</p>
-<p><img src="/Infatuation/../images/2019/11/12/uUDzSf6MYZ7T92B.png" alt="截屏2019-11-22下午5.25.08.png"></p>
+<p><img src="/Infatuation/images/2019/11/12/uUDzSf6MYZ7T92B.png" alt="截屏2019-11-22下午5.25.08.png"></p>
 <p>Day.js 需要自定义格式时：</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dayjs <span class="keyword">from</span> <span class="string">&quot;dayjs&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> utc <span class="keyword">from</span> <span class="string">&quot;dayjs/plugin/utc&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> timezone <span class="keyword">from</span> <span class="string">&quot;dayjs/plugin/timezone&quot;</span>;</span><br><span class="line"></span><br><span class="line">dayjs.<span class="title function_">extend</span>(utc);</span><br><span class="line">dayjs.<span class="title function_">extend</span>(timezone);</span><br><span class="line"></span><br><span class="line"><span class="title function_">dayjs</span>(iso).<span class="title function_">tz</span>(<span class="string">&quot;Asia/Shanghai&quot;</span>).<span class="title function_">format</span>(<span class="string">&quot;YYYY-MM-DD HH:mm:ss&quot;</span>);</span><br></pre></td></tr></table></figure></div>
 

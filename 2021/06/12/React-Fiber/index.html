@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="泪眼问花花不语，乱红飞过秋千去。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/9IqCUOBPWQobzhw.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/05/TxeDFdjNmXorywv.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/05/jGmO7u8PLhc6bRw.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/05/2WpDcFUbodgmlsi.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/txRn4m5Fi3ZTLCv.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/9IqCUOBPWQobzhw.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/05/TxeDFdjNmXorywv.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/05/jGmO7u8PLhc6bRw.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/05/2WpDcFUbodgmlsi.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/txRn4m5Fi3ZTLCv.png">
 <meta property="article:published_time" content="2021-06-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.645Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.003Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/05/12/9IqCUOBPWQobzhw.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/9IqCUOBPWQobzhw.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -137,15 +137,15 @@
 <li>给更新标优先级。紧急更新可以插队；低优先级更新做了一半可以丢掉重来。</li>
 </ol>
 <p>时间分片只在并发渲染里生效。<code>ReactDOM.render</code>（legacy）虽然也走 Fiber 数据结构，但 render 阶段走 <code>workLoopSync</code>，中途不让出。<code>createRoot</code> 之后，过渡更新才走 <code>workLoopConcurrent</code>，用 <code>shouldYield()</code> 决定要不要把主线程还回去。</p>
-<p><img src="/Infatuation/../images/2023/05/12/9IqCUOBPWQobzhw.png" alt="截屏2023-05-12 上午11.33.30.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/9IqCUOBPWQobzhw.png" alt="截屏2023-05-12 上午11.33.30.png"></p>
 <h3 id="和浏览器主线程的关系"><a href="#和浏览器主线程的关系" class="headerlink" title="和浏览器主线程的关系"></a>和浏览器主线程的关系</h3><p>布局、绘制和大部分 JavaScript 都在主线程上排队，所以长时间同步 JS 会推迟绘制。合成器线程可以独立处理部分 <code>transform</code> &#x2F; <code>opacity</code>，但 React 改 DOM 结构、读布局，仍然占主线程。</p>
 <p>一帧大约 16.7ms（60Hz）。React 的 Scheduler <strong>不会</strong>把整帧都拿来跑协调。默认时间片大约 <strong>5ms</strong>（<code>frameInterval</code>），到点就让出，把绘制机会留在这一帧里。把「必须在 16.7ms 内做完整棵树」理解成 Fiber 的切片长度，是把帧预算和 yield 间隔混在一起了。</p>
-<p><img src="/Infatuation/../images/2022/05/05/TxeDFdjNmXorywv.png" alt="截屏2022-05-05 下午2.49.29.png"></p>
+<p><img src="/Infatuation/images/2022/05/05/TxeDFdjNmXorywv.png" alt="截屏2022-05-05 下午2.49.29.png"></p>
 <h3 id="合作式调度，不是抢占"><a href="#合作式调度，不是抢占" class="headerlink" title="合作式调度，不是抢占"></a>合作式调度，不是抢占</h3><p>浏览器没有抢占式中断 JS 的能力。Fiber 是合作式的：做完一个节点，主动问 Scheduler 时间片是否用完、有没有更急的更新。有就停；没有就处理下一个节点。</p>
-<p><img src="/Infatuation/../images/2022/05/05/jGmO7u8PLhc6bRw.png" alt="截屏2022-05-05 下午2.49.38.png"></p>
+<p><img src="/Infatuation/images/2022/05/05/jGmO7u8PLhc6bRw.png" alt="截屏2022-05-05 下午2.49.38.png"></p>
 <p>可中断的是 <strong>render 阶段</strong>（<code>beginWork</code> &#x2F; <code>completeWork</code>，在内存里算）。<strong>commit 阶段</strong>改 DOM、跑 <code>useLayoutEffect</code> 和 <code>componentDidMount</code> &#x2F; <code>componentDidUpdate</code>，一旦开始就不会让出，否则用户会看到改了一半的界面。</p>
 <h3 id="Fiber-是节点，也是工作单元"><a href="#Fiber-是节点，也是工作单元" class="headerlink" title="Fiber 是节点，也是工作单元"></a>Fiber 是节点，也是工作单元</h3><p>每个组件、DOM 节点、文本节点在内存里对应一个 Fiber。子节点用 <code>child</code> 指向第一个孩子，孩子之间用 <code>sibling</code> 串成单链表，<code>return</code> 指回父节点。遍历可以写成循环：先深入 child，没有 child 就走向 sibling，再没有就沿 return 回到父节点。循环比递归容易在任意节点停下来。</p>
-<p><img src="/Infatuation/../images/2022/05/05/2WpDcFUbodgmlsi.png" alt="截屏2022-05-05 下午3.18.35.png"></p>
+<p><img src="/Infatuation/images/2022/05/05/2WpDcFUbodgmlsi.png" alt="截屏2022-05-05 下午3.18.35.png"></p>
 <p>React 18 里和协调直接相关的字段如下。位和调试字段会随版本增减，应用代码不要依赖它们。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  tag,            <span class="comment">// 函数组件、类组件、HostComponent 等</span></span><br><span class="line">  key,</span><br><span class="line">  elementType,    <span class="comment">// createElement 的 type</span></span><br><span class="line">  type,</span><br><span class="line">  stateNode,      <span class="comment">// DOM 节点或类实例</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span>,         <span class="comment">// 父 Fiber</span></span><br><span class="line">  child,          <span class="comment">// 第一个子 Fiber</span></span><br><span class="line">  sibling,        <span class="comment">// 下一个兄弟</span></span><br><span class="line">  index,</span><br><span class="line"></span><br><span class="line">  ref,</span><br><span class="line">  pendingProps,</span><br><span class="line">  memoizedProps,</span><br><span class="line">  updateQueue,</span><br><span class="line">  memoizedState,  <span class="comment">// Hooks 链表挂在这里</span></span><br><span class="line">  dependencies,   <span class="comment">// context 等依赖</span></span><br><span class="line"></span><br><span class="line">  flags,          <span class="comment">// 本节点副作用，旧名 effectTag</span></span><br><span class="line">  subtreeFlags,   <span class="comment">// 子树里是否还有副作用</span></span><br><span class="line">  deletions,</span><br><span class="line">  lanes,          <span class="comment">// 本节点待处理的优先级</span></span><br><span class="line">  childLanes,</span><br><span class="line">  alternate,      <span class="comment">// current 与 workInProgress 互指</span></span><br><span class="line">  mode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
@@ -166,7 +166,7 @@
 <li>render 阶段结束得到一棵完成的 WIP 树。commit 根据 <code>flags</code> &#x2F; <code>subtreeFlags</code> 改 DOM。</li>
 <li>commit 之后 WIP 变成 <code>root.current</code>。<code>useEffect</code> 的被动副作用在绘制之后再跑。</li>
 </ol>
-<p><img src="/Infatuation/../images/2023/05/12/txRn4m5Fi3ZTLCv.png" alt="截屏2023-05-12 上午11.42.03.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/txRn4m5Fi3ZTLCv.png" alt="截屏2023-05-12 上午11.42.03.png"></p>
 <p>这里没有 <code>requestIdleCallback</code>。早期设计考虑过它，正式实现不用：它要等浏览器自认为空闲，忙的时候更新会饿死；默认 deadline 约 50ms，对 60fps 太粗；触发也不稳定。React 用 <code>MessageChannel</code> 把「继续干活」排成宏任务，自己用 <code>performance.now()</code> 判断 5ms 时间片，而不是等空闲回调。</p>
 <h3 id="为什么旧生命周期被标成-UNSAFE"><a href="#为什么旧生命周期被标成-UNSAFE" class="headerlink" title="为什么旧生命周期被标成 UNSAFE"></a>为什么旧生命周期被标成 UNSAFE</h3><p>render 阶段可能执行多次、做到一半被丢掉。<code>componentWillMount</code>、<code>componentWillReceiveProps</code>、<code>componentWillUpdate</code> 若在这里发请求、改外部变量，就会重复。它们被改名为 <code>UNSAFE_*</code>。副作用放到 commit 之后：<code>componentDidMount</code>、<code>componentDidUpdate</code>、<code>useEffect</code>。渲染期间要算状态，用纯函数 <code>getDerivedStateFromProps</code>。</p>
 <h3 id="和双缓存的关系"><a href="#和双缓存的关系" class="headerlink" title="和双缓存的关系"></a>和双缓存的关系</h3><p>更新不直接改屏幕上那棵 current 树。另一棵 workInProgress 通过 <code>alternate</code> 和 current 成对。commit 时一次换成新树。细节见《React 双缓存》。</p>

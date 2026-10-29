@@ -16,19 +16,19 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="岁月不堪数，故人不如初。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/06/30/%E7%BC%93%E5%AD%98.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/be6o1W2hBQdkVtA.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/OQMsWtnvS1fTA8F.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/UnqYwgLiWfdJvCN.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/06/30/%E7%BC%93%E5%AD%98.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/be6o1W2hBQdkVtA.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/OQMsWtnvS1fTA8F.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/UnqYwgLiWfdJvCN.png">
 <meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/zYL7AW52FB9p8hs.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/N9alyEv4iFgCDeA.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/12/djhXwRQTtcGvgV7.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/N9alyEv4iFgCDeA.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/12/djhXwRQTtcGvgV7.png">
 <meta property="article:published_time" content="2022-02-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.662Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.971Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/06/30/%E7%BC%93%E5%AD%98.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2023/06/30/%E7%BC%93%E5%AD%98.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -138,28 +138,28 @@
 <li><strong>workInProgress</strong>：正在内存里算的下一棵。</li>
 <li>两棵树上对应的节点用 <code>alternate</code> 互相指向。</li>
 </ul>
-<p><img src="/Infatuation/../images/2023/06/30/%E7%BC%93%E5%AD%98.png" alt="截屏2023-06-30 下午5.45.15.png"></p>
+<p><img src="/Infatuation/images/2023/06/30/%E7%BC%93%E5%AD%98.png" alt="截屏2023-06-30 下午5.45.15.png"></p>
 <p>render 阶段只写 WIP。即便并发渲染暂停，current 仍指向旧树，DOM 不变。commit 结束时把 <code>root.current</code> 指到这棵完成的树，下一次更新两者角色对调，节点对象会复用，而不是每次都整树新建。</p>
 <h3 id="首次挂载"><a href="#首次挂载" class="headerlink" title="首次挂载"></a>首次挂载</h3><p>第一次没有 current。<code>createRoot</code> &#x2F; legacy <code>render</code> 会创建 <code>fiberRoot</code> 和根 Fiber（host root）。根 Fiber 的 <code>alternate</code> 一开始为空，协调过程中创建 WIP 根，再向下创建子 Fiber。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSX"><figure class="iseeu highlight /jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRoot &#125; <span class="keyword">from</span> <span class="string">&#x27;react-dom/client&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">createRoot</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)).<span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span>);</span><br></pre></td></tr></table></figure></div>
 
 <p>挂载完成，WIP 成为 current。此时每个已提交节点都有一个空的 <code>alternate</code> 槽，留给下次更新。</p>
-<p><img src="/Infatuation/../images/2023/05/12/be6o1W2hBQdkVtA.png" alt="截屏2023-05-12 下午1.46.26.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/be6o1W2hBQdkVtA.png" alt="截屏2023-05-12 下午1.46.26.png"></p>
 <h3 id="更新时如何复用"><a href="#更新时如何复用" class="headerlink" title="更新时如何复用"></a>更新时如何复用</h3><p><code>setState</code> 之后从 current 根克隆出 WIP 根（没有 alternate 就 new，有就复用并重置字段）。然后 <code>beginWork</code>：</p>
 <ol>
 <li>对比 <code>pendingProps</code> 和 <code>memoizedProps</code>，类型和 key 相同则走更新。</li>
 <li>子节点用 Diff 决定复用、移动还是新建。</li>
 <li>能复用的子 Fiber 从 current.child 的 alternate 上拿，改 props，而不是重新分配整个对象。</li>
 </ol>
-<p><img src="/Infatuation/../images/2023/05/12/OQMsWtnvS1fTA8F.png" alt="截屏2023-05-12 下午2.01.22.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/OQMsWtnvS1fTA8F.png" alt="截屏2023-05-12 下午2.01.22.png"></p>
 <p>类型或 key 变了，旧子树标 <code>Deletion</code>，新子树标 <code>Placement</code>。这就是「双缓存」和 Diff 的交界：复用的是 Fiber 对象和尽量不变的 DOM，不是强行保留类型已经变了的节点。</p>
-<p><img src="/Infatuation/../images/2023/05/12/UnqYwgLiWfdJvCN.png" alt="截屏2023-05-12 下午2.01.37.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/UnqYwgLiWfdJvCN.png" alt="截屏2023-05-12 下午2.01.37.png"></p>
 <h3 id="中断之后那棵-WIP-作废"><a href="#中断之后那棵-WIP-作废" class="headerlink" title="中断之后那棵 WIP 作废"></a>中断之后那棵 WIP 作废</h3><p>并发渲染做到一半若来了更高优先级的更新，当前 WIP 整棵作废，从 current <strong>重新</strong>克隆一棵再算。所以 render 阶段必须能重复执行。副作用如果写在 render 里，就会看到执行多次。</p>
 <p><img src="/Infatuation/images/2023/05/12/zYL7AW52FB9p8hs.png" alt="截屏2023-05-12 下午2.01.37.png"></p>
 <p>commit 不可中断。mutation 阶段按 flags 改 DOM，layout 阶段跑 <code>useLayoutEffect</code>。结束后 <code>root.current</code> 切换，旧的 current 变成下一轮的备用树。</p>
-<p><img src="/Infatuation/../images/2023/05/12/N9alyEv4iFgCDeA.png" alt="截屏2023-05-12 下午2.13.12.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/N9alyEv4iFgCDeA.png" alt="截屏2023-05-12 下午2.13.12.png"></p>
 <h3 id="和-effectList-的分工"><a href="#和-effectList-的分工" class="headerlink" title="和 effectList 的分工"></a>和 effectList 的分工</h3><p>React 16 还会在 WIP 上另串一条 effectList，commit 只遍历这条链。React 17 起删除了 <code>firstEffect</code> &#x2F; <code>nextEffect</code>。双缓存仍然在：切换的是整棵 Fiber 树；要不要处理某个节点，看 <code>flags</code> 和 <code>subtreeFlags</code>。没有副作用的子树在 commit 里直接跳过。</p>
-<p><img src="/Infatuation/../images/2023/05/12/djhXwRQTtcGvgV7.png" alt="截屏2023-05-12 下午2.01.37.png"></p>
+<p><img src="/Infatuation/images/2023/05/12/djhXwRQTtcGvgV7.png" alt="截屏2023-05-12 下午2.01.37.png"></p>
 <h3 id="应用层能观察到什么"><a href="#应用层能观察到什么" class="headerlink" title="应用层能观察到什么"></a>应用层能观察到什么</h3><ul>
 <li>渲染函数可能执行多次，必须保持纯：不要在函数体里订阅、请求、改 DOM。</li>
 <li>屏幕在 commit 之前不会出现新状态。<code>useLayoutEffect</code> 能在绘制前读到新 DOM；<code>useEffect</code> 在绘制后。</li>

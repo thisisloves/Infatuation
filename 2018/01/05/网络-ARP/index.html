@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="多少黄昏烟雨斜檐，翻开诗篇，勾起一纸江南。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/16/pwltQTqO92FeiYu.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/16/IVaP4lM6JqyZ3GL.jpg">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/16/H2uXhPOKBUboDA8.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/16/pwltQTqO92FeiYu.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/16/IVaP4lM6JqyZ3GL.jpg">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/16/H2uXhPOKBUboDA8.png">
 <meta property="article:published_time" content="2018-01-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.582Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.992Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/16/pwltQTqO92FeiYu.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/16/pwltQTqO92FeiYu.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -138,11 +138,11 @@
 </ol>
 <p>同网段的其他主机看到请求可以学习 A 的地址，但只有 B 应该应答。</p>
 <h3 id="不同网段"><a href="#不同网段" class="headerlink" title="不同网段"></a>不同网段</h3><p>A 发现 B 的 IP 不在本网段，解析的是网关的 MAC，不是 B 的 MAC。A 把帧交给网关，目的 IP 仍是 B。网关若没有 B 或下一跳的表项，就在出接口所在链路上再做一次 ARP，然后重新封装帧。源主机永远 ARP 不到远端主机，除非对方恰好在同一条二层上。</p>
-<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p><img src="/Infatuation/../images/2022/06/16/pwltQTqO92FeiYu.png" alt="截屏2022-06-16 下午2.38.11.png"></p>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p><img src="/Infatuation/images/2022/06/16/pwltQTqO92FeiYu.png" alt="截屏2022-06-16 下午2.38.11.png"></p>
 <p>动态表项由报文学习而来，会老化，也能被新的报文更新。老化时间因系统而异：有的主机大约几十秒到数分钟，Windows 的可达表项最长可以到约 10 分钟量级。不能把某一种操作系统的 2 分钟、10 分钟写成协议规定。过期表项删除，不是「ARP 表现」被删除。</p>
 <p>静态表项手工配置，不老化，动态学习不能覆盖它。它一直保留到被删除或设备重启。把网关做成静态映射，可以避免伪造的应答改掉网关 MAC。</p>
 <p>免费 ARP 的发送方 IP 和目标 IP 都是自己。主机用它检测地址冲突，也会让链路上的其他设备更新缓存。</p>
-<h3 id="报文"><a href="#报文" class="headerlink" title="报文"></a>报文</h3><p><img src="/Infatuation/../images/2022/06/16/IVaP4lM6JqyZ3GL.jpg" alt="21655362571_.pic.jpg"></p>
+<h3 id="报文"><a href="#报文" class="headerlink" title="报文"></a>报文</h3><p><img src="/Infatuation/images/2022/06/16/IVaP4lM6JqyZ3GL.jpg" alt="21655362571_.pic.jpg"></p>
 <table>
 <thead>
 <tr>
@@ -178,7 +178,7 @@
 </tr>
 </tbody></table>
 <h3 id="RARP"><a href="#RARP" class="headerlink" title="RARP"></a>RARP</h3><p>RARP 用 MAC 反查 IP，请求和应答的操作码是 3 和 4。它要求网络里有 RARP 服务器，已经被 BOOTP 和 DHCP 取代。了解它是为了和 ARP 的方向对照，新网络不要再部署。</p>
-<p><img src="/Infatuation/../images/2022/06/16/H2uXhPOKBUboDA8.png" alt="截屏2022-06-16 下午3.00.22.png"></p>
+<p><img src="/Infatuation/images/2022/06/16/H2uXhPOKBUboDA8.png" alt="截屏2022-06-16 下午3.00.22.png"></p>
 <h3 id="欺骗"><a href="#欺骗" class="headerlink" title="欺骗"></a>欺骗</h3><p>ARP 没有认证。攻击者可以发送伪造的应答或免费 ARP，把「某 IP 对应的 MAC」改成自己的。</p>
 <ol>
 <li>攻击者先从广播的请求里看到 A、B 的 IP 和 MAC。这是广播，不是交换网络里说的泛洪。</li>

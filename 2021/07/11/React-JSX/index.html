@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="曾经沧海难为水，除却巫山不是云。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/04/29/WechatIMG6.jpeg">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/04/29/WechatIMG8.jpeg">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/29/WechatIMG6.jpeg">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/29/WechatIMG8.jpeg">
 <meta property="article:published_time" content="2021-07-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.647Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.040Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/04/29/WechatIMG6.jpeg"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/29/WechatIMG6.jpeg"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -128,11 +128,11 @@
 <span id="more"></span>
 
 <h3 id="JSX-是-createElement-的写法"><a href="#JSX-是-createElement-的写法" class="headerlink" title="JSX 是 createElement 的写法"></a>JSX 是 createElement 的写法</h3><p>JSX 会编译成函数调用。经典转换是 <code>React.createElement(type, props, ...children)</code>。React 17 起的新 JSX 转换从 <code>react/jsx-runtime</code> 引入 <code>jsx</code>，**文件里只用 JSX、不用 Hooks 时可以不写 <code>import React</code>**。使用 <code>useState</code> 等仍要按名字导入。</p>
-<p><img src="/Infatuation/../images/2022/04/29/WechatIMG6.jpeg" alt="截屏2022-04-29 下午5.42.11.png"></p>
+<p><img src="/Infatuation/images/2022/04/29/WechatIMG6.jpeg" alt="截屏2022-04-29 下午5.42.11.png"></p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSX"><figure class="iseeu highlight /jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> link = <span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/a&quot;</span>&gt;</span>文字<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure></div>
 
 <p>编译后的元素是普通对象：<code>type</code>、<code>props</code>、<code>key</code>。它不是 DOM 节点。渲染器之后才创建 DOM。</p>
-<p><img src="/Infatuation/../images/2022/04/29/WechatIMG8.jpeg" alt="截屏2022-04-29 下午5.48.35.png"></p>
+<p><img src="/Infatuation/images/2022/04/29/WechatIMG8.jpeg" alt="截屏2022-04-29 下午5.48.35.png"></p>
 <h3 id="表达式和属性"><a href="#表达式和属性" class="headerlink" title="表达式和属性"></a>表达式和属性</h3><p>花括号里放任意 JavaScript 表达式，不放语句。<code>if</code> 要写成三元或提前 return。<code>class</code> 写成 <code>className</code>，<code>for</code> 写成 <code>htmlFor</code>，因为它们是 JavaScript 保留字。样式用对象：<code>style=&#123;&#123; marginTop: 8 &#125;&#125;</code>，数值的无单位属性按像素处理的是 DOM 的 style，不是所有字段。</p>
 <p>布尔、<code>null</code>、<code>undefined</code> 不产生文本。数字 <code>0</code> 会渲染成字符 <code>0</code>。条件列表要用 <code>count &gt; 0 &amp;&amp; &lt;List /&gt;</code> 这种不会把 0 显示出来的判断。</p>
 <h3 id="组件和标签"><a href="#组件和标签" class="headerlink" title="组件和标签"></a>组件和标签</h3><p>小写开头当成 HTML&#x2F;SVG 标签字符串。大写开头当成变量里的组件。组件当变量存在作用域里：<code>const Button = ...</code> 然后 <code>&lt;Button /&gt;</code>。</p>

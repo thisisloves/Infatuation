@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="可惜一溪风月，莫教踏碎琼瑶。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2021/08/16/Xk5A1la48zD7qPw.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2021/08/16/Xk5A1la48zD7qPw.png">
 <meta property="article:published_time" content="2024-01-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.696Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.041Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2021/08/16/Xk5A1la48zD7qPw.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2021/08/16/Xk5A1la48zD7qPw.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -130,7 +130,7 @@
 <p>因为不可变，<code>String</code> 可以被多个线程共享，也适合做 <code>HashMap</code> 的键（<code>hashCode</code> 会缓存）。大量拼接不要用 <code>+</code> 循环，那会不断产生中间字符串，应使用 <code>StringBuilder</code>。</p>
 <h3 id="字面量与-new"><a href="#字面量与-new" class="headerlink" title="字面量与 new"></a>字面量与 new</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;Runoob&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;Runoob&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> s1;</span><br><span class="line"><span class="type">String</span> <span class="variable">s4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Runoob&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">s5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Runoob&quot;</span>);</span><br></pre></td></tr></table></figure></div>
 
-<p><img src="/Infatuation/../images/2021/08/16/Xk5A1la48zD7qPw.png" alt="截屏2021-08-16 下午4.41.45.png"></p>
+<p><img src="/Infatuation/images/2021/08/16/Xk5A1la48zD7qPw.png" alt="截屏2021-08-16 下午4.41.45.png"></p>
 <p>字面量放在字符串常量池里。自 Java 7 起，常量池在堆中，不再位于永久代。相同字面量（以及编译期常量表达式）会指向池中同一对象，所以 <code>s1 == s2</code> 为 <code>true</code>，<code>s3</code> 与 <code>s1</code> 也是同一引用。</p>
 <p><code>new String(&quot;Runoob&quot;)</code> 会在堆上再做一个内容相同的新对象，<code>s4 == s5</code> 为 <code>false</code>，但 <code>s4.equals(s5)</code> 为 <code>true</code>。内容比较用 <code>equals</code>，不要用 <code>==</code>，除非你就是在比较是不是同一个对象。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>[] helloArray = &#123;<span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;b&#x27;</span>&#125;;</span><br><span class="line"><span class="type">String</span> <span class="variable">helloString</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(helloArray);</span><br><span class="line">System.out.println(helloString); <span class="comment">// runoob</span></span><br></pre></td></tr></table></figure></div>

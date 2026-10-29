@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="人生自是有情痴，此恨不关风与月。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/05/13/EhA4SDPQvTRe3mX.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/13/EhA4SDPQvTRe3mX.png">
 <meta property="article:published_time" content="2022-09-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.670Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.043Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="Echarts">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/05/13/EhA4SDPQvTRe3mX.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/05/13/EhA4SDPQvTRe3mX.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -135,7 +135,7 @@
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">visualMap</span>: &#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;continuous&#x27;</span>,</span><br><span class="line">  <span class="attr">min</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">max</span>: <span class="number">100</span>,</span><br><span class="line">  <span class="attr">dimension</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">calculable</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">inRange</span>: &#123; <span class="attr">color</span>: [<span class="string">&#x27;#e0f3f8&#x27;</span>, <span class="string">&#x27;#0868ac&#x27;</span>] &#125;,</span><br><span class="line">  <span class="attr">outOfRange</span>: &#123; <span class="attr">color</span>: <span class="string">&#x27;#eee&#x27;</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 <p><code>dimension</code> 指数据的哪一维参与映射。类目轴 + 数值的常规柱状图里，数值常常是第 0 维；用 <code>dataset</code> 时要按列下标对准。映射错列，颜色会看起来「随机」。</p>
-<p><img src="/Infatuation/../images/2022/05/13/EhA4SDPQvTRe3mX.png" alt="截屏2022-05-13 下午2.43.36.png"></p>
+<p><img src="/Infatuation/images/2022/05/13/EhA4SDPQvTRe3mX.png" alt="截屏2022-05-13 下午2.43.36.png"></p>
 <h3 id="能映射的视觉通道"><a href="#能映射的视觉通道" class="headerlink" title="能映射的视觉通道"></a>能映射的视觉通道</h3><p><code>inRange</code> &#x2F; <code>outOfRange</code> 里常见：<code>color</code>、<code>symbolSize</code>、<code>opacity</code>、<code>colorAlpha</code>、<code>colorLightness</code>、<code>colorSaturation</code>。散点图用数值控制 <code>symbolSize</code>，热力图用数值控制 <code>color</code>。</p>
 <p><code>calculable: true</code> 让用户拖色带两端过滤。过滤是视觉上的隐藏，不等于把 <code>series.data</code> 删掉。监听 <code>datarangeselected</code> 才能知道用户选了哪一段。</p>
 <h3 id="分段"><a href="#分段" class="headerlink" title="分段"></a>分段</h3><p>人数、等级这种本来就是档的数据用 <code>piecewise</code>，避免连续色带暗示不存在的中间值。</p>

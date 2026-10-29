@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="他生莫作有情痴，人间无地著相思">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/10/16/1.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/10/16/2.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/10/16/3.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/10/16/1.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/10/16/2.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/10/16/3.png">
 <meta property="article:published_time" content="2021-07-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.648Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.019Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/10/16/1.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2023/10/16/1.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -128,7 +128,7 @@
         <p>他生莫作有情痴，人间无地著相思</p>
 <span id="more"></span>
 
-<p><img src="/Infatuation/../images/2023/10/16/1.png" alt="4.png"></p>
+<p><img src="/Infatuation/images/2023/10/16/1.png" alt="4.png"></p>
 <h3 id="它排的是什么"><a href="#它排的是什么" class="headerlink" title="它排的是什么"></a>它排的是什么</h3><p>Scheduler 不负责 Diff，也不改 DOM。它只回答两件事：众多更新里先做哪一件，以及当前这段 JavaScript 还能不能继续占着主线程。</p>
 <p>Reconciler 在 render 阶段给节点打 <code>flags</code>。Renderer 在 commit 阶段落地。React 15 没有这一层，更新只能同步做完。</p>
 <h3 id="事件循环里真正的顺序"><a href="#事件循环里真正的顺序" class="headerlink" title="事件循环里真正的顺序"></a>事件循环里真正的顺序</h3><p>把「每个宏任务后面必有 rAF、重绘、requestIdleCallback」连成一条固定流水线，和规范不符。更接近实现的模型是：</p>
@@ -139,7 +139,7 @@
 <li>这一帧如果还剩时间，才可能跑 <code>requestIdleCallback</code>。它不是每轮循环的固定一步。</li>
 </ol>
 <p>因此：微任务插在绘制之前；<code>rAF</code> 属于渲染步骤，不是每个宏任务的下一站；<code>requestIdleCallback</code> 是「绘制之后的剩余空闲」，不是 React 的调度器。</p>
-<h3 id="React-实际怎么切片"><a href="#React-实际怎么切片" class="headerlink" title="React 实际怎么切片"></a>React 实际怎么切片</h3><p><img src="/Infatuation/../images/2023/10/16/2.png" alt="5.png"></p>
+<h3 id="React-实际怎么切片"><a href="#React-实际怎么切片" class="headerlink" title="React 实际怎么切片"></a>React 实际怎么切片</h3><p><img src="/Infatuation/images/2023/10/16/2.png" alt="5.png"></p>
 <p><code>scheduler</code> 包（React 16 后期就在用，并不只到 React 17 才出现）的宿主回调是 <code>MessageChannel</code>：</p>
 <ul>
 <li><code>port.postMessage</code> 把 <code>performWorkUntilDeadline</code> 排进宏任务，没有 <code>setTimeout</code> 嵌套时的 4ms 钳制。</li>
@@ -152,7 +152,7 @@
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSX"><figure class="iseeu highlight /jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">workLoopConcurrent</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">while</span> (workInProgress !== <span class="literal">null</span> &amp;&amp; !<span class="title function_">shouldYield</span>()) &#123;</span><br><span class="line">    workInProgress = <span class="title function_">performUnitOfWork</span>(workInProgress);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 <p><code>shouldYield()</code> 为真只是暂停 render 阶段。commit 不会走进这个循环。</p>
-<h3 id="过期时间与两个堆"><a href="#过期时间与两个堆" class="headerlink" title="过期时间与两个堆"></a>过期时间与两个堆</h3><p><img src="/Infatuation/../images/2023/10/16/3.png" alt="3.png"></p>
+<h3 id="过期时间与两个堆"><a href="#过期时间与两个堆" class="headerlink" title="过期时间与两个堆"></a>过期时间与两个堆</h3><p><img src="/Infatuation/images/2023/10/16/3.png" alt="3.png"></p>
 <p>Scheduler 的每个任务带 <code>expirationTime</code> 和 <code>priorityLevel</code>。优先级越高，超时越短，例如用户阻塞优先级大约 250ms 量级，普通优先级大约数秒，Idle 几乎不过期（具体毫秒数以当前 <code>scheduler</code> 源码为准，会微调）。</p>
 <ul>
 <li>还没到开始时间的任务在 <strong>timerQueue</strong>。</li>

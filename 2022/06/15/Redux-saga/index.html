@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="他只字未提我爱你，你却句句都是我愿意，他不过是暧昧成瘾，而你却轻易走了心。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/04/25/16qCNxnT3AOjHiQ.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/04/25/DPmY8FaEcgK2hqz.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/04/25/PrIhTkn5AMauC2N.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/04/25/Kb7g2rn63y1R5cs.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/04/28/Ie2KSm9xbZgwvTD.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/25/16qCNxnT3AOjHiQ.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/25/DPmY8FaEcgK2hqz.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/25/PrIhTkn5AMauC2N.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/25/Kb7g2rn63y1R5cs.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/28/Ie2KSm9xbZgwvTD.png">
 <meta property="article:published_time" content="2022-06-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.668Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.986Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="Redux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/04/25/16qCNxnT3AOjHiQ.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/25/16qCNxnT3AOjHiQ.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -132,11 +132,11 @@
 
 <h3 id="saga-是跑在中间件里的生成器"><a href="#saga-是跑在中间件里的生成器" class="headerlink" title="saga 是跑在中间件里的生成器"></a>saga 是跑在中间件里的生成器</h3><p><code>redux-saga</code> 启动一个不会停的生成器任务，用 <code>yield</code> 描述副作用：监听 action、调用 Promise、再 <code>put</code> 一个普通 action 进 store。reducer 仍然纯。组件仍然只 <code>dispatch</code> 普通对象。</p>
 <p>它和 React 的 <code>useEffect</code> 无关。名字都叫副作用，一个在 Redux 中间件，一个在组件 commit 之后。</p>
-<p><img src="/Infatuation/../images/2022/04/25/16qCNxnT3AOjHiQ.png" alt="截屏2022-04-25 下午3.13.16.png"></p>
+<p><img src="/Infatuation/images/2022/04/25/16qCNxnT3AOjHiQ.png" alt="截屏2022-04-25 下午3.13.16.png"></p>
 <h3 id="接入"><a href="#接入" class="headerlink" title="接入"></a>接入</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> createSagaMiddleware <span class="keyword">from</span> <span class="string">&#x27;redux-saga&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; configureStore &#125; <span class="keyword">from</span> <span class="string">&#x27;@reduxjs/toolkit&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> rootSaga <span class="keyword">from</span> <span class="string">&#x27;./sagas&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> saga = <span class="title function_">createSagaMiddleware</span>();</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> store = <span class="title function_">configureStore</span>(&#123;</span><br><span class="line">  <span class="attr">reducer</span>: rootReducer,</span><br><span class="line">  <span class="attr">middleware</span>: <span class="function">(<span class="params">getDefault</span>) =&gt;</span> <span class="title function_">getDefault</span>().<span class="title function_">concat</span>(saga)</span><br><span class="line">&#125;);</span><br><span class="line">saga.<span class="title function_">run</span>(rootSaga);</span><br></pre></td></tr></table></figure></div>
 
 <p><code>run</code> 必须在 <code>configureStore</code> 之后调用，否则中间件还没装上。<code>getDefault().concat</code> 才能同时保留 thunk。写成 <code>middleware: [saga]</code> 会丢掉默认中间件。</p>
-<p><img src="/Infatuation/../images/2022/04/25/DPmY8FaEcgK2hqz.png" alt="截屏2022-04-25 下午3.25.28.png"></p>
+<p><img src="/Infatuation/images/2022/04/25/DPmY8FaEcgK2hqz.png" alt="截屏2022-04-25 下午3.25.28.png"></p>
 <h3 id="常用-effect"><a href="#常用-effect" class="headerlink" title="常用 effect"></a>常用 effect</h3><ul>
 <li><code>take(type)</code>：停在这里，直到这种 action，返回那个 action。</li>
 <li><code>takeEvery(type, worker)</code>：每次都 <code>fork</code> 一个 worker，互不等待。</li>
@@ -149,15 +149,15 @@
 <li><code>delay(ms)</code>：可取消的等待，不要 <code>yield call(() =&gt; new Promise(... setTimeout))</code>，那个定时器取消不了。</li>
 <li><code>all([...])</code>：并行等待。<code>race(&#123; a, b &#125;)</code>：谁先完成用谁，另一个取消。</li>
 </ul>
-<p><img src="/Infatuation/../images/2022/04/25/PrIhTkn5AMauC2N.png" alt="截屏2022-04-25 下午3.25.50.png"></p>
+<p><img src="/Infatuation/images/2022/04/25/PrIhTkn5AMauC2N.png" alt="截屏2022-04-25 下午3.25.50.png"></p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; call, put, takeLatest &#125; <span class="keyword">from</span> <span class="string">&#x27;redux-saga/effects&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>* <span class="title function_">fetchUser</span>(<span class="params">action</span>) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> user = <span class="keyword">yield</span> <span class="title function_">call</span>(api.<span class="property">user</span>, action.<span class="property">payload</span>);</span><br><span class="line">    <span class="keyword">yield</span> <span class="title function_">put</span>(&#123; <span class="attr">type</span>: <span class="string">&#x27;user/fulfilled&#x27;</span>, <span class="attr">payload</span>: user &#125;);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="title function_">put</span>(&#123; <span class="attr">type</span>: <span class="string">&#x27;user/rejected&#x27;</span>, <span class="attr">error</span>: <span class="literal">true</span>, <span class="attr">payload</span>: <span class="title class_">String</span>(error) &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span>* <span class="title function_">userSaga</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="title function_">takeLatest</span>(<span class="string">&#x27;user/requested&#x27;</span>, fetchUser);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 <p>worker 收到的是已经 dispatch 过的 action。监听的 type 不要和 <code>put</code> 出去的 type 相同，否则自己触发自己。</p>
-<p><img src="/Infatuation/../images/2022/04/25/Kb7g2rn63y1R5cs.png" alt="截屏2022-04-25 下午3.39.20.png"></p>
+<p><img src="/Infatuation/images/2022/04/25/Kb7g2rn63y1R5cs.png" alt="截屏2022-04-25 下午3.39.20.png"></p>
 <h3 id="根-saga"><a href="#根-saga" class="headerlink" title="根 saga"></a>根 saga</h3><p>多个 watcher 用 <code>all</code> 同时 <code>fork</code>。一个 watcher 抛错若没有自己的 try，可能停掉聚合任务。每个 worker 内部捕获错误并 <code>put</code> 失败 action，不要让监听循环死掉。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; all, fork &#125; <span class="keyword">from</span> <span class="string">&#x27;redux-saga/effects&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span>* <span class="title function_">rootSaga</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="title function_">all</span>([<span class="title function_">fork</span>(userSaga), <span class="title function_">fork</span>(todoSaga)]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<p><img src="/Infatuation/../images/2022/04/28/Ie2KSm9xbZgwvTD.png" alt="截屏2022-04-28 上午10.15.30.png"></p>
+<p><img src="/Infatuation/images/2022/04/28/Ie2KSm9xbZgwvTD.png" alt="截屏2022-04-28 上午10.15.30.png"></p>
 <h3 id="测试与取舍"><a href="#测试与取舍" class="headerlink" title="测试与取舍"></a>测试与取舍</h3><p>effect 对象可比较：<code>expect(gen.next().value).toEqual(call(api.user, &#39;1&#39;))</code>。这是 saga 相对 thunk 的优势。业务只是一次请求时，thunk 或 <code>createAsyncThunk</code> 更短。出现「只处理最后一次」「超时竞态」「登录后拉一串初始化」再改 saga。</p>
 
       

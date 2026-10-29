@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="听闻远方有你，动身跋涉千里，我吹过你吹过的风，这算不算相拥，我踏过你走过的路，这算不算相逢，我还是很喜欢你，认真且怂，从一而终。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2023/05/19/WCkmqjwHyM69r8u.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/19/WCkmqjwHyM69r8u.png">
 <meta property="article:published_time" content="2021-12-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.657Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.016Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2023/05/19/WCkmqjwHyM69r8u.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2023/05/19/WCkmqjwHyM69r8u.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -130,7 +130,7 @@
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSX"><figure class="iseeu highlight /jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useMemo, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Chart</span>(<span class="params">&#123; points, width &#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> path = <span class="title function_">useMemo</span>(<span class="function">() =&gt;</span> <span class="title function_">buildPath</span>(points, width), [points, width]);</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">svg</span>&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&#123;path&#125;</span> /&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 <p>依赖比较是 <code>Object.is</code>。<code>points</code> 若每次由父组件 <code>.filter()</code> 出新数组，缓存每次都失效。</p>
-<p><img src="/Infatuation/../images/2023/05/19/WCkmqjwHyM69r8u.png" alt="截屏2023-05-19 下午4.13.53.png"></p>
+<p><img src="/Infatuation/images/2023/05/19/WCkmqjwHyM69r8u.png" alt="截屏2023-05-19 下午4.13.53.png"></p>
 <h3 id="什么时候值得写"><a href="#什么时候值得写" class="headerlink" title="什么时候值得写"></a>什么时候值得写</h3><ul>
 <li>计算明显贵：大列表过滤、复杂路径、重的格式化。</li>
 <li>需要把 <strong>同一引用</strong> 传给用 <code>memo</code> 包过的子组件，或放进别的 Hook 的依赖数组。</li>

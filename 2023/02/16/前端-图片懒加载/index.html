@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="人生到处知何似？应似飞鸿踏雪泥。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/07/Q5MVOike8ohqgRA.jpg">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/07/Q5MVOike8ohqgRA.jpg">
 <meta property="article:published_time" content="2023-02-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.676Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.011Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/07/Q5MVOike8ohqgRA.jpg"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/07/Q5MVOike8ohqgRA.jpg"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -149,7 +149,7 @@
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> viewHeight = <span class="variable language_">window</span>.<span class="property">innerHeight</span>;</span><br><span class="line"><span class="keyword">const</span> &#123; top, bottom &#125; = img.<span class="title function_">getBoundingClientRect</span>();</span><br><span class="line"><span class="keyword">const</span> visible = bottom &gt; <span class="number">0</span> &amp;&amp; top &lt; viewHeight;</span><br></pre></td></tr></table></figure></div>
 
 <p>滚动事件要节流，并在图片进入后移除监听。元素在 <code>transform</code> 的容器里滚动时，<code>getBoundingClientRect</code> 相对视口仍然有效，但监听的应是那个滚动容器，而不是一律 <code>window</code>。</p>
-<p><img src="/Infatuation/../images/2022/06/07/Q5MVOike8ohqgRA.jpg" alt="11654591949_.pic.jpg"></p>
+<p><img src="/Infatuation/images/2022/06/07/Q5MVOike8ohqgRA.jpg" alt="11654591949_.pic.jpg"></p>
 <h3 id="响应式图片一起懒加载"><a href="#响应式图片一起懒加载" class="headerlink" title="响应式图片一起懒加载"></a>响应式图片一起懒加载</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">  <span class="attr">alt</span>=<span class="string">&quot;山路&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">width</span>=<span class="string">&quot;800&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">height</span>=<span class="string">&quot;600&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">loading</span>=<span class="string">&quot;lazy&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">sizes</span>=<span class="string">&quot;(max-width: 600px) 100vw, 800px&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">srcset</span>=<span class="string">&quot;photo-400.jpg 400w, photo-800.jpg 800w&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">src</span>=<span class="string">&quot;photo-800.jpg&quot;</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure></div>
 
 <p>有 <code>srcset</code> 时浏览器会选接近显示尺寸的那张，再叠加 <code>loading=&quot;lazy&quot;</code>。不要只懒加载最大的原图，手机仍会下载桌面尺寸。</p>

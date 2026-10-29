@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="长道相依，几恨别离，锦绣断相思意，待人相惜。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/01/DdZKcJCBp5mLHtg.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/01/23OuzHQJVcx6G1F.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/01/dx57GX2sVWiQ4O6.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/01/DdZKcJCBp5mLHtg.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/01/23OuzHQJVcx6G1F.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/01/dx57GX2sVWiQ4O6.png">
 <meta property="article:published_time" content="2019-03-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.610Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.011Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/01/DdZKcJCBp5mLHtg.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/01/DdZKcJCBp5mLHtg.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -131,7 +131,7 @@
 <h3 id="盒子由四层构成"><a href="#盒子由四层构成" class="headerlink" title="盒子由四层构成"></a>盒子由四层构成</h3><ul>
 <li>页面上每个元素都生成矩形盒。从外到内是 <strong>margin、border、padding、content</strong>。</li>
 </ul>
-<p><img src="/Infatuation/../images/2022/06/01/DdZKcJCBp5mLHtg.png" alt="截屏2022-06-01 下午3.01.19.png"></p>
+<p><img src="/Infatuation/images/2022/06/01/DdZKcJCBp5mLHtg.png" alt="截屏2022-06-01 下午3.01.19.png"></p>
 <ol>
 <li><strong>content</strong>：文字、图片或子元素。<code>width</code> &#x2F; <code>height</code> 在默认模型里只量这一层。</li>
 <li><strong>padding</strong>：内容与边框之间的留白，可点、可铺背景。</li>
@@ -141,7 +141,7 @@
 <h3 id="两种算法"><a href="#两种算法" class="headerlink" title="两种算法"></a>两种算法</h3><ol>
 <li><strong>标准盒模型</strong>（<code>content-box</code>，初始值）</li>
 </ol>
-<p><img src="/Infatuation/../images/2022/06/01/23OuzHQJVcx6G1F.png" alt="截屏2022-06-01 下午4.03.02.png"></p>
+<p><img src="/Infatuation/images/2022/06/01/23OuzHQJVcx6G1F.png" alt="截屏2022-06-01 下午4.03.02.png"></p>
 <ul>
 <li>写出的 <code>width</code> &#x2F; <code>height</code> 只指内容区。左右 padding、左右 border 加在宽度外面。</li>
 <li><code>width: 200px; padding: 0 20px; border: 2px solid</code> 的边框盒总宽是 <code>200 + 40 + 4 = 244px</code>。</li>
@@ -149,7 +149,7 @@
 <ol start="2">
 <li>**<code>border-box</code>**（旧式 IE 在怪异模式下的算法，现已是标准可选值）</li>
 </ol>
-<p><img src="/Infatuation/../images/2022/06/01/dx57GX2sVWiQ4O6.png" alt="截屏2022-06-01 下午4.02.52.png"></p>
+<p><img src="/Infatuation/images/2022/06/01/dx57GX2sVWiQ4O6.png" alt="截屏2022-06-01 下午4.02.52.png"></p>
 <ul>
 <li>写出的 <code>width</code> &#x2F; <code>height</code> 含内容、padding、border。内容区被挤小，边框盒仍是你写的那个数。</li>
 <li>上面同一组声明，边框盒就是 <code>200px</code>，内容区约为 <code>200 - 40 - 4 = 156px</code>。</li>

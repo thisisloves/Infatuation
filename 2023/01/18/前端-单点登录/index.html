@@ -16,22 +16,22 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="相思本是无凭语，莫向花笺费泪行。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2019/08/29/m3cfFYq2aWoXP7L.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2019/08/29/LUXGI3QaOgb9ysS.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2019/08/29/9YujB6DnQP57liU.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2019/08/29/a5WdeuFCzEPxykV.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2019/08/29/MdBgHXFchazAKyq.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2019/08/29/kdGtvc58IKZjT6o.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2019/08/29/wEzQWmDTyLVnBcs.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2019/08/29/2bd7FmqlEpPhjvs.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2019/08/29/ufEdKlh8rH7UTFJ.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2019/08/29/2hXso8BxHKUtpYd.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2019/08/29/m3cfFYq2aWoXP7L.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2019/08/29/LUXGI3QaOgb9ysS.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2019/08/29/9YujB6DnQP57liU.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2019/08/29/a5WdeuFCzEPxykV.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2019/08/29/MdBgHXFchazAKyq.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2019/08/29/kdGtvc58IKZjT6o.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2019/08/29/wEzQWmDTyLVnBcs.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2019/08/29/2bd7FmqlEpPhjvs.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2019/08/29/ufEdKlh8rH7UTFJ.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2019/08/29/2hXso8BxHKUtpYd.png">
 <meta property="article:published_time" content="2023-01-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.675Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.005Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2019/08/29/m3cfFYq2aWoXP7L.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2019/08/29/m3cfFYq2aWoXP7L.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -136,12 +136,12 @@
 <span id="more"></span>
 
 <h3 id="单系统怎么记住登录"><a href="#单系统怎么记住登录" class="headerlink" title="单系统怎么记住登录"></a>单系统怎么记住登录</h3><p>HTTP 本身不记住上一次是谁。浏览器每次请求，服务器都可以当新请求处理。</p>
-<p><img src="/Infatuation/../images/2019/08/29/m3cfFYq2aWoXP7L.png" alt="1.png"></p>
+<p><img src="/Infatuation/images/2019/08/29/m3cfFYq2aWoXP7L.png" alt="1.png"></p>
 <p>要保护资源，服务器得把多次请求认成同一个人。做法是第一次响应时发一个会话标识，之后的请求带上它。</p>
-<p><img src="/Infatuation/../images/2019/08/29/LUXGI3QaOgb9ysS.png" alt="2.png"></p>
+<p><img src="/Infatuation/images/2019/08/29/LUXGI3QaOgb9ysS.png" alt="2.png"></p>
 <p>标识可以放在 Cookie 里，由浏览器在匹配域名、路径、<code>Secure</code>、<code>SameSite</code> 的条件下自动带上。也可以放在 <code>Authorization</code> 头里，由前端自己附。放进 URL 查询串能用，但会进访问日志、浏览器历史和 <code>Referer</code>，所以不用它传会话标识。Cookie 适合传统服务端会话；前后端分离常用头里的令牌，那是另一套携带方式，不是「URL 不靠谱所以只剩 Cookie」。</p>
 <p>Tomcat 默认的会话 Cookie 名叫 <code>JSESSIONID</code>。名字可以改，不是协议的一部分。</p>
-<p><img src="/Infatuation/../images/2019/08/29/9YujB6DnQP57liU.png" alt="3.png"></p>
+<p><img src="/Infatuation/images/2019/08/29/9YujB6DnQP57liU.png" alt="3.png"></p>
 <p>登录成功后，服务器在服务端会话里记下「这个 id 已登录」，而不是只在前端存一个标记。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">HttpSession</span> <span class="variable">session</span> <span class="operator">=</span> request.getSession();</span><br><span class="line">session.setAttribute(<span class="string">&quot;isLogin&quot;</span>, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure></div>
 
@@ -149,18 +149,18 @@
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">HttpSession</span> <span class="variable">session</span> <span class="operator">=</span> request.getSession(<span class="literal">false</span>);</span><br><span class="line"><span class="type">boolean</span> <span class="variable">logged</span> <span class="operator">=</span> session != <span class="literal">null</span> &amp;&amp; Boolean.TRUE.equals(session.getAttribute(<span class="string">&quot;isLogin&quot;</span>));</span><br></pre></td></tr></table></figure></div>
 
 <p><code>getSession()</code> 不传参会在没有会话时新建。检查登录要用 <code>getSession(false)</code>，避免未登录用户被发一张新会话。</p>
-<p><img src="/Infatuation/../images/2019/08/29/a5WdeuFCzEPxykV.png" alt="4.png"></p>
+<p><img src="/Infatuation/images/2019/08/29/a5WdeuFCzEPxykV.png" alt="4.png"></p>
 <p>Cookie 要 <code>HttpOnly</code>，避免脚本读走；HTTPS 站点加 <code>Secure</code>。只靠前端 <code>localStorage</code> 里的标志不能当作已登录，那份标志用户自己就能改。</p>
 <h3 id="多个系统为什么不能各记各的-Cookie"><a href="#多个系统为什么不能各记各的-Cookie" class="headerlink" title="多个系统为什么不能各记各的 Cookie"></a>多个系统为什么不能各记各的 Cookie</h3><p>子系统变多之后，用户不应每个系统登录一次。</p>
-<p><img src="/Infatuation/../images/2019/08/29/MdBgHXFchazAKyq.png" alt="5.png"></p>
+<p><img src="/Infatuation/images/2019/08/29/MdBgHXFchazAKyq.png" alt="5.png"></p>
 <p>对用户来说，一组应用仍是一次登录、一次退出。</p>
-<p><img src="/Infatuation/../images/2019/08/29/kdGtvc58IKZjT6o.png" alt="6.png"></p>
+<p><img src="/Infatuation/images/2019/08/29/kdGtvc58IKZjT6o.png" alt="6.png"></p>
 <p>Cookie 按域发送。<code>a.example.com</code> 的 Cookie 不会自动跑到 <code>b.example.com</code>，更不会跑到另一个主域。</p>
-<p><img src="/Infatuation/../images/2019/08/29/wEzQWmDTyLVnBcs.png" alt="7.png"></p>
+<p><img src="/Infatuation/images/2019/08/29/wEzQWmDTyLVnBcs.png" alt="7.png"></p>
 <p>把应用都放在 <code>*.example.com</code> 下，Cookie 的 <code>Domain</code> 设为父域，浏览器会在这些子域带上它。这只解决「Cookie 能不能送出去」。会话内容存在各台服务器的内存里时，Java 的 <code>JSESSIONID</code> 和 PHP 的 <code>PHPSESSID</code> 即使改成同名，对方也读不懂里面的会话对象。所以父域 Cookie 适合同一套会话存储（例如共享 Redis）的同构系统。跨语言、跨主域要换成认证中心签发的令牌，而不是共享各家的服务器会话。Cookie 也不等于不安全：风险来自缺 <code>HttpOnly</code>、<code>Secure</code>、<code>SameSite</code>，以及会话固定，而不是「用了 Cookie」本身。</p>
 <h3 id="单点登录"><a href="#单点登录" class="headerlink" title="单点登录"></a>单点登录</h3><p>单点登录（Single Sign-On）是多个互相信任的系统只登录一次。淘宝和天猫同属一套账号体系时，登录其中一个再打开另一个不必再输入密码，就是这种体验。</p>
 <p>认证中心单独负责口令。业务系统不采集密码，只接受认证中心签发、且能被校验的令牌。校验通过后，业务系统可以建立自己的局部会话，之后访问该系统不必每次都问认证中心。</p>
-<p><img src="/Infatuation/../images/2019/08/29/2bd7FmqlEpPhjvs.png" alt="1.png"></p>
+<p><img src="/Infatuation/images/2019/08/29/2bd7FmqlEpPhjvs.png" alt="1.png"></p>
 <ol>
 <li>用户访问系统 1 的受保护资源，系统 1 发现没有局部会话，重定向到认证中心，并带上自己的回调地址。</li>
 <li>认证中心没有全局会话，展示登录页。</li>
@@ -182,7 +182,7 @@
 <p>不要把长期访问令牌放在 URL 里。现代跨系统登录多用授权码：浏览器只带回一次性 code，令牌在服务端之间交换（OAuth 2.0 授权码，公开客户端再加 PKCE；需要身份信息时用 OpenID Connect）。CAS 的 ticket、SAML 的断言是同一思想的其它协议。具体字段以所选协议为准，不要自己发明「令牌一直挂在查询串上」。</p>
 <p>跨站 Cookie 还受 <code>SameSite</code> 和第三方 Cookie 限制。认证中心和业务系统不同站时，不要假设浏览器还会在跨站请求里附上会话 Cookie，顶层重定向和一次性授权码更稳妥。</p>
 <h3 id="单点退出"><a href="#单点退出" class="headerlink" title="单点退出"></a>单点退出</h3><p>一个系统退出，其它已登录系统的局部会话也要结束。</p>
-<p><img src="/Infatuation/../images/2019/08/29/ufEdKlh8rH7UTFJ.png" alt="2.png"></p>
+<p><img src="/Infatuation/images/2019/08/29/ufEdKlh8rH7UTFJ.png" alt="2.png"></p>
 <ol>
 <li>用户在系统 1 退出。</li>
 <li>系统 1 销毁局部会话，并通知认证中心。</li>
@@ -193,7 +193,7 @@
 </ol>
 <p>只清前端存储、不通知认证中心，其它系统的局部会话还在。通知要带认证中心才能认可的签名，防止别人伪造退出或伪造「仍有效」。</p>
 <h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>业务系统集成认证客户端，认证中心是服务端。换票、校验、退出都在服务端之间完成，浏览器只负责跳转。</p>
-<p><img src="/Infatuation/../images/2019/08/29/2hXso8BxHKUtpYd.png" alt="3.png"></p>
+<p><img src="/Infatuation/images/2019/08/29/2hXso8BxHKUtpYd.png" alt="3.png"></p>
 <p>回调地址使用固定白名单，防止认证中心被带到任意网站（开放重定向）。认证中心和业务系统全站 HTTPS。</p>
 
       

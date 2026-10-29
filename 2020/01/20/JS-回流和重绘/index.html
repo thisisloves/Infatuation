@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="多情自古伤离别。更那堪，冷落清秋节。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/03/04/cWgBUHhp1R9yrsb.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/03/04/k7Qy6VObIxBiK2N.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/03/04/cWgBUHhp1R9yrsb.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/03/04/k7Qy6VObIxBiK2N.png">
 <meta property="article:published_time" content="2020-01-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.622Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.005Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/03/04/cWgBUHhp1R9yrsb.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/03/04/cWgBUHhp1R9yrsb.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -135,8 +135,8 @@
 <li>Paint（重绘）：把渲染树画成像素层。</li>
 <li>Composite（合成）：把图层交给 GPU。<code>transform</code>、<code>opacity</code> 往往只走合成。</li>
 </ol>
-<p><img src="/Infatuation/../images/2022/03/04/cWgBUHhp1R9yrsb.png" alt="4088852130-5afbe6c95934b.png"></p>
-<p><img src="/Infatuation/../images/2022/03/04/k7Qy6VObIxBiK2N.png" alt="4223770356-5abdb235cdd7d.png"></p>
+<p><img src="/Infatuation/images/2022/03/04/cWgBUHhp1R9yrsb.png" alt="4088852130-5afbe6c95934b.png"></p>
+<p><img src="/Infatuation/images/2022/03/04/k7Qy6VObIxBiK2N.png" alt="4223770356-5abdb235cdd7d.png"></p>
 <p>改布局会让相关节点重新 Layout，通常还要重绘再合成，代价最高。只改颜色、背景、<code>visibility</code>，一般跳过 Layout，仍要重绘。只改 <code>transform</code> &#x2F; <code>opacity</code>，可以不回流也不重绘。因此「回流一定触发重绘」对会走到绘制的布局变更成立，不能套到合成器属性上。</p>
 <p><code>table</code> 的列宽互相依赖，布局往往要多趟计算，大数据表不要用它做页面骨架。</p>
 <h3 id="正确示例"><a href="#正确示例" class="headerlink" title="正确示例"></a>正确示例</h3><p>会触发布局的典型操作：增删可见节点、改位置和尺寸（含 <code>margin</code>、<code>padding</code>、<code>border</code>、宽高）、文字或图片尺寸变化、首屏布局、视口变化。</p>

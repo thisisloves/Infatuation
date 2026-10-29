@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="夜阑风静欲归时，惟有一江明月碧琉璃。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/ERNdWF8jcMibHS1.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/d34uQzmKFYWOPj7.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/NVaUwKfDxpY86b2.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/IqydmU38V4wpWgC.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/ERNdWF8jcMibHS1.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/d34uQzmKFYWOPj7.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/NVaUwKfDxpY86b2.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/IqydmU38V4wpWgC.png">
 <meta property="article:published_time" content="2018-04-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.588Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:03.018Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/15/ERNdWF8jcMibHS1.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/ERNdWF8jcMibHS1.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -130,7 +130,7 @@
 <span id="more"></span>
 
 <h3 id="OSI-是什么"><a href="#OSI-是什么" class="headerlink" title="OSI 是什么"></a>OSI 是什么</h3><p>OSI（Open Systems Interconnection，开放系统互连）是 ISO 给出的网络互连参考模型，把通信功能分成七层。它用来对齐概念；因特网上实际运行的是 TCP&#x2F;IP。英文全称是 Open Systems Interconnection，不是 Open System Interconnect。</p>
-<p><img src="/Infatuation/../images/2022/06/15/ERNdWF8jcMibHS1.png" alt="截屏2022-06-15 下午2.35.42.png"></p>
+<p><img src="/Infatuation/images/2022/06/15/ERNdWF8jcMibHS1.png" alt="截屏2022-06-15 下午2.35.42.png"></p>
 <h3 id="七层与协议数据单元"><a href="#七层与协议数据单元" class="headerlink" title="七层与协议数据单元"></a>七层与协议数据单元</h3><p>每一层处理的数据单位不同。网络层的单位是分组（包），不要把 IP 包叫成「报文」；报文多指应用层的一条消息。</p>
 <table>
 <thead>
@@ -214,10 +214,10 @@
 <td align="left">以太网、Wi-Fi、PPP</td>
 </tr>
 </tbody></table>
-<p><img src="/Infatuation/../images/2022/06/15/d34uQzmKFYWOPj7.png" alt="截屏2022-06-15 下午2.56.26.png"></p>
+<p><img src="/Infatuation/images/2022/06/15/d34uQzmKFYWOPj7.png" alt="截屏2022-06-15 下午2.56.26.png"></p>
 <p>课堂上也常用五层模型：应用、传输、网络、数据链路、物理。会话层和表示层的功能并进应用层。看分层图时先确认是七层还是五层，避免把端口和 MAC 记串。</p>
 <h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>发送方自顶向下加头部。</p>
-<p><img src="/Infatuation/../images/2022/06/15/NVaUwKfDxpY86b2.png" alt="截屏2022-06-15 下午2.58.51.png"></p>
+<p><img src="/Infatuation/images/2022/06/15/NVaUwKfDxpY86b2.png" alt="截屏2022-06-15 下午2.58.51.png"></p>
 <ol>
 <li>应用层产生数据；表示层按需编码或加密。</li>
 <li>传输层加上 TCP 或 UDP 头，关键字段是源端口和目的端口。</li>
@@ -226,7 +226,7 @@
 <li>物理层把帧变成信号送上介质。</li>
 </ol>
 <p>路由器转发时拆掉入方向的帧头，按目的 IP 选路，再用出接口 MAC 和下一跳 MAC 重新封装。只有目的主机才会一路拆到应用数据。</p>
-<h3 id="解封装"><a href="#解封装" class="headerlink" title="解封装"></a>解封装</h3><p><img src="/Infatuation/../images/2022/06/15/IqydmU38V4wpWgC.png" alt="截屏2022-06-15 下午2.59.00.png"></p>
+<h3 id="解封装"><a href="#解封装" class="headerlink" title="解封装"></a>解封装</h3><p><img src="/Infatuation/images/2022/06/15/IqydmU38V4wpWgC.png" alt="截屏2022-06-15 下午2.59.00.png"></p>
 <ol>
 <li>物理层把信号还原成比特流。</li>
 <li>目的主机核对本机 MAC、广播或需要接收的组播，校验通过后去掉帧头。交换机按 MAC 地址表转发，不是「目的 MAC 不是自己就丢弃」。</li>

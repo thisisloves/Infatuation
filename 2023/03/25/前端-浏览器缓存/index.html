@@ -16,18 +16,18 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="他想自己在她眼里出现的时候，璀璨如星辰。可即使有那么一天，他披挂着漫天的星辰归来，可是仰望天空的瞳孔已经不在，看星星的女孩已经走了，那璀璨又有什么意思呢？孤单得连星星也想坠落。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/07/tLbryaK1gvIljfV.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/07/pQ26eHfPkZdgshX.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/07/vCgnj2SsNU3rWZF.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/07/FEgSvsNDIYXcuGj.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/07/df3KPVcqWpyUuwv.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/07/i6n3ILB2o5mw7xY.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/07/tLbryaK1gvIljfV.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/07/pQ26eHfPkZdgshX.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/07/vCgnj2SsNU3rWZF.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/07/FEgSvsNDIYXcuGj.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/07/df3KPVcqWpyUuwv.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/07/i6n3ILB2o5mw7xY.png">
 <meta property="article:published_time" content="2023-03-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.678Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.997Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/07/tLbryaK1gvIljfV.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/07/tLbryaK1gvIljfV.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -134,7 +134,7 @@
 <h3 id="缓存分强制缓存和协商缓存"><a href="#缓存分强制缓存和协商缓存" class="headerlink" title="缓存分强制缓存和协商缓存"></a>缓存分强制缓存和协商缓存</h3><p>浏览器发出请求前，先看这份资源还能不能直接用。能用且未过期，就是强制缓存，不再访问服务器。过期了但本地还有副本，就带标识问服务器「变了没」，这是协商缓存。都没有，才重新下载。</p>
 <p>开发者工具里还能看到内存缓存和磁盘缓存。当前文档还开着时，Chrome 常把刚用过的脚本、图片放在内存里；内存放不下或标签关掉之后，再从磁盘的 HTTP 缓存读。这是浏览器的存放位置，不是另一套 Cache-Control 规则。除此之外还有 Service Worker 可以抢在 HTTP 缓存之前响应。下面讲的强缓存、协商缓存指 HTTP 缓存。</p>
 <p>普通刷新会重新向服务器确认 HTML，子资源仍可能命中缓存。强制刷新（绕过缓存）会让浏览器忽略未过期的副本。把它说成「请求头里写了 <code>Cache-Control: no-cache</code>，所以服务器一定返回 200」并不准确：<code>no-cache</code> 的含义是「可以存，但使用前必须向服务器确认」，确认后服务器经常返回 304，而不是一份新的 200。真正禁止存储的是 <code>no-store</code>。</p>
-<p><img src="/Infatuation/../images/2022/06/07/tLbryaK1gvIljfV.png" alt="截屏2022-06-07 上午10.53.57.png"></p>
+<p><img src="/Infatuation/images/2022/06/07/tLbryaK1gvIljfV.png" alt="截屏2022-06-07 上午10.53.57.png"></p>
 <h3 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h3><p>响应头告诉浏览器，在一段时间里可以不请求服务器。</p>
 <p><code>Cache-Control</code> 优先于 <code>Expires</code>。<code>Expires</code> 是一个绝对时间，受客户端时钟影响。<code>Cache-Control: max-age=3600</code> 表示从响应生成起 3600 秒内新鲜。</p>
 <table>
@@ -174,8 +174,8 @@
 </tr>
 </tbody></table>
 <p>带哈希的 <code>app.8f3a.js</code> 可以用较长的 <code>max-age</code> 加 <code>immutable</code>。HTML 入口不要这样，否则用户长期拿不到新的资源表。HTML 适合 <code>no-cache</code>，让浏览器每次确认。</p>
-<p><img src="/Infatuation/../images/2022/06/07/pQ26eHfPkZdgshX.png" alt="截屏2022-06-07 下午2.46.28.png"></p>
-<p><img src="/Infatuation/../images/2022/06/07/vCgnj2SsNU3rWZF.png" alt="截屏2022-06-07 下午2.46.36.png"></p>
+<p><img src="/Infatuation/images/2022/06/07/pQ26eHfPkZdgshX.png" alt="截屏2022-06-07 下午2.46.28.png"></p>
+<p><img src="/Infatuation/images/2022/06/07/vCgnj2SsNU3rWZF.png" alt="截屏2022-06-07 下午2.46.36.png"></p>
 <p>新鲜期内命中强缓存时，状态码仍显示 200，尺寸一列会标 <code>memory cache</code> 或 <code>disk cache</code>，这次没有网络往返。</p>
 <h3 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h3><p>副本过期，或指令要求每次确认时，浏览器带上标识：</p>
 <table>
@@ -199,9 +199,9 @@
 </tbody></table>
 <p>两者都有时以 <code>ETag</code> 为准。<code>Last-Modified</code> 精度是秒，一秒内多次发布可能对不上；文件只改了时间戳也会误伤。<code>ETag</code> 可以是内容哈希。带弱校验前缀 <code>W/</code> 的 ETag 表示语义相同即可，不一定字节相同。</p>
 <p>304 没有正文，所以协商缓存省的是传输，不是往返。强缓存连往返都省。</p>
-<p><img src="/Infatuation/../images/2022/06/07/FEgSvsNDIYXcuGj.png" alt="截屏2022-06-07 下午2.46.43.png"></p>
-<p><img src="/Infatuation/../images/2022/06/07/df3KPVcqWpyUuwv.png" alt="截屏2022-06-07 下午3.02.25.png"></p>
-<p><img src="/Infatuation/../images/2022/06/07/i6n3ILB2o5mw7xY.png" alt="截屏2022-06-07 下午3.02.32.png"></p>
+<p><img src="/Infatuation/images/2022/06/07/FEgSvsNDIYXcuGj.png" alt="截屏2022-06-07 下午2.46.43.png"></p>
+<p><img src="/Infatuation/images/2022/06/07/df3KPVcqWpyUuwv.png" alt="截屏2022-06-07 下午3.02.25.png"></p>
+<p><img src="/Infatuation/images/2022/06/07/i6n3ILB2o5mw7xY.png" alt="截屏2022-06-07 下午3.02.32.png"></p>
 <h3 id="谁先谁后"><a href="#谁先谁后" class="headerlink" title="谁先谁后"></a>谁先谁后</h3><ol>
 <li>若存在 Service Worker 并拦截了这个请求，先看它的策略。</li>
 <li>再看 HTTP 缓存是否新鲜。新鲜则直接用。</li>

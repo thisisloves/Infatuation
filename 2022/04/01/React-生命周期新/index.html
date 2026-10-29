@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="醉里挑灯看剑，梦回吹角连营。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/04/11/mW6ULXlbVkhHA8I.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/11/mW6ULXlbVkhHA8I.png">
 <meta property="article:published_time" content="2022-03-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.664Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.996Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/04/11/mW6ULXlbVkhHA8I.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/04/11/mW6ULXlbVkhHA8I.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -142,7 +142,7 @@
 <li><code>componentDidUpdate</code></li>
 </ol>
 <p>卸载：<code>componentWillUnmount</code>。子树渲染出错时，错误边界还有 <code>static getDerivedStateFromError</code> 和 <code>componentDidCatch</code>。</p>
-<p><img src="/Infatuation/../images/2022/04/11/mW6ULXlbVkhHA8I.png" alt="截屏2022-04-11 下午4.02.11.png"></p>
+<p><img src="/Infatuation/images/2022/04/11/mW6ULXlbVkhHA8I.png" alt="截屏2022-04-11 下午4.02.11.png"></p>
 <p><code>getDerivedStateFromProps</code> 在每次渲染前调用，包括首次挂载和 props 没变的父渲染。它是静态方法，没有 <code>this</code>，返回部分 state 或 <code>null</code>。这里不能发请求。</p>
 <h3 id="shouldComponentUpdate-跳过的范围"><a href="#shouldComponentUpdate-跳过的范围" class="headerlink" title="shouldComponentUpdate 跳过的范围"></a>shouldComponentUpdate 跳过的范围</h3><p>返回 <code>false</code> 时，这次不调用 <code>render</code>，也就不会有这次的 <code>getSnapshotBeforeUpdate</code> 和 <code>componentDidUpdate</code>。子组件一起跳过。它不是「这个实例以后再也不走生命周期」。下一次父渲染、自身 <code>setState</code>、<code>forceUpdate</code> 仍会重新进入。卸载时 <code>componentWillUnmount</code> 仍会执行。</p>
 <p><code>PureComponent</code> 用浅比较实现 <code>shouldComponentUpdate</code>。深层字段就地修改时浅比较认为没变，界面不更新。更新要换新对象。</p>

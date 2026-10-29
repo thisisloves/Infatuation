@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="亦如星辰闪耀长河">
 <meta property="og:description" content="风华笔墨，后庭尘埃。便天光云影，不与徘徊。纵三千里河山，亦四十年蓬莱。青丝染霜，镜鸾沉彩。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/EcHXsNCKvOjUhmL.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/y19tcabwUEJNdG3.png">
-<meta property="og:image" content="https://thisisloves.github.io/images/2022/06/15/Rd3mDyqubTI1ehf.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/EcHXsNCKvOjUhmL.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/y19tcabwUEJNdG3.png">
+<meta property="og:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/Rd3mDyqubTI1ehf.png">
 <meta property="article:published_time" content="2018-06-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-29T02:48:30.592Z">
+<meta property="article:modified_time" content="2026-10-29T05:56:02.983Z">
 <meta property="article:author" content="Infatuation">
 <meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thisisloves.github.io/images/2022/06/15/EcHXsNCKvOjUhmL.png"> 
+<meta name="twitter:image" content="https://thisisloves.github.io/Infatuation/images/2022/06/15/EcHXsNCKvOjUhmL.png"> 
     <link
       rel="alternate"
       href="/Infatuation/atom.xml"
@@ -170,7 +170,7 @@
 </tbody></table>
 <p>收到三个重复 ACK 时进入快速恢复，用的是 cwnd，不是不存在的 ewnd。超时和三个重复 ACK 是两条不同的恢复路径，不能都写成「重新慢启动」。</p>
 <h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><p>TCP 用三次握手建立连接，避免过期的连接请求把双方带进一条并不存在的会话。流量控制用的是滑动窗口，和握手是两件事。</p>
-<p><img src="/Infatuation/../images/2022/06/15/EcHXsNCKvOjUhmL.png" alt="截屏2022-06-15 上午11.26.56.png"></p>
+<p><img src="/Infatuation/images/2022/06/15/EcHXsNCKvOjUhmL.png" alt="截屏2022-06-15 上午11.26.56.png"></p>
 <ol>
 <li>客户端发送 SYN，序号为 x，进入 SYN_SENT。状态名是 SYN_SENT，不是 SYN_SEND。</li>
 <li>服务器回 SYN + ACK。序号为 y，确认号为 x + 1，进入 SYN_RCVD。</li>
@@ -178,7 +178,7 @@
 </ol>
 <p>第三次之前，服务器还不能把这条连接交给应用。双方的初始序号独立选择，确认号总是「期望收到的下一个序号」。</p>
 <h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><p>TCP 全双工，每个方向要单独关闭，所以正常释放是四次挥手。</p>
-<p><img src="/Infatuation/../images/2022/06/15/y19tcabwUEJNdG3.png" alt="截屏2022-06-15 上午11.29.45.png"></p>
+<p><img src="/Infatuation/images/2022/06/15/y19tcabwUEJNdG3.png" alt="截屏2022-06-15 上午11.29.45.png"></p>
 <ol>
 <li>主动关闭方发送 FIN，表示本方向没有更多数据，进入 FIN_WAIT_1。</li>
 <li>被动方确认这个 FIN，进入 CLOSE_WAIT。主动方收到 ACK 后进入 FIN_WAIT_2。应用若还有数据，仍可从被动方向主动方发送。</li>
@@ -188,7 +188,7 @@
 <p>TIME_WAIT 保证最后的 ACK 丢失时还能重传，并让旧连接的迟到报文从网络中消失。主动关闭的一端才会进入 TIME_WAIT。若被动方在确认对方 FIN 时自己也没有数据了，ACK 可以和 FIN 放在同一个报文段里，线上就可能只看到三段。</p>
 <h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><p>UDP 在 IP 之上提供无连接的数据报。头部只有源端口、目的端口、长度和校验和，共 8 字节；TCP 头部至少 20 字节。应用一次写入的报文，UDP 既不合并也不拆开，边界由应用自己保持。IPv4 中 UDP 校验和可以是 0，表示不校验；IPv6 中必须校验。</p>
 <p>UDP 没有拥塞窗口，发送速率由应用、带宽和主机处理能力决定。网络差时丢包不会被 UDP 自动重传。实时音视频、DNS 查询、DHCP 常用它。早期一些即时通信以 UDP 为主，现在的产品经常是 UDP、TCP 和 QUIC 混用，不能再说「聊天软件就是 UDP」。</p>
-<h3 id="TCP-与-UDP"><a href="#TCP-与-UDP" class="headerlink" title="TCP 与 UDP"></a>TCP 与 UDP</h3><p><img src="/Infatuation/../images/2022/06/15/Rd3mDyqubTI1ehf.png" alt="截屏2022-06-15 下午2.26.08.png"></p>
+<h3 id="TCP-与-UDP"><a href="#TCP-与-UDP" class="headerlink" title="TCP 与 UDP"></a>TCP 与 UDP</h3><p><img src="/Infatuation/images/2022/06/15/Rd3mDyqubTI1ehf.png" alt="截屏2022-06-15 下午2.26.08.png"></p>
 <table>
 <thead>
 <tr>
